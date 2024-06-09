@@ -1,0 +1,95 @@
+
+html {
+    scroll-behavior: smooth;
+    margin: 0px;
+    padding: 0px;
+    image-rendering: pixelated;
+  }
+
+  
+  body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #1D2020;
+  }
+
+      
+  html, body {
+    height: 100%;
+ }
+
+  #gameTitle {
+    text-align: center;
+    margin-top: 150px;
+    font-size: 100px;
+    color: #A9B5B6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 
+    0 1px 0 #81d8d0,  
+    0 2px 0 #6cc7c0,  
+    0 3px 0 #58b6b0,  
+    0 4px 0 #44a5a0,  
+    0 5px 0 #309490,  
+    0 6px 1px rgba(0,128,128,0.1),  
+    0 1px 3px rgba(0,128,128,0.3),  
+    0 3px 5px rgba(0,128,128,0.2),  
+    0 5px 10px rgba(0,128,128,0.25),  
+    0 10px 10px rgba(0,128,128,0.2),  
+    0 20px 20px rgba(0,128,128,0.15),  
+    0 30px 20px rgba(0,128,128,0.1);  
+}
+
+    :root {
+        --pixel-size: 2px;
+        --grid-cell: calc( var(--pixel-size) * 16);
+     }
+     @media( min-width: 700px ) {
+        :root {
+           --pixel-size: 3px;
+        }
+     }
+     @media( min-width: 1000px ) {
+        :root {
+           --pixel-size: 4px;
+        }
+     }
+   
+   
+     .pixel-art {
+        image-rendering: pixelated;
+     }
+     
+     
+     #character1 {
+        position: absolute;
+        overflow:hidden;
+        background: url("images/character1.png") no-repeat no-repeat;
+        background-size: 100%;
+        width: calc( var(--grid-cell)* 3 );
+        height: calc( var(--grid-cell)* 3 );
+     }
+     
+     .character[facing="right"] .character_spritesheet {
+        background-position-y: calc( var(--pixel-size) * -32 );
+     }
+     .character[facing="up"] .character_spritesheet {
+        background-position-y: calc( var(--pixel-size) * -64 );
+     }
+     .character[facing="left"] .character_spritesheet {
+        background-position-y: calc( var(--pixel-size) * -96 );
+     }
+     .character[walking="true"] .character_spritesheet {
+        animation: walkAnimation 0.6s steps(4) infinite; 
+     }
+     
+     @keyframes walkAnimation {
+       from {
+         transform: translate3d(0%,0%,0);
+       }
+       to {
+         transform: translate3d(-100%,0%,0);
+       }
+     }
+     
+     
+    
