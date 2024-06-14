@@ -3,7 +3,7 @@ var character = document.querySelector(".character");
 var x = 90;
 var y = 34;
 var held_directions = []; // Array for directions of character
-var speed = 1.0; // Speed in pixels of character
+var speed = .5; // Speed in pixels of character
 
 const placeCharacter = () => {
    
