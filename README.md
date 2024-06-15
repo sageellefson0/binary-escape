@@ -10,3 +10,7 @@ sergio-montufar<br>
 mmehu<br>
 SakshamKapoor2911<br>
 NicoleVictory<br>
+
+## How-to
+
+To run, open the index.html file in a web browser. 
