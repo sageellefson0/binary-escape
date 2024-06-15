@@ -1,0 +1,57 @@
+/* Background for the level */
+.level0 {
+  background-image: url("images/windowsbackground.jpeg");
+  background-repeat: no-repeat;
+  width: 500px;
+  background-size: 100% 100%;
+}
+
+
+.dialogueBox {
+  background-color: black;
+  color: whitesmoke;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  position: absolute;
+  text-align: center;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+}
+
+.characterSpeech {
+  overflow: hidden;
+  border-right: .15em solid grey;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:
+    typing 2.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: gray;
+  }
+}
