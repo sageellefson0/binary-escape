@@ -13,4 +13,4 @@ NicoleVictory<br>
 
 ## How-to
 
-To run, open the index.html file in a web browser. 
+To run, open the index.html (or level) file in a web browser. 
