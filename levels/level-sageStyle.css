@@ -1,39 +1,27 @@
-
-
-
-/* #browserBackground {
-    background-image: url("images/wiki.png");
-    background-repeat: no-repeat;
-    width: 900px;
-    height: 700px; /* Ensure height is set */
-    /* background-size: 100% 100%;
-    z-index: 5;
-} */ 
-
-
-.oldWikiHeaderContainer{
+.oldWikiHeaderContainer {
     float: right;
     width: 88%;
 }
-.oldWikiHeader{
+
+.oldWikiHeader {
 
     border-bottom: gray 1px solid;
     padding-bottom: 5px;
     padding-top: 5px;
 }
 
-.wikiBody{
+.wikiBody {
     /* width: 70%; */
     margin: 2%;
-
 }
 
 
-.wikiText span{
+.wikiText span {
     color: blue;
-    text-decoration: underline;}
+    text-decoration: underline;
+}
 
-.oldWikiSidebar{
+.oldWikiSidebar {
     width: 11%;
     margin-left: 10px;
     border-right: gray 1px solid;
@@ -41,7 +29,7 @@
     padding-top: 5px;
 }
 
-.oldWikiSidebarLinks{
+.oldWikiSidebarLinks {
     border-top: 2px solid gray;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -50,24 +38,22 @@
     margin: auto;
 }
 
-
-.oldWikiHeaderLinks a, .oldWikiHeaderSearchBarLogin a, .oldWikiSidebarLinks a{
+.oldWikiHeaderLinks a,
+.oldWikiHeaderSearchBarLogin a,
+.oldWikiSidebarLinks a {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
 }
 
 
-.oldWikiHeaderSearchBarLogin{
+.oldWikiHeaderSearchBarLogin {
     float: right;
     text-align: right;
     padding-right: 10px;
 }
 
-
-
-.oldWikiLogo{
+.oldWikiLogo {
     width: 150px;
     padding-bottom: 10px;
 }
-
