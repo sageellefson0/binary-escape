@@ -24,8 +24,8 @@ const placeCharacter = () => {
 
    // Walls around character
    var leftLimit = -8;
-   var rightLimit = (16 * 11) + 8;
-   var topLimit = -8 + 32;
+   var rightLimit = (16 * 15) + 8;
+   var topLimit = -8 + 10;
    var bottomLimit = (16 * 7);
    if (x < leftLimit) { x = leftLimit; }
    if (x > rightLimit) { x = rightLimit; }
