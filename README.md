@@ -7,6 +7,8 @@ Demil-05<br>
 sageellefson0<br>
 prlakshm<br>
 sergio-montufar<br>
-mmehu<br>
-SakshamKapoor2911<br>
 NicoleVictory<br>
+
+## How-to
+
+To run, open the index.html (or level) file in a web browser. 
