@@ -55,3 +55,17 @@
     border-color: gray;
   }
 }
+
+#startBar{
+  background-color: #2255b2;
+  bottom: 0;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+
+#startBtnPic{
+
+  width: 7%;
+  bottom: 0;
+}
