@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word 2007 Clone</title>
+    <link rel="stylesheet" href="level-pranavi.css">
+</head>
+<body>
+    <div id="word-2007">
+        <div id="title-bar">
+            <div id="office-button"></div>
+            <div id="title">Document1 - Microsoft Word</div>
+            <div id="window-controls">
+                <div class="control minimize">_</div>
+                <div class="control maximize">[]</div>
+                <div class="control close">X</div>
+            </div>
+        </div>
+        <div id="ribbon">
+            <div class="tab active">Home</div>
+            <div class="tab">Insert</div>
+            <div class="tab">Page Layout</div>
+            <div class="tab">References</div>
+            <div class="tab">Mailings</div>
+            <div class="tab">Review</div>
+            <div class="tab">View</div>
+            <div class="tab">Add-Ins</div>
+        </div>
+        <div id="toolbar">
+            <!-- Tool sections here -->
+            <div class="tool-section">
+                <div class="tool-group">
+                    <div class="tool" onclick="document.execCommand('bold', false, null)">B</div>
+                    <div class="tool" onclick="document.execCommand('italic', false, null)">I</div>
+                    <div class="tool" onclick="document.execCommand('underline', false, null)">U</div>
+                </div>
+                <div class="tool-group">
+                    <select id="font-size" onchange="document.execCommand('fontSize', false, this.value)">
+                        <option value="1">8</option>
+                        <option value="2">10</option>
+                        <option value="3">12</option>
+                        <option value="4">14</option>
+                        <option value="5">18</option>
+                        <option value="6">24</option>
+                        <option value="7">36</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="document-area">
+            <div id="ruler">Ruler</div>
+            <div id="page">
+                <div id="content" contenteditable="true"></div>
+            </div>
+        </div>
+        <div id="status-bar">
+            Page 1 of 1 | Words: 0 | English (United States)
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
