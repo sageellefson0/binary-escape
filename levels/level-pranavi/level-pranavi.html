@@ -7,58 +7,354 @@
     <link rel="stylesheet" href="level-pranavi.css">
 </head>
 <body>
-    <div id="word-2007">
-        <div id="title-bar">
-            <div id="office-button"></div>
-            <div id="title">Document1 - Microsoft Word</div>
-            <div id="window-controls">
-                <div class="control minimize">_</div>
-                <div class="control maximize">[]</div>
-                <div class="control close">X</div>
-            </div>
-        </div>
-        <div id="ribbon">
-            <div class="tab active">Home</div>
-            <div class="tab">Insert</div>
-            <div class="tab">Page Layout</div>
-            <div class="tab">References</div>
-            <div class="tab">Mailings</div>
-            <div class="tab">Review</div>
-            <div class="tab">View</div>
-            <div class="tab">Add-Ins</div>
-        </div>
-        <div id="toolbar">
-            <!-- Tool sections here -->
-            <div class="tool-section">
-                <div class="tool-group">
-                    <div class="tool" onclick="document.execCommand('bold', false, null)">B</div>
-                    <div class="tool" onclick="document.execCommand('italic', false, null)">I</div>
-                    <div class="tool" onclick="document.execCommand('underline', false, null)">U</div>
+    <div id="word-2007" class="word window ui-widget-content" program-name="msword">
+        <div class="window-border">
+            <div class="title-bar  h-count" id="parent">
+                <div class="control-box">
+                    <a class="button-3d minimize"><span>&nbsp;</span></a>
+                    <a class="button-3d maximize"><span>&nbsp;</span></a>
+                    <a class="button-3d close"><span>&nbsp;</span></a>
                 </div>
-                <div class="tool-group">
-                    <select id="font-size" onchange="document.execCommand('fontSize', false, this.value)">
-                        <option value="1">8</option>
-                        <option value="2">10</option>
-                        <option value="3">12</option>
-                        <option value="4">14</option>
-                        <option value="5">18</option>
-                        <option value="6">24</option>
-                        <option value="7">36</option>
-                    </select>
+                <span class="title">
+                Document Main - Microsoft Word
+            </span>
+            </div>
+            <div class="menu-bar  h-count">
+                <a><span>F</span>ile</a>
+                <a><span>E</span>dit</a>
+                <a><span>V</span>iew</a>
+                <a><span>I</span>nsert</a>
+                <a>F<span>o</span>rmat</a>
+                <a><span>T</span>ools</a>
+                <a>T<span>a</span>ble</a>
+                <a><span>W</span>indow</a>
+                <a><span>H</span>elp</a>
+                <div class="clear"></div>
+            </div>
+            <div class="toolbar float-left">
+                <a class="b-new"></a>
+                <a class="b-open"></a>
+                <a class="b-save"></a>
+                <span class="sep"></span>
+                <a class="b-print"></a>
+                <a class="b-preview"></a>
+                <a class="b-spell"></a>
+                <span class="sep"></span>
+                <a class="b-cut" data-cmd="cut"></a>
+                <a class="b-copy" data-cmd="copy"></a>
+                <a class="b-paste" data-cmd="paste"></a>
+                <a class="b-style-brush"></a>
+                <span class="sep"></span>
+                <a class="b-undo" data-cmd="undo"></a>
+                <a class="b-redo" data-cmd="redo"></a>
+                <div class="clear"></div>
+            </div>
+            <div class="toolbar  float-left">
+                <select class="selectPicker" data-cmd="formatBlock" style="background-position:96% 50%, 98% 50%; width:112px; overflow:hidden; text-overflow: ellipsis;">
+                    <option value="H1">
+                        <h1>Heading 1</h1></option>
+                    <option value="H2">
+                        <h2>Heading 2</h2></option>
+                    <option value="H3">
+                        <h3>Heading 3</h3></option>
+                    <option value="div"><pre>Normal</pre></option>
+                    <option selected value="P">
+                        <p>Default Paragraph Font</p>
+                    </option>
+                </select>
+                <select class="selectPicker" id="font" data-cmd="fontName" style="width:168px; overflow:hidden; text-overflow: ellipsis;">
+                    <option value="Arial" selected>Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Arial Black">Arial Black</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Trebuchet MS">Trebuchet MS</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Lucida Console">Lucida Console</option>
+                </select>
+                <select class="selectPicker" id="fontSize" style="background-position:92% 50%, 95% 50%; width:64px; overflow:hidden;text-overflow: ellipsis;">
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12" selected>12</option>
+                    <option value="14">14</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                    <option value="22">22</option>
+                    <option value="24">24</option>
+                    <option value="26">26</option>
+                    <option value="28">28</option>
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="48">48</option>
+                    <option value="72">72</option>
+                </select>
+                <!--<div class="picker ui-widget">
+                <select id="combobox" class="selectBox" data-cmd="fontName">
+                    <option value="Arial" selected>Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Arial Black">Arial Black</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                    <option value="Impact">Impact</option>
+                    <option value="Lucida Sans Unicode">Lucida Sans Unicode</option>
+                    <option value="Tahoma">Tahoma</option>
+                    <option value="Trebuchet MS">Trebuchet MS</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Courier New">Courier New</option>
+                    <option value="Lucida Console">Lucida Console</option>
+                </select>
+            </div><
+            <div class="picker"><span class="arrow"></span>Normal</div>
+            <div class="picker"><span class="arrow"></span>Times New Roman</div>
+            <div class="picker"><span class="arrow"></span>12</div>-->
+            </div>
+            <div class="toolbar  float-left">
+                <a class="b-bold" data-cmd="bold"></a>
+                <a class="b-italic" data-cmd="italic"></a>
+                <a class="b-underline" data-cmd="underline"></a>
+                <span class="sep"></span>
+                <a class="b-left" data-cmd="justifyLeft"></a>
+                <a class="b-center" data-cmd="justifyCenter"></a>
+                <a class="b-right" data-cmd="justifyRight"></a>
+                <span class="sep"></span>
+                <a class="b-number" data-cmd="insertOrderedList"></a>
+                <a class="b-bullet" data-cmd="insertUnorderedList"></a>
+                <a class="b-outdent" data-cmd="outdent"></a>
+                <a class="b-indent" data-cmd="indent"></a>
+                <span class="sep"></span>
+                <a class="b-hilite" data-cmd="backColor">
+                    <div class="color-picker" style="position:fixed; background:#c0c0c0; z-index:99; display:none;">
+                        <table>
+                            <tr>
+                                <td colspan="8" style="padding:3px"><a style="background:none; border:1px solid; width:100%; height:100%; text-align:center; vertical-align:middle;font-size:0.757em">None</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a style="background:black"></a>
+                                </td>
+                                <td><a style="background:darkgrey">&nbsp;</a></td>
+                                <td><a style="background:darkred">&nbsp;</a></td>
+                                <td><a style="background:#808088">&nbsp;</a></td>
+                                <td><a style="background:darkgreen">&nbsp;</a></td>
+                                <td><a style="background:teal">&nbsp;</a></td>.
+                                <td><a style="background:darkblue">&nbsp;</a></td>
+                                <td><a style="background:violet">&nbsp;</a></td>
+                            </tr>
+                            <tr>
+                                <td><a style="background:white">&nbsp;</a></td>
+                                <td><a style="background:lightgrey">&nbsp;</a></td>
+                                <td><a style="background:red">&nbsp;</a></td>
+                                <td><a style="background:yellow">&nbsp;</a></td>
+                                <td><a style="background:green">&nbsp;</a></td>
+                                <td><a style="background:lightblue">&nbsp;</a></td>
+                                <td><a style="background:darkblue">&nbsp;</a></td>
+                                <td><a style="background:pink">&nbsp;</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </a>
+                <a class="b-fontcolor">
+                    <div class="color-picker" style="position:fixed; background:#c0c0c0; z-index:99; display:none;">
+                        <table>
+                            <tr>
+                                <td colspan="8" style="padding:3px"><a style="background:black;background-size:10px,10px; border:1px solid; width:100%; height:100%; text-align:center; vertical-align:middle;font-size:10px">Automatic</a></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a style="background:black"></a>
+                                </td>
+                                <td><a style="background:darkgrey">&nbsp;</a></td>
+                                <td><a style="background:darkred">&nbsp;</a></td>
+                                <td><a style="background:#808088">&nbsp;</a></td>
+                                <td><a style="background:darkgreen">&nbsp;</a></td>
+                                <td><a style="background:teal">&nbsp;</a></td>.
+                                <td><a style="background:darkblue">&nbsp;</a></td>
+                                <td><a style="background:violet">&nbsp;</a></td>
+                            </tr>
+                            <tr>
+                                <td><a style="background:white">&nbsp;</a></td>
+                                <td><a style="background:lightgrey">&nbsp;</a></td>
+                                <td><a style="background:red">&nbsp;</a></td>
+                                <td><a style="background:yellow">&nbsp;</a></td>
+                                <td><a style="background:green">&nbsp;</a></td>
+                                <td><a style="background:lightblue">&nbsp;</a></td>
+                                <td><a style="background:darkblue">&nbsp;</a></td>
+                                <td><a style="background:pink">&nbsp;</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </a>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+            <div id="word-2007-content" class="content ui-widget-content">
+                <div class="content-box">
+                    <div class="top-ruler  h-count">
+                        <div class="ruler"></div>
+                    </div>
+                    <div class="left-ruler"></div>
+                    <div class="document-scroller">
+                        <div class="document-content">
+                            <div class="document container">
+                                <div class="document-wrap" contenteditable="true">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus libero sem, eu viverra est ornare vitae. Curabitur a luctus nunc, gravida tincidunt sem. Duis luctus condimentum orci, nec convallis felis tempus sed. Suspendisse potenti. Curabitur metus velit, porta ac pellentesque vel, imperdiet at tortor. Aliquam vitae lacinia velit. Sed quis ipsum laoreet, convallis dui et, placerat enim. Donec vel neque mattis, finibus urna nec, mattis diam. Suspendisse suscipit nibh in eleifend dapibus. Etiam sed enim in diam rutrum aliquet a nec massa. Proin viverra neque sit amet massa sollicitudin porta. Donec quis convallis nisl, ut aliquam mauris. Aliquam accumsan enim in eros fringilla laoreet. Mauris leo felis, cursus quis accumsan et, finibus ac augue. Maecenas volutpat blandit ex, quis sollicitudin purus consectetur tempor.
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="status-bar  h-count" id="status-bar-1">
+                <div class="status-bar-content">
+                    <span class="box">
+                    Page 1
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Sec 1
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    1/1
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                    <span class="box">
+                    At 1"
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Ln 1
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Col 1
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
+                    <span class="box disabled">
+                    REC
+                </span>
+                    <span class="box disabled">
+                    TRK
+                </span>
+                    <span class="box disabled">
+                    EXT
+                </span>
+                    <span class="box disabled">
+                    OVR
+                </span>
                 </div>
             </div>
         </div>
-        <div id="document-area">
-            <div id="ruler">Ruler</div>
-            <div id="page">
-                <div id="content" contenteditable="true"></div>
+        <div id="open" class="window ui-widget-content" style="display:block">
+            <div class="window-border">
+                <div class="title-bar  h-count">
+                    <div class="control-box">
+                        <a class="button-3d question-save"><span>&nbsp;</span></a>
+                        <a class="button-3d close-save"><span>&nbsp;</span></a>
+                    </div>
+                    <span class="title">
+                    Open
+                </span>
+                </div>
+                <div class="open-content">
+                    <div class="top-bar">
+                        <a><span>Look in: </span></a>
+                        <!--<div class="picker"><span class="arrow"></span><img class="icon" src="images/win98_icons/desktop.ico"/><span>Desktop</span></div>-->
+                        <select id="save-location" class="picker select" style="margin:3px 4px 3px 11px; width:180px; ">
+                            <option disabled selected value="desktop">Desktop</option>
+                        </select>
+                        <!--<div class="picker ui-widget">
+                        <select id="save-location" class="picker select" style="margin:3px 4px 3px 11px; width:180px; "><option value="desktop">Desktop</option><option value="computer">My Computer(Download)</option><option value="both">Download and Save</option></select></div>-->
+                        <div class="action up"></div>
+                        <div class="action desktop-ico" style="margin-left:4px"></div>
+                        <div class="action new" style="margin-left:4px"></div>
+                        <div class="action icon-view" style="margin-left:4px"></div>
+                        <div class="action list-view"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="folders">
+                        <div class="content1-box">
+                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/computer_explorer.ico" style="width:14px;" /><span style="vertical-align:top">My Computer</span></div>
+                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/directory_open_file_mydocs.ico" style="width:14px;" /><span style="vertical-align:top">My Documents</span></div>
+                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/network_normal_two_pcs.ico" style="width:14px;" /><span style="vertical-align:top">Network Neighbourhood</span></div>
+                        </div>
+                    </div>
+                    <div class="bottom-bar">
+                        <p class="text">File Name:</p>
+                        <input type="text" class="filename" style="position:relative;">
+                        <button class="save-button" style="margin-left:17px"><u>O</u>pen</button>
+                    </div>
+                    <!--<div class="bottom-bar">
+                        <p class="text">Save as type:</p><div class="picker" style="margin:9px 0 9px 9px; width:200px;"><span class="arrow"></span><span>Portable Document File</span></div> <button id="cancel-button" onClick="alert('abc');"><u>C</u>ancel</button>
+                    </div>-->
+                    <div class="bottom-bar">
+                        <p class="text">File of type:</p>
+                        <select id="file-type" class="picker select" style="margin:9px 4px 9px 24px; width:200px; ">
+                            <option value="pdf">PDF</option>
+                            <option value="doc">Word</option>
+                            <option value="txt">Text Document</option>
+                        </select>
+                        <button class="cancel-button" onClick="alert('abc');"><u>C</u>ancel</button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="status-bar">
-            Page 1 of 1 | Words: 0 | English (United States)
+        <div id="save" class="window-border ui-widget-content" style="display:none;">
+            <div class="window-border">
+                <div class="title-bar  h-count">
+                    <div class="control-box">
+                        <a class="button-3d question-save"><span>&nbsp;</span></a>
+                        <a class="button-3d close-save"><span>&nbsp;</span></a>
+                    </div>
+                    <span class="title">
+                        Save
+                    </span>
+                </div>
+                <div class="save-content">
+                    <div class="top-bar">
+                        <a><span>Save in:</span></a>
+                        <!--<div class="picker"><span class="arrow"></span><img class="icon" src="images/win98_icons/desktop.ico"/><span>Desktop</span></div>-->
+                        <select id="save-location" class="picker select" style="margin:3px 4px 3px 11px; width:180px; ">
+                            <option disabled selected value="none"></option>
+                            <option value="desktop">Desktop</option>
+                            <option value="computer">My Computer(Download)</option>
+                        </select>
+                        <!--<div class="picker ui-widget">
+                            <select id="save-location" class="picker select" style="margin:3px 4px 3px 11px; width:180px; "><option value="desktop">Desktop</option><option value="computer">My Computer(Download)</option><option value="both">Download and Save</option></select></div>-->
+                        <div class="action up"></div>
+                        <div class="action desktop-ico" style="margin-left:4px"></div>
+                        <div class="action new" style="margin-left:4px"></div>
+                        <div class="action icon-view" style="margin-left:4px"></div>
+                        <div class="action list-view"></div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="folders">
+                        <div class="content1-box">
+                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/computer_explorer.ico" style="width:14px;" /><span style="vertical-align:top">My Computer</span></div>
+                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/directory_open_file_mydocs.ico" style="width:14px;" /><span style="vertical-align:top">My Documents</span></div>
+                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/network_normal_two_pcs.ico" style="width:14px;" /><span style="vertical-align:top">Network Neighbourhood</span></div>
+                        </div>
+                        <div class="bottom-bar">
+                            <p class="text">File Name:</p>
+                            <input type="text" class="filename" style="position:relative;">
+                            <button class="save-button" style="margin-left:17px"><u>S</u>ave</button>
+                        </div>
+                        <div class="bottom-bar">
+                            <p class="text">Save as type:</p>
+                            <select id="file-type" class="picker select" style="margin:9px 4px 9px 11px; width:200px; ">
+                                <option value="pdf">PDF</option>
+                                <option value="doc">Word</option>
+                                <option value="txt">Text Document</option>
+                            </select>
+                            <button class="cancel-button" onClick="alert('abc');"><u>C</u>ancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
 
