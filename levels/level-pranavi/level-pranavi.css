@@ -5,137 +5,158 @@
     min-height: 200px;
     height: 300px;
     width: 700px;
-    
-    .title-bar .title {
-        background: url(images/winword8.png) no-repeat left center;
-    }
-    .content {
-        border: 1px solid #848484;
-        border-right-color: #ffffff;
-        border-bottom-color: #ffffff;
-        background: #848484 !important;
-        height: 100%;
-        width: 100%;
-    }
-    .content-box {
-        border: 1px solid #424242;
-        border-bottom: none;
-        background: #848484;
-        position: relative;
-        width: 100%;
-    }
-    /****
-    * Rullers
-    ****/
-    .top-ruler {
-        height: 24px;
-        background: #c0c0c0 url(images/window/ruler-mark.png) no-repeat left top;
-        padding-left: 25px;
-    }
-    .top-ruler .ruler {
-        background: url(images/window/horz-ruler.png);
-        height: 24px;
-        margin-left: 2px;
-        margin-right: 20px;
-    }
-    .left-ruler {
-        position: relative;
-        width: 24px;
-        background: #c0c0c0;
-        float: left;
-    }
-    /****
-    * Document
-    ***/
-    .document-scroller {
-        overflow: scroll;
-    }
+}
 
-    .document {
-        margin: 5px auto 10px auto;
-        background: #fff;
-        border: 1px solid #000;
-        box-shadow: 1px 1px 0 0 #000;
-        width: 21cm;
-    }
-    .document-wrap::selection {
-        background: #000;
-        color: #fff;
-    }
-    /****
-    * Status bar
-    ***/
-    .status-bar {
-        margin-top: 5px;
-        border-top: 1px solid #848484;
-        background: url(images/window/status-bar-grip.png) no-repeat right bottom;
-    }
-    .status-bar-content {
-        border-top: 1px solid #fff;
-        padding: 4px 2px 2px 5px;
-    }
-    .status-bar .box {
-        display: inline-block;
-        border: 1px inset #fff;
-        padding: 0px 5px;
-        margin-right: 5px;
-    }
-    .status-bar .box.disabled {
-        color: #848484;
-    }
+.word .title-bar .title {
+    background: url("images/winword8.png") no-repeat left center;
+}
+
+
+.word .content {
+    border: 1px solid #848484;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    background: #848484 !important;
+    height: 100%;
+    width: 100%;
+}
+
+.word .content-box {
+    border: 1px solid #424242;
+    border-bottom: none;
+    background: #848484;
+    position: relative;
+    width: 100%;
+}
+
+/****
+* Rulers
+****/
+.word .top-ruler {
+    height: 24px;
+    background: #c0c0c0 url("images/window/ruler-mark.png") no-repeat left top;
+    padding-left: 25px;
+}
+
+.word .top-ruler .ruler {
+    background: url("images/window/horz-ruler.png");
+    height: 24px;
+    margin-left: 2px;
+    margin-right: 20px;
+}
+
+.word .left-ruler {
+    position: relative;
+    width: 24px;
+    background: #c0c0c0;
+    float: left;
+}
+
+/****
+* Document
+****/
+.word .document-scroller {
+    overflow: scroll;
+}
+
+.word .document {
+    margin: 5px auto 10px auto;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 1px 1px 0 0 #000;
+    width: 21cm;
+}
+
+.word .document-wrap::selection {
+    background: #000;
+    color: #fff;
+}
+
+/****
+* Status bar
+****/
+.word .status-bar {
+    margin-top: 5px;
+    border-top: 1px solid #848484;
+    background: url("images/window/status-bar-grip.png") no-repeat right bottom;
+}
+
+.word .status-bar-content {
+    border-top: 1px solid #fff;
+    padding: 4px 2px 2px 5px;
+}
+
+.word .status-bar .box {
+    display: inline-block;
+    border: 1px inset #fff;
+    padding: 0px 5px;
+    margin-right: 5px;
+}
+
+.word .status-bar .box.disabled {
+    color: #848484;
 }
 
 .word-file-context-menu {
-    .context-menu-submenu.context-menu-visible > ul {
-        width: 185px !important;
-    }
     width: 208px;
-    .context-menu-icon-updated {
-        padding: 1px 0px 1px 2px !important;
-    }
-    .context-menu-item.context-menu-hover > a {
-        border: 1px outset #fff !important;
-    }
-    .context-menu-icon-updated.context-menu-hover {
-        background: none !important;
-        p {
-            background: navy;
-        }
-    }
-    p {
-        display: inline-block;
-        width: 80%;
-        margin: 0;
-        padding-left: 2px;
-    }
-    a {
-        vertical-align: middle;
-        display: inline-block;
-        border: 1px solid #c0c0c0;
-        margin: 0px 0px;
-        text-decoration: none;
-        width: 18px;
-        height: 18px;
-        background: no-repeat center left;
-    }
-    .b-new {
-        background-image: url(images/New.bmp);
-    }
-    .b-open {
-        background-image: url(images/Open.bmp);
-    }
-    .b-save {
-        background-image: url(images/save.bmp);
-    }
-    .b-print {
-        background-image: url(images/print.bmp);
-    }
-    .b-preview {
-        background-image: url(images/preview.bmp);
-    }
-    .b-mail {
-        background-image: url(images/mail.bmp);
-    }
+}
+
+.word-file-context-menu .context-menu-submenu.context-menu-visible > ul {
+    width: 185px !important;
+}
+
+.word-file-context-menu .context-menu-icon-updated {
+    padding: 1px 0px 1px 2px !important;
+}
+
+.word-file-context-menu .context-menu-item.context-menu-hover > a {
+    border: 1px outset #fff !important;
+}
+
+.word-file-context-menu .context-menu-icon-updated.context-menu-hover {
+    background: none !important;
+}
+
+.word-file-context-menu p {
+    display: inline-block;
+    width: 80%;
+    margin: 0;
+    padding-left: 2px;
+}
+
+.word-file-context-menu a {
+    vertical-align: middle;
+    display: inline-block;
+    border: 1px solid #c0c0c0;
+    margin: 0px 0px;
+    text-decoration: none;
+    width: 18px;
+    height: 18px;
+    background: no-repeat center left;
+}
+
+.word-file-context-menu .b-new {
+    background-image: url("images/New.bmp");
+}
+
+.word-file-context-menu .b-open {
+    background-image: url("images/Open.bmp");
+}
+
+.word-file-context-menu .b-save {
+    background-image: url("images/save.bmp");
+}
+
+.word-file-context-menu .b-print {
+    background-image: url("images/print.bmp");
+}
+
+.word-file-context-menu .b-preview {
+    background-image: url("images/preview.bmp");
+}
+
+.word-file-context-menu .b-mail {
+    background-image: url("images/mail.bmp");
 }
 
 .document-wrap {
@@ -143,3 +164,473 @@
 }
 
 /* ----------------- End Word Window ---------------------*/
+
+/* ----------------- Global Window --------------------- */
+.window {
+    margin: 0px;
+    position: fixed;
+}
+
+.window-border {
+    box-shadow: 1px 1px 0px 0px #424242;
+    border: 1px solid #ffffff;
+    border-right-color: #848484;
+    border-bottom-color: #848484;
+    background: #c0c0c0;
+    padding: 2px;
+}
+
+.title-bar {
+    padding: 0;
+    background: #808080;
+    color: #fff;
+    font-weight: 500;
+}
+
+.title-bar .title {
+    padding-left: 20px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 2px;
+    padding-bottom: 1px;
+}
+
+.control-box {
+    float: right;
+    margin: 1px;
+}
+
+.button-3d {
+    display: block;
+    float: left;
+    border: 1px solid #ffffff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    background: #c0c0c0;
+    height: 14px;
+    width: 14px;
+    color: transparent;
+    text-decoration: none;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.button-3d:active {
+    border: 1px inset #fff;
+}
+
+.button-3d span {
+    display: block;
+    font-size: 1px;
+    line-height: 13px;
+}
+
+.button-3d.maximize {
+    margin-right: 2px;
+    margin-left: 1px;
+}
+
+.button-3d.close {
+    background-image: url("images/window/close.png");
+}
+
+.button-3d.question {
+    background-image: url("images/window/question.png");
+}
+
+.button-3d.question-save {
+    background-image: url("images/window/question.bmp");
+}
+
+.button-3d.close-save {
+    background-image: url("images/window/close.png");
+}
+
+.button-3d.close-dialog {
+    background-image: url("images/window/close.png");
+}
+
+.button-3d.close-run {
+    background-image: url("images/window/close.png");
+}
+
+.button-3d.maximize {
+    background-image: url("images/window/maximize.png");
+}
+
+.button-3d.minimize {
+    background-image: url("images/window/minimize.png");
+}
+
+/****
+* Menu bar
+***/
+.menu-bar,
+.toolbar {
+    height: 20px;
+    overflow: hidden;
+    margin: 2px 1px;
+    padding: 0 6px;
+    background: url("images/window/toolbar-grip.png") no-repeat 2px 6px;
+}
+
+.menu-bar {
+    line-height: 22px;
+    margin: 0;
+    border: 1px outset #fff;
+}
+
+.menu-bar a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0px 9px;
+}
+
+.menu-bar a span {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+pre {
+    font-size: 14px;
+}
+
+.clear {
+    clear: both;
+}
+
+/****
+* Toolbar
+***/
+.toolbar {
+    background-color: #c0c0c0;
+    border: 1px outset #fff;
+    margin: 0;
+}
+
+.toolbar a {
+    display: inline-block;
+    border: 1px solid transparent;
+    margin: 0px 0px 2px 0px;
+    text-decoration: none;
+    width: 18px;
+    height: 18px;
+    background: no-repeat center left;
+}
+
+.toolbar .sep {
+    display: inline-block;
+    width: 1px;
+    background: #a5a5a5;
+    margin: 1px 2px;
+    height: 20px;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+.toolbar.float-left {
+    float: left;
+    margin-right: 2px;
+}
+
+.toolbar.float-right {
+    float: right;
+}
+
+.toolbar .b-new {
+    background-image: url("images/New.bmp");
+}
+
+.toolbar .b-open {
+    background-image: url("images/Open.bmp");
+}
+
+.toolbar .b-save {
+    background-image: url("images/save.bmp");
+}
+
+.toolbar .b-print {
+    background-image: url("images/print.bmp");
+}
+
+.toolbar .b-preview {
+    background-image: url("images/preview.bmp");
+}
+
+.toolbar .b-spell {
+    background-image: url("images/spellcheck.bmp");
+}
+
+.toolbar .b-cut {
+    background-image: url("images/cut.bmp");
+}
+
+.toolbar .b-copy {
+    background-image: url("images/copy.bmp");
+}
+
+.toolbar .b-paste {
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    background-image: url("images/paste.bmp");
+}
+
+.toolbar .b-style-brush {
+    background-image: url("images/style.bmp");
+}
+
+.toolbar .b-undo {
+    background-image: url("images/undo.bmp");
+}
+
+.toolbar .b-redo {
+    background-image: url("images/redo.bmp");
+}
+
+.toolbar .b-style {
+    background-image: url("images/style.bmp");
+}
+
+.toolbar .b-bold {
+    background-image: url("images/bold.bmp");
+}
+
+.toolbar .b-italic {
+    background-image: url("images/italic.bmp");
+}
+
+.toolbar .b-underline {
+    background-image: url("images/underline.bmp");
+}
+
+.toolbar .b-left {
+    background-image: url("images/left.bmp");
+}
+
+.toolbar .b-center {
+    background-image: url("images/center.bmp");
+}
+
+.toolbar .b-right {
+    background-image: url("images/right.bmp");
+}
+
+.toolbar .b-ol {
+    background-image: url("images/ol.bmp");
+}
+
+.toolbar .b-ul {
+    background-image: url("images/ul.bmp");
+}
+
+.toolbar .b-share {
+    background-image: url("images/share.bmp");
+}
+
+.toolbar .b-tweet {
+    background-image: url("images/tweet.bmp");
+}
+
+.toolbar .b-fork {
+    background-image: url("images/fork.bmp");
+}
+
+.toolbar .b-number {
+    background-image: url("images/number.bmp");
+}
+
+.toolbar .b-bullet {
+    background-image: url("images/bullet.bmp");
+}
+
+.toolbar .b-outdent {
+    background-image: url("images/indent.bmp");
+}
+
+.toolbar .b-indent {
+    background-image: url("images/inc-indent.bmp");
+}
+
+.toolbar .b-hilite {
+    background-image: url("images/highlight.bmp");
+}
+
+.toolbar .b-fontcolor {
+    background-image: url("images/fontcolor.bmp");
+}
+
+.toolbar a:hover {
+    background-color: #c0c0c0;
+    border: 1px outset #fff;
+}
+
+.toolbar a:active {
+    border: 1px inset #fff;
+}
+
+.toolbar a.text {
+    width: auto;
+    padding-left: 22px;
+    padding-right: 4px;
+    line-height: 18px;
+    background-position: 2px 1px;
+}
+
+.toolbar a.text {
+    font-style: normal;
+    display: inline-block;
+    padding: 2px;
+    font-size: 10px;
+    line-height: 10px;
+    background: #d8e6ff;
+    border: 1px solid #c2d3f4;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.toolbar .picker {
+    line-height: 18px;
+    height: 18px;
+    background: #fff;
+    margin: 4px 0 2px 0;
+    display: inline-block;
+    padding-left: 3px;
+    position: relative;
+    vertical-align: top;
+}
+
+.selectPicker {
+    line-height: 18px;
+    padding: 0 30px 0 10px !important;
+    -webkit-padding-end: 30px !important;
+    -webkit-padding-start: 10px !important;
+    width: auto;
+    display: inline-block;
+    padding-left: 2px;
+    position: relative;
+    vertical-align: top;
+    background: url("images/window/combo.png"), -webkit-linear-gradient(0deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 55%, #c0c0c0 56%, #c0c0c0 100%), rgba(255, 255, 255, 1);
+    background: url("images/window/combo.png"), -moz-linear-gradient(90deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 55%, #c0c0c0 56%, #c0c0c0 100%), rgba(255, 255, 255, 1);
+    background: url("images/window/combo.png"), linear-gradient(90deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 55%, #c0c0c0 56%, #c0c0c0 100%), rgba(255, 255, 255, 1);
+    background-repeat: no-repeat;
+    background-position: 97.5% 50%, 99% 50%;
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-background-size: auto auto, 50% 90%;
+    background-size: auto auto, 26px 16px;
+}
+
+.picker .arrow {
+    display: block;
+    float: right;
+    width: 11px;
+    background: #c0c0c0 url("images/window/combo.png") no-repeat center center;
+    height: 16px;
+    margin: 1px 1px 1px 10px;
+}
+
+.color-picker {
+    margin-top: 16px;
+    position: fixed;
+    background: #c0c0c0;
+    z-index: 99;
+}
+
+.color-picker table {
+    width: 100px;
+}
+
+.color-picker table a {
+    border: 1px solid #848484;
+    width: 10px;
+    height: 10px;
+    text-align: center;
+}
+
+.color-picker table a:hover {
+    border: 1px solid #848484;
+}
+
+.color-picker table td {
+    margin: 1px;
+    border: 1px solid #c0c0c0;
+}
+
+.color-picker table td:hover {
+    border: 1px outset #fff;
+}
+
+.color-picker table td:active {
+    border: 1px inset #fff;
+    background: url("images/background.bmp");
+}
+
+.title-bar {
+    background: #08216b !important;
+    background: -moz-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+    background: -webkit-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+    background: -o-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+    background: -ms-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+    background: linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+}
+
+.dialog {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.dialog .title {
+    background: none !important;
+    padding-left: 4px !important;
+}
+
+.dialog .error-content {
+    height: auto;
+    background: #c0c0c0;
+}
+
+.dialog p {
+    margin: 10px 20px 0px 20px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+.dialog img {
+    width: 32px;
+}
+
+.dialog .button {
+    text-align: center;
+}
+
+.dialog .text {
+    padding: 10px 20px 10px 20px;
+}
+/* ----------------- End Global Window --------------------- */

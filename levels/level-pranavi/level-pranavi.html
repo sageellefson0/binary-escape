@@ -132,7 +132,7 @@
                 <a class="b-indent" data-cmd="indent"></a>
                 <span class="sep"></span>
                 <a class="b-hilite" data-cmd="backColor">
-                    <div class="color-picker" style="position:fixed; background:#c0c0c0; z-index:99; display:none;">
+                    <div class="color-picker" style="position:fixed; background:#c0c0c0; z-index:99;">
                         <table>
                             <tr>
                                 <td colspan="8" style="padding:3px"><a style="background:none; border:1px solid; width:100%; height:100%; text-align:center; vertical-align:middle;font-size:0.757em">None</a></td>
@@ -163,7 +163,7 @@
                     </div>
                 </a>
                 <a class="b-fontcolor">
-                    <div class="color-picker" style="position:fixed; background:#c0c0c0; z-index:99; display:none;">
+                    <div class="color-picker" style="position:fixed; background:#c0c0c0; z-index:99;">
                         <table>
                             <tr>
                                 <td colspan="8" style="padding:3px"><a style="background:black;background-size:10px,10px; border:1px solid; width:100%; height:100%; text-align:center; vertical-align:middle;font-size:10px">Automatic</a></td>
@@ -244,113 +244,6 @@
                     <span class="box disabled">
                     OVR
                 </span>
-                </div>
-            </div>
-        </div>
-        <div id="open" class="window ui-widget-content" style="display:block">
-            <div class="window-border">
-                <div class="title-bar  h-count">
-                    <div class="control-box">
-                        <a class="button-3d question-save"><span>&nbsp;</span></a>
-                        <a class="button-3d close-save"><span>&nbsp;</span></a>
-                    </div>
-                    <span class="title">
-                    Open
-                </span>
-                </div>
-                <div class="open-content">
-                    <div class="top-bar">
-                        <a><span>Look in: </span></a>
-                        <!--<div class="picker"><span class="arrow"></span><img class="icon" src="images/win98_icons/desktop.ico"/><span>Desktop</span></div>-->
-                        <select id="save-location" class="picker select" style="margin:3px 4px 3px 11px; width:180px; ">
-                            <option disabled selected value="desktop">Desktop</option>
-                        </select>
-                        <!--<div class="picker ui-widget">
-                        <select id="save-location" class="picker select" style="margin:3px 4px 3px 11px; width:180px; "><option value="desktop">Desktop</option><option value="computer">My Computer(Download)</option><option value="both">Download and Save</option></select></div>-->
-                        <div class="action up"></div>
-                        <div class="action desktop-ico" style="margin-left:4px"></div>
-                        <div class="action new" style="margin-left:4px"></div>
-                        <div class="action icon-view" style="margin-left:4px"></div>
-                        <div class="action list-view"></div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="folders">
-                        <div class="content1-box">
-                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/computer_explorer.ico" style="width:14px;" /><span style="vertical-align:top">My Computer</span></div>
-                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/directory_open_file_mydocs.ico" style="width:14px;" /><span style="vertical-align:top">My Documents</span></div>
-                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/network_normal_two_pcs.ico" style="width:14px;" /><span style="vertical-align:top">Network Neighbourhood</span></div>
-                        </div>
-                    </div>
-                    <div class="bottom-bar">
-                        <p class="text">File Name:</p>
-                        <input type="text" class="filename" style="position:relative;">
-                        <button class="save-button" style="margin-left:17px"><u>O</u>pen</button>
-                    </div>
-                    <!--<div class="bottom-bar">
-                        <p class="text">Save as type:</p><div class="picker" style="margin:9px 0 9px 9px; width:200px;"><span class="arrow"></span><span>Portable Document File</span></div> <button id="cancel-button" onClick="alert('abc');"><u>C</u>ancel</button>
-                    </div>-->
-                    <div class="bottom-bar">
-                        <p class="text">File of type:</p>
-                        <select id="file-type" class="picker select" style="margin:9px 4px 9px 24px; width:200px; ">
-                            <option value="pdf">PDF</option>
-                            <option value="doc">Word</option>
-                            <option value="txt">Text Document</option>
-                        </select>
-                        <button class="cancel-button" onClick="alert('abc');"><u>C</u>ancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="save" class="window-border ui-widget-content" style="display:none;">
-            <div class="window-border">
-                <div class="title-bar  h-count">
-                    <div class="control-box">
-                        <a class="button-3d question-save"><span>&nbsp;</span></a>
-                        <a class="button-3d close-save"><span>&nbsp;</span></a>
-                    </div>
-                    <span class="title">
-                        Save
-                    </span>
-                </div>
-                <div class="save-content">
-                    <div class="top-bar">
-                        <a><span>Save in:</span></a>
-                        <!--<div class="picker"><span class="arrow"></span><img class="icon" src="images/win98_icons/desktop.ico"/><span>Desktop</span></div>-->
-                        <select id="save-location" class="picker select" style="margin:3px 4px 3px 11px; width:180px; ">
-                            <option disabled selected value="none"></option>
-                            <option value="desktop">Desktop</option>
-                            <option value="computer">My Computer(Download)</option>
-                        </select>
-                        <!--<div class="picker ui-widget">
-                            <select id="save-location" class="picker select" style="margin:3px 4px 3px 11px; width:180px; "><option value="desktop">Desktop</option><option value="computer">My Computer(Download)</option><option value="both">Download and Save</option></select></div>-->
-                        <div class="action up"></div>
-                        <div class="action desktop-ico" style="margin-left:4px"></div>
-                        <div class="action new" style="margin-left:4px"></div>
-                        <div class="action icon-view" style="margin-left:4px"></div>
-                        <div class="action list-view"></div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="folders">
-                        <div class="content1-box">
-                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/computer_explorer.ico" style="width:14px;" /><span style="vertical-align:top">My Computer</span></div>
-                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/directory_open_file_mydocs.ico" style="width:14px;" /><span style="vertical-align:top">My Documents</span></div>
-                            <div id="my-computer" class="folder-list" style="left:0px;"><img class="icon" src="images/network_normal_two_pcs.ico" style="width:14px;" /><span style="vertical-align:top">Network Neighbourhood</span></div>
-                        </div>
-                        <div class="bottom-bar">
-                            <p class="text">File Name:</p>
-                            <input type="text" class="filename" style="position:relative;">
-                            <button class="save-button" style="margin-left:17px"><u>S</u>ave</button>
-                        </div>
-                        <div class="bottom-bar">
-                            <p class="text">Save as type:</p>
-                            <select id="file-type" class="picker select" style="margin:9px 4px 9px 11px; width:200px; ">
-                                <option value="pdf">PDF</option>
-                                <option value="doc">Word</option>
-                                <option value="txt">Text Document</option>
-                            </select>
-                            <button class="cancel-button" onClick="alert('abc');"><u>C</u>ancel</button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
