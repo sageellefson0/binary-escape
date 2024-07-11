@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font: normal 14px Helvetica Neue, Arial, Helvetica, sans-serif;
 }
 
 /* ----------------- Word Window ---------------------*/
@@ -58,7 +59,7 @@ body {
 ****/
 .word .document-scroller {
     overflow: auto;
-    height: 81.2vh;
+    height: 80.5vh;
 }
 
 .word .document {
@@ -73,6 +74,11 @@ body {
 .word .document-wrap {
     padding: 3rem 5rem;
     height: 106vh;
+}
+
+.word .document-wrap p {
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .word .document-wrap::selection {
@@ -269,12 +275,142 @@ body {
     background-image: url("images/window/minimize.png");
 }
 
+/* ----------------- Context Menu --------------------- */
+.context-menu-list {
+    position: absolute;
+    display: none; /* Initially hide the context menu */
+    min-width: 134.8px;
+    max-width: 134.8px;
+    padding: 0 0 2px;
+    margin-left: 12px;
+    font-size: 14px;
+    list-style-type: none;
+    background: silver;
+    border: 1.8px outset #fff;
+    border-radius: 0;
+    box-shadow: 1.5px 1.5px #000;
+}
+
+/* Styling for individual menu items */
+.context-menu-item {
+    position: relative;
+    padding: 2px 18px 2px 28px;
+    color: #2f2f2f;
+    user-select: none;
+    background-color: silver;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.context-menu-item:hover {
+    background-color: navy;
+    color: #fff;
+}
+
+/* Styling for separators */
+.context-menu-separator {
+    padding: 0;
+    margin: 3px 0;
+    border: 2px inset #fff;
+}
+
+/* Styling for disabled items */
+.context-menu-item.context-menu-disabled {
+    color: grey;
+    text-shadow: 1px 1px #fff;
+    background-clip: text;
+}
+
+/* Styling for submenu arrows */
+.context-menu-submenu:after {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    width: 0;
+    height: 0;
+    font-size: 16px;
+    content: '';
+    border-color: transparent transparent transparent #2f2f2f;
+    border-style: solid;
+    border-width: 3px 0 3px 3px;
+    transform: translateY(-50%);
+}
+
+/* Styling for icons */
+.context-menu-item > a {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    background-repeat: no-repeat;
+}
+
+/* Styling for text */
+.context-menu-item > p {
+    display: inline-block;
+    margin: 0;
+    padding-left: 2px;
+}
+
+/* Adjustments for specific menu items */
+.word-file-context-menu {
+    width: 208px;
+}
+
+.word-file-context-menu .context-menu-submenu .context-menu-list {
+    width: 185px !important;
+}
+
+.word-file-context-menu .context-menu-icon-updated {
+    padding: 1px 0 1px 2px !important;
+}
+
+.word-file-context-menu .context-menu-icon-updated.context-menu-hover {
+    background: none !important;
+}
+
+.word-file-context-menu .context-menu-icon-updated.context-menu-hover p {
+    background: navy;
+}
+
+.word-file-context-menu a {
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+/* Icons for specific actions */
+.word-file-context-menu .b-new {
+    background-image: url("images/New.bmp");
+}
+
+.word-file-context-menu .b-open {
+    background-image: url("images/Open.bmp");
+}
+
+.word-file-context-menu .b-save {
+    background-image: url("images/save.bmp");
+}
+
+.word-file-context-menu .b-print {
+    background-image: url("images/print.bmp");
+}
+
+.word-file-context-menu .b-preview {
+    background-image: url("images/preview.bmp");
+}
+
+.word-file-context-menu .b-mail {
+    background-image: url("images/mail.bmp");
+}
+
+
 /****
-* Menu bar
+* Main Menu bar
 ***/
 .menu-bar,
 .toolbar {
-    height: 20px;
+    display: flex;
+    align-items: center;
+    height: 24px;
     overflow: hidden;
     margin: 2px 1px;
     padding: 0 6px;
@@ -305,23 +441,23 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 26px;
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 h3 {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 h4 {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 pre {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .clear {
@@ -349,7 +485,7 @@ pre {
 
 .toolbar .sep {
     display: inline-block;
-    width: 1px;
+    width: 2px;
     background: #a5a5a5;
     margin: 1px 2px;
     height: 20px;
@@ -368,124 +504,214 @@ pre {
 
 .toolbar .b-new {
     background-image: url("images/New.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-open {
     background-image: url("images/Open.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-save {
     background-image: url("images/save.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-print {
     background-image: url("images/print.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-preview {
     background-image: url("images/preview.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-spell {
     background-image: url("images/spellcheck.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-cut {
     background-image: url("images/cut.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-copy {
     background-image: url("images/copy.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-paste {
     opacity: 0.2;
     filter: alpha(opacity=20);
     background-image: url("images/paste.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-style-brush {
     background-image: url("images/style.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-undo {
     background-image: url("images/undo.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-redo {
     background-image: url("images/redo.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-style {
     background-image: url("images/style.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-bold {
     background-image: url("images/bold.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-italic {
     background-image: url("images/italic.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-underline {
     background-image: url("images/underline.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-left {
     background-image: url("images/left.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-center {
     background-image: url("images/center.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-right {
     background-image: url("images/right.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-ol {
     background-image: url("images/ol.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-ul {
     background-image: url("images/ul.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-share {
     background-image: url("images/share.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-tweet {
     background-image: url("images/tweet.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-fork {
     background-image: url("images/fork.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-number {
     background-image: url("images/number.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-bullet {
     background-image: url("images/bullet.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-outdent {
     background-image: url("images/indent.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-indent {
     background-image: url("images/inc-indent.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-hilite {
     background-image: url("images/highlight.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar .b-fontcolor {
     background-image: url("images/fontcolor.bmp");
+    background-size: contain;
+    width: 20px;
+    height: 20px;
 }
 
 .toolbar a:hover {
@@ -509,7 +735,7 @@ pre {
     font-style: normal;
     display: inline-block;
     padding: 2px;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 10px;
     background: #d8e6ff;
     border: 1px solid #c2d3f4;
