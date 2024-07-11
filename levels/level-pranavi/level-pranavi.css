@@ -7,6 +7,7 @@ body {
 /* ----------------- Word Window ---------------------*/
 .word {
     width: 99.8vw;
+    cursor: default;
 }
 
 .word .title-bar .title {
@@ -69,6 +70,7 @@ body {
     box-shadow: 1px 1px 0 0 #000;
     width: 65vw;
     height: 120vh;
+    cursor: text;
 }
 
 .word .document-wrap {
@@ -429,8 +431,14 @@ body {
     padding: 0px 9px;
 }
 
+
 .menu-bar a span {
     text-decoration: underline;
+}
+
+.menu-bar .enabled-action:hover {
+    background-color: #c0c0c0;
+    border: 1px outset #fff;
 }
 
 .disabled-action {
