@@ -113,68 +113,6 @@ body {
     color: #848484;
 }
 
-.word-file-context-menu {
-    width: 208px;
-}
-
-.word-file-context-menu .context-menu-submenu.context-menu-visible > ul {
-    width: 185px !important;
-}
-
-.word-file-context-menu .context-menu-icon-updated {
-    padding: 1px 0px 1px 2px !important;
-}
-
-.word-file-context-menu .context-menu-item.context-menu-hover > a {
-    border: 1px outset #fff !important;
-}
-
-.word-file-context-menu .context-menu-icon-updated.context-menu-hover {
-    background: none !important;
-}
-
-.word-file-context-menu p {
-    display: inline-block;
-    width: 80%;
-    margin: 0;
-    padding-left: 2px;
-}
-
-.word-file-context-menu a {
-    vertical-align: middle;
-    display: inline-block;
-    border: 1px solid #c0c0c0;
-    margin: 0px 0px;
-    text-decoration: none;
-    width: 18px;
-    height: 18px;
-    background: no-repeat center left;
-}
-
-.word-file-context-menu .b-new {
-    background-image: url("images/New.bmp");
-}
-
-.word-file-context-menu .b-open {
-    background-image: url("images/Open.bmp");
-}
-
-.word-file-context-menu .b-save {
-    background-image: url("images/save.bmp");
-}
-
-.word-file-context-menu .b-print {
-    background-image: url("images/print.bmp");
-}
-
-.word-file-context-menu .b-preview {
-    background-image: url("images/preview.bmp");
-}
-
-.word-file-context-menu .b-mail {
-    background-image: url("images/mail.bmp");
-}
-
 
 /* ----------------- End Word Window ---------------------*/
 
@@ -280,9 +218,9 @@ body {
 /* ----------------- Context Menu --------------------- */
 .context-menu-list {
     position: absolute;
-    display: none; /* Initially hide the context menu */
-    min-width: 134.8px;
-    max-width: 134.8px;
+    display: none;
+    min-width: 150px;
+    max-width: 150px;
     padding: 0 0 2px;
     margin-left: 12px;
     font-size: 14px;
@@ -293,9 +231,15 @@ body {
     box-shadow: 1.5px 1.5px #000;
 }
 
+.context-menu-list .show-context-menu {
+    display: block;
+}
+
 /* Styling for individual menu items */
 .context-menu-item {
     position: relative;
+    display: flex;
+    align-items: center;
     padding: 2px 18px 2px 28px;
     color: #2f2f2f;
     user-select: none;
@@ -311,7 +255,7 @@ body {
 /* Styling for separators */
 .context-menu-separator {
     padding: 0;
-    margin: 3px 0;
+    margin: 4px 3px;
     border: 2px inset #fff;
 }
 
@@ -325,11 +269,11 @@ body {
 /* Styling for submenu arrows */
 .context-menu-submenu:after {
     position: absolute;
-    top: 50%;
-    right: 7px;
+    top: 40%;
+    right: 10px;
     width: 0;
     height: 0;
-    font-size: 16px;
+    font-size: 2rem;
     content: '';
     border-color: transparent transparent transparent #2f2f2f;
     border-style: solid;
@@ -340,10 +284,12 @@ body {
 /* Styling for icons */
 .context-menu-item > a {
     display: inline-block;
-    width: 18px;
-    height: 18px;
-    margin-right: 8px;
+    width: 16px; /* Fixed width for icons */
+    height: 16px; /* Fixed height for icons */
     background-repeat: no-repeat;
+    background-size: contain; /* Ensure the image fits within the anchor */
+    vertical-align: middle; /* Align vertically with text */
+    margin-right: 5px; /* Adjust margin as needed */
 }
 
 /* Styling for text */
@@ -351,14 +297,16 @@ body {
     display: inline-block;
     margin: 0;
     padding-left: 2px;
+    padding-top: 2px;
 }
 
 /* Adjustments for specific menu items */
 .word-file-context-menu {
-    width: 208px;
+    width: 210px;
 }
 
 .word-file-context-menu .context-menu-submenu .context-menu-list {
+    display: inline-block;
     width: 185px !important;
 }
 
@@ -377,6 +325,20 @@ body {
 .word-file-context-menu a {
     vertical-align: middle;
     text-decoration: none;
+}
+
+
+/* Icons for specific actions */
+.word-file-context-menu .b-new,
+.word-file-context-menu .b-open,
+.word-file-context-menu .b-save,
+.word-file-context-menu .b-print,
+.word-file-context-menu .b-preview,
+.word-file-context-menu .b-mail {
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    margin-left: 3px;
 }
 
 /* Icons for specific actions */

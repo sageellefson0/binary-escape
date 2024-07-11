@@ -42,86 +42,34 @@ document.addEventListener('DOMContentLoaded', function() {
     // Attach events for .b-fontcolor and .b-hilite
     attachColorPickerEvents('.b-fontcolor', 'foreColor');
     attachColorPickerEvents('.b-hilite', 'hiliteColor');
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Select the 'File' menu item
-    var fileMenuItem = document.querySelector('.word .menu-bar .file');
+     // Attach event for .file-option to display context-menu-list
+     var fileOption = document.querySelector('.file-option');
+     var fileContextMenu = document.querySelector('.context-menu-list.word-file-context-menu');
+     fileOption.addEventListener('click', function(e) {
+         e.stopPropagation();
+         toggleDisplay(fileContextMenu);
+     });
+ 
+     // Attach event for "Send to" to display mail recipients
+     var sendToOption = document.querySelector('.context-menu-item.context-menu-submenu');
+     var mailRecipientSubMenu = sendToOption.querySelector('.context-menu-list');
+     sendToOption.addEventListener('click', function(e) {
+         e.stopPropagation();
+         toggleDisplay(mailRecipientSubMenu);
+     });
+ 
+     // Hide context menus when clicking outside
+     document.addEventListener('click', function(e) {
+         if (!fileOption.contains(e.target)) {
+             fileContextMenu.style.display = 'none';
+         }
+         if (!sendToOption.contains(e.target)) {
+             mailRecipientSubMenu.style.display = 'none';
+         }
+     });
+ });
 
-    // Select the context menu
-    var contextMenu = document.querySelector('.context-menu-list.word-file-context-menu');
 
-    // Show context menu on 'File' menu item click
-    fileMenuItem.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent event bubbling
 
-        // Toggle display of context menu
-        if (contextMenu.style.display === 'block') {
-            contextMenu.style.display = 'none';
-        } else {
-            contextMenu.style.display = 'block';
-        }
-    });
 
-    // Hide context menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!contextMenu.contains(e.target) && e.target !== fileMenuItem) {
-            contextMenu.style.display = 'none';
-        }
-    });
-
-    // Function to handle submenu visibility
-    var submenuItems = contextMenu.querySelectorAll('.context-menu-submenu');
-    submenuItems.forEach(function(submenuItem) {
-        var submenuList = submenuItem.querySelector('.context-menu-list');
-        submenuItem.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event bubbling
-
-            // Toggle submenu display
-            if (submenuList.style.display === 'block') {
-                submenuList.style.display = 'none';
-            } else {
-                submenuList.style.display = 'block';
-            }
-        });
-    });
-
-    // Add functionality for menu item clicks (callback function)
-    var menuItems = contextMenu.querySelectorAll('.context-menu-item:not(.context-menu-submenu)');
-    menuItems.forEach(function(menuItem) {
-        menuItem.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event bubbling
-
-            // Perform action based on the menu item clicked
-            var action = menuItem.getAttribute('data-action');
-            switch (action) {
-                case 'new':
-                    console.log('New file action');
-                    break;
-                case 'open':
-                    console.log('Open file action');
-                    break;
-                case 'close':
-                    console.log('Close action');
-                    break;
-                case 'save':
-                    console.log('Save action');
-                    break;
-                case 'print':
-                    console.log('Print action');
-                    break;
-                case 'mail':
-                    console.log('Mail action');
-                    break;
-                case 'exit':
-                    console.log('Exit action');
-                    break;
-                default:
-                    console.log('Unknown action');
-            }
-
-            // Hide the context menu after action is performed (optional)
-            contextMenu.style.display = 'none';
-        });
-    });
-});
