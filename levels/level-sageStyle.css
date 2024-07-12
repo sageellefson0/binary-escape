@@ -46,6 +46,35 @@
     cursor: pointer;
 }
 
+.bugReportsLink{
+color: purple !important;
+}
+
+.bugReportPopUp{
+background-color: lightgrey;
+text-align: center;
+padding: 2px;
+font-family: 'Courier New', Courier, monospace;
+width: 80px;
+height: 110px;
+display: none;
+
+}
+
+.bugReportsLinkDiv{
+    width: 10px;
+    height: 1px;
+    margin-left: 20px;
+
+}
+
+.alienLinkDiv{
+    width: 10px;
+    height: 1px;
+    margin-left: 130px;
+    background-color: orange;
+}
+
 
 .oldWikiHeaderSearchBarLogin {
     float: right;
@@ -57,3 +86,22 @@
     width: 150px;
     padding-bottom: 10px;
 }
+
+.gameDiv{
+    width: 1000px;
+    height: 600px;
+    display: none;
+    /* color: #ECECE9; */
+    background-color: rgba(51, 50, 50, .8);
+    backdrop-filter: blur(7px);
+    position: absolute;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+
