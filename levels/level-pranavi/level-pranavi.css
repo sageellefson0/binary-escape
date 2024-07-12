@@ -19,7 +19,7 @@ body {
     border: 1px solid #848484;
     border-right-color: #ffffff;
     border-bottom-color: #ffffff;
-    background: #848484 !important;
+    background: #cdddf7 !important;
     height: 100%;
     width: 100%;
 }
@@ -37,7 +37,7 @@ body {
 ****/
 .word .top-ruler {
     height: 24px;
-    background: #c0c0c0 url("images/window/ruler-mark.png") no-repeat left top;
+    background: #cdddf7 url("images/window/ruler-mark.png") no-repeat left top;
     padding-left: 25px;
 }
 
@@ -51,7 +51,7 @@ body {
 .word .left-ruler {
     position: relative;
     width: 24px;
-    background: #c0c0c0;
+    background: #cdddf7;
     float: left;
 }
 
@@ -61,6 +61,7 @@ body {
 .word .document-scroller {
     overflow: auto;
     height: 80.5vh;
+    background-color: #7ea0ce;;
 }
 
 .word .document {
@@ -94,7 +95,7 @@ body {
 .word .status-bar {
     margin-top: 5px;
     border-top: 1px solid #848484;
-    background: url("images/window/status-bar-grip.png") no-repeat right bottom;
+    background: url("images/window/status-bar-grip.png") no-repeat right bottom #cdddf7;
 }
 
 .word .status-bar-content {
@@ -127,7 +128,7 @@ body {
     border: 1px solid #ffffff;
     border-right-color: #848484;
     border-bottom-color: #848484;
-    background: #c0c0c0;
+    background: #cdddf7;
     padding: 2px;
 }
 
@@ -159,7 +160,7 @@ body {
     border: 1px solid #ffffff;
     border-right-color: #424242;
     border-bottom-color: #424242;
-    background: #c0c0c0;
+    background: #cdddf7;
     height: 14px;
     width: 14px;
     color: transparent;
@@ -225,7 +226,7 @@ body {
     margin-left: 12px;
     font-size: 14px;
     list-style-type: none;
-    background: silver;
+    background: #cdddf7;
     border: 1.8px outset #fff;
     border-radius: 0;
     box-shadow: 1.5px 1.5px #000;
@@ -438,7 +439,7 @@ pre {
 * Toolbar
 ***/
 .toolbar {
-    background-color: #c0c0c0;
+    background-color: #cdddf7;
     border: 1px outset #fff;
     margin: 0;
 }
@@ -707,7 +708,7 @@ pre {
     padding: 2px;
     font-size: 12px;
     line-height: 10px;
-    background: #d8e6ff;
+    background: #cdddf7;
     border: 1px solid #c2d3f4;
     border-radius: 3px;
     margin-left: 5px;
