@@ -160,7 +160,7 @@ body {
     border: 1px solid #ffffff;
     border-right-color: #424242;
     border-bottom-color: #424242;
-    background: #cdddf7;
+    background: #d6d6ce;
     height: 14px;
     width: 14px;
     color: transparent;
@@ -188,24 +188,8 @@ body {
     background-image: url("images/window/close.png");
 }
 
-.button-3d.question {
-    background-image: url("images/window/question.png");
-}
-
-.button-3d.question-save {
-    background-image: url("images/window/question.png");
-}
-
-.button-3d.close-save {
-    background-image: url("images/window/close.png");
-}
-
-.button-3d.close-dialog {
-    background-image: url("images/window/close.png");
-}
-
-.button-3d.close-run {
-    background-image: url("images/window/close.png");
+.button-3d.close:hover {
+    background-color: #f0634d;
 }
 
 .button-3d.maximize {
@@ -214,6 +198,10 @@ body {
 
 .button-3d.minimize {
     background-image: url("images/window/minimize.png");
+}
+
+.button-3d.maximize:hover, .button-3d.minimize:hover {
+    background-color: #b0b0ad;
 }
 
 /* ----------------- Context Menu --------------------- */
@@ -226,7 +214,7 @@ body {
     margin-left: 12px;
     font-size: 14px;
     list-style-type: none;
-    background: #cdddf7;
+    background: #c5d7f3;
     border: 1.8px outset #fff;
     border-radius: 0;
     box-shadow: 1.5px 1.5px #000;
@@ -241,11 +229,20 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 2px 18px 2px 28px;
+    padding: 4px 18px 3px 28px;
     color: #2f2f2f;
     user-select: none;
-    background-color: silver;
+    background-color: #c5d7f3;
     cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.context-menu-list .border-bottom {
+    position: absolute;
+    left: 3.75%;
+    width: 93.5%;
+    height: 2.5px; /* Line height */
+    box-shadow: 1px 1px 1px #7ea0ce inset;
+    z-index: 1;
 }
 
 .context-menu-item:hover {
@@ -400,7 +397,7 @@ body {
 }
 
 .menu-bar .enabled-action:hover {
-    background-color: #c0c0c0;
+    background: linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
     border: 1px outset #fff;
 }
 
@@ -473,222 +470,292 @@ pre {
     float: right;
 }
 
-.toolbar .b-new {
-    background-image: url("images/New.png");
+.toolbar .b-new,
+.toolbar .b-open,
+.toolbar .b-save,
+.toolbar .b-print,
+.toolbar .b-preview,
+.toolbar .b-spell,
+.toolbar .b-cut,
+.toolbar .b-copy,
+.toolbar .b-paste,
+.toolbar .b-style-brush,
+.toolbar .b-undo,
+.toolbar .b-redo,
+.toolbar .b-style,
+.toolbar .b-bold,
+.toolbar .b-italic,
+.toolbar .b-underline,
+.toolbar .b-left,
+.toolbar .b-center,
+.toolbar .b-right,
+.toolbar .b-ol,
+.toolbar .b-ul,
+.toolbar .b-share,
+.toolbar .b-tweet,
+.toolbar .b-fork,
+.toolbar .b-number,
+.toolbar .b-bullet,
+.toolbar .b-outdent,
+.toolbar .b-indent,
+.toolbar .b-hilite,
+.toolbar .b-fontcolor {
     background-size: contain;
     width: 20px;
     height: 20px;
+    z-index: 1;
+}
+
+.toolbar .b-paste {
+    opacity: 0.9;
+}
+
+.toolbar .b-new {
+    background-image: url("images/New.png");
 }
 
 .toolbar .b-open {
     background-image: url("images/Open.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-save {
     background-image: url("images/save.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-print {
     background-image: url("images/print.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-preview {
     background-image: url("images/preview.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-spell {
     background-image: url("images/spellcheck.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-cut {
     background-image: url("images/cut.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-copy {
     background-image: url("images/copy.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-paste {
-    opacity: 0.2;
-    filter: alpha(opacity=20);
     background-image: url("images/paste.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-style-brush {
     background-image: url("images/style.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-undo {
     background-image: url("images/undo.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-redo {
     background-image: url("images/redo.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-style {
     background-image: url("images/style.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-bold {
     background-image: url("images/bold.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-italic {
     background-image: url("images/italic.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-underline {
     background-image: url("images/underline.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-left {
     background-image: url("images/left.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-center {
     background-image: url("images/center.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-right {
     background-image: url("images/right.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-ol {
     background-image: url("images/ol.bmp");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-ul {
     background-image: url("images/ul.bmp");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-share {
     background-image: url("images/share.bmp");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-tweet {
     background-image: url("images/tweet.bmp");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-fork {
     background-image: url("images/fork.bmp");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-number {
     background-image: url("images/number.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-bullet {
     background-image: url("images/bullet.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-outdent {
     background-image: url("images/indent.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-indent {
     background-image: url("images/inc-indent.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-hilite {
     background-image: url("images/highlight.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
 .toolbar .b-fontcolor {
     background-image: url("images/fontcolor.png");
-    background-size: contain;
-    width: 20px;
-    height: 20px;
 }
 
+
 .toolbar a:hover {
-    background-color: #c0c0c0;
     border: 1px outset #fff;
+    z-index: 0;
 }
+
+.toolbar .b-new:hover {
+    background-image: url("images/New.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-open:hover {
+    background-image: url("images/Open.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-save:hover {
+    background-image: url("images/save.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-print:hover {
+    background-image: url("images/print.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-preview:hover {
+    background-image: url("images/preview.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-spell:hover {
+    background-image: url("images/spellcheck.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-cut:hover {
+    background-image: url("images/cut.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-copy:hover {
+    background-image: url("images/copy.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-paste:hover {
+    background-image: url("images/paste.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-style-brush:hover {
+    background-image: url("images/style.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-undo:hover {
+    background-image: url("images/undo.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-redo:hover {
+    background-image: url("images/redo.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-style:hover {
+    background-image: url("images/style.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-bold:hover {
+    background-image: url("images/bold.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-italic:hover {
+    background-image: url("images/italic.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-underline:hover {
+    background-image: url("images/underline.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-left:hover {
+    background-image: url("images/left.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-center:hover {
+    background-image: url("images/center.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-right:hover {
+    background-image: url("images/right.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-ol:hover {
+    background-image: url("images/ol.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-ul:hover {
+    background-image: url("images/ul.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-share:hover {
+    background-image: url("images/share.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-tweet:hover {
+    background-image: url("images/tweet.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-fork:hover {
+    background-image: url("images/fork.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-number:hover {
+    background-image: url("images/number.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-bullet:hover {
+    background-image: url("images/bullet.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-outdent:hover {
+    background-image: url("images/indent.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-indent:hover {
+    background-image: url("images/inc-indent.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-hilite:hover {
+    background-image: url("images/highlight.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-fontcolor:hover {
+    background-image: url("images/fontcolor.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
 
 .toolbar a:active {
     border: 1px inset #fff;
@@ -725,28 +792,26 @@ pre {
     vertical-align: top;
 }
 
-.selectPicker {
-    line-height: 18px;
-    padding: 0 30px 0 10px !important;
-    -webkit-padding-end: 30px !important;
-    -webkit-padding-start: 10px !important;
+.window .selectPicker {
+    padding: 0 30px 0 10px!important;
+    -webkit-padding-end: 30px!important;
+    -webkit-padding-start: 10px!important;
     width: auto;
-    display: inline-block;
     padding-left: 2px;
-    position: relative;
-    vertical-align: top;
-    background: url("images/window/combo.png"), -webkit-linear-gradient(0deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 55%, #c0c0c0 56%, #c0c0c0 100%), rgba(255, 255, 255, 1);
-    background: url("images/window/combo.png"), -moz-linear-gradient(90deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 55%, #c0c0c0 56%, #c0c0c0 100%), rgba(255, 255, 255, 1);
-    background: url("images/window/combo.png"), linear-gradient(90deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 55%, #c0c0c0 56%, #c0c0c0 100%), rgba(255, 255, 255, 1);
+    /* Remove default dropdown arrow */
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url(images/window/combo.png),-webkit-linear-gradient(0deg,#fff,#fff 54%,silver 55%,silver),#fff;
+    background: url(images/window/combo.png),-webkit-linear-gradient(left,#fff,#fff 54%,silver 55%,silver),#fff;
+    background: url(images/window/combo.png),linear-gradient(90deg,#fff,#fff 54%,silver 55%,silver),#fff;
     background-repeat: no-repeat;
-    background-position: 97.5% 50%, 99% 50%;
-    -webkit-background-origin: padding-box;
+    background-position: 97.5% 50%,99% 50%;
     background-origin: padding-box;
-    -webkit-background-clip: border-box;
     background-clip: border-box;
-    -webkit-background-size: auto auto, 50% 90%;
-    background-size: auto auto, 26px 16px;
+    background-size: auto auto,26px 16px
 }
+
 
 .picker .arrow {
     display: block;
