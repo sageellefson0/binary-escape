@@ -193,7 +193,7 @@ body {
 }
 
 .button-3d.question-save {
-    background-image: url("images/window/question.bmp");
+    background-image: url("images/window/question.png");
 }
 
 .button-3d.close-save {
@@ -344,27 +344,27 @@ body {
 
 /* Icons for specific actions */
 .word-file-context-menu .b-new {
-    background-image: url("images/New.bmp");
+    background-image: url("images/New.png");
 }
 
 .word-file-context-menu .b-open {
-    background-image: url("images/Open.bmp");
+    background-image: url("images/Open.png");
 }
 
 .word-file-context-menu .b-save {
-    background-image: url("images/save.bmp");
+    background-image: url("images/save.png");
 }
 
 .word-file-context-menu .b-print {
-    background-image: url("images/print.bmp");
+    background-image: url("images/print.png");
 }
 
 .word-file-context-menu .b-preview {
-    background-image: url("images/preview.bmp");
+    background-image: url("images/preview.png");
 }
 
 .word-file-context-menu .b-mail {
-    background-image: url("images/mail.bmp");
+    background-image: url("images/mail.png");
 }
 
 
@@ -474,56 +474,56 @@ pre {
 }
 
 .toolbar .b-new {
-    background-image: url("images/New.bmp");
+    background-image: url("images/New.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-open {
-    background-image: url("images/Open.bmp");
+    background-image: url("images/Open.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-save {
-    background-image: url("images/save.bmp");
+    background-image: url("images/save.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-print {
-    background-image: url("images/print.bmp");
+    background-image: url("images/print.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-preview {
-    background-image: url("images/preview.bmp");
+    background-image: url("images/preview.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-spell {
-    background-image: url("images/spellcheck.bmp");
+    background-image: url("images/spellcheck.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-cut {
-    background-image: url("images/cut.bmp");
+    background-image: url("images/cut.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-copy {
-    background-image: url("images/copy.bmp");
+    background-image: url("images/copy.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -532,77 +532,77 @@ pre {
 .toolbar .b-paste {
     opacity: 0.2;
     filter: alpha(opacity=20);
-    background-image: url("images/paste.bmp");
+    background-image: url("images/paste.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-style-brush {
-    background-image: url("images/style.bmp");
+    background-image: url("images/style.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-undo {
-    background-image: url("images/undo.bmp");
+    background-image: url("images/undo.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-redo {
-    background-image: url("images/redo.bmp");
+    background-image: url("images/redo.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-style {
-    background-image: url("images/style.bmp");
+    background-image: url("images/style.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-bold {
-    background-image: url("images/bold.bmp");
+    background-image: url("images/bold.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-italic {
-    background-image: url("images/italic.bmp");
+    background-image: url("images/italic.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-underline {
-    background-image: url("images/underline.bmp");
+    background-image: url("images/underline.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-left {
-    background-image: url("images/left.bmp");
+    background-image: url("images/left.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-center {
-    background-image: url("images/center.bmp");
+    background-image: url("images/center.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-right {
-    background-image: url("images/right.bmp");
+    background-image: url("images/right.png");
     background-size: contain;
     width: 20px;
     height: 20px;
@@ -644,42 +644,42 @@ pre {
 }
 
 .toolbar .b-number {
-    background-image: url("images/number.bmp");
+    background-image: url("images/number.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-bullet {
-    background-image: url("images/bullet.bmp");
+    background-image: url("images/bullet.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-outdent {
-    background-image: url("images/indent.bmp");
+    background-image: url("images/indent.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-indent {
-    background-image: url("images/inc-indent.bmp");
+    background-image: url("images/inc-indent.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-hilite {
-    background-image: url("images/highlight.bmp");
+    background-image: url("images/highlight.png");
     background-size: contain;
     width: 20px;
     height: 20px;
 }
 
 .toolbar .b-fontcolor {
-    background-image: url("images/fontcolor.bmp");
+    background-image: url("images/fontcolor.png");
     background-size: contain;
     width: 20px;
     height: 20px;
