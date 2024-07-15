@@ -1,14 +1,16 @@
 const alienLink = document.querySelector('.alienLink');
-const gameDiv = document.querySelector('.gameDiv');
+const decoderDiv = document.querySelector('.decoderDiv');
 const bugReportPopUp = document.querySelector('.bugReportPopUp');
 const bugReportsLinkDiv = document.querySelector('.bugReportsLinkDiv');
+const bugReportsLink = document.querySelector('.bugReportsLink');
 const alienLinkDiv = document.querySelector('.alienLinkDiv');
+character = document.querySelector('.character');
+
+let isDecoderOpen = false;
 
 
 
-
-
-// function for decode the message:
+// Decodes the binary message. 
 function binaryTranslator(str) {
     let translatedMessage = '';
     
@@ -20,8 +22,7 @@ function binaryTranslator(str) {
     return translatedMessage;
 }
 
-
-// Get binary message and decode it using 'binaryTranslator()' function:
+// Get binary message and decode it using 'binaryTranslator()'
 function enteredMessage(event) {
   event.preventDefault();
   var binaryTextInput = document.getElementById('binaryTextInput').value;
@@ -29,34 +30,40 @@ function enteredMessage(event) {
   document.getElementById('textBox1').innerHTML = decode;
 }
 
-var btnSubmit = document.getElementById('binaryTextInputSubmit');
-btnSubmit.addEventListener('click', enteredMessage);
+var closeDecoderDiv = document.getElementById('closeDecoderDiv');
+closeDecoderDiv.addEventListener('click', closePopUpDecoder);
 
+function flickerText() {
+    // Change the text to "TOP SECRET"
+    bugReportsLink.textContent = "TOP SECRET";
 
-
-
-
-
-// alienLink.addEventListener("click", openPopUp);
-window.onload = function () {
-    character = document.querySelector('.character');
-
-
-};
-
-function openPopUpAlien() {
-    gameDiv.style.display = "block";
-    alienLinkDiv.style.display = "block";  
+    // After 3 seconds, change it back to "Bug Reports"
+    setTimeout(() => {
+        bugReportsLink.textContent = "Bug Reports";
+    }, 1000);
 }
 
-function closePopUpAlien() {
-    // gameDiv.style.display = "block";
-    // console.log("test");
+// Opens the decoder div by setting display to block.
+function openPopUpDecoder() {
+    decoderDiv.style.display = "block";
+    bugReportsLink.style.color = "purple";
+    flickerText();
+    console.log("Decoder div opened");
 }
+
+// Closes the decoder div by setting display to none.
+function closePopUpDecoder() {
+    decoderDiv.style.display = "none";
+    console.log("Decoder div closed");
+}
+
+
+
+
 
 function isCollapsedAlien(character, alienLinkDiv) {
-    var object_1 = character.getBoundingClientRect(); 
-    var object_2 = alienLinkDiv.getBoundingClientRect(); 
+    var object_1 = character.getBoundingClientRect();
+    var object_2 = alienLinkDiv.getBoundingClientRect();
 
     if (
         object_1.left < object_2.left + object_2.width &&
@@ -64,15 +71,19 @@ function isCollapsedAlien(character, alienLinkDiv) {
         object_1.top < object_2.top + object_2.height &&
         object_1.top + object_1.height > object_2.top
     ) {
-        openPopUpAlien();
+        if (!isDecoderOpen) {
+            openPopUpDecoder();
+            isDecoderOpen = true;
+        }
     } else {
-        // closePopUpBugReports();
-        console.log("nothing");
-
+        if (isDecoderOpen) {
+            closePopUpDecoder();
+            isDecoderOpen = false;
+        }
     }
 }
 
-// Check collision in the game loop for the alien pop up
+
 const checkCollisionInGameLoopAlien = () => {
     isCollapsedAlien(character, alienLinkDiv);
     window.requestAnimationFrame(() => {
@@ -82,12 +93,8 @@ const checkCollisionInGameLoopAlien = () => {
 checkCollisionInGameLoopAlien();
 
 
-
-
-
-
-
-
+var btnSubmit = document.getElementById('binaryTextInputSubmit');
+btnSubmit.addEventListener('click', enteredMessage);
 
 
 
@@ -128,8 +135,4 @@ const checkCollisionInGameLoopBugReports = () => {
     });
 };
 checkCollisionInGameLoopBugReports();
-
-
-
-
 
