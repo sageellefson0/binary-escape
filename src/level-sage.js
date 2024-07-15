@@ -77,7 +77,7 @@ function isCollapsedAlien(character, alienLinkDiv) {
         }
     } else {
         if (isDecoderOpen) {
-            closePopUpDecoder();
+            // closePopUpDecoder();
             isDecoderOpen = false;
         }
     }
