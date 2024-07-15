@@ -189,7 +189,7 @@ body {
 }
 
 .button-3d.close:hover {
-    background-color: #f0634d;
+    background-color: #e9644f;
 }
 
 .button-3d.maximize {
@@ -246,8 +246,7 @@ body {
 }
 
 .context-menu-item:hover {
-    background-color: navy;
-    color: #fff;
+    background: linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
 }
 
 /* Styling for separators */
