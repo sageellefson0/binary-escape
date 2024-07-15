@@ -46,9 +46,11 @@
     cursor: pointer;
 }
 
-.bugReportsLink{
+.alienLink{
 color: purple !important;
 }
+
+
 
 .bugReportPopUp{
 background-color: lightgrey;
@@ -72,7 +74,6 @@ display: none;
     width: 10px;
     height: 1px;
     margin-left: 130px;
-    background-color: orange;
 }
 
 
@@ -87,12 +88,12 @@ display: none;
     padding-bottom: 10px;
 }
 
-.gameDiv{
+.decoderDiv{
     width: 1000px;
     height: 600px;
     display: none;
     /* color: #ECECE9; */
-    background-color: rgba(51, 50, 50, .8);
+    background-color: rgba(82, 75, 73, 0.8);
     backdrop-filter: blur(7px);
     position: absolute;
     justify-content: center;
@@ -101,7 +102,62 @@ display: none;
     left: 50%;
     border-radius: 10px;
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
 
+#closeDecoderDiv{
+    color: seashell;
+    float: right;
+    padding: 10px;
+    font-size:larger;
+    cursor: pointer;
 }
 
 
+/* Binary input box for the decoder */
+#binaryTextInput{
+    margin-top: 3%;
+    padding: 1%;
+    border: none;
+    background-color: rgba(51, 50, 50, .3);
+    border-bottom: #6C8D9B solid 3px;
+    color: seashell;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+#binaryTextInput:focus{
+    outline:none;}
+
+/* Submit button on binary decoder */
+#binaryTextInputSubmit{
+    margin-top: 3%;
+    background-color: rgba(51, 50, 50, .3);
+    color: seashell;
+    border: none;
+    padding: 1%;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+
+
+}
+
+#saturnImg{
+    width: 140px;
+    height: 220px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+
+}
+
+#saturnCompanyName{
+color: seashell;
+font-size: larger;
+
+}
+
+#textBox1{
+    padding-top: 3%;
+}
