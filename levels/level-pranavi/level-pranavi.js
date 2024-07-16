@@ -1,3 +1,5 @@
+/* ----------------- Word Application Javascript --------------------- */
+
 document.addEventListener('DOMContentLoaded', function() {
     // Helper function to toggle visibility
     function toggleDisplay(element) {
@@ -70,6 +72,42 @@ document.addEventListener('DOMContentLoaded', function() {
      });
  });
 
+ /* ----------------- Puzzle Javascript --------------------- */
+
+// JSON data directly embedded in the script
+const puzzles = {
+     "story": "Far beyond the reaches of known space, aboard the starship Stellar Horizon, Captain Elara and her intrepid crew ventured into uncharted territory. In the depths of the Nebula Veil, they sought a rare mineral essential for powering their warp drives and sustaining their journey.\n\nRadiation storms and gravitational anomalies threatened their path, testing the crew's resolve and resourcefulness. Every maneuver was calculated, every decision critical as they navigated through the swirling mists of the nebula. With sensors detecting faint signals of the coveted mineral on a nearby asteroid field, hope flickered anew among the crew. As they descended, their ship trembled under the onslaught of asteroid impacts, but their determination remained unyielding. Lasers blazed as they mined the precious ore, racing against time and the looming danger of a supernova on the nebula's edge. Loaded with their bounty, they made a daring escape just as the star behind them erupted in a blinding display of cosmic fury.\n\nTheir mission accomplished, the Stellar Horizon surged into hyperspace, leaving the Nebula Veil behind them. Amidst the stars, Captain Elara and her crew celebrated not just their triumph over peril, but the bonds forged in the crucible of deep space exploration.",
+     "password": "firewall"
+  };
+
+// Fill in the story
+document.getElementById('story').innerText = puzzles.story;
+
+// Function to initialize password placeholder with underscores
+function initializePasswordPlaceholder() {
+    const passwordPlaceholder = document.getElementById('password-placeholder');
+    const passwordLength = puzzles.password.length;
+    passwordPlaceholder.innerHTML = '_ '.repeat(passwordLength).trim();
+  }
+  
+  // Handle password input on Enter key press
+  document.addEventListener('DOMContentLoaded', () => {
+    initializePasswordPlaceholder();
+  
+    document.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        const password = puzzles.password.toLowerCase().replace(/[^a-z]/g, '');
+        const passwordPlaceholder = document.getElementById('password-placeholder');
+        const currentPassword = passwordPlaceholder.innerText.replace(/ /g, '');
+  
+        if (password === currentPassword.replace(/ /g, '').toLowerCase()) {
+          alert('Correct password! Access granted.');
+        } else {
+          alert('Incorrect password. Try again.');
+        }
+      }
+    });
+  });
 
 
 
