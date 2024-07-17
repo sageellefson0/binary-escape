@@ -88,60 +88,91 @@ function initializePasswordPlaceholder() {
     const passwordPlaceholder = document.getElementById('password-placeholder');
     const passwordLength = puzzles.password.length;
     passwordPlaceholder.innerHTML = '_ '.repeat(passwordLength).trim();
-  }
+}
 
-  // Handle password input on Enter key press
-  document.addEventListener('DOMContentLoaded', () => {
+// Handle password input on Enter key press
+document.addEventListener('DOMContentLoaded', () => {
     initializePasswordPlaceholder();
 
     let typedPassword = [];
+    let textLength = 0; // Initialize textLength
+
+    const passwordPlaceholder = document.getElementById('password-placeholder');
+    const passwordLength = puzzles.password.length;
 
     document.addEventListener('keydown', (event) => {
-      const passwordPlaceholder = document.getElementById('password-placeholder');
-      const passwordLength = puzzles.password.length;
+        // Prevent default behavior of keys when the div is contenteditable
+        event.preventDefault();
 
-      // Allow typing only if it is a letter and the length of typed characters is less than password length
-      if (event.key.length === 1 && event.key.match(/[a-zA-Z]/i) && typedPassword.length < passwordLength) {
-        typedPassword.push(event.key);
-        updatePasswordPlaceholder(typedPassword);
-      }
-
-      // Handle backspace
-      if (event.key === 'Backspace' && typedPassword.length > 0) {
-        typedPassword.pop();
-        updatePasswordPlaceholder(typedPassword);
-      }
-
-      // Handle Enter key for submission
-      if (event.key === 'Enter') {
-        const enteredPassword = typedPassword.join('').toLowerCase();
-        const correctPassword = puzzles.password.toLowerCase();
-
-        if (enteredPassword === correctPassword) {
-          alert('Correct password! Access granted.');
-        } else {
-          alert('Incorrect password. Try again.');
-          typedPassword = [];
-          updatePasswordPlaceholder(typedPassword);
+        // Handle backspace
+        if (event.key === 'Backspace' && typedPassword.length > 0) {
+            typedPassword.pop();
+            textLength = typedPassword.length; // Update textLength after backspace
+            updatePasswordPlaceholder(typedPassword);
+            placeCaretAtEnd(passwordPlaceholder, textLength); // Place caret after update
+            return;
         }
-      }
+
+        // Allow typing only if it is a letter and the length of typed characters is less than or equal to password length
+        if (event.key.length === 1 && event.key.match(/[a-zA-Z]/i) && typedPassword.length < passwordLength) {
+            typedPassword.push(event.key);
+            textLength = typedPassword.length; // Update textLength after new character
+            updatePasswordPlaceholder(typedPassword);
+            placeCaretAtEnd(passwordPlaceholder, textLength); // Place caret after update
+        }
+
+        // Handle Enter key for submission
+        if (event.key === 'Enter') {
+            const enteredPassword = typedPassword.join('').toLowerCase();
+            const correctPassword = puzzles.password.toLowerCase();
+
+            if (enteredPassword === correctPassword) {
+                alert('Correct password! Access granted.');
+            } else {
+                alert('Incorrect password. Try again.');
+                typedPassword = [];
+                textLength = 0;
+                initializePasswordPlaceholder();
+            }
+        }
     });
 
-    // function updatePasswordPlaceholder(typedPassword) {
-    //   const passwordPlaceholder = document.getElementById('password-placeholder');
-    //   const passwordLength = puzzles.password.length;
-    //   let displayString = '';
+    function updatePasswordPlaceholder(typedPassword) {
+        let displayString = '';
+        for (let i = 0; i < passwordLength; i++) {
+            if (typedPassword[i]) {
+                displayString += typedPassword[i] + ' ';
+            } else {
+                displayString += '_ ';
+            }
+        }
+        passwordPlaceholder.innerHTML = displayString.trim();
+    }
 
-    //   for (let i = 0; i < passwordLength; i++) {
-    //     if (typedPassword[i]) {
-    //       displayString += typedPassword[i] + ' ';
-    //     } else {
-    //       displayString += '_ ';
-    //     }
-    //   }
-    //   passwordPlaceholder.innerHTML = displayString.trim();
-    // }
-  });
+    function placeCaretAtEnd(el, textLength) {
+        const range = document.createRange();
+        const sel = window.getSelection();
+        const lastChild = el.lastChild;
+    
+        // Calculate maximum allowable offset
+        const maxOffset = lastChild.textContent.replace(/\s/g, '').length;
+    
+        // Ensure textLength does not exceed max offset
+        textLength = Math.min(textLength, maxOffset);
+    
+        // Set caret position dynamically based on text length
+        if (lastChild.nodeType === Node.TEXT_NODE && textLength < passwordLength-1) {
+            range.setStart(lastChild, textLength * 2); // Multiply by 2 to account for spaces
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+        else if (lastChild.nodeType === Node.TEXT_NODE && textLength == passwordLength-1) {
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+    }
+    
 
-
-
+});
