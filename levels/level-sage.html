@@ -15,14 +15,32 @@
 
 <body>
     <header></header>
-
     <main>
+
         <!-- Div for holding active character frame -->
         <div class="character">
             <!-- Entire character spritesheet div -->
             <div class="characterSpritesheet"></div>
         </div>
 
+        <div id="alienQuizDiv">
+<img id="alienImg" src="../images/villian.png">
+ <div id="alienChatBox"> how dare you</div>
+       
+ <div id="multipleChoiceQuestion">
+    Example question of thsis I say what say you? 
+ </div>
+
+        <div id="multipleChoiceAnswers">
+            <div class="answerOption"> Test answer</div>            
+            <div class="answerOption"> Test answer</div>
+            <br>
+            <div class="answerOption"> Test answer</div>            
+            <div class="answerOption"> Test answer</div>
+
+        </div>
+    </div>
+<div id="wikiContainer">
         <div class="oldWikiHeaderContainer">
             <div class="oldWikiHeader">
 
@@ -42,7 +60,7 @@
                     123.456.789.000 (<a>Talk</a>)<br>
                     <a>Log in</a> |
                     <a>Help</a> <br>
-                    <input class="wikiSearchInput"> <button>Search</button> <button>Go</button>
+                    <input type="text" id="wikiSearchInput"> <button id="searchButton">Search</button> <button>Go</button>
                 </span>
                 <span class="oldWikiHeaderLinks">
                     <br>
@@ -119,8 +137,17 @@
             <div class="oldWikiSidebarLinks">
                 <a>Special pages</a> <br>
                 <div class="bugReportsLinkDiv"> </div><a class="bugReportsLink">Bug reports</a>
-
                 <div class="bugReportPopUp">
+                    01000101<br>
+                    01000011<br>
+                    01001000<br>	
+                    01000001<br>
+                    01010011<br>
+                    <br>
+                    01001111<br>
+                    01000110<br>
+                    01010010<br>
+                    <br>
                     01000001<br>
                     01010100<br>
                     01010010<br>
@@ -128,10 +155,7 @@
                     01010101<br>
                     01001110<br>
                 </div>
-
-                <br>
             </div>
-
         </div>
 
         <div class="decoderDiv">
@@ -148,19 +172,48 @@
 
             <input type="text" id="binaryTextInput"/> <br>
 
-            <button id="binaryTextInputSubmit"> Submit </button>
-
-            <div id="textBox1"> hello?</div>
-
-        </div>
+            <button id="binaryTextInputSubmit"> Decode </button>
+            <button id="binaryTextInputClear"> Clear </button>
 
 
+            <div id="decoderTextBox"></div>
 
+            <div id="letterSpotsContainer">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                &nbsp;
+                &nbsp;
+
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                &nbsp;
+                &nbsp;
+
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+
+
+
+            </div>
+
+     
+
+
+    </div>
 
         <!-- <div class="dialogueBox">
             <p class="characterSpeech">A Wikipedia page? Something isn't right here. </p>
         </div> -->
-
+    </div>
     </main>
 
     <footer></footer>

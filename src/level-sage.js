@@ -22,12 +22,23 @@ function binaryTranslator(str) {
     return translatedMessage;
 }
 
+
+const decodedLetters = [];
+
 // Get binary message and decode it using 'binaryTranslator()'
 function enteredMessage(event) {
-  event.preventDefault();
-  var binaryTextInput = document.getElementById('binaryTextInput').value;
-  var decode = binaryTranslator(binaryTextInput);  
-  document.getElementById('textBox1').innerHTML = decode;
+    event.preventDefault();
+    var binaryTextInput = document.getElementById('binaryTextInput').value;
+
+    // Check if the input is empty
+    if (!binaryTextInput.trim()) {
+        alert("Please enter something into the decoder.");
+        return;
+    }
+
+    var decode = binaryTranslator(binaryTextInput);
+    decodedLetters.push(decode);
+    document.getElementById('decoderTextBox').innerHTML = decodedLetters.join(' ');
 }
 
 var closeDecoderDiv = document.getElementById('closeDecoderDiv');
@@ -93,9 +104,17 @@ const checkCollisionInGameLoopAlien = () => {
 checkCollisionInGameLoopAlien();
 
 
+function clearDecoderTextBox(){
+    document.getElementById('decoderTextBox').innerHTML = "";
+    decodedLetters.length = 0;
+
+}
+
 var btnSubmit = document.getElementById('binaryTextInputSubmit');
 btnSubmit.addEventListener('click', enteredMessage);
 
+var binaryTextInputClear = document.getElementById('binaryTextInputClear');
+binaryTextInputClear.addEventListener('click', clearDecoderTextBox);
 
 
 // Show the bug report popup
@@ -135,4 +154,29 @@ const checkCollisionInGameLoopBugReports = () => {
     });
 };
 checkCollisionInGameLoopBugReports();
+
+
+
+let searchButton = document.getElementById('searchButton');
+let wikiSearchInput = document.getElementById('wikiSearchInput');
+let alienQuizDiv = document.getElementById('alienQuizDiv');
+let wikiContainer = document.getElementById('wikiContainer');
+
+
+function alienQuizPage() {
+    wikiContainer.style.display = "none";
+    alienQuizDiv.style.display = "block"; 
+
+    // Change the background color to black
+    setTimeout(() => {
+        alienQuizDiv.style.backgroundColor = "#1B1B1B"; 
+    }, 0); 
+
+    // Fade in the alienImg after the background color transition (assuming 10 seconds for the background)
+    setTimeout(() => {
+        alienImg.style.opacity = 1; // Fade in the image
+    }, 5000); 
+}
+
+searchButton.addEventListener('click', alienQuizPage);
 
