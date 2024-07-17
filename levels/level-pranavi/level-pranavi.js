@@ -89,24 +89,58 @@ function initializePasswordPlaceholder() {
     const passwordLength = puzzles.password.length;
     passwordPlaceholder.innerHTML = '_ '.repeat(passwordLength).trim();
   }
-  
+
   // Handle password input on Enter key press
   document.addEventListener('DOMContentLoaded', () => {
     initializePasswordPlaceholder();
-  
-    document.addEventListener('keypress', (event) => {
+
+    let typedPassword = [];
+
+    document.addEventListener('keydown', (event) => {
+      const passwordPlaceholder = document.getElementById('password-placeholder');
+      const passwordLength = puzzles.password.length;
+
+      // Allow typing only if it is a letter and the length of typed characters is less than password length
+      if (event.key.length === 1 && event.key.match(/[a-zA-Z]/i) && typedPassword.length < passwordLength) {
+        typedPassword.push(event.key);
+        updatePasswordPlaceholder(typedPassword);
+      }
+
+      // Handle backspace
+      if (event.key === 'Backspace' && typedPassword.length > 0) {
+        typedPassword.pop();
+        updatePasswordPlaceholder(typedPassword);
+      }
+
+      // Handle Enter key for submission
       if (event.key === 'Enter') {
-        const password = puzzles.password.toLowerCase().replace(/[^a-z]/g, '');
-        const passwordPlaceholder = document.getElementById('password-placeholder');
-        const currentPassword = passwordPlaceholder.innerText.replace(/ /g, '');
-  
-        if (password === currentPassword.replace(/ /g, '').toLowerCase()) {
+        const enteredPassword = typedPassword.join('').toLowerCase();
+        const correctPassword = puzzles.password.toLowerCase();
+
+        if (enteredPassword === correctPassword) {
           alert('Correct password! Access granted.');
         } else {
           alert('Incorrect password. Try again.');
+          typedPassword = [];
+          updatePasswordPlaceholder(typedPassword);
         }
       }
     });
+
+    // function updatePasswordPlaceholder(typedPassword) {
+    //   const passwordPlaceholder = document.getElementById('password-placeholder');
+    //   const passwordLength = puzzles.password.length;
+    //   let displayString = '';
+
+    //   for (let i = 0; i < passwordLength; i++) {
+    //     if (typedPassword[i]) {
+    //       displayString += typedPassword[i] + ' ';
+    //     } else {
+    //       displayString += '_ ';
+    //     }
+    //   }
+    //   passwordPlaceholder.innerHTML = displayString.trim();
+    // }
   });
 
 
