@@ -217,3 +217,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+/* ----------------- Sprite Character Javascript --------------------- */
+
+const characterImg = document.getElementById("character-img");
+        const imageSources = [
+            "images/character/malecharacter1.png",
+            "images/character/malecharacter2.png"
+        ];
+
+        let currentImageIndex = 0;
+
+        const switchImage = () => {
+            currentImageIndex = (currentImageIndex + 1) % imageSources.length;
+            characterImg.src = imageSources[currentImageIndex];
+        };
+
+        // Set an interval to switch images every 500 milliseconds
+        setInterval(switchImage, 500);

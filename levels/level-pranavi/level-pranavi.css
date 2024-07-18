@@ -911,3 +911,14 @@ pre {
     padding: 10px 20px 10px 20px;
 }
 /* ----------------- End Global Window --------------------- */
+
+.character {
+    position: absolute;
+    left: 15px; 
+    bottom: 0px; 
+}
+
+.character img {
+    width: 200x; /* Width of one sprite frame */
+    height: 333px;
+}
