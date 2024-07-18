@@ -922,3 +922,12 @@ pre {
     width: 200x; /* Width of one sprite frame */
     height: 333px;
 }
+
+.clippy {
+    display: block;
+    width: 120px;
+    height: 150px;
+    background: url("../../clippy.js-master/agents/Clippy/map.png") -248px -3069px no-repeat;
+    bottom: 20px;
+    right: 30px;
+}
