@@ -240,17 +240,17 @@ const characterImg = document.getElementById("character-img");
 /* ----------------- Clippy Javascript --------------------- */
 
 
-// Function to move clippy and make it speak
-function activateClippy() {
-  clippy.load('Clippy', function(agent){
-    // do anything with the loaded agent
-    agent.show();
-      a.moveTo($(window).width() * 0.75, $(window).height() * 0.75);
-      a.speak('This is Microsoft Word. You can edit files and save them to the desktop which is internally stored to Local Storage. Be careful when you clear cache. You can also download the file to your own computer.');
-  });
-}
+// // Function to move clippy and make it speak
+// function activateClippy() {
+//   clippy.load('Clippy', function(agent){
+//     // do anything with the loaded agent
+//     agent.show();
+//       a.moveTo($(window).width() * 0.75, $(window).height() * 0.75);
+//       a.speak('This is Microsoft Word. You can edit files and save them to the desktop which is internally stored to Local Storage. Be careful when you clear cache. You can also download the file to your own computer.');
+//   });
+// }
 
-// Set a timeout to activate clippy after 5 minutes (300,000 milliseconds)
-setTimeout(function() {
-      activateclippy();
-}, 300); // 5 minutes in milliseconds
+// // Set a timeout to activate clippy after 5 minutes (300,000 milliseconds)
+// setTimeout(function() {
+//       activateclippy();
+// }, 300); // 5 minutes in milliseconds
