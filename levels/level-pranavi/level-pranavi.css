@@ -59,8 +59,9 @@ body {
 * Document
 ****/
 .word .document-scroller {
+    display: block;
     overflow: auto;
-    height: 80.5vh;
+    height: calc(100vh - 8.5rem);
     background-color: #7ea0ce;;
 }
 
