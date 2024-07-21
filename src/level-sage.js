@@ -166,7 +166,7 @@ let wikiContainer = document.getElementById('wikiContainer');
 function alienQuizPage() {
     wikiContainer.style.display = "none";
     alienQuizDiv.style.display = "block"; 
-
+    
     // Change the background color to black
     setTimeout(() => {
         alienQuizDiv.style.backgroundColor = "#1B1B1B"; 
@@ -176,7 +176,115 @@ function alienQuizPage() {
     setTimeout(() => {
         alienImg.style.opacity = 1; // Fade in the image
     }, 5000); 
+
+    startTypingAndQuestion();
+
 }
 
 searchButton.addEventListener('click', alienQuizPage);
+
+
+
+var i = 0;
+var lineIndex = 0;
+var typingText = [
+    'Gah...Urgh...Spla...Who would dare to summon me?',
+    'Oh. A human.',
+    'My name is Scuddlefluff, ruler of Saturn.',
+    'Something something I will kill you if you don\'t answer my questions. Blah blah blah.',
+    'Seriously though, you have to answer these questions. '
+];
+var textSpeed = 80; // The speed/duration of the typing effect in milliseconds
+var pauseTime = 2000; // 3 seconds pause between lines
+
+function typeWriterAlienSpeak(callback) {
+    if (lineIndex < typingText.length) {
+        if (i < typingText[lineIndex].length) {
+            document.getElementById("alienChatBox").innerHTML += typingText[lineIndex].charAt(i);
+            i++;
+            setTimeout(() => typeWriterAlienSpeak(callback), textSpeed);
+        } else {
+            i = 0;
+            lineIndex++;
+            setTimeout(() => {
+                document.getElementById("alienChatBox").innerHTML = ''; // Clear the line after pause
+                if (lineIndex < typingText.length) {
+                    setTimeout(() => typeWriterAlienSpeak(callback), textSpeed); // Start typing the next line
+                } else if (callback) {
+                    callback(); // Call the callback function after the last line
+                }
+            }, pauseTime); // Pause before clearing the line
+        }
+    }
+    // setTimeout(displayQuestion(0), 15000);
+    // displayQuestion(0);
+}
+
+function startTypingAndQuestion() {
+    typeWriterAlienSpeak(() => {
+        setTimeout(() => displayQuestion(0), 2000); // Call displayQuestion 15 seconds after typing is done
+    });
+}
+
+function displayQuestion(index) {
+    let questionsSlot = document.getElementById('multipleChoiceQuestion');
+    let answerSlots = document.getElementById('multipleChoiceAnswers');
+    questionsSlot.style.display = "block"; 
+    answerSlots.style.display = "block"; 
+
+    let answerA = document.getElementById('answerA');
+    let answerB = document.getElementById('answerB');
+    let answerC = document.getElementById('answerC');
+    let answerD = document.getElementById('answerD');
+
+    var questionList = [
+        {
+            question: 'How far is Saturn from Earth?',
+            answers: ['950.3 billion mi', '835.2 million mi', '1.4 billion mi', '8.9 mi'],
+            correct: '835.2 million mi'
+        },
+        {
+            question: 'How many moons does Saturn have?',
+            answers: ['146', '238', '43', '7'],
+            correct: '146'
+        },
+        {
+            question: 'What planets lie between Earth and Saturn?',
+            answers: ['Mercury and Uranus', 'Pluto and Neptune', 'Venus and Mars', 'Jupiter and Mars'],
+            correct: 'Jupiter and Mars'
+        },
+        {
+            question: 'How many rings does Saturn have? (According to NASA)',
+            answers: ['22', '3', '7', '38'],
+            correct: '7'
+        },
+        {
+            question: 'What is my name?',
+            answers: ['Snazzlepuff', 'Hizzlefritz', 'Orson', 'Bill'],
+            correct: 'Orson'
+        }
+    ];
+
+    if (index < questionList.length) {
+        questionsSlot.innerHTML = questionList[index].question;
+        answerA.innerHTML = questionList[index].answers[0];
+        answerB.innerHTML = questionList[index].answers[1];
+        answerC.innerHTML = questionList[index].answers[2];
+        answerD.innerHTML = questionList[index].answers[3];
+
+        answerA.onclick = () => checkAnswer(questionList[index], answerA.innerHTML, index);
+        answerB.onclick = () => checkAnswer(questionList[index], answerB.innerHTML, index);
+        answerC.onclick = () => checkAnswer(questionList[index], answerC.innerHTML, index);
+        answerD.onclick = () => checkAnswer(questionList[index], answerD.innerHTML, index);
+    }
+}
+
+function checkAnswer(question, selectedAnswer, index) {
+    if (selectedAnswer === question.correct) {
+        alert('Correct!');
+    } else {
+        alert('Incorrect!');
+    }
+    displayQuestion(index + 1); // Display the next question
+}
 
