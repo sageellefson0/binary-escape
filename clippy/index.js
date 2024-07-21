@@ -10,3 +10,6 @@
     var anim;
 
     anim = lottie.loadAnimation(params);
+
+
+ 
