@@ -914,14 +914,14 @@ pre {
 /* ----------------- End Global Window --------------------- */
 
 .character {
-    position: absolute;
+    position: fixed;
     left: 15px; 
-    bottom: 0px; 
+    bottom: -5px; 
 }
 
 .character img {
-    width: 200x; /* Width of one sprite frame */
-    height: 333px;
+    width: 200px; /* Width of one sprite frame */
+    height: auto;
 }
 
 .agent {
