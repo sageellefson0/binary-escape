@@ -243,7 +243,7 @@ const characterImg = document.getElementById("character-img");
 document.addEventListener("DOMContentLoaded", function() {
   const initialText = "Find the hidden message to move on to the next round!";
   const hintText = "Click me for a hint!";
-  const clickText = "My eyes are so bad I can only see the capital letters!";
+  const clickText = "First impressions can be more revealing than you think!";
   const hintElement = document.getElementById("hint");
   let index = 0;
   let currentText = initialText;
@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // Show "Click me for a hint!" after 2.5 minutes
   setTimeout(function() {
       typeText(hintText);
-  }, 3600); // 2.5 minutes = 150000 milliseconds
+  }, 150000); // 2.5 minutes = 150000 milliseconds
 
  // Click event handler
  function handleClick() {
