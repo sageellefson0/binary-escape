@@ -11,7 +11,10 @@
 
 
     <body>
-        <header></header>
+
+        <div id="problemssigninginbutton">
+            <button type="button">Problems Signing In?</button>
+        </div>
 
         <main>
             <!-- Div for holding active character frame -->
@@ -20,6 +23,32 @@
                 <div class="characterSpritesheet"></div>
             </div>
         </main>
+
+            <!-- Popup window for the game -->
+        <div id="overlay"></div>
+        <div id="popup">
+            <h2>Guess the Password</h2>
+            <p>Binary Sequence: <span id="binary-sequence">010101011010</span></p>
+            <div id="questions"></div>
+            <button onclick="checkAnswers()">Submit Answers</button>
+            <div id="result" class="feedback"></div>
+            <div id="error" class="error"></div>
+            <button onclick="closePopup()">Close</button>
+        </div>
+
+        <div id="passwordPopup">
+            <h2>New Password</h2>
+            <p>The new password is: <span id="new-password">binaryEscapeTeamHasFooledYou</span></p>
+            <input type="text" id="passwordInput" placeholder="Enter the new password">
+            <button onclick="submitPassword()">Submit Password</button>
+            <div id="passwordResult" class="feedback"></div>
+            <button onclick="closePasswordPopup()">Close</button>
+        </div>
+
+        <div id="congratulations">
+            <button class="close-button" onclick="closeCongratulations()">X</button>
+            <img src="../images/Congratulations.png" alt="Congratulations">
+        </div>
 
         <div id="skypeInterface">
             <img id="skypeInt" src="../images/oldskypeinterface.png" alt="Skype Interface">
