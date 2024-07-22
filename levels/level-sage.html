@@ -15,70 +15,107 @@
 
 <body>
     <header></header>
-
     <main>
+
         <!-- Div for holding active character frame -->
         <div class="character">
             <!-- Entire character spritesheet div -->
             <div class="characterSpritesheet"></div>
         </div>
 
+        <div id="alienQuizDiv">
+<img id="alienImg" src="../images/villian.png">
+ <div id="alienChatBox"></div>
+       
+ <div id="multipleChoiceQuestion">
+    Example question of thsis I say what say you? 
+ </div>
+
+        <div id="multipleChoiceAnswers">
+            <div class="answerOption" id="answerA"> Test answer</div>            
+            <div class="answerOption" id="answerB"> Test answer</div>
+            <br>
+            <div class="answerOption" id="answerC"> Test answer</div>            
+            <div class="answerOption" id="answerD"> Test answer</div>
+
+        </div>
+    </div>
+<div id="wikiContainer">
         <div class="oldWikiHeaderContainer">
-        <div class="oldWikiHeader">
+            <div class="oldWikiHeader">
 
-            <span class="oldWikiHeaderLinks"> 
+                <span class="oldWikiHeaderLinks">
 
-                <a>Main Page</a> |
-                <a>Recent Pages</a> |
+                    <a>Main Page</a> |
+                    <a>Recent Pages</a> |
 
 
-                <a>Edit this page</a> |
-                <a>Older Versions</a> | <br>
-                <a>Printable version</a> 
+                    <a>Edit this page</a> |
+                    <a>Older Versions</a> | <br>
+                    <a>Printable version</a>
 
-                
-            </span>
-                <span class="oldWikiHeaderSearchBarLogin"> 
-                123.456.789.000 (<a>Talk</a>)<br>
-                <a>Log in</a> |
-                <a>Help</a> <br> 
-            <input class="wikiSearchInput"> <button>Search</button>  <button>Go</button>
-        </span>
-        <span class="oldWikiHeaderLinks"> 
-        <br>
-        <br>
-                Other languages: <a class="alienLink">Alien</a>
+
+                </span>
+                <span class="oldWikiHeaderSearchBarLogin">
+                    123.456.789.000 (<a>Talk</a>)<br>
+                    <a>Log in</a> |
+                    <a>Help</a> <br>
+                    <input type="text" id="wikiSearchInput"> <button id="searchButton">Search</button> <button>Go</button>
+                </span>
+                <span class="oldWikiHeaderLinks">
+                    <br>
+                    <br>
+
+                    <div class="alienLinkDiv"> </div>Other languages: <a class="alienLink">Alien</a>
                 </span>
 
             </div>
 
-                <div class="wikiBody">
-                    <h2 class="wikiHeading">Space Shuttle Columbia</h2>
-                    <div class="wikiText">
-                        From Wikipedia, the free encylcopedia.<br>
-                        <br>
+            <div class="wikiBody">
+                <h2 class="wikiHeading">Space Shuttle Columbia</h2>
+                <div class="wikiText">
+                    From Wikipedia, the free encylcopedia.<br>
+                    <br>
 
-                    Shuttle Orbiter Columbia (NASA Designation: OV-102) was the oldest <span>space shuttle</span> in <span>NASA</span>'s fleet, first flying mission <span>STS-1</span> from <span>April 12</span> to <span>April 14, 1981</span>. It was lost with all crew on re-entry on its 28th mission, <span>STS-107</span>, which lasted from <span>January 16</span> to February 1, 2003.
+                    Shuttle Orbiter Columbia (NASA Designation: OV-102) was the oldest <span>space shuttle</span> in
+                    <span>NASA</span>'s fleet, first flying mission <span>STS-1</span> from <span>April 12</span> to
+                    <span>April 14, 1981</span>. It was lost with all crew on re-entry on its 28th mission,
+                    <span>STS-107</span>, which lasted from <span>January 16</span> to February 1, 2003.
                     <br>
                     <br>
-                    After being constructed, the orbiter arrived at John F. Kennedy Space Center on March 25, 1979 to be prepared for its first launch. However, before its first mission three workers were killed and five injured during a ground test of the orbiter on March 19, 1981.
+                    After being constructed, the orbiter arrived at John F. Kennedy Space Center on March 25, 1979 to be
+                    prepared for its first launch. However, before its first mission three workers were killed and five
+                    injured during a ground test of the orbiter on March 19, 1981.
                     <br>
                     <br>
-                    The first flight of Columbia was commanded by John Young (a space veteran from the Gemini and Apollo eras) and piloted by Robert Crippen a rookie who had never been in space before, but who served as support crew for the Skylab missions and Apollo-Soyuz.
+                    The first flight of Columbia was commanded by John Young (a space veteran from the Gemini and Apollo
+                    eras) and piloted by Robert Crippen a rookie who had never been in space before, but who served as
+                    support crew for the Skylab missions and Apollo-Soyuz.
                     <br>
                     <br>
-                    In 1983 Columbia launched the first mission (STS-9) with 6 astronauts, including the first non-American astronaut, Ulf Merbold, from Germany on a space shuttle. On January 12, 1986 Columbia took off with the first Hispanic-American astronaut, Dr. Franklin R. Chang-Diaz. Another first was announced on March 5, 1998 when NASA named their choice of United States Air Force Lt. Col. Eileen Collins as commander of a future Columbia mission making Collins the first woman commander of a space shuttle mission. On its final mission the craft was carrying the first Israeli astronaut, Ilan Ramon and the first woman astronaut of Indian birth, Kalpana Chawla. Other crew members on the final flight included Rick Husband (commander), Willie McCool (pilot), Michael P. Anderson, Laurel Clark, and David Brown.
+                    In 1983 Columbia launched the first mission (STS-9) with 6 astronauts, including the first
+                    non-American astronaut, Ulf Merbold, from Germany on a space shuttle. On January 12, 1986 Columbia
+                    took off with the first Hispanic-American astronaut, Dr. Franklin R. Chang-Diaz. Another first was
+                    announced on March 5, 1998 when NASA named their choice of United States Air Force Lt. Col. Eileen
+                    Collins as commander of a future Columbia mission making Collins the first woman commander of a
+                    space shuttle mission. On its final mission the craft was carrying the first Israeli astronaut, Ilan
+                    Ramon and the first woman astronaut of Indian birth, Kalpana Chawla. Other crew members on the final
+                    flight included Rick Husband (commander), Willie McCool (pilot), Michael P. Anderson, Laurel Clark,
+                    and David Brown.
                     <br>
                     <br>
-                    On the morning of February 1, 2003, the shuttle re-entered the atmosphere after a 16-day scientific mission. NASA lost radio contact at about 9 a.m. EST, only minutes before the expected 09:16 landing at Kennedy Space Center in Florida. Video recordings show the craft breaking up in flames over Texas, at an altitude of approximately 39 miles (63 km) and a speed of 12,500 mph (20,000 km/h).
+                    On the morning of February 1, 2003, the shuttle re-entered the atmosphere after a 16-day scientific
+                    mission. NASA lost radio contact at about 9 a.m. EST, only minutes before the expected 09:16 landing
+                    at Kennedy Space Center in Florida. Video recordings show the craft breaking up in flames over
+                    Texas, at an altitude of approximately 39 miles (63 km) and a speed of 12,500 mph (20,000 km/h).
 
-See also: Space Shuttle Columbia disaster
-                    </div>
+                    See also: Space Shuttle Columbia disaster
                 </div>
-        
+            </div>
+
         </div>
 
-        
+
         <div class="oldWikiSidebar">
             <img class="oldWikiLogo" src="../images/oldWikiLogo.png">
 
@@ -99,22 +136,84 @@ See also: Space Shuttle Columbia disaster
 
             <div class="oldWikiSidebarLinks">
                 <a>Special pages</a> <br>
-                <a>Bug reports</a> <br>
+                <div class="bugReportsLinkDiv"> </div><a class="bugReportsLink">Bug reports</a>
+                <div class="bugReportPopUp">
+                    01000101<br>
+                    01000011<br>
+                    01001000<br>	
+                    01000001<br>
+                    01010011<br>
+                    <br>
+                    01001111<br>
+                    01000110<br>
+                    01010010<br>
+                    <br>
+                    01000001<br>
+                    01010100<br>
+                    01010010<br>
+                    01010011<br>
+                    01010101<br>
+                    01001110<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="decoderDiv">
+           <div id="closeDecoderDiv"> <i class="fa-solid fa-x"></i></div>
+            <br>
+            <br>
+            <br>
+            
+
+
+            <img id="saturnImg" src="../images/saturnPic.jpeg"><br>
+            <span id="saturnCompanyName"> OrbitX Saturnian Tech Inc </span>
+            <br>
+
+            <input type="text" id="binaryTextInput"/> <br>
+
+            <button id="binaryTextInputSubmit"> Decode </button>
+            <button id="binaryTextInputClear"> Clear </button>
+
+
+            <div id="decoderTextBox"></div>
+
+            <div id="letterSpotsContainer">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                &nbsp;
+                &nbsp;
+
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                &nbsp;
+                &nbsp;
+
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+                <input type="text" maxlength="1"  class="letterSpots">
+
+
+
             </div>
 
-        </div>
+     
 
-        <div class="gameDiv">
-           
-        </div>
 
-  
-   
+    </div>
 
         <!-- <div class="dialogueBox">
             <p class="characterSpeech">A Wikipedia page? Something isn't right here. </p>
         </div> -->
-
+    </div>
     </main>
 
     <footer></footer>
