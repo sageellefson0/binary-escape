@@ -159,21 +159,54 @@ document.addEventListener("DOMContentLoaded", () => {
       placeCaretAtEnd(passwordPlaceholder, textLength); // Place caret after update
     }
 
-    // Handle Enter key for submission
-    if (event.key === "Enter") {
-      const enteredPassword = typedPassword.join("").toLowerCase();
-      const correctPassword = selectedPuzzle.password.toLowerCase();
 
-      if (enteredPassword === correctPassword) {
-        alert("Correct password! Access granted.");
-      } else {
-        alert("Incorrect password. Try again.");
-        typedPassword = [];
-        textLength = 0;
-        initializePasswordPlaceholder();
-      }
+    const overlay = document.querySelector('.overlay');
+    const dialogBox = document.querySelector('.dialog-box');
+    const dialogButton = document.querySelector('.dialog-button');
+    const closeButton = document.getElementById('dialog-close');
+    const dialogMessage = document.querySelector('.dialog-message');
+    let passwordCorrect = false;
+
+    function showDialog() {
+        overlay.style.display = 'block';
+        dialogBox.style.display = 'block';
     }
+
+    function hideDialog() {
+        overlay.style.display = 'none';
+        dialogBox.style.display = 'none';
+    }
+
+    // Event listener for the Enter key
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            const enteredPassword = typedPassword.join("").toLowerCase();
+            const correctPassword = selectedPuzzle.password.toLowerCase();
+
+            if (enteredPassword === correctPassword) {
+                dialogMessage.textContent = "Correct password! Access granted.";
+                passwordCorrect = true;
+            } else {
+                dialogMessage.textContent = "Incorrect password. Try again.";
+                passwordCorrect = false;
+            }
+            showDialog();
+        }
+    });
+
+    // Event listener for the close button
+    closeButton.addEventListener('click', hideDialog);
+
+    // Event listener for the Okay button
+    dialogButton.addEventListener('click', function() {
+        if (passwordCorrect) {
+            window.location.href = ""; // Replace with actual link to next round
+        } else {
+            hideDialog();
+        }
+    });
   });
+
 
   function updatePasswordPlaceholder(typedPassword) {
     let displayString = "";
