@@ -19,7 +19,7 @@ body {
     border: 1px solid #848484;
     border-right-color: #ffffff;
     border-bottom-color: #ffffff;
-    background: #cdddf7 !important;
+    background: #cdddf7;
     height: 100%;
     width: 100%;
 }
@@ -168,6 +168,7 @@ body {
     background: #d6d6ce;
     height: 14px;
     width: 14px;
+    margin-top: 0.5px;
     color: transparent;
     text-decoration: none;
     background-position: center;
@@ -871,46 +872,68 @@ pre {
     background: linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
 }
 
-.dialog {
-    width: auto;
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: block; /* Hidden by default */
+    z-index: 10; /* Ensure the overlay is behind the dialog box */
+}
+
+
+.dialog-box {
+    width: 25rem;
     height: auto;
     position: absolute;
-    top: 50%;
+    top: 43%;
     left: 50%;
     transform: translate(-50%, -50%);
-    display: none;
+    display: block;
+    background-color: #cdddf7;
+
+    box-shadow: 1px 1px 0px 0px #424242;
+    border: 1px solid #ffffff;
+    border-right-color: #848484;
+    border-bottom-color: #848484;
+
+    z-index: 11;
 }
 
-.dialog .title {
-    background: none !important;
-    padding-left: 4px !important;
+.dialog-box .button-3d {
+    margin-top: 1px;
 }
 
-.dialog .error-content {
+.dialog-box .box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: auto;
-    background: #c0c0c0;
+    margin: 10px;
+    
+    border: 1px solid #848484;
+    box-shadow: 1px 1px 0px 0px #424242;
+    background-color: rgb(243, 243, 243);
+    
 }
 
-.dialog p {
-    margin: 10px 20px 0px 20px;
-    display: inline-block;
-    text-align: left;
-    vertical-align: top;
-    max-width: 400px;
-    word-wrap: break-word;
+.dialog-button {
+    border: 1px solid #ffffff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    background: #d6d6ce;
+    margin-bottom: 8px;
+} 
+
+.dialog-button:hover, 
+.dialog-button:active {
+    background: linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
 }
 
-.dialog img {
-    width: 32px;
-}
 
-.dialog .button {
-    text-align: center;
-}
-
-.dialog .text {
-    padding: 10px 20px 10px 20px;
-}
 /* ----------------- End Global Window --------------------- */
 
 .character {
