@@ -174,14 +174,23 @@ function alienQuizPage() {
 
     // Fade in the alienImg after the background color transition (assuming 10 seconds for the background)
     setTimeout(() => {
-        alienImg.style.opacity = 1; // Fade in the image
+        alienImg.style.opacity = 1; 
     }, 5000); 
 
     startTypingAndQuestion();
 
 }
 
-searchButton.addEventListener('click', alienQuizPage);
+searchButton.addEventListener('click', () => {
+    const searchInputValue = wikiSearchInput.value.trim().toLowerCase();
+
+    if (searchInputValue === "saturn") {
+        // Call the alienQuizPage function if the input is "saturn" or "SATURN"
+        alienQuizPage();
+    } else {
+        alert("Incorrect.");
+    }
+});
 
 
 
@@ -189,13 +198,13 @@ var i = 0;
 var lineIndex = 0;
 var typingText = [
     'Gah...Urgh...Spla...Who would dare to summon me?',
-    'Oh. A human.',
-    'My name is Scuddlefluff, ruler of Saturn.',
+    'Oh. A human. My name is Orson, ruler of Saturn.',
     'Something something I will kill you if you don\'t answer my questions. Blah blah blah.',
     'Seriously though, you have to answer these questions. '
 ];
-var textSpeed = 80; // The speed/duration of the typing effect in milliseconds
-var pauseTime = 2000; // 3 seconds pause between lines
+var textSpeed = 80; 
+var pauseTime = 1000; 
+var answerSelected = false;
 
 function typeWriterAlienSpeak(callback) {
     if (lineIndex < typingText.length) {
@@ -207,7 +216,7 @@ function typeWriterAlienSpeak(callback) {
             i = 0;
             lineIndex++;
             setTimeout(() => {
-                document.getElementById("alienChatBox").innerHTML = ''; // Clear the line after pause
+                document.getElementById("alienChatBox").innerHTML = ''; 
                 if (lineIndex < typingText.length) {
                     setTimeout(() => typeWriterAlienSpeak(callback), textSpeed); // Start typing the next line
                 } else if (callback) {
@@ -216,21 +225,25 @@ function typeWriterAlienSpeak(callback) {
             }, pauseTime); // Pause before clearing the line
         }
     }
-    // setTimeout(displayQuestion(0), 15000);
-    // displayQuestion(0);
 }
 
 function startTypingAndQuestion() {
     typeWriterAlienSpeak(() => {
-        setTimeout(() => displayQuestion(0), 2000); // Call displayQuestion 15 seconds after typing is done
+        setTimeout(() => displayQuestion(0), 1000); 
     });
 }
 
 function displayQuestion(index) {
+    answerSelected = false;
+    
     let questionsSlot = document.getElementById('multipleChoiceQuestion');
     let answerSlots = document.getElementById('multipleChoiceAnswers');
     questionsSlot.style.display = "block"; 
     answerSlots.style.display = "block"; 
+    setTimeout(() => {
+        questionsSlot.style.opacity = 1; 
+        answerSlots.style.opacity = 1; 
+    }, 500); 
 
     let answerA = document.getElementById('answerA');
     let answerB = document.getElementById('answerB');
@@ -250,7 +263,7 @@ function displayQuestion(index) {
         },
         {
             question: 'What planets lie between Earth and Saturn?',
-            answers: ['Mercury and Uranus', 'Pluto and Neptune', 'Venus and Mars', 'Jupiter and Mars'],
+            answers: ['Venus and Uranus', 'Mercury and Mars', 'Venus and Mars', 'Jupiter and Mars'],
             correct: 'Jupiter and Mars'
         },
         {
@@ -272,19 +285,165 @@ function displayQuestion(index) {
         answerC.innerHTML = questionList[index].answers[2];
         answerD.innerHTML = questionList[index].answers[3];
 
-        answerA.onclick = () => checkAnswer(questionList[index], answerA.innerHTML, index);
-        answerB.onclick = () => checkAnswer(questionList[index], answerB.innerHTML, index);
-        answerC.onclick = () => checkAnswer(questionList[index], answerC.innerHTML, index);
-        answerD.onclick = () => checkAnswer(questionList[index], answerD.innerHTML, index);
+        answerA.onclick = () => handleAnswerClick(questionList[index], answerA.innerHTML, index);
+        answerB.onclick = () => handleAnswerClick(questionList[index], answerB.innerHTML, index);
+        answerC.onclick = () => handleAnswerClick(questionList[index], answerC.innerHTML, index);
+        answerD.onclick = () => handleAnswerClick(questionList[index], answerD.innerHTML, index);
+    } else {
+        typeFinalMessage();
     }
+}
+
+function handleAnswerClick(question, selectedAnswer, index) {
+    if (!answerSelected) {
+        answerSelected = true;
+        checkAnswer(question, selectedAnswer, index);
+    }
+}
+
+function getRandomImages() {
+    var images = [
+        '../images/cat1.jpg',
+        '../images/cat2.jpg',
+        '../images/cat3.jpg',
+        '../images/puppy1.jpg',
+        '../images/puppy2.jpg',
+        '../images/puppy3.jpg'
+    ];
+
+    var randomIndices = [];
+    while (randomIndices.length < 2) {
+        var randomIndex = Math.floor(Math.random() * images.length);
+        if (!randomIndices.includes(randomIndex)) {
+            randomIndices.push(randomIndex);
+        }
+    }
+
+    return [images[randomIndices[0]], images[randomIndices[1]]];
+}
+
+function typeWriterAnswer(message, callback, clearBeforeNext = false) {
+    var i = 0;
+    document.getElementById("alienChatBox").innerHTML = '';
+
+    function type() {
+        if (i < message.length) {
+            document.getElementById("alienChatBox").innerHTML += message.charAt(i);
+            i++;
+            setTimeout(type, textSpeed);
+        } else if (callback) {
+            if (clearBeforeNext) {
+                setTimeout(() => {
+                    document.getElementById("alienChatBox").innerHTML = '';
+                    callback();
+                }, pauseTime);
+            } else {
+                setTimeout(callback, pauseTime);
+            }
+        }
+    }
+
+    type();
 }
 
 function checkAnswer(question, selectedAnswer, index) {
     if (selectedAnswer === question.correct) {
-        alert('Correct!');
-    } else {
-        alert('Incorrect!');
-    }
-    displayQuestion(index + 1); // Display the next question
-}
+        // Resets the opacity
+        lossImgRight.style.opacity = 0; 
+        lossImgLeft.style.opacity = 0; 
+        document.getElementById('lossImgs').style.display = "none";
+        typeWriterAnswer('You have passed this question.', () => {
+            answerSelected = false; // Reset the flag
+            displayQuestion(index + 1);
 
+        }, true);
+    } else {
+        // Resets the opacity
+        lossImgRight.style.opacity = 0; 
+        lossImgLeft.style.opacity = 0; 
+        typeWriterAnswer('Incorrect! Now feel my wrath!', () => {
+            // Display images
+            let [img1, img2] = getRandomImages();
+            document.getElementById('lossImgLeft').src = img1;
+            document.getElementById('lossImgRight').src = img2;
+            document.getElementById('lossImgs').style.display = "block";
+            setTimeout(() => {
+                lossImgRight.style.opacity = 1; 
+                lossImgLeft.style.opacity = 1; 
+            }, 500); 
+            // Type the second part after images fade in
+            setTimeout(() => {
+                typeWriterAnswer('Wait, what is happening?!? This is treachery!', () => {
+                    answerSelected = false; // Reset the flag
+                });
+            }, 2000);
+        });
+    }
+}
+function typeFinalMessage() {
+    typeWriterAnswer('Blasted! How did you get past my questions? Hmph, nevermind, I won\'t waste my time on a puny human.', null, true);
+    document.getElementById('multipleChoiceQuestion').style.display = "none"; 
+    document.getElementById('multipleChoiceAnswers').style.display = "none"; 
+
+    // Ensure the transition property is set for smooth fading out
+    alienQuizDiv.style.transition = "opacity 1s ease-in-out";
+    alienQuizDiv.style.opacity = 1; // Make sure it's fully opaque before fading out
+
+    setTimeout(() => {
+        alienQuizDiv.style.opacity = 0; // Fade out
+        setTimeout(() => {
+            wikiContainer.style.display = "block";
+            alienQuizDiv.style.display = "none"; 
+        }, 1000); // Match the duration of the transition
+    }, 10000);
+document.getElementById('wikiText').innerHTML = 
+    'From Wikipedia, the free encylcopedia.<br>' +
+    '<br>' +
+    'Shuttle Orbiter Columbia (NASA Designation: OV-102) was the oldest <span>space shuttle</span> in ' +
+    '<span>NASA</span>\'s fleet, first flying mission <span>STS-1</span> from <span>April 12</span> to ' +
+    '<span>April 14, 1981</span>. It was lost with all crew on re-entry on its 28th mission, ' +
+    '<span>STS-107</span>, which lasted from <span>January 16</span> to February 1, 2003. ' +
+    '<br>' +
+    '<br>' +
+    'After being constructed, the orbiter arrived at <span>John F. Kennedy Space Center</span> on <span>March 25, 1979</span> to be ' +
+    'prepared for its first launch. However, before its first mission three workers were killed and five ' +
+    'injured during a ground test of the orbiter on <span>March 19, 1981</span>. ' +
+    '<br>' +
+    '<br>' +
+    'The first flight of Columbia was commanded by <span>John Young</span> (a space veteran from the <span>Gemini</span> and <span>Apollo</span> ' +
+    'eras) and piloted by <span>Robert Crippen</span> a rookie who had never been in space before, but who served as ' +
+    'support crew for the <span>Skylab</span> missions and <span>Apollo-Soyuz</span>. ' +
+    '<br>' +
+    '<br>' +
+    'In <span>1983</span> Columbia launched the first mission (<span>STS-9</span>) with 6 astronauts, including the first ' +
+    'non-American astronaut, <span>Ulf Merbold</span>, from <span>Germany</span> on a <span>space shuttle</span>. On <span>January 12, 1986</span> Columbia ' +
+    'took off with the first <span>Hispanic-American astronaut</span>, <span>Dr. Franklin R. Chang-Diaz</span>. Another first was ' +
+    'announced on <span>March 5, 1998</span> when NASA named their choice of <span>United States Air Force</span> Lt. Col. ' +
+    '<span>Eileen Collins</span> as commander of a future Columbia mission making Collins the first woman commander of a ' +
+    'space shuttle mission. On its final mission the craft was carrying the first <span>Israeli</span> astronaut, ' +
+    '<span>Ilan Ramon</span> and the first woman astronaut of <span>Indian</span> birth, <span>Kalpana Chawla</span>. Other crew members on the final ' +
+    'flight included <span>Rick Husband</span> (commander), <span>Willie McCool</span> (pilot), <span>Michael P. Anderson</span>, <span>Laurel Clark</span>, ' +
+    'and <span>David Brown</span>. ' +
+    '<br>' +
+    '<br>' +
+    'On the morning of February 1, <span>2003</span>, the shuttle re-entered the atmosphere after a 16-day scientific ' +
+    'mission. <span>NASA</span> lost radio contact at about 9 a.m. EST, only minutes before the expected 09:16 landing ' +
+    'at <span>Kennedy Space Center</span> in Florida. Video recordings show the craft breaking up in flames over ' +
+    'Texas, at an altitude of approximately 39 miles (63 km) and a speed of 12,500 mph (20,000 km/h). ' +
+    '<br>' +
+    '<br>' +
+    'See also: <span>Space Shuttle Columbia disaster</span>';
+
+    document.getElementById('alienLink').innerHTML = 'English';
+    document.getElementById('alienLink').style.color = 'blue'; 
+  
+     isCollisionDetectionActive = false;
+    decoderDiv.style.display = "none";
+    bugReportPopUp.style.display = "none";
+    alienLinkDiv.style.display = "none";
+    bugReportsLinkDiv.style.display = "none";
+    bugReportsLink.style.color = "blue";
+
+
+      
+}
