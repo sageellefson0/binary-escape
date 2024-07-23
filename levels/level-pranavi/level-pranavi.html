@@ -245,111 +245,95 @@
           <a class="b-indent" data-cmd="indent"></a>
           <span class="sep"></span>
           <a class="b-hilite" data-cmd="backColor">
-            <div
-              class="color-picker"
-              style="
-                position: fixed;
-                background: #c0c0c0;
-                z-index: 99;
-                display: none;
-              "
-            >
-              <table>
-                <tr>
-                  <td colspan="8" style="padding: 3px">
-                    <a
-                      style="
-                        background: none;
-                        border: 1px solid;
-                        width: 100%;
-                        height: 100%;
-                        text-align: center;
-                        vertical-align: middle;
-                        font-size: 1em;
-                      "
-                      >None</a
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a style="background: black"></a>
-                  </td>
-                  <td><a style="background: darkgrey">&nbsp;</a></td>
-                  <td><a style="background: darkred">&nbsp;</a></td>
-                  <td><a style="background: #808088">&nbsp;</a></td>
-                  <td><a style="background: darkgreen">&nbsp;</a></td>
-                  <td><a style="background: teal">&nbsp;</a></td>
-                  .
-                  <td><a style="background: darkblue">&nbsp;</a></td>
-                  <td><a style="background: violet">&nbsp;</a></td>
-                </tr>
-                <tr>
-                  <td><a style="background: white">&nbsp;</a></td>
-                  <td><a style="background: lightgrey">&nbsp;</a></td>
-                  <td><a style="background: red">&nbsp;</a></td>
-                  <td><a style="background: yellow">&nbsp;</a></td>
-                  <td><a style="background: green">&nbsp;</a></td>
-                  <td><a style="background: lightblue">&nbsp;</a></td>
-                  <td><a style="background: darkblue">&nbsp;</a></td>
-                  <td><a style="background: pink">&nbsp;</a></td>
-                </tr>
-              </table>
+            <div class="color-picker" id="hilite-color-picker">
+          <table id="hilite-table">
+              <tr>
+                <td colspan="8" style="padding: 3px">
+                  <a
+                    style="
+                      background: none;
+                      border: 1px solid;
+                      width: 100%;
+                      height: 100%;
+                      text-align: center;
+                      vertical-align: middle;
+                      font-size: 1em;
+                    "
+                    >None</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a style="background: black"></a>
+                </td>
+                <td><a style="background: darkgrey">&nbsp;</a></td>
+                <td><a style="background: darkred">&nbsp;</a></td>
+                <td><a style="background: #808088">&nbsp;</a></td>
+                <td><a style="background: darkgreen">&nbsp;</a></td>
+                <td><a style="background: teal">&nbsp;</a></td>
+                .
+                <td><a style="background: darkblue">&nbsp;</a></td>
+                <td><a style="background: violet">&nbsp;</a></td>
+              </tr>
+              <tr>
+                <td><a style="background: white">&nbsp;</a></td>
+                <td><a style="background: lightgrey">&nbsp;</a></td>
+                <td><a style="background: red">&nbsp;</a></td>
+                <td><a style="background: yellow">&nbsp;</a></td>
+                <td><a style="background: green">&nbsp;</a></td>
+                <td><a style="background: lightblue">&nbsp;</a></td>
+                <td><a style="background: darkblue">&nbsp;</a></td>
+                <td><a style="background: pink">&nbsp;</a></td>
+              </tr>
+            </table>
             </div>
           </a>
-          <a class="b-fontcolor">
-            <div
-              class="color-picker"
-              style="
-                position: fixed;
-                background: #c0c0c0;
-                z-index: 99;
-                display: none;
-              "
-            >
-              <table>
-                <tr>
-                  <td colspan="8" style="padding: 3px">
-                    <a
-                      style="
-                        background: black;
-                        background-size: 10px, 10px;
-                        border: 1px solid;
-                        width: 100%;
-                        height: 100%;
-                        text-align: center;
-                        vertical-align: middle;
-                        font-size: 10px;
-                      "
-                      >Automatic</a
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a style="background: black"></a>
-                  </td>
-                  <td><a style="background: darkgrey">&nbsp;</a></td>
-                  <td><a style="background: darkred">&nbsp;</a></td>
-                  <td><a style="background: #808088">&nbsp;</a></td>
-                  <td><a style="background: darkgreen">&nbsp;</a></td>
-                  <td><a style="background: teal">&nbsp;</a></td>
-                  .
-                  <td><a style="background: darkblue">&nbsp;</a></td>
-                  <td><a style="background: violet">&nbsp;</a></td>
-                </tr>
-                <tr>
-                  <td><a style="background: white">&nbsp;</a></td>
-                  <td><a style="background: lightgrey">&nbsp;</a></td>
-                  <td><a style="background: red">&nbsp;</a></td>
-                  <td><a style="background: yellow">&nbsp;</a></td>
-                  <td><a style="background: green">&nbsp;</a></td>
-                  <td><a style="background: lightblue">&nbsp;</a></td>
-                  <td><a style="background: darkblue">&nbsp;</a></td>
-                  <td><a style="background: pink">&nbsp;</a></td>
-                </tr>
-              </table>
-            </div>
+          <a class="b-fontcolor" data-cmd="fontColor">
+            <div class="color-picker" id="fontcolor-color-picker">
+            <table id="fontcolor-table">
+              <tr>
+                <td colspan="8" style="padding: 3px">
+                  <a
+                    style="
+                      background: black;
+                      background-size: 10px, 10px;
+                      border: 1px solid;
+                      width: 100%;
+                      height: 100%;
+                      text-align: center;
+                      vertical-align: middle;
+                      font-size: 10px;
+                    "
+                    >Automatic</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a style="background: black"></a>
+                </td>
+                <td><a style="background: darkgrey">&nbsp;</a></td>
+                <td><a style="background: darkred">&nbsp;</a></td>
+                <td><a style="background: #808088">&nbsp;</a></td>
+                <td><a style="background: darkgreen">&nbsp;</a></td>
+                <td><a style="background: teal">&nbsp;</a></td>
+                .
+                <td><a style="background: darkblue">&nbsp;</a></td>
+                <td><a style="background: violet">&nbsp;</a></td>
+              </tr>
+              <tr>
+                <td><a style="background: white">&nbsp;</a></td>
+                <td><a style="background: lightgrey">&nbsp;</a></td>
+                <td><a style="background: red">&nbsp;</a></td>
+                <td><a style="background: yellow">&nbsp;</a></td>
+                <td><a style="background: green">&nbsp;</a></td>
+                <td><a style="background: lightblue">&nbsp;</a></td>
+                <td><a style="background: darkblue">&nbsp;</a></td>
+                <td><a style="background: pink">&nbsp;</a></td>
+              </tr>
+            </table>
+          </div>
           </a>
           <div class="clear"></div>
         </div>

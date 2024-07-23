@@ -1,51 +1,50 @@
 /* ----------------- Word Application Javascript --------------------- */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Helper function to toggle visibility
-  function toggleDisplay(element) {
-    if (element.style.display === "none" || element.style.display === "") {
-      element.style.display = "block";
-    } else {
+
+// Function to toggle display
+function toggleDisplay(element) {
+  if (element.style.display === "block") {
       element.style.display = "none";
-    }
+  } else {
+      element.style.display = "block";
   }
+}
 
-  // Function to attach event listeners for color pickers
-  function attachColorPickerEvents(className, command) {
-    var elements = document.querySelectorAll(className);
-    elements.forEach(function (element) {
-      element.addEventListener("click", function (e) {
-        e.stopPropagation();
-        var colorPicker = element.querySelector(".color-picker");
-        toggleDisplay(colorPicker);
-      });
-    });
+// Attach event for .b-hilite to display hilite-color-picker
+var hiliteButton = document.querySelector(".b-hilite");
+var hiliteColorPicker = document.getElementById("hilite-color-picker");
+var hiliteTable = document.getElementById("hilite-table");
+hiliteButton.addEventListener("click", function (e) {
+  toggleDisplay(hiliteColorPicker);
+});
 
-    document.addEventListener("click", function (e) {
-      elements.forEach(function (element) {
-        var colorPicker = element.querySelector(".color-picker");
-        if (!element.contains(e.target)) {
-          colorPicker.style.display = "none";
-        }
-      });
-    });
+// Attach event for .b-fontcolor to display fontcolor-color-picker
+var fontColorButton = document.querySelector(".b-fontcolor");
+var fontColorPicker = document.getElementById("fontcolor-color-picker");
+var fontColorTable = document.getElementById("fontcolor-table");
+fontColorButton.addEventListener("click", function (e) {
+  toggleDisplay(fontColorPicker);
+});
 
-    var colorPickers = document.querySelectorAll(
-      className + " .color-picker a"
-    );
-    colorPickers.forEach(function (colorPicker) {
-      colorPicker.addEventListener("click", function () {
-        var color = window.getComputedStyle(this).backgroundColor;
-        document.execCommand(command, false, color);
-        var parentColorPicker = this.closest(".color-picker");
-        parentColorPicker.style.display = "none";
-      });
-    });
+// Hide color pickers when clicking outside
+document.addEventListener("click", function (e) {
+  if (!hiliteButton.contains(e.target) && !hiliteColorPicker.contains(e.target) && !hiliteTable.contains(e.target)) {
+      hiliteColorPicker.style.display = "none";
   }
+  if (!fontColorButton.contains(e.target) && !fontColorPicker.contains(e.target) && !fontColorTable.contains(e.target)) {
+      fontColorPicker.style.display = "none";
+  }
+});
 
-  // Attach events for .b-fontcolor and .b-hilite
-  attachColorPickerEvents(".b-fontcolor", "foreColor");
-  attachColorPickerEvents(".b-hilite", "hiliteColor");
+// Prevent color picker from hiding when hovering over it
+hiliteColorPicker.addEventListener("click", function (e) {
+  e.stopPropagation();
+});
+
+fontColorPicker.addEventListener("click", function (e) {
+  e.stopPropagation();
+});
 
   // Attach event for .file-option to display context-menu-list
   var fileOption = document.querySelector(".file-option");
