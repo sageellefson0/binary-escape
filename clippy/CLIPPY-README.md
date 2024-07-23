@@ -2,7 +2,7 @@
 
 ### HTML
 
-To add clippy to your webpage, add the following lines to your level's html:
+To add clippy to your webpage, add the following lines to your level's HTML:
 
 ```
 <!-- In body tag -->
@@ -20,8 +20,7 @@ To add clippy to your webpage, add the following lines to your level's html:
 
 ### JavaScript
 
-Then, add the following lines to your level-specific javascript. This code is based on my level's puzzle, so replace 
-the speech bubble text and the hint timer as needed:
+Then, add the following lines to your level-specific javascript. This code is based on my level's puzzle, so replace the speech bubble text and the hint timer as needed:
 
 ```
 document.addEventListener("DOMContentLoaded", function() {
@@ -76,7 +75,7 @@ document.getElementById('clippy-agent').addEventListener('click', handleClick);
 
 ### CSS Styling
 
-Lastly, to keep formatting consistent, please refer to how I formatted my clippy in css:
+Lastly, to keep formatting consistent, please refer to how I formatted my clippy in CSS:
 
 ```
 .agent {
@@ -140,5 +139,7 @@ p #hint {
 	margin-bottom: -34.5px;
 }
 ```
+
+If you want to see more on how I implemented clippy in my level, refer to the "levels/level-pranavi/" folder. 
 
 Thanks for using my clippy animation!
