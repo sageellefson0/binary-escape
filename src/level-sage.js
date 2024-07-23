@@ -9,6 +9,60 @@ character = document.querySelector('.character');
 let isDecoderOpen = false;
 
 
+// Prevents window reload without warning - user will lose progress is page is reloaded, this is to counteract that.
+window.addEventListener('beforeunload', function (event) {
+    event.preventDefault(); 
+    }
+);
+
+
+var i = 0;
+var lineIndex = 0;
+var typingTextCharacter = [
+    'A Wikipedia page? Something isn\'t right here...',
+    'I should check around.',
+   
+];
+var textSpeed = 80; 
+var pauseTimeChar = 2000; 
+var answerSelected = false;
+
+function typeWriterCharacterSpeak(callback) {
+    const dialogueBox = document.getElementById("dialogueBox");
+    
+    if (lineIndex < typingTextCharacter.length) {
+        dialogueBox.style.display = "block";
+
+        if (i < typingTextCharacter[lineIndex].length) {
+            document.getElementById("characterSpeech").innerHTML += typingTextCharacter[lineIndex].charAt(i);
+            i++;
+            setTimeout(() => typeWriterCharacterSpeak(callback), textSpeed);
+        } else {
+            i = 0;
+            lineIndex++;
+            setTimeout(() => {
+                document.getElementById("characterSpeech").innerHTML = ''; 
+                if (lineIndex < typingTextCharacter.length) {
+                    setTimeout(() => typeWriterCharacterSpeak(callback), textSpeed); // Start typing the next line
+                } else {
+                    // Hide the dialogue box
+                    dialogueBox.style.display = "none";
+                    
+                    // Call the callback function after hiding the dialogue box
+                    if (callback) {
+                        callback(); 
+                    }
+                }
+            }, pauseTimeChar); // Pause before clearing the line
+        }
+
+    }
+}
+
+
+window.onload = function() {
+    typeWriterCharacterSpeak();
+};
 
 // Decodes the binary message. 
 function binaryTranslator(str) {
