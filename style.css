@@ -81,3 +81,51 @@ body {
 
 
 }
+
+#dialogueBox {
+    display: none;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px;
+    position: absolute;
+    text-align: center;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    background-color: rgba(128, 128, 128, 0.5); 
+    border-radius: 10px; 
+}  
+
+#characterSpeech {
+    overflow: hidden;
+    font-size: large;
+    margin: 10px;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation:
+      typing 2.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: gray;
+    }
+}
