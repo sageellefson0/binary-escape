@@ -284,14 +284,14 @@ transition: opacity 5s ease;
 .agent {
     display: flex;
     position: absolute;
-    bottom: 20.5rem; /* Change positioning of clippy */
-     right: 24rem; /* Can change bottom and right to top and left, etc.  */
+    bottom: 17.65rem; /* Change positioning of clippy */
+     right: 20rem; /* Can change bottom and right to top and left, etc.  */
 }
 
 .clippy {
     position: fixed;
-    width: 450px; /* Can change width size accordingly */
-    height: 350px; /* Can change height size */
+    width: 400px; /* Can change width size accordingly */
+    height: 300px; /* Can change height size */
 }
 
 p #hint {
