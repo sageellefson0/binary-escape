@@ -357,12 +357,12 @@ function handleAnswerClick(question, selectedAnswer, index) {
 
 function getRandomImages() {
     var images = [
-        '../images/cat1.jpg',
-        '../images/cat2.jpg',
-        '../images/cat3.jpg',
-        '../images/puppy1.jpg',
-        '../images/puppy2.jpg',
-        '../images/puppy3.jpg'
+        '../level-sage/images/cat1.jpg',
+        '../level-sage/images/cat2.jpg',
+        '../level-sage/images/cat3.jpg',
+        '../level-sage/images/puppy1.jpg',
+        '../level-sage/images/puppy2.jpg',
+        '../level-sage/images/puppy3.jpg'
     ];
 
     var randomIndices = [];
@@ -501,3 +501,54 @@ document.getElementById('wikiText').innerHTML =
 
       
 }
+
+// Clippy code
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    /* Change the strings below based on your level's initial message and hint */
+  
+    const initialText = "Find the hidden message to move on to the next round!";
+    const hintText = "Click me for a hint!";
+    const clickText = "First impressions can be more revealing than you think!";
+  
+    const hintElement = document.getElementById("hint");
+    let index = 0;
+    let currentText = initialText;
+  
+    function typeText(text) {
+        hintElement.innerHTML = ''; // Clear the existing text
+        index = 0;
+        currentText = text;
+        typeNextCharacter();
+    }
+  
+    function typeNextCharacter() {
+        if (index < currentText.length) {
+            hintElement.innerHTML += currentText.charAt(index);
+            index++;
+            setTimeout(typeNextCharacter, 50);
+        }
+    }
+  
+    typeText(initialText);
+    
+  
+    /* Adjust the time below based on when you want the hint to show */
+  
+    // Show "Click me for a hint!" after 2.5 minutes
+    setTimeout(function() {
+        typeText(hintText);
+    }, 150000); // 2.5 minutes = 150000 milliseconds
+  
+   // Click event handler
+   function handleClick() {
+    typeText(clickText);
+    // Remove click event listener after first click
+    document.getElementById('clippy-agent').removeEventListener('click', handleClick);
+  }
+  
+  // Add click event listener
+  document.getElementById('clippy-agent').addEventListener('click', handleClick);
+  
+  });

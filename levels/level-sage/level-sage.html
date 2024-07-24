@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binary Escape</title>
     <script src="https://kit.fontawesome.com/97132013e5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="level-sageStyle.css">
 
 </head>
@@ -23,7 +23,7 @@
         </div>
 
         <div id="alienQuizDiv">
-<img id="alienImg" src="../images/villian.png">
+<img id="alienImg" src="../level-sage/images/villian.png">
  <div id="alienChatBox"></div>
        
  <div id="multipleChoiceQuestion">
@@ -123,7 +123,8 @@ See also: <span>Space Shuttle Columbia disaster</span>
 
 
         <div class="oldWikiSidebar">
-            <img class="oldWikiLogo" src="../images/oldWikiLogo.png">
+            <img class="oldWikiLogo" src="../level-sage/images/oldWikiLogo.png">
+            
 
             <div class="oldWikiSidebarLinks">
                 <a href="">Main Page</a> <br>
@@ -172,7 +173,7 @@ See also: <span>Space Shuttle Columbia disaster</span>
             
 
 
-            <img id="saturnImg" src="../images/saturnPic.jpeg"><br>
+            <img id="saturnImg" src="../level-sage/images/saturnPic.jpeg"><br>
             <span id="saturnCompanyName"> OrbitX Saturnian Tech Inc </span>
             <br>
 
@@ -220,13 +221,25 @@ See also: <span>Space Shuttle Columbia disaster</span>
             <p id="characterSpeech"></p>
         </div> 
     </div>
+    <div id="clippy-agent" class="agent">
+        <div id="hint" class="speech-bubble"></div>
+        <div id="clippy-bm" class="clippy"></div>
+    </div>
+    
     </main>
 
     <footer></footer>
 
-    <script src="../src/Character.js"> </script>
-    <script src="../src/level-sage.js"> </script>
 
+
+    <script src="../../src/Character.js"> </script>
+<script src="../../levels/level-sage/level-sage.js"> </script>
+<!-- Clippy scripts -->
+<script src="../../clippy/lottie.js"></script>
+<script src="../../clippy/index.js"></script>
 </body>
+
+
+
 
 </html>
