@@ -20,7 +20,7 @@ window.addEventListener('beforeunload', function (event) {
 var iterationCharacter = 0;
 var lineIndexCharacter = 0;
 var typingTextCharacter = [
-    'A Wikipedia page? Something isn\'t right here...',
+    'An old Wikipedia page? Something isn\'t right here...',
     'I wonder why it\'s all jumbled?',
    
 ];
@@ -512,7 +512,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     const initialText = "Take a walk around!";
     const hintText = "Click me for a hint!";
-    const clickText = "Surely alien isn't a language?";
+    const clickText = "I hate dealing with bug reports!";
   
     const hintElement = document.getElementById("hint");
     let indexClippy = 0;
