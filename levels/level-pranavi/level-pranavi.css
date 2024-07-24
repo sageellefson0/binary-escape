@@ -1,0 +1,1003 @@
+body {
+    margin: 0;
+    padding: 0;
+    font: normal 14px Helvetica Neue, Arial, Helvetica, sans-serif;
+}
+
+/* ----------------- Word Window ---------------------*/
+.word {
+    width: 99.8vw;
+    cursor: default;
+}
+
+.word .title-bar .title {
+    background: url("images/winword8.png") no-repeat 5px 1px;
+}
+
+
+.word .content {
+    border: 1px solid #848484;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    background: #cdddf7;
+    height: 100%;
+    width: 100%;
+}
+
+.word .content-box {
+    border: 1px solid #424242;
+    border-bottom: none;
+    background: #848484;
+    position: relative;
+    width: 100%;
+}
+
+/****
+* Rulers
+****/
+.word .top-ruler {
+    height: 24px;
+    background: #cdddf7 url("images/window/ruler-mark.png") no-repeat left top;
+    padding-left: 25px;
+}
+
+.word .top-ruler .ruler {
+    background: url("images/window/horz-ruler.png");
+    height: 24px;
+    margin-left: 2px;
+    margin-right: 20px;
+}
+
+.word .left-ruler {
+    position: relative;
+    width: 24px;
+    background: #cdddf7;
+    float: left;
+}
+
+/****
+* Document
+****/
+.word .document-scroller {
+    display: block;
+    overflow: auto;
+    height: calc(100vh - 8.5rem);
+    background-color: #7ea0ce;;
+}
+
+.word .document {
+    margin: 5px auto 10px auto;
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 1px 1px 0 0 #000;
+    width: 65vw;
+    height: 120vh;
+    cursor: text;
+}
+
+.word .document-wrap {
+    padding: 3rem 5rem;
+    height: 106vh;
+}
+
+.word .document-wrap p {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.word .document-wrap::selection {
+    background: #000;
+    color: #fff;
+}
+
+[contenteditable] {
+    outline: 0px solid transparent;
+  }
+
+/****
+* Status bar
+****/
+.word .status-bar {
+    margin-top: 5px;
+    border-top: 1px solid #848484;
+    background: url("images/window/status-bar-grip.png") no-repeat right bottom #cdddf7;
+}
+
+.word .status-bar-content {
+    border-top: 1px solid #fff;
+    padding: 4px 2px 2px 5px;
+}
+
+.word .status-bar .box {
+    display: inline-block;
+    border: 1px inset #fff;
+    padding: 0px 5px;
+    margin-right: 5px;
+}
+
+.word .status-bar .box.disabled {
+    color: #848484;
+}
+
+
+/* ----------------- End Word Window ---------------------*/
+
+/* ----------------- Global Window --------------------- */
+.window {
+    margin: 0px;
+    position: fixed;
+}
+
+.window-border {
+    box-shadow: 1px 1px 0px 0px #424242;
+    border: 1px solid #ffffff;
+    border-right-color: #848484;
+    border-bottom-color: #848484;
+    background: #cdddf7;
+    padding: 2px;
+}
+
+.title-bar {
+    padding: 0;
+    background: #808080;
+    color: #fff;
+    font-weight: 500;
+}
+
+.title-bar .title {
+    padding-left: 24px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 2px;
+    padding-bottom: 1px;
+}
+
+.control-box {
+    float: right;
+    margin: 1px;
+}
+
+.button-3d {
+    display: block;
+    float: left;
+    border: 1px solid #ffffff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    background: #d6d6ce;
+    height: 14px;
+    width: 14px;
+    margin-top: 0.5px;
+    color: transparent;
+    text-decoration: none;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.button-3d:active {
+    border: 1px inset #fff;
+}
+
+.button-3d span {
+    display: block;
+    font-size: 1px;
+    line-height: 13px;
+}
+
+.button-3d.maximize {
+    margin-right: 2px;
+    margin-left: 1px;
+}
+
+.button-3d.close {
+    background-image: url("images/window/close.png");
+}
+
+.button-3d.close:hover {
+    background-color: #e9644f;
+}
+
+.button-3d.maximize {
+    background-image: url("images/window/maximize.png");
+}
+
+.button-3d.minimize {
+    background-image: url("images/window/minimize.png");
+}
+
+.button-3d.maximize:hover, .button-3d.minimize:hover {
+    background-color: #b0b0ad;
+}
+
+/* ----------------- Context Menu --------------------- */
+.context-menu-list {
+    position: absolute;
+    display: none;
+    min-width: 150px;
+    max-width: 150px;
+    padding: 0 0 2px;
+    margin-left: 12px;
+    font-size: 14px;
+    list-style-type: none;
+    background: #c5d7f3;
+    border: 1.8px outset #fff;
+    border-radius: 0;
+    box-shadow: 1.5px 1.5px #000;
+}
+
+.context-menu-list .show-context-menu {
+    display: block;
+}
+
+/* Styling for individual menu items */
+.context-menu-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 4px 18px 3px 28px;
+    color: #2f2f2f;
+    user-select: none;
+    background-color: #c5d7f3;
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.context-menu-list .border-bottom {
+    position: absolute;
+    left: 3.75%;
+    width: 93.5%;
+    height: 2.5px; /* Line height */
+    box-shadow: 1px 1px 1px #7ea0ce inset;
+    z-index: 1;
+}
+
+.context-menu-item:hover {
+    background: linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+/* Styling for separators */
+.context-menu-separator {
+    padding: 0;
+    margin: 4px 3px;
+    border: 2px inset #fff;
+}
+
+/* Styling for disabled items */
+.context-menu-item.context-menu-disabled {
+    color: grey;
+    text-shadow: 1px 1px #fff;
+    background-clip: text;
+}
+
+/* Styling for submenu arrows */
+.context-menu-submenu:after {
+    position: absolute;
+    top: 40%;
+    right: 10px;
+    width: 0;
+    height: 0;
+    font-size: 2rem;
+    content: '';
+    border-color: transparent transparent transparent #2f2f2f;
+    border-style: solid;
+    border-width: 3px 0 3px 3px;
+    transform: translateY(-50%);
+}
+
+/* Styling for icons */
+.context-menu-item > a {
+    display: inline-block;
+    width: 16px; /* Fixed width for icons */
+    height: 16px; /* Fixed height for icons */
+    background-repeat: no-repeat;
+    background-size: contain; /* Ensure the image fits within the anchor */
+    vertical-align: middle; /* Align vertically with text */
+    margin-right: 5px; /* Adjust margin as needed */
+}
+
+/* Styling for text */
+.context-menu-item > p {
+    display: inline-block;
+    margin: 0;
+    padding-left: 2px;
+    padding-top: 2px;
+}
+
+/* Adjustments for specific menu items */
+.word-file-context-menu {
+    width: 210px;
+}
+
+.word-file-context-menu .context-menu-submenu .context-menu-list {
+    display: inline-block;
+    width: 185px !important;
+}
+
+.word-file-context-menu .context-menu-icon-updated {
+    padding: 1px 0 1px 2px !important;
+}
+
+.word-file-context-menu .context-menu-icon-updated.context-menu-hover {
+    background: none !important;
+}
+
+.word-file-context-menu .context-menu-icon-updated.context-menu-hover p {
+    background: navy;
+}
+
+.word-file-context-menu a {
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+
+/* Icons for specific actions */
+.word-file-context-menu .b-new,
+.word-file-context-menu .b-open,
+.word-file-context-menu .b-save,
+.word-file-context-menu .b-print,
+.word-file-context-menu .b-preview,
+.word-file-context-menu .b-mail {
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    margin-left: 3px;
+}
+
+/* Icons for specific actions */
+.word-file-context-menu .b-new {
+    background-image: url("images/New.png");
+}
+
+.word-file-context-menu .b-open {
+    background-image: url("images/Open.png");
+}
+
+.word-file-context-menu .b-save {
+    background-image: url("images/save.png");
+}
+
+.word-file-context-menu .b-print {
+    background-image: url("images/print.png");
+}
+
+.word-file-context-menu .b-preview {
+    background-image: url("images/preview.png");
+}
+
+.word-file-context-menu .b-mail {
+    background-image: url("images/mail.png");
+}
+
+
+/****
+* Main Menu bar
+***/
+.menu-bar,
+.toolbar {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    overflow: visible;
+    margin: 2px 1px;
+    padding: 0 6px;
+    background: url("images/window/toolbar-grip.png") no-repeat 2px 6px;
+}
+
+.menu-bar {
+    line-height: 22px;
+    margin: 0;
+    border: 1px outset #fff;
+}
+
+.menu-bar a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0px 9px;
+}
+
+
+.menu-bar a span {
+    text-decoration: underline;
+}
+
+.menu-bar .enabled-action:hover {
+    background: linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+    border: 1px outset #fff;
+}
+
+.disabled-action {
+    color: grey;
+    text-shadow: 1px 1px #fff;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+h1 {
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.clear {
+    clear: both;
+}
+
+/****
+* Toolbar
+***/
+.toolbar {
+    background-color: #cdddf7;
+    border: 1px outset #fff;
+    margin: 0;
+}
+
+.toolbar a {
+    display: inline-block;
+    border: 1px solid transparent;
+    margin: 0px 0px 2px 0px;
+    text-decoration: none;
+    width: 18px;
+    height: 18px;
+    background: no-repeat center left;
+}
+
+.toolbar .sep {
+    display: inline-block;
+    width: 2px;
+    background: #a5a5a5;
+    margin: 1px 2px;
+    height: 20px;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+}
+
+.toolbar.float-left {
+    float: left;
+    margin-right: 2px;
+}
+
+.toolbar.float-right {
+    float: right;
+}
+
+.toolbar .b-new,
+.toolbar .b-open,
+.toolbar .b-save,
+.toolbar .b-print,
+.toolbar .b-preview,
+.toolbar .b-spell,
+.toolbar .b-cut,
+.toolbar .b-copy,
+.toolbar .b-paste,
+.toolbar .b-style-brush,
+.toolbar .b-undo,
+.toolbar .b-redo,
+.toolbar .b-style,
+.toolbar .b-bold,
+.toolbar .b-italic,
+.toolbar .b-underline,
+.toolbar .b-left,
+.toolbar .b-center,
+.toolbar .b-right,
+.toolbar .b-ol,
+.toolbar .b-ul,
+.toolbar .b-share,
+.toolbar .b-tweet,
+.toolbar .b-fork,
+.toolbar .b-number,
+.toolbar .b-bullet,
+.toolbar .b-outdent,
+.toolbar .b-indent,
+.toolbar .b-hilite,
+.toolbar .b-fontcolor {
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    z-index: 0;
+}
+
+.toolbar .b-paste {
+    opacity: 0.9;
+}
+
+.toolbar .b-new {
+    background-image: url("images/New.png");
+}
+
+.toolbar .b-open {
+    background-image: url("images/Open.png");
+}
+
+.toolbar .b-save {
+    background-image: url("images/save.png");
+}
+
+.toolbar .b-print {
+    background-image: url("images/print.png");
+}
+
+.toolbar .b-preview {
+    background-image: url("images/preview.png");
+}
+
+.toolbar .b-spell {
+    background-image: url("images/spellcheck.png");
+}
+
+.toolbar .b-cut {
+    background-image: url("images/cut.png");
+}
+
+.toolbar .b-copy {
+    background-image: url("images/copy.png");
+}
+
+.toolbar .b-paste {
+    background-image: url("images/paste.png");
+}
+
+.toolbar .b-style-brush {
+    background-image: url("images/style.png");
+}
+
+.toolbar .b-undo {
+    background-image: url("images/undo.png");
+}
+
+.toolbar .b-redo {
+    background-image: url("images/redo.png");
+}
+
+.toolbar .b-style {
+    background-image: url("images/style.png");
+}
+
+.toolbar .b-bold {
+    background-image: url("images/bold.png");
+}
+
+.toolbar .b-italic {
+    background-image: url("images/italic.png");
+}
+
+.toolbar .b-underline {
+    background-image: url("images/underline.png");
+}
+
+.toolbar .b-left {
+    background-image: url("images/left.png");
+}
+
+.toolbar .b-center {
+    background-image: url("images/center.png");
+}
+
+.toolbar .b-right {
+    background-image: url("images/right.png");
+}
+
+.toolbar .b-ol {
+    background-image: url("images/ol.bmp");
+}
+
+.toolbar .b-ul {
+    background-image: url("images/ul.bmp");
+}
+
+.toolbar .b-share {
+    background-image: url("images/share.bmp");
+}
+
+.toolbar .b-tweet {
+    background-image: url("images/tweet.bmp");
+}
+
+.toolbar .b-fork {
+    background-image: url("images/fork.bmp");
+}
+
+.toolbar .b-number {
+    background-image: url("images/number.png");
+}
+
+.toolbar .b-bullet {
+    background-image: url("images/bullet.png");
+}
+
+.toolbar .b-outdent {
+    background-image: url("images/indent.png");
+}
+
+.toolbar .b-indent {
+    background-image: url("images/inc-indent.png");
+}
+
+.toolbar .b-hilite {
+    background-image: url("images/highlight.png");
+    z-index: 2;
+}
+
+.toolbar .b-fontcolor {
+    background-image: url("images/fontcolor.png");
+    z-index: 1;
+}
+
+
+.toolbar a:hover {
+    border: 1px outset #fff;
+}
+
+.toolbar .b-new:hover {
+    background-image: url("images/New.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-open:hover {
+    background-image: url("images/Open.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-save:hover {
+    background-image: url("images/save.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-print:hover {
+    background-image: url("images/print.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-preview:hover {
+    background-image: url("images/preview.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-spell:hover {
+    background-image: url("images/spellcheck.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-cut:hover {
+    background-image: url("images/cut.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-copy:hover {
+    background-image: url("images/copy.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-paste:hover {
+    background-image: url("images/paste.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-style-brush:hover {
+    background-image: url("images/style.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-undo:hover {
+    background-image: url("images/undo.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-redo:hover {
+    background-image: url("images/redo.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-style:hover {
+    background-image: url("images/style.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-bold:hover {
+    background-image: url("images/bold.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-italic:hover {
+    background-image: url("images/italic.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-underline:hover {
+    background-image: url("images/underline.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-left:hover {
+    background-image: url("images/left.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-center:hover {
+    background-image: url("images/center.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-right:hover {
+    background-image: url("images/right.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-ol:hover {
+    background-image: url("images/ol.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-ul:hover {
+    background-image: url("images/ul.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-share:hover {
+    background-image: url("images/share.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-tweet:hover {
+    background-image: url("images/tweet.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-fork:hover {
+    background-image: url("images/fork.bmp"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-number:hover {
+    background-image: url("images/number.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-bullet:hover {
+    background-image: url("images/bullet.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-outdent:hover {
+    background-image: url("images/indent.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-indent:hover {
+    background-image: url("images/inc-indent.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-hilite:hover {
+    background-image: url("images/highlight.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+.toolbar .b-fontcolor:hover {
+    background-image: url("images/fontcolor.png"), linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+
+.toolbar a:active {
+    border: 1px inset #fff;
+}
+
+.toolbar a.text {
+    width: auto;
+    padding-left: 22px;
+    padding-right: 4px;
+    line-height: 18px;
+    background-position: 2px 1px;
+}
+
+.toolbar a.text {
+    font-style: normal;
+    display: inline-block;
+    padding: 2px;
+    font-size: 12px;
+    line-height: 10px;
+    background: #cdddf7;
+    border: 1px solid #c2d3f4;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.toolbar .picker {
+    line-height: 18px;
+    height: 18px;
+    background: #fff;
+    margin: 4px 0 2px 0;
+    display: inline-block;
+    padding-left: 3px;
+    position: relative;
+    vertical-align: top;
+}
+
+.window .selectPicker {
+    padding: 0 30px 0 10px!important;
+    -webkit-padding-end: 30px!important;
+    -webkit-padding-start: 10px!important;
+    width: auto;
+    padding-left: 2px;
+    /* Remove default dropdown arrow */
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url(images/window/combo.png),-webkit-linear-gradient(0deg,#fff,#fff 54%,silver 55%,silver),#fff;
+    background: url(images/window/combo.png),-webkit-linear-gradient(left,#fff,#fff 54%,silver 55%,silver),#fff;
+    background: url(images/window/combo.png),linear-gradient(90deg,#fff,#fff 54%,silver 55%,silver),#fff;
+    background-repeat: no-repeat;
+    background-position: 97.5% 50%,99% 50%;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-size: auto auto,26px 16px
+}
+
+
+.picker .arrow {
+    display: block;
+    float: right;
+    width: 11px;
+    background: #c0c0c0 url("images/window/combo.png") no-repeat center center;
+    height: 16px;
+    margin: 1px 1px 1px 10px;
+}
+
+.color-picker {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background-color: #c0c0c0;
+    margin-top: 16px;
+    z-index: 5;
+}
+
+.color-picker table {
+    width: 100px;
+}
+
+.color-picker table a {
+    border: 1px solid #848484;
+    width: 10px;
+    height: 10px;
+    text-align: center;
+}
+
+.color-picker table a:hover {
+    border: 1px solid #848484;
+}
+
+.color-picker table td {
+    margin: 1px;
+    border: 1px solid #c0c0c0;
+}
+
+
+.title-bar {
+    background: #08216b !important;
+    background: -moz-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+    background: -webkit-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+    background: -o-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+    background: -ms-linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+    background: linear-gradient(left, #08216b 0%, #a5cef7 100%) !important;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: none; /* Hidden by default */
+    z-index: 10; /* Ensure the overlay is behind the dialog box */
+}
+
+
+.dialog-box {
+    width: 25rem;
+    height: auto;
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    background-color: #cdddf7;
+
+    box-shadow: 1px 1px 0px 0px #424242;
+    border: 1px solid #ffffff;
+    border-right-color: #848484;
+    border-bottom-color: #848484;
+
+    z-index: 11;
+}
+
+.dialog-box .button-3d {
+    margin-top: 1px;
+}
+
+.dialog-box .box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 10px;
+    
+    border: 1px solid #848484;
+    box-shadow: 1px 1px 0px 0px #424242;
+    background-color: rgb(243, 243, 243);
+    
+}
+
+.dialog-button {
+    border: 1px solid #ffffff;
+    border-right-color: #424242;
+    border-bottom-color: #424242;
+    background: #d6d6ce;
+    margin-bottom: 8px;
+} 
+
+.dialog-button:hover, 
+.dialog-button:active {
+    background: linear-gradient(to bottom, #f9dcba, #f9ad55, #ffea95);
+}
+
+
+/* ----------------- End Global Window --------------------- */
+
+.character {
+    position: fixed;
+    left: 15px; 
+    bottom: -5px; 
+}
+
+.character img {
+    width: 200px; /* Width of one sprite frame */
+    height: auto;
+}
+
+.agent {
+    display: flex;
+    position: absolute;
+    bottom: 20.5rem;
+    right: 24rem;
+}
+
+.clippy {
+    position: fixed;
+    width: 450px;
+    height: 350px;
+}
+
+p #hint {
+    padding: 0;
+    margin: 0;
+}
+
+.speech-bubble {
+	position: absolute;
+    bottom: -30px;
+    left: 90px;
+    font-size: 16px;
+
+	background: #eee9ad;
+	border-radius: .4em;
+    border: 1px solid black;
+    width: 12rem;
+    padding: 10px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 1px;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 33px solid transparent;
+	border-top-color: #eee9ad;
+	border-right: 0;
+	border-bottom: 0;
+	margin-left: -16.5px;
+	margin-bottom: -33px;
+}
+
+.speech-bubble:before {
+	content: '';
+	position: absolute;
+	bottom: 0.25px;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 33px solid transparent;
+	border-top-color: black;
+	border-right: 0;
+	border-bottom: 0;
+	margin-left: -16px;
+	margin-bottom: -34.5px;
+}
