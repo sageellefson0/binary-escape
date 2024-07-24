@@ -7,7 +7,6 @@ Demil-05<br>
 sageellefson0<br>
 prlakshm<br>
 sergio-montufar<br>
-NicoleVictory<br>
 
 ## How-to
 
