@@ -7,6 +7,7 @@ const alienLinkDiv = document.querySelector('.alienLinkDiv');
 character = document.querySelector('.character');
 
 let isDecoderOpen = false;
+var answerSelected = false;
 
 
 // Prevents window reload without warning - user will lose progress is page is reloaded, this is to counteract that.
@@ -14,55 +15,6 @@ window.addEventListener('beforeunload', function (event) {
     event.preventDefault(); 
     }
 );
-
-
-var i = 0;
-var lineIndex = 0;
-var typingTextCharacter = [
-    'A Wikipedia page? Something isn\'t right here...',
-    'I should check around.',
-   
-];
-var textSpeed = 80; 
-var pauseTimeChar = 2000; 
-var answerSelected = false;
-
-function typeWriterCharacterSpeak(callback) {
-    const dialogueBox = document.getElementById("dialogueBox");
-    
-    if (lineIndex < typingTextCharacter.length) {
-        dialogueBox.style.display = "block";
-
-        if (i < typingTextCharacter[lineIndex].length) {
-            document.getElementById("characterSpeech").innerHTML += typingTextCharacter[lineIndex].charAt(i);
-            i++;
-            setTimeout(() => typeWriterCharacterSpeak(callback), textSpeed);
-        } else {
-            i = 0;
-            lineIndex++;
-            setTimeout(() => {
-                document.getElementById("characterSpeech").innerHTML = ''; 
-                if (lineIndex < typingTextCharacter.length) {
-                    setTimeout(() => typeWriterCharacterSpeak(callback), textSpeed); // Start typing the next line
-                } else {
-                    // Hide the dialogue box
-                    dialogueBox.style.display = "none";
-                    
-                    // Call the callback function after hiding the dialogue box
-                    if (callback) {
-                        callback(); 
-                    }
-                }
-            }, pauseTimeChar); // Pause before clearing the line
-        }
-
-    }
-}
-
-
-window.onload = function() {
-    typeWriterCharacterSpeak();
-};
 
 // Decodes the binary message. 
 function binaryTranslator(str) {
@@ -215,11 +167,12 @@ let searchButton = document.getElementById('searchButton');
 let wikiSearchInput = document.getElementById('wikiSearchInput');
 let alienQuizDiv = document.getElementById('alienQuizDiv');
 let wikiContainer = document.getElementById('wikiContainer');
-
+let clippyAgent = document.getElementById('clippy-agent');
 
 function alienQuizPage() {
     wikiContainer.style.display = "none";
     alienQuizDiv.style.display = "block"; 
+    clippyAgent.style.display = "none";
     
     // Change the background color to black
     setTimeout(() => {
@@ -307,8 +260,8 @@ function displayQuestion(index) {
     var questionList = [
         {
             question: 'How far is Saturn from Earth?',
-            answers: ['950.3 billion mi', '835.2 million mi', '1.4 billion mi', '8.9 mi'],
-            correct: '835.2 million mi'
+            answers: ['950.3 billion mi', '832.3 million mi', '1.4 billion mi', '8.9 mi'],
+            correct: '832.3 million mi'
         },
         {
             question: 'How many moons does Saturn have?',
@@ -427,7 +380,7 @@ function checkAnswer(question, selectedAnswer, index) {
             }, 500); 
             // Type the second part after images fade in
             setTimeout(() => {
-                typeWriterAnswer('Wait, what is happening?!? This is treachery!', () => {
+                typeWriterAnswer('Wait, what is happening?!? Not again!', () => {
                     answerSelected = false; // Reset the flag
                 });
             }, 2000);
@@ -508,25 +461,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
     /* Change the strings below based on your level's initial message and hint */
   
-    const initialText = "Find the hidden message to move on to the next round!";
+    const initialText = "Take a walk around!";
     const hintText = "Click me for a hint!";
-    const clickText = "First impressions can be more revealing than you think!";
+    const clickText = "Surely alien isn't a language?";
   
     const hintElement = document.getElementById("hint");
-    let index = 0;
+    let indexClippy = 0;
     let currentText = initialText;
   
     function typeText(text) {
         hintElement.innerHTML = ''; // Clear the existing text
-        index = 0;
+        indexClippy = 0;
         currentText = text;
         typeNextCharacter();
     }
   
     function typeNextCharacter() {
-        if (index < currentText.length) {
-            hintElement.innerHTML += currentText.charAt(index);
-            index++;
+        if (indexClippy < currentText.length) {
+            hintElement.innerHTML += currentText.charAt(indexClippy);
+            indexClippy++;
             setTimeout(typeNextCharacter, 50);
         }
     }
