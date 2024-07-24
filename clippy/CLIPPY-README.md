@@ -2,7 +2,7 @@
 
 ### HTML
 
-## Note - Please make sure you have an "images" folder within your level folder that contains clippy.png
+### Note - Please make sure you have an "images" folder within your level folder that contains clippy.png
 
 To add clippy to your webpage, add the following lines to your level's HTML:
 
