@@ -23,7 +23,7 @@ html{
 }
 
 
-.wikiText span {
+#wikiText span {
     color: blue;
     text-decoration: underline;
 }
@@ -53,8 +53,8 @@ html{
     cursor: pointer;
 }
 
-.alienLink{
-color: purple !important;
+#alienLink{
+color: purple;
 }
 
 
@@ -215,6 +215,8 @@ transition: opacity 5s ease;
 #alienChatBox{
     font-size: large;
     margin-top: 1%;
+    height: 20px;
+    
 }
 
 #multipleChoiceQuestion{
@@ -225,7 +227,11 @@ transition: opacity 5s ease;
     text-align: center;
     font-size: medium;
     display: none;
+    opacity: 0; 
+    transition: opacity 2s ease;
+
 }
+
 
 .answerOption{
     display: inline-block;
@@ -233,16 +239,105 @@ transition: opacity 5s ease;
     padding: 1%;
     margin: .5%;
     border-radius: 10px;
-    box-shadow: #6C8D9B;
-    vertical-align: middle;
     cursor: pointer;
     box-shadow: 0px 5px 10px rgb(108, 141, 155);
     background-color:lightgray;
     color: black;
     transition: box-shadow .5s ease-in-out;
+    vertical-align: middle;
+    line-height: 30px;
+    height: 30px;
+    font-size: 15px;
 }
 
 .answerOption:hover{
     box-shadow: 0px 8px 15px rgb(148, 181, 195);
 
+}
+
+#lossImgs{
+    display: none;
+}
+
+#lossImgRight{
+    position: absolute;
+    top: 200px;
+    right: 250px;
+    width: 250px;
+    opacity: 0; 
+    transition: opacity .7s ease;
+}
+
+#lossImgLeft{
+    position: absolute;
+    top: 200px;
+    left: 250px;
+    width: 250px;
+    opacity: 0; 
+    transition: opacity .7s ease;
+}
+
+
+
+/* Clippy Styling */
+
+.agent {
+    display: flex;
+    position: absolute;
+    bottom: 17.65rem; /* Change positioning of clippy */
+     right: 20rem; /* Can change bottom and right to top and left, etc.  */
+}
+
+.clippy {
+    position: fixed;
+    width: 400px; /* Can change width size accordingly */
+    height: 300px; /* Can change height size */
+}
+
+p #hint {
+    padding: 0;
+    margin: 0;
+}
+
+.speech-bubble {
+	position: absolute;
+    bottom: -30px;
+    left: 90px;
+    font-size: 16px;
+
+	background: #eee9ad;
+	border-radius: .4em;
+    border: 1px solid black;
+    width: 12rem;
+    padding: 10px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 1px;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 33px solid transparent;
+	border-top-color: #eee9ad;
+	border-right: 0;
+	border-bottom: 0;
+	margin-left: -16.5px;
+	margin-bottom: -33px;
+}
+
+.speech-bubble:before {
+	content: '';
+	position: absolute;
+	bottom: 0.25px;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 33px solid transparent;
+	border-top-color: black;
+	border-right: 0;
+	border-bottom: 0;
+	margin-left: -16px;
+	margin-bottom: -34.5px;
 }
