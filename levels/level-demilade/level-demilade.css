@@ -76,7 +76,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    font-family: 'Proxima Nova', sans-serif;
     position: absolute;
     left: 375px;
 }
@@ -305,9 +304,23 @@ div.time {
 .react {
     margin-left: 335px;
 }
+
+.character {
+    position: fixed;
+}
+
+/*--------------RESPONSIVENESS---------------*/
+.suggested_for_you {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: absolute;
+    right: 75px;
+}
+
 /*--------------RESPONSIVENESS---------------*/
 @media screen and (max-width:600px) {
-    .column {
-      width: 30%;
+    .menu-item p {
+      display: none;
     }
 }
