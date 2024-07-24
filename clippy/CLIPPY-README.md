@@ -2,6 +2,8 @@
 
 ### HTML
 
+## Note - Please make sure you have an "images" folder within your level folder. 
+
 To add clippy to your webpage, add the following lines to your level's HTML:
 
 ```
