@@ -11,7 +11,7 @@
 }
 
 /* Menu bar styling */
-#menuBar {
+#taskBar {
   background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #06f 93%, #005bff 95%, #003dd7 96%, #003dd7);
   padding: 3px 0px;
   border-top: 1px solid #0831d9;
@@ -31,6 +31,86 @@
   bottom: 0;
   left: 0;
 }
+
+.howToPlayWindow {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: inset -1px -1px #00138c, inset 1px 1px #0831d9, inset -2px -2px #001ea0, inset 2px 2px #166aee, inset -3px -3px #003bda, inset 3px 3px #0855dd;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 0 0 3px;
+  background: #ffffff;
+  display: none;
+}
+
+
+.titleBar {
+  background: linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);
+  padding: 3px 5px;
+  border-top: 1px solid #0831d9;
+  border-left: 1px solid #0831d9;
+  border-right: 1px solid #001ea0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 7px;
+  font-size: 14px;
+  text-shadow: 1px 1px #0f1089;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+}
+
+
+.titleBar button {
+  min-width: 15px;
+  min-height: 15px;
+  margin-left: 2px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: #0050ee;
+  border: none;
+  padding: 0;
+  float: right;
+  cursor: pointer;
+
+}
+
+.titleBar button img {
+  margin: 0;
+}
+
+
+
+
+
+.titleBar img {
+  height: 18px;
+  transform: translateY(3px);
+}
+
+.menuBar {
+  height: 21px;
+  font-size: 14px;
+  line-height: 20px;
+  color: black;
+  background-color: #E9EADA;
+  border-bottom: 1px solid #939498;
+  width: calc(100% - 4px);
+  margin: 0 2px;
+}
+
+.menuBar span {
+  display: inline-block;
+  padding: 0 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+
 
 /* Start button styling */
 .startButton {

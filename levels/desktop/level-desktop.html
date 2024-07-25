@@ -26,13 +26,29 @@
       <div class="iconName">Recycle Bin</div>
   </div>
 
-  <div class="icon notepad">
-    <img src="../desktop/images/notepad.png">
+  <div class="icon notepad" id="howToPlayIcon">
+    <img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon">
     <div class="iconName">How To Play</div>
 </div>
+
+<div class="howToPlayWindow">
+        <div class="titleBar">
+            <div><img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon">How To Play.txt</div>
+            <div class="controls">
+                <button class="close"> <img src="../desktop/images/close.png"></button>
+            </div>
+       </div>
+        <div class="menuBar">
+            <span>File</span>
+            <span>Edit</span>
+            <span>Format</span>
+            <span>View</span>
+            <span>Help</span>
+        </div>
+    </div>
   
     <!-- Menu bar at the bottom -->
-    <div id="menuBar">
+    <div id="taskBar">
       <div class="startButton">
         <img src="../desktop/images/logo.svg" alt="Windows Logo">
         start
@@ -44,6 +60,9 @@
 
   <footer></footer>
 
-  <script src="../../src/Character.js"></script>
+
 </body>
+<script src="../../src/Character.js"></script>
+<script src="../desktop/level-desktop.js"></script>
+
 </html>
