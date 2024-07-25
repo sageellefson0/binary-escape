@@ -8,6 +8,12 @@ character = document.querySelector('.character');
 
 let isDecoderOpen = false;
 var answerSelected = false;
+const decodedLetters = [];
+let searchButton = document.getElementById('searchButton');
+let wikiSearchInput = document.getElementById('wikiSearchInput');
+let alienQuizDiv = document.getElementById('alienQuizDiv');
+let wikiContainer = document.getElementById('wikiContainer');
+let clippyAgent = document.getElementById('clippy-agent');
 
 
 // Prevents window reload without warning - user will lose progress is page is reloaded, this is to counteract that.
@@ -16,7 +22,7 @@ window.addEventListener('beforeunload', function (event) {
     }
 );
 
-
+// Dialogue for character when the page loads
 var iterationCharacter = 0;
 var lineIndexCharacter = 0;
 var typingTextCharacter = [
@@ -24,9 +30,10 @@ var typingTextCharacter = [
     'I wonder why it\'s all jumbled?',
    
 ];
-var textSpeedChar = 80; 
-var pauseTimeChar = 2000; 
+var textSpeedChar = 80; // Speed of text
+var pauseTimeChar = 2000; // Pause time of text
 
+// Function: Displays the diaglogue box and begins running through the text lines the typing text variable
 function typeWriterCharacterSpeak(callbackchar) {
     const dialogueBox = document.getElementById("dialogueBox");
     
@@ -59,13 +66,13 @@ function typeWriterCharacterSpeak(callbackchar) {
     }
 }
 
-
+// Calls the dialogue to begin showing when the page loads
 window.onload = function() {
     typeWriterCharacterSpeak();
 };
 
 
-// Decodes the binary message. 
+// Function: Decodes the binary message 
 function binaryTranslator(str) {
     let translatedMessage = '';
     
@@ -78,9 +85,7 @@ function binaryTranslator(str) {
 }
 
 
-const decodedLetters = [];
-
-// Get binary message and decode it using 'binaryTranslator()'
+// Function: Get binary message and decode it using 'binaryTranslator()'
 function enteredMessage(event) {
     event.preventDefault();
     var binaryTextInput = document.getElementById('binaryTextInput').value;
@@ -96,9 +101,7 @@ function enteredMessage(event) {
     document.getElementById('decoderTextBox').innerHTML = decodedLetters.join(' ');
 }
 
-var closeDecoderDiv = document.getElementById('closeDecoderDiv');
-closeDecoderDiv.addEventListener('click', closePopUpDecoder);
-
+// Function: Flickers the bug reports link text to TOP SECRET momentarily
 function flickerText() {
     // Change the text to "TOP SECRET"
     bugReportsLink.textContent = "TOP SECRET";
@@ -109,7 +112,7 @@ function flickerText() {
     }, 1000);
 }
 
-// Opens the decoder div by setting display to block.
+// Function: Opens the decoder div by setting display to block
 function openPopUpDecoder() {
     decoderDiv.style.display = "block";
     bugReportsLink.style.color = "purple";
@@ -117,16 +120,13 @@ function openPopUpDecoder() {
     console.log("Decoder div opened");
 }
 
-// Closes the decoder div by setting display to none.
+// Function: Closes the decoder div by setting display to none
 function closePopUpDecoder() {
     decoderDiv.style.display = "none";
     console.log("Decoder div closed");
 }
 
-
-
-
-
+// Function: Checks if alien decoder div is collapsed 
 function isCollapsedAlien(character, alienLinkDiv) {
     var object_1 = character.getBoundingClientRect();
     var object_2 = alienLinkDiv.getBoundingClientRect();
@@ -143,13 +143,12 @@ function isCollapsedAlien(character, alienLinkDiv) {
         }
     } else {
         if (isDecoderOpen) {
-            // closePopUpDecoder();
             isDecoderOpen = false;
         }
     }
 }
 
-
+// Game loop for alien decoder div - loop runs to check if character is overlapping with the alienLinkDiv
 const checkCollisionInGameLoopAlien = () => {
     isCollapsedAlien(character, alienLinkDiv);
     window.requestAnimationFrame(() => {
@@ -158,31 +157,25 @@ const checkCollisionInGameLoopAlien = () => {
 };
 checkCollisionInGameLoopAlien();
 
-
+// Function: Clears the textbox that holds the decoded text in the decoder
 function clearDecoderTextBox(){
     document.getElementById('decoderTextBox').innerHTML = "";
     decodedLetters.length = 0;
 
 }
 
-var btnSubmit = document.getElementById('binaryTextInputSubmit');
-btnSubmit.addEventListener('click', enteredMessage);
-
-var binaryTextInputClear = document.getElementById('binaryTextInputClear');
-binaryTextInputClear.addEventListener('click', clearDecoderTextBox);
-
-
-// Show the bug report popup
+// Function: Opens the bug reports div holding the binary message
 function openPopUpBugReports() {
     bugReportsLinkDiv.style.display = "block";  
     bugReportPopUp.style.display = "block";
 }
 
-// Hide the bug report popup
+// Function: Closes the bug reports pop up 
 function closePopUpBugReports() {
     bugReportPopUp.style.display = "none"; 
 }
 
+// Function: Checks if bug reports pop up is collapsed 
 function isCollapsed(character, bugReportsLinkDiv) {
     var object_1 = character.getBoundingClientRect();
     var object_2 = bugReportsLinkDiv.getBoundingClientRect();  
@@ -201,7 +194,7 @@ function isCollapsed(character, bugReportsLinkDiv) {
     }
 }
 
-// Check collision in the game loop for the bug reports pop up
+// Game loop for bug reports pop up - loop runs to check if character is overlapping with the bugReportsLinkDiv
 const checkCollisionInGameLoopBugReports = () => {
     isCollapsed(character, bugReportsLinkDiv);
     window.requestAnimationFrame(() => {
@@ -210,14 +203,7 @@ const checkCollisionInGameLoopBugReports = () => {
 };
 checkCollisionInGameLoopBugReports();
 
-
-
-let searchButton = document.getElementById('searchButton');
-let wikiSearchInput = document.getElementById('wikiSearchInput');
-let alienQuizDiv = document.getElementById('alienQuizDiv');
-let wikiContainer = document.getElementById('wikiContainer');
-let clippyAgent = document.getElementById('clippy-agent');
-
+// Function: Hides the wikipedia window and transitions to the alien quizzing page 
 function alienQuizPage() {
     wikiContainer.style.display = "none";
     alienQuizDiv.style.display = "block"; 
@@ -234,22 +220,12 @@ function alienQuizPage() {
     }, 5000); 
 
     startTypingAndQuestion();
-
 }
 
-searchButton.addEventListener('click', () => {
-    const searchInputValue = wikiSearchInput.value.trim().toLowerCase();
-
-    if (searchInputValue === "saturn") {
-        // Call the alienQuizPage function if the input is "saturn" or "SATURN"
-        alienQuizPage();
-    } else {
-        alert("Incorrect.");
-    }
-});
 
 
 
+// Dialogue for alien when the alien quiz window loads
 var i = 0;
 var lineIndex = 0;
 var typingText = [
@@ -258,10 +234,11 @@ var typingText = [
     'Something something I will kill you if you don\'t answer my questions. Blah blah blah.',
     'Seriously though, you have to answer these questions. '
 ];
-var textSpeed = 80; 
-var pauseTime = 1000; 
+var textSpeed = 80; // Alien speech speed 
+var pauseTime = 1000; // Pause time between lines
 var answerSelected = false;
 
+// Function: Displays the diaglogue box and begins running through the text lines the typing text variable
 function typeWriterAlienSpeak(callback) {
     if (lineIndex < typingText.length) {
         if (i < typingText[lineIndex].length) {
@@ -283,12 +260,13 @@ function typeWriterAlienSpeak(callback) {
     }
 }
 
+// Function: Sets timeout to display first question after alien dialogue finishes
 function startTypingAndQuestion() {
     typeWriterAlienSpeak(() => {
         setTimeout(() => displayQuestion(0), 1000); 
     });
 }
-
+// Function: Displays questions and sets answers and question fields
 function displayQuestion(index) {
     answerSelected = false;
     
@@ -333,7 +311,6 @@ function displayQuestion(index) {
             correct: 'Orson'
         }
     ];
-
     if (index < questionList.length) {
         questionsSlot.innerHTML = questionList[index].question;
         answerA.innerHTML = questionList[index].answers[0];
@@ -350,6 +327,7 @@ function displayQuestion(index) {
     }
 }
 
+// Function: Sets a selected answer so the answers cannot be spam clicked
 function handleAnswerClick(question, selectedAnswer, index) {
     if (!answerSelected) {
         answerSelected = true;
@@ -357,6 +335,7 @@ function handleAnswerClick(question, selectedAnswer, index) {
     }
 }
 
+// Function: Selects random images from the 6 losing images to display if a user gets an answer wrong
 function getRandomImages() {
     var images = [
         '../level-sage/images/cat1.jpg',
@@ -366,7 +345,6 @@ function getRandomImages() {
         '../level-sage/images/puppy2.jpg',
         '../level-sage/images/puppy3.jpg'
     ];
-
     var randomIndices = [];
     while (randomIndices.length < 2) {
         var randomIndex = Math.floor(Math.random() * images.length);
@@ -374,10 +352,10 @@ function getRandomImages() {
             randomIndices.push(randomIndex);
         }
     }
-
     return [images[randomIndices[0]], images[randomIndices[1]]];
 }
 
+// Function: Writes out the alien dialogue as the user progresses through the questions and finishes the questions
 function typeWriterAnswer(message, callback, clearBeforeNext = false) {
     var i = 0;
     document.getElementById("alienChatBox").innerHTML = '';
@@ -398,10 +376,10 @@ function typeWriterAnswer(message, callback, clearBeforeNext = false) {
             }
         }
     }
-
     type();
 }
 
+// Function: Checks if the answer is correct based on the variable questionList
 function checkAnswer(question, selectedAnswer, index) {
     if (selectedAnswer === question.correct) {
         // Resets the opacity
@@ -503,8 +481,31 @@ document.getElementById('wikiText').innerHTML =
 
       
 }
+var closeDecoderDiv = document.getElementById('closeDecoderDiv');
+closeDecoderDiv.addEventListener('click', closePopUpDecoder);
 
-// Clippy code
+// Event Listener: Checks to ensure wikiSearchInput is equal to "saturn" - if it is, it calls the alienQuizPage() to hide the wiki window and open the alien window
+searchButton.addEventListener('click', () => {
+    const searchInputValue = wikiSearchInput.value.trim().toLowerCase();
+
+    if (searchInputValue === "saturn") {
+        // Call the alienQuizPage function if the input is "saturn" or "SATURN"
+        alienQuizPage();
+    } else {
+        alert("Incorrect.");
+    }
+});
+
+
+var btnSubmit = document.getElementById('binaryTextInputSubmit');
+btnSubmit.addEventListener('click', enteredMessage);
+
+var binaryTextInputClear = document.getElementById('binaryTextInputClear');
+binaryTextInputClear.addEventListener('click', clearDecoderTextBox);
+
+
+
+/////////// CLIPPY CODE ////////////
 
 document.addEventListener("DOMContentLoaded", function() {
 
