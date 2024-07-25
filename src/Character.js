@@ -1,7 +1,7 @@
 var character = document.querySelector(".character");
 
 var x = 90;
-var y = 34;
+var y = 50;
 var held_directions = []; // Array for directions of character
 var speed = .5; // Speed in pixels of character
 
@@ -23,10 +23,10 @@ const placeCharacter = () => {
    character.setAttribute("walking", held_direction ? "true" : "false");
 
    // Walls around character
-   var leftLimit = -8;
-   var rightLimit = (16 * 15) + 8;
+   var leftLimit = -6;
+   var rightLimit = (22.5 * 15) + 8;
    var topLimit = -8 + 10;
-   var bottomLimit = (16 * 7);
+   var bottomLimit = (20.5 * 7);
    if (x < leftLimit) { x = leftLimit; }
    if (x > rightLimit) { x = rightLimit; }
    if (y < topLimit) { y = topLimit; }
