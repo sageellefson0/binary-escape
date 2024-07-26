@@ -7,7 +7,7 @@ body {
     height: 100%;
     margin: 0px;
     padding: 0px;
-    font-family: 'Proxima Nova', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 :root {
@@ -39,19 +39,18 @@ body {
 .menu-item {
     display: flex;
     align-items: center;
-    margin: 10px;
+    margin: 12px;
     flex: 1;
-    font-size: 15px;
 }
 
 .sidebar p {
-    margin: 15px ;
+    margin: 12px;
     font-size: 15px;
     letter-spacing: 0.05em;
 }
 
 .sidebar .home {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 a:hover {
@@ -311,16 +310,126 @@ div.time {
 
 /*--------------RESPONSIVENESS---------------*/
 .suggested_for_you {
+    padding-top: 22px;
+    margin-top: 36px;
+    position: absolute;
+    right: 150px;
+    line-height: 18px;
+    font-size: 14px;
+}
+
+.suggested_profile_picture{
+    margin-right: 14px;
+}
+
+.suggested_profile_picture img{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+}
+
+.active_profile, .suggested_profile{
+    display: grid;
+    grid-template-columns: 56px 184px 48px;
+}
+
+.active_profile_name, .suggested_profile_name {
+    margin-top: 5px;
+}
+
+.suggested_username {
+    font-weight: 600;
+}
+
+.profile_name {
+    color: rgb(115, 115, 115);
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.suggested_button {
+    margin-top: 10px;
+    text-align: left;
+    color: rgb(0, 149, 246);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+}
+
+.suggested_accounts {
+    margin: 24px 0 8px 0;
+}
+
+.suggested_header{
+    display: grid;
+    grid-template-columns: 240px 48px;
+    color: #4d5156;
+}
+
+.suggested_title {
+    font-weight: 600;
+}
+
+.see_all_button {
+    color: rgb(38, 38, 38);
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.accounts {
+    padding: 8px 0 8px 0;
+}
+
+.suggested_profile {
+    padding: 8px 0 8px 0;
+}
+
+.suggested_footer {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    position: absolute;
-    right: 75px;
+    width: 288px;
+    font-size: 12px;
+    color: rgb(199, 199, 199);
+}
+
+.suggested_footer ul {
+    list-style-type: none;
+    margin:0 0 16px 0;
+    padding: 0;
+}
+
+.suggested_footer li {
+    float: left;
+    margin: 0 2px;
+}
+
+.suggested_footer::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.suggested_footer li::after{
+    content: "·";
+    margin-left: 2px;
+}
+
+.suggested_footer li:last-child:after{
+    content: "";
 }
 
 /*--------------RESPONSIVENESS---------------*/
 @media screen and (max-width:600px) {
+    .sidebar {
+        width: auto;
+    }
     .menu-item p {
+      visibility: collapse;
+    }
+}
+
+@media screen and (max-width:1160px) {
+    .suggested_for_you {
       display: none;
     }
 }
