@@ -128,3 +128,17 @@ body {
         border-color: gray;
     }
 }
+
+/* ----------------- Start Page Styling ---------------------*/
+
+.start-page {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.lock-logo {
+    width: 100px;
+    height: 80px;
+}
