@@ -29,6 +29,7 @@ html{
     background-repeat: no-repeat;
     background-size: cover;
     transition: opacity 2s;
+    display: none;
 
 }
 
@@ -40,9 +41,15 @@ html{
 }
 
 #desktopDiv{
-  display: none;
+  /* display: none; TEMP NEED TO REMOVE COMMENT */
   transition: opacity 2s;
 
+}
+
+.levelIcons{
+  cursor: pointer;
+  color:white;
+  text-decoration: none;
 }
 
 /* Fade-in and fade-out classes */
@@ -235,3 +242,4 @@ html{
   right: 8px;
   bottom: 36px;
 }
+
