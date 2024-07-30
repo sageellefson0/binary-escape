@@ -21,7 +21,6 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    overflow-x: hidden;
     position: fixed;
     padding: 14px;
     flex-direction: column;
@@ -40,7 +39,6 @@ body {
     display: flex;
     align-items: center;
     margin: 12px;
-    flex: 1;
 }
 
 .sidebar p {
@@ -71,14 +69,17 @@ a:hover {
 }
 
 /*---------------MAIN---------------*/
-.main {
-    display: flex;
-    flex-direction: column;
+.main_section {
     height: 100vh;
     position: absolute;
-    left: 375px;
+    left: 370px;
+    display: flex;
+    flex-direction: column;
 }
 
+.main, .suggested_for_you {
+    flex: 50%;
+}
 .header {
     border-bottom: 1px solid #ccc;
     align-items: center;
@@ -105,17 +106,16 @@ a:hover {
 /*--------------STORIES---------------*/
 .stories {
     padding-top: 22px;
-    justify-content: center;
     position: relative;
     margin-bottom: 24px;
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 .story-item {
-    display: inline-grid;
     gap: 50px;
     width: 76px;
     height: 85px;
-    align-items: center;
 }
 
 .story-item button {
@@ -310,10 +310,10 @@ div.time {
 
 /*--------------RESPONSIVENESS---------------*/
 .suggested_for_you {
-    padding-top: 22px;
-    margin-top: 36px;
     position: absolute;
-    right: 150px;
+    margin-top: 36px;
+    padding-top: 22px;
+    right: -350px;
     line-height: 18px;
     font-size: 14px;
 }
@@ -418,18 +418,122 @@ div.time {
     content: "";
 }
 
+#instagram {
+    display: none;
+    width: 32px;
+    height: 32px;
+}
+
 /*--------------RESPONSIVENESS---------------*/
-@media screen and (max-width:600px) {
+@media screen and (max-width:1500px) {
+    .main_section {
+        left: 300px;
+    }
+} 
+@media screen and (max-width:1300px) {
     .sidebar {
-        width: auto;
+        width: 80px;
     }
     .menu-item p {
-      visibility: collapse;
+      display: none;
+    }
+    .menu-item svg {
+        max-width: 100%;
+        display: block;
+        margin: 12px 0 8px 0;
+    }
+    #instagram {
+        display: block;
+    }
+    .logo img {
+        display: none;
+    }
+    .main_section {
+        left: 120px;
     }
 }
 
-@media screen and (max-width:1160px) {
-    .suggested_for_you {
+@media screen and (max-width:1200px) {
+    .sidebar {
+        width: 80px;
+    }
+    .menu-item p {
       display: none;
+    }
+    .menu-item svg {
+        max-width: 100%;
+        display: block;
+        margin: 12px 0 8px 0;
+    }
+    #instagram {
+        display: block;
+    }
+    .logo img {
+        display: none;
+    }
+    .main_section {
+        left: 250px;
+    }
+    .suggested_for_you {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .sidebar {
+        width: 80px;
+    }
+    .menu-item p {
+      display: none;
+    }
+    .menu-item svg {
+        max-width: 100%;
+        display: block;
+        margin: 12px 0 8px 0;
+    }
+    #instagram {
+        display: block;
+    }
+    .logo img {
+        display: none;
+    }
+    .main_section {
+        left: 180px;
+    }
+    .suggested_for_you {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .main_section {
+        left: 100px;
+    }
+    .suggested_for_you {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main_section {
+        left: 90px;
+    }
+    .suggested_for_you {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        display: none;
+    }
+    .main_section {
+        left: 20px;
+    }    
+    .posts {
+        left: 0px;
+    }
+    .suggested_for_you {
+        display: none;
     }
 }
