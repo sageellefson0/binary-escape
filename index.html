@@ -11,10 +11,25 @@
 
 <body>
     <div class="start-page">
-        <div id="lock-bm" class="lock-logo"></div>
+        <div class="title">
+            <h1>Binary Escape</h1>
+            <div id="lock-bm" class="lock-logo"></div>
+        </div>
+        <div class="instructions">
+            <p>Select a character</p>
+        </div>
+        <div class="characters">
+            <div class="character-select"><video id="male-intern" width="300" height="500" autoplay loop>
+                <source src="3d-models/girl-intern-idle.webm" type="video/webm">
+                Your browser does not support the video tag.
+              </video><button>Select</button></div>
+            <div class="character-select"><img id="female-intern" src="./images/malecharacter1.png"
+                    alt="select female intern character" /><button>Select</button></div>
+        </div>
+
     </div>
 </body>
-
+<!-- <script type="module" src="src/main.js"></script> -->
 <script src="src/start.js"> </script>
 <script src="logo/lottie.js"> </script>
 <script src="logo/index.js"> </script>

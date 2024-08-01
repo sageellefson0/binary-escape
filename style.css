@@ -134,11 +134,60 @@ body {
 .start-page {
     display: flex;
     position: relative;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgb(107, 133, 141);
+    height: 100vh;
+}
+
+.title {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 1rem;
+}
+
+.title h1 {
+    font-size: 4.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 15px;
+    padding-right: 10px;
+    margin: 0;
+}
+
+.instructions p {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    color: #d4d4d4;
 }
 
 .lock-logo {
-    width: 100px;
-    height: 80px;
+    width: 110px;
+    height: 100px;
 }
+
+.start-page .characters {
+    display: flex;
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -5rem;
+    width: 90vw;
+}
+
+.character-select {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.character-select #male-intern {
+    width: 350px;
+    height: 500px;
+}
+
