@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             title.style.transform = 'translateY(-35vh)';
             lockIcon.style.transform = 'translateY(-35vh)';
-        }, 3250);
+        }, 4000);
 
 
         // Fade in rest of the page
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lockIcon.style.transition = 'none';
             instructions.classList.add('fade-in');
             characters.classList.add('fade-in');
-        }, 5750); 
+        }, 6750); 
 
         // Set the animation played flag
         localStorage.setItem(ANIMATION_KEY, 'true');
