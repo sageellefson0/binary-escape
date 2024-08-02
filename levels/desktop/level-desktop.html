@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,96 +8,129 @@
   <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="../desktop/level-desktop.css">
 </head>
+
 <body class="level-desktop">
   <header></header>
 
   <main>
-
     <div id="introDiv">
       <div id="introTextBox"></div>
-
-
-  </div>
+    </div>
     <div id="desktopDiv">
-
       <!-- Div for holding active character frame -->
       <div class="character">
         <!-- Entire character spritesheet div -->
         <div class="characterSpritesheet"></div>
       </div>
 
-
-
-    <div class="icon recycleBin">
-      <img src="../desktop/images/recycle.png">
-      <div class="iconName">Recycle Bin</div>
-  </div>
-
-  <div class="icon notepad" id="howToPlayIcon">
-    <img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon.">
-    <div class="iconName">How To Play</div>
-</div>
-
-<div class="icon skype" id="skypeIcon">
-  <a href="../level-alex/level-alex.html" class="levelIcons">
-  <img src="../desktop/images/skype.png" alt="Image of skype logo.">
-</a>
-  <div class="iconName">Skype</div>
-</div>
-
-<div class="icon internetExplorer" id="IEIcon">
-  <a href="../level-sage/level-sage.html" class="levelIcons">
-  <img src="../desktop/images/internetexplorer.png" alt="Image of windows XP Internet Explorer logo.">
-  <div class="iconName">Internet Explorer</div>
-</a>
-</div>
-
-<div class="howToPlayWindow">
-        <div class="titleBar">
-            <div><img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon">How To Play.txt</div>
-            <div class="controls">
-                <button class="close"> <img src="../desktop/images/close.png"></button>
-            </div>
-       </div>
-        <div class="menuBar">
-            <span>File</span>
-            <span>Edit</span>
-            <span>Format</span>
-            <span>View</span>
-            <span>Help</span>
-        </div>
-        <div id="howToPlayText"> 
-        Welcome to Binary Escape! 
-          <br>
-          <br>
-          <br>
-        - Use the arrow keys to move the character in interactive levels.<br>
-        <br>
-        - Keep an eye out for Clippy, this is how hints are displayed throughout the game. <br>
-        <br>
-        - If you are unable to click an element, try moving the character to walk over it. <br>
-        <br>
-
-        </div>
-    </div>
-  
-    <!-- Menu bar at the bottom -->
-    <div id="taskBar">
-      <div class="startButton">
-        <img src="../desktop/images/logo.svg" alt="Windows Logo">
-        start
+      <div class="icon recycleBin">
+        <img src="../desktop/images/recycle.png">
+        <div class="iconName">Recycle Bin</div>
       </div>
-      <div class="time">3:50 pm</div>
-    </div>
-  </div>
 
+      <div id="root"></div>
+      <input type="text" id="nicknameInput"> 
+      <button type="submit" id="submitNickname">Submit</button>
+
+      <div class="icon notepad" id="howToPlayIcon">
+        <img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon.">
+        <div class="iconName">How To Play</div>
+      </div>
+
+      <div class="icon skype" id="skypeIcon">
+        <a href="../level-alex/level-alex.html" class="levelIcons">
+          <img src="../desktop/images/skype.png" alt="Image of skype logo.">
+        </a>
+        <div class="iconName">Skype</div>
+      </div>
+
+      <div class="icon internetExplorer" id="IEIcon">
+        <a href="../level-sage/level-sage.html" class="levelIcons">
+          <img src="../desktop/images/internetexplorer.png" alt="Image of windows XP Internet Explorer logo.">
+          <div class="iconName">Internet Explorer</div>
+        </a>
+      </div>
+
+      <div class="howToPlayWindow">
+        <div class="titleBar">
+          <div><img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon">How To Play.txt</div>
+          <div class="controls">
+            <button class="close"> <img src="../desktop/images/close.png"></button>
+          </div>
+        </div>
+        <div class="menuBar">
+          <span>File</span>
+          <span>Edit</span>
+          <span>Format</span>
+          <span>View</span>
+          <span>Help</span>
+        </div>
+        <div id="howToPlayText">
+          Welcome to Binary Escape!
+          <br><br>
+          - Use the arrow keys to move the character in interactive levels.<br><br>
+          - Keep an eye out for Clippy, this is how hints are displayed throughout the game. <br><br>
+          - If you are unable to click an element, try moving the character to walk over it. <br><br>
+        </div>
+      </div>
+
+      <!-- Menu bar at the bottom -->
+      <div id="taskBar">
+        <div class="startButton">
+          <img src="../desktop/images/logo.svg" alt="Windows Logo">
+          start
+        </div>
+        <div class="time">3:50 pm</div>
+      </div>
+    </div>
   </main>
 
   <footer></footer>
 
+  <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
+    import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
 
+    const firebaseConfig = {
+      apiKey: "AIzaSyCHqX0uxfuSvT2fMcW_EzpZ-i-NVDX-_zw",
+      authDomain: "binary-escape-4ad92.firebaseapp.com",
+      projectId: "binary-escape-4ad92",
+      storageBucket: "binary-escape-4ad92.appspot.com",
+      messagingSenderId: "695253692594",
+      appId: "1:695253692594:web:811c93ca1f512db98e59ab",
+      measurementId: "G-ZC947WKZVS"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const firestore = getFirestore(app);
+
+    const submitNicknameBtn = document.getElementById("submitNickname");
+    const generatedIDVal = 100; // Sample ID for demonstration
+
+    submitNicknameBtn.addEventListener('click', async () => {
+      const nickname = document.getElementById('nicknameInput').value.trim();
+      if (nickname) {
+        try {
+          // Add a new document with a generated ID to the "userID" collection
+          const docRef = await addDoc(collection(firestore, "userID"), {
+            usernickname: nickname,
+            generatedID: generatedIDVal
+          });
+          console.log('User added with ID:', docRef.id);
+        } catch (error) {
+          console.error('Error adding user nickname:', error);
+        }
+      } else {
+        console.log('Nickname is required');
+      }
+    });
+  </script>
+
+  <!-- Additional scripts -->
+  <script src="../../src/Character.js"></script>
+  <script src="../desktop/level-desktop.js"></script>
 </body>
-<script src="../../src/Character.js"></script>
-<script src="../desktop/level-desktop.js"></script>
 
 </html>

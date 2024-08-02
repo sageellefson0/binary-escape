@@ -140,7 +140,9 @@ html{
   margin: 0;
 }
 
-
+#IEIcon {
+  display: none; /* Hide by default */
+}
 
 
 

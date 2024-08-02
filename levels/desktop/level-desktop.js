@@ -1,3 +1,4 @@
+
 const howToPlayWindow = document.querySelector('.howToPlayWindow');
 const closeHowToPlay = document.querySelector('.close');
 const notepadIcon = document.querySelector('.notepadIcon');
@@ -127,3 +128,68 @@ setTimeout(() => {
     // Then set an interval to update the time every minute
     setInterval(updateTime, 60000);
 }, msUntilNextMinute);
+
+
+
+
+////////////////////////// FOR OTHER LEVEL TESTING HERE 
+
+// const submitNicknameBtn = document.getElementById("submitNickname");
+
+// submitNicknameBtn.addEventListener('click', () => {
+//     const nickname = document.getElementById('nicknameInput').value;
+//     console.log('Nickname:', nickname); 
+//     addUserNickname(nickname);
+// });
+
+// // Function to add a user's nickname to the Firestore collection
+// const addUserNickname = async (nickname) => {
+//     try {
+//         const docRef = await firestore.collection('userNicknames').add({ nickname });
+//         console.log('Document written with ID: ', docRef.id);
+//     } catch (e) {
+//         console.error('Error adding document: ', e);
+//     }
+// };
+
+// // Updates the inventory table in Firebase
+// const updateUsers = async () => {
+//     const snapshot = firestore.collection('userID').get();
+//     const docs = await snapshot;
+//     const userList = [];
+//     docs.forEach((doc) => {
+//         const data = doc.data();
+//         userList.push({ id: doc.id, ...data });
+//     });
+//     console.log(userList);
+//     // setInventory(userList); // Assuming setInventory is defined elsewhere
+// };
+
+// // Adds an item to Firebase table
+// const addItem = async (itemName, itemType, quantity) => {
+//     const capitalizedItemName = capitalizeFirstLetter(itemName);
+//     const docRef = firestore.collection("userID").doc(capitalizedItemName);
+//     const docSnap = await docRef.get();
+//     if (docSnap.exists) {
+//         const { count } = docSnap.data();
+//         await docRef.set({ count: count + quantity, type: itemType });
+//     } else {
+//         await docRef.set({ count: quantity, type: itemType });
+//     }
+//     await updateUsers();
+// };
+
+// // Removes an item from Firebase table
+// const removeItem = async (itemName) => {
+//     const docRef = firestore.collection("userID").doc(itemName);
+//     const docSnap = await docRef.get();
+//     if (docSnap.exists) {
+//         const { count } = docSnap.data();
+//         if (count === 1) {
+//             await docRef.delete();
+//         } else {
+//             await docRef.set({ count: count - 1, type: docSnap.data().type });
+//         }
+//     }
+//     await updateUsers();
+// };
