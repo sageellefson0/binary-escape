@@ -231,7 +231,7 @@ body {
     position: relative;
     justify-content: space-around;
     align-items: center;
-    margin-top: -7.25rem;
+    margin-top: -7rem;
     width: 90vw;
 }
 
@@ -244,7 +244,7 @@ body {
 }
 
 .character-select video {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     width: 300px;
     height: 500px;
 }
