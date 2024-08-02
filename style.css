@@ -245,6 +245,8 @@ body {
 
 .character-select video {
     margin-bottom: 0.75rem;
+    width: 300px;
+    height: 500px;
 }
 
 /* ------------------- Button Grid styles ------------------- */
@@ -324,3 +326,4 @@ body {
     color: #ececec;
   }
   
+

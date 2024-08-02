@@ -4,9 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const instructions = document.getElementById('instructions');
     const characters = document.getElementById('characters');
 
-    window.animationPlayed = false
+    const ANIMATION_KEY = 'animationPlayed';
+    const animationPlayed = sessionStorage.getItem(ANIMATION_KEY);
 
-    if (!animationPlayed) {
+    if (animationPlayed !== 'true') {
+        console.log("entered loop")
         // Initial transition to center
         setTimeout(() => {
             title.style.transform = 'translateX(0)';
@@ -16,17 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Float to the top
         setTimeout(() => {
-            title.classList.add('float-to-top');
-            lockIcon.classList.add('float-to-top');
+            title.style.transform = 'translateY(-35vh)';
+            lockIcon.style.transform = 'translateY(-35vh)';
         }, 3250);
+
 
         // Fade in rest of the page
         setTimeout(() => {
+            title.style.transition = 'none';
+            lockIcon.style.transition = 'none';
             instructions.classList.add('fade-in');
             characters.classList.add('fade-in');
-        }, 4750); // Adjust timing as needed
+        }, 5750); 
 
-        // Set the animation played flag 
-        window.animationPlayed = true
+        // Set the animation played flag
+        localStorage.setItem(ANIMATION_KEY, 'true');
     } 
 });

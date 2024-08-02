@@ -10,9 +10,6 @@ var params = {
 
 var anim = lottie.loadAnimation(params);
 
-// setTimeout(() => {
-//     anim.play();
-// }, 275); 
 
 container.addEventListener('mouseenter', (e) => {
     anim.play();
