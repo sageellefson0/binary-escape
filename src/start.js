@@ -1,22 +1,32 @@
-/* ----------------- Sprite Character Javascript --------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+    const title = document.querySelector('.title h1');
+    const lockIcon = document.querySelector('#lock-bm');
+    const instructions = document.getElementById('instructions');
+    const characters = document.getElementById('characters');
 
-// const maleCharacterImg = document.getElementById("male-intern");
-// const femaleCharacterImg = document.getElementById("female-intern");
-//         const imageSources = [
-//             "./images/malecharacter1.png",
-//             "./images/malecharacter2.png"
-//         ];
+    window.animationPlayed = false
 
-//         let currentImageIndex = 0;
-
-//         const switchImage = () => {
-//             currentImageIndex = (currentImageIndex + 1) % imageSources.length;
-//             maleCharacterImg.src = imageSources[currentImageIndex];
-//             femaleCharacterImg.src = imageSources[currentImageIndex];
-//         };
-
-//         // Set an interval to switch images every 500 milliseconds
-//         setInterval(switchImage, 500);
+    if (!animationPlayed) {
+        // Initial transition to center
+        setTimeout(() => {
+            title.style.transform = 'translateX(0)';
+            lockIcon.style.transform = 'translateX(0)';
+        }, 250);
 
 
-/* ----------------- 3D Character Three.js --------------------- */
+        // Float to the top
+        setTimeout(() => {
+            title.classList.add('float-to-top');
+            lockIcon.classList.add('float-to-top');
+        }, 3250);
+
+        // Fade in rest of the page
+        setTimeout(() => {
+            instructions.classList.add('fade-in');
+            characters.classList.add('fade-in');
+        }, 4750); // Adjust timing as needed
+
+        // Set the animation played flag 
+        window.animationPlayed = true
+    } 
+});

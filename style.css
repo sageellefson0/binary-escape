@@ -139,14 +139,19 @@ body {
     align-items: center;
     background-color: #202020;
     height: 100vh;
+    overflow: hidden;
 }
 
 .title {
     display: flex;
-    position: relative;
+    position: absolute;
     align-items: center;
+    justify-content: center;
     margin-left: 50px;
-    margin-bottom: 1rem;
+    margin-bottom: 4rem;
+
+    height: 100vh;
+    width: 100vw
 }
 
 .title h1 {
@@ -158,8 +163,60 @@ body {
     margin: 0;
 }
 
+.title h1, .title #lock-bm {
+    position: relative;
+    transition: transform 2.5s ease-in-out;
+}
+
+.title h1 {
+    transform: translateX(-300%);
+}
+
+.title #lock-bm {
+    transform: translateX(700%);
+}
+
+.float-to-top {
+    transform: translateY(-35vh) !important;
+    transition: transform 1.5s ease-in-out !important;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.instructions, .characters {
+    display: none;
+    margin-top: 2rem;
+}
+
+.fade-in {
+    display: flex;
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 3s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .instructions p {
-    font-size: 2rem;
+    padding-top: 0;
+    margin: 2rem;
+    font-size: 2.25rem;
     font-weight: 600;
     font-family: 'Courier New', Courier, monospace;
     color: #ececec;
@@ -171,7 +228,6 @@ body {
 }
 
 .start-page .characters {
-    display: flex;
     position: relative;
     justify-content: space-around;
     align-items: center;
