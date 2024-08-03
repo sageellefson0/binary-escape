@@ -128,3 +128,202 @@ body {
         border-color: gray;
     }
 }
+
+/* ----------------- Start Page Styling ---------------------*/
+
+.start-page {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #202020;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.title {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    margin-bottom: 4rem;
+
+    height: 100vh;
+    width: 100vw
+}
+
+.title h1 {
+    font-size: 4.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ececec;
+    padding-top: 15px;
+    padding-right: 10px;
+    margin: 0;
+}
+
+.title h1, .title #lock-bm {
+    position: relative;
+    transition: transform 2.5s ease-in-out;
+}
+
+.title h1 {
+    transform: translateX(-300%);
+}
+
+.title #lock-bm {
+    transform: translateX(700%);
+}
+
+.float-to-top {
+    transform: translateY(-35vh) !important;
+    transition: transform 1.5s ease-in-out !important;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.instructions, .characters {
+    display: none;
+    margin-top: 2rem;
+}
+
+.fade-in {
+    display: flex;
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 3s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.instructions p {
+    padding-top: 0;
+    margin: 1.75rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ececec;
+}
+
+.lock-logo {
+    width: 110px;
+    height: 100px;
+}
+
+.start-page .characters {
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -7rem;
+    width: 90vw;
+}
+
+.character-select {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.character-select video {
+    margin-bottom: 0.5rem;
+    width: 300px;
+    height: 500px;
+}
+
+/* ------------------- Button Grid styles ------------------- */
+.pixel-button {
+    display: grid;
+    row-gap: 0;
+    column-gap: 0;
+    grid-template-columns: repeat(20, 8px);
+    grid-template-rows: repeat(11, 7px);
+    
+    filter: drop-shadow(0 15px 0 #545454);
+    
+    cursor: pointer;
+  }
+  
+  .pixel-button:active {
+    transform: translate(0,15px);
+    filter: drop-shadow(0 0 0 #545454);
+  }
+  
+  
+  /* ------------------- pixel styles ------------------- */
+  
+  .transparent {
+    background-color: transparent;
+    height: 10px;
+    width: 10px;
+  }
+  
+  .black {
+    background-color: #ececec;
+    height: 10px;
+    width: 10px;
+  }
+  
+  .lightg {
+    background-color: #9F9E9E;
+    height: 10px;
+    width: 10px;
+  }
+  
+  .white {
+    background-color: #9F9E9E;
+    height: 10px;
+    width: 10px;
+  }
+  
+  .grey {
+    background-color: #545454;
+    height: 10px;
+    width: 10px;
+  }
+  
+  /* ------------------- text styles ------------------- */
+  .pixel-button .text {
+    filter: none;
+    position: absolute;
+    display: block;
+    
+    z-index: 5;
+  
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    top: 20%;
+    text-align: center;
+  }
+
+  .pixel-button:active a {
+    color: #545454;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #ececec;
+  }
+  
+
