@@ -6,11 +6,22 @@
      <title>ChadGPT</title>
      <link rel="stylesheet" href="level-sergio.css">
      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-     <script src="script.js" defer></script>
+     <script src="level-sergio.js" defer></script>
+     <!-- <link rel="stylesheet" href="../../style.css"> -->
 </head>
 <body>
+       <!-- Div for holding active character frame -->
+       <div class="character">
+          <!-- Entire character spritesheet div -->
+          <div class="characterSpritesheet"></div>
+        </div>
+       
+
+
+
+
      <div class="chat-container">
-          <div class="chat sending">
+          <div class="chat input">
                <div class="chat-content">
                     <div class="chat-details">
                          <img src="" alt="user-img">
@@ -18,7 +29,7 @@
                     </div>
                </div>
           </div>
-          <div class="chat receiving">
+          <div class="chat output">
                <div class="chat-content">
                     <div class="chat-details">
                          <img src="images/chatbot.jpg" alt="chatbot-img">
@@ -27,7 +38,7 @@
                     <span class="material-symbols-rounded">content_copy</span>
                </div>
           </div>
-          <div class="chat receiving">
+          <div class="chat output">
                <div class="chat-content">
                     <div class="chat-details">
                          <img src="images/chatbot.jpg" alt="chatbot-img">
@@ -55,6 +66,16 @@
           </div>
      </div>
 
-     
+     <!-- Character Script -->
+     <!-- <script src="../../src/Character.js"> </script> -->
+
+     <!-- Clippy Div -->
+     <!-- <div id="clippy-agent" class="agent"> -->
+          <!-- <div id="hint" class="speech-bubble"></div> -->
+          <!-- <div id="clippy-bm" class="clippy"></div> -->
+      <!-- </div> -->
+     <!-- Clippy scripts -->
+    <!-- <script src="../../clippy/lottie.js"></script> -->
+    <!-- <script src="../../clippy/index.js"></script> -->
 </body>
 </html>
