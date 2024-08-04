@@ -1,0 +1,75 @@
+
+html {
+    scroll-behavior: smooth;
+    image-rendering: pixelated;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ----------------- End Page Styling ---------------------*/
+
+.end-page {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #202020;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.setting {
+    position: absolute;
+    right: 42%;
+    width: 50vw;
+    height: auto;
+}
+
+.setting img {
+    width: 100%;
+}
+
+.video-container video {
+    position: absolute;
+    width: 40px; /* Initial width */
+    height: 70px; /* Initial height */
+    top: 31.5%; /* Initial top position */
+    left: 31%; /* Initial left position */
+    transition: all 2s ease-in-out;
+}
+
+/* Animation to transform the video */
+@keyframes transformVideo {
+    0% {
+        width: 40px; /* Initial width */
+        height: 70px; /* Initial height */
+        top: 31.5%; /* Initial top position */
+        left: 31%; /* Initial left position */
+    }
+    45% {
+        top: 20%; /* Middle top position */
+        left: 52%; /* Middle left position */
+    }
+    80% {
+        width: 300px; /* Final width */
+        height: 500px; /* Final height */
+        top: 10%; /* Final top position */
+        left: 52%; /* Final left position */
+    }
+    100% {
+        width: 300px; /* Final width */
+        height: 500px; /* Final height */
+        top: 10%; /* Final top position */
+        left: 52%; /* Final left position */
+    }
+}
+
+.video-container video {
+    animation: transformVideo 1.75s ease-in-out 0.5s forwards;
+}
