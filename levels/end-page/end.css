@@ -47,6 +47,15 @@ body {
 	}
 }
 
+@keyframes fadeOutOpacity {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 
 .setting {
     position: fixed;
@@ -95,7 +104,7 @@ body {
 }
 
 .video-container video {
-    animation: transformVideo 1.75s ease-in-out 2.75s forwards;
+    animation: transformVideo 1.75s ease-in-out 2.76s forwards;
 }
 
 
