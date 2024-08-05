@@ -111,6 +111,13 @@
   // Log-Out Button
   const logoutButton = document.getElementById('logoutButton');
 
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      // User is not logged in, redirect to login page or home page
+      window.location.href = '../../index.html'; // Adjust path as necessary
+    }
+  });
+
   logoutButton.addEventListener('click', async () => {
     try {
       await signOut(auth);
@@ -119,6 +126,8 @@
       console.error('Error signing out:', error);
     }
   });
+
+  
 
   </script>
 
