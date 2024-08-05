@@ -24,8 +24,9 @@ body {
     overflow: hidden;
 }
 
+
 .setting {
-    position: absolute;
+    position: fixed;
     right: 41%;
     width: 52vw;
     height: auto;
@@ -36,9 +37,9 @@ body {
 }
 
 .video-container video {
-    position: absolute;
-    width: 40px; /* Initial width */
-    height: 70px; /* Initial height */
+    position: fixed;
+    width: 2.6vw; /* Initial width */
+    height: 9.8vh; /* Initial height */
     top: 31.5%; /* Initial top position */
     left: 31%; /* Initial left position */
     transition: all 2s ease-in-out;
@@ -47,8 +48,8 @@ body {
 /* Animation to transform the video */
 @keyframes transformVideo {
     0% {
-        width: 40px; /* Initial width */
-        height: 70px; /* Initial height */
+        width: 2.6vw; /* Initial width */
+        height: 9.8vh; /* Initial height */
         top: 31.5%; /* Initial top position */
         left: 31%; /* Initial left position */
     }
@@ -57,15 +58,15 @@ body {
         left: 52%; /* Middle left position */
     }
     80% {
-        width: 300px; /* Final width */
-        height: 500px; /* Final height */
-        top: 10%; /* Final top position */
+        width: 20vw; /* Final width */
+        height: 80vh; /* Final height */
+        top: 5%; /* Final top position */
         left: 52%; /* Final left position */
     }
     100% {
-        width: 300px; /* Final width */
-        height: 500px; /* Final height */
-        top: 10%; /* Final top position */
+        width: 20vw; /* Final width */
+        height: 80vh; /* Final height */
+        top: 5%; /* Final top position */
         left: 52%; /* Final left position */
     }
 }
