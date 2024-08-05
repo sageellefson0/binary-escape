@@ -13,21 +13,44 @@ body {
 
 /* ----------------- End Page Styling ---------------------*/
 
+.end-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #202020;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0; /* Ensure it's behind the .end-page */
+}
+
 .end-page {
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #202020;
     height: 100vh;
     overflow: hidden;
+    opacity: 0;
+    animation: fadeInOpacity 3s ease-in-out forwards;
+    z-index: 1;
+}
+
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 
 .setting {
     position: fixed;
-    right: 41%;
+    right: 37%;
     width: 52vw;
     height: auto;
 }
@@ -40,8 +63,8 @@ body {
     position: fixed;
     width: 2.6vw; /* Initial width */
     height: 9.8vh; /* Initial height */
-    top: 31.5%; /* Initial top position */
-    left: 31%; /* Initial left position */
+    top: calc(50% - 7.8rem); /* Initial top position */
+    left: 35%; /* Initial left position */
     transition: all 2s ease-in-out;
 }
 
@@ -50,27 +73,29 @@ body {
     0% {
         width: 2.6vw; /* Initial width */
         height: 9.8vh; /* Initial height */
-        top: 31.5%; /* Initial top position */
-        left: 31%; /* Initial left position */
+        top: calc(50% - 7.8rem); /* Initial top position */
+        left: 35%; /* Initial left position */
     }
     45% {
         top: 20%; /* Middle top position */
-        left: 52%; /* Middle left position */
+        left: 56%; /* Middle left position */
     }
     80% {
         width: 20vw; /* Final width */
         height: 80vh; /* Final height */
         top: 5%; /* Final top position */
-        left: 52%; /* Final left position */
+        left: 56%; /* Final left position */
     }
     100% {
         width: 20vw; /* Final width */
         height: 80vh; /* Final height */
         top: 5%; /* Final top position */
-        left: 52%; /* Final left position */
+        left: 56%; /* Final left position */
     }
 }
 
 .video-container video {
-    animation: transformVideo 1.75s ease-in-out 0.5s forwards;
+    animation: transformVideo 1.75s ease-in-out 2.75s forwards;
 }
+
+
