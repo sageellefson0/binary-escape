@@ -86,7 +86,7 @@
   <!-- Firebase App SDK and Authentication -->
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
-    import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
+    import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
     import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
 
     const firebaseConfig = {
@@ -105,44 +105,13 @@
     const firestore = getFirestore(app);
 
     const submitNicknameBtn = document.getElementById("submitNickname");
-    const signUpEmailBtn = document.getElementById("signUpEmail");
-    const signInGoogleBtn = document.getElementById("signInGoogle");
 
-    // Native Email/Password Sign-Up
-    signUpEmailBtn.addEventListener('click', async () => {
-      const email = document.getElementById('emailInput').value.trim();
-      const password = document.getElementById('passwordInput').value.trim();
-
-      if (email && password) {
-        try {
-          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-          const user = userCredential.user;
-          console.log('User signed up with email:', user.email, user.uid);
-        } catch (error) {
-          console.error('Error signing up with email:', error);
-        }
-      } else {
-        console.log('Email and password are required');
-      }
-    });
-
-    // Google Sign-In
-    signInGoogleBtn.addEventListener('click', async () => {
-      const provider = new GoogleAuthProvider();
-      try {
-        const result = await signInWithPopup(auth, provider);
-        const user = result.user;
-        console.log('User signed in with Google:', user.displayName, user.email, user.uid);
-      } catch (error) {
-        console.error('Error during Google sign-in:', error);
-      }
-    });
-
+  
 
   // Log-Out Button
-  const logoutBtn = document.getElementById('logoutBtn');
+  const logoutButton = document.getElementById('logoutButton');
 
-  logoutBtn.addEventListener('click', async () => {
+  logoutButton.addEventListener('click', async () => {
     try {
       await signOut(auth);
       window.location.href = 'index.html'; // Redirect to index.html after logout
