@@ -1,6 +1,12 @@
+html{
+  overflow: hidden;
+}
+
+
+
 /* Background for the level */
 .level-desktop {
-  background-image: url("../desktop/images/windowsbackground.jpeg");
+  background-image: url("../desktop/images/windowsbackground.jpeg"); 
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
@@ -8,6 +14,51 @@
   position: relative;
   color: white;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#introDiv{
+    background-color: #1B1B1B;
+    width: auto;
+    height: 800px;
+    transition: background-color 8s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;    color: seashell;
+    font-family: 'Courier New', Courier, monospace;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: opacity 2s;
+    display: none;
+
+}
+
+
+#introTextBox{
+  font-size: x-large;
+  font-family: monospace;
+
+}
+
+#desktopDiv{
+  /* display: none; TEMP NEED TO REMOVE COMMENT */
+  transition: opacity 2s;
+
+}
+
+.levelIcons{
+  cursor: pointer;
+  color:white;
+  text-decoration: none;
+}
+
+/* Fade-in and fade-out classes */
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
 }
 
 /* Menu bar styling */
@@ -47,6 +98,12 @@
   display: none;
 }
 
+#howToPlayText{
+  color: black;
+  padding: 10px;
+  font-family: monospace;
+}
+
 
 .titleBar {
   background: linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);
@@ -83,7 +140,9 @@
   margin: 0;
 }
 
-
+#IEIcon {
+  display: none; /* Hide by default */
+}
 
 
 
@@ -184,4 +243,10 @@
   position: absolute;
   right: 8px;
   bottom: 36px;
+}
+
+
+#loginDiv{
+  background-color: white;
+  width: 25%;
 }

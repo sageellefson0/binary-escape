@@ -46,7 +46,7 @@ body {
 /* Div for the character spritesheet for walk animation */
 .characterSpritesheet {
     position: absolute;
-    background: url("images/binaryescapemalecharacter1.png") no-repeat no-repeat;
+    background: url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat;
     background-size: 100%;
     width: calc(var(--grid-cell)* 8);
     height: calc(var(--grid-cell)* 8);
