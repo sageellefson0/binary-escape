@@ -245,3 +245,8 @@ html{
   bottom: 36px;
 }
 
+
+#loginDiv{
+  background-color: white;
+  width: 25%;
+}

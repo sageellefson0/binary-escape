@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +7,8 @@
   <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="../desktop/level-desktop.css">
 </head>
-
 <body class="level-desktop">
   <header></header>
-
   <main>
     <div id="introDiv">
       <div id="introTextBox"></div>
@@ -28,9 +25,18 @@
         <div class="iconName">Recycle Bin</div>
       </div>
 
-      <div id="root"></div>
-      <input type="text" id="nicknameInput"> 
-      <button type="submit" id="submitNickname">Submit</button>
+      <div id="loginDiv">
+        <!-- <input type="text" id="nicknameInput" placeholder="Nickname">
+        <button type="button" id="submitNickname">Create User</button> -->
+
+        <!-- Email/Password Login -->
+        <input type="email" id="emailInput" placeholder="Email">
+        <input type="password" id="passwordInput" placeholder="Password">
+        <button type="button" id="signUpEmail">Sign Up with Email</button>
+
+        <!-- Google Sign-In -->
+        <button type="button" id="signInGoogle">Sign In with Google</button>
+      </div>
 
       <div class="icon notepad" id="howToPlayIcon">
         <img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon.">
@@ -84,12 +90,12 @@
       </div>
     </div>
   </main>
-
   <footer></footer>
 
-  <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
+  <!-- Firebase App SDK and Authentication -->
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
+    import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
     import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
 
     const firebaseConfig = {
@@ -104,33 +110,47 @@
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
     const firestore = getFirestore(app);
 
     const submitNicknameBtn = document.getElementById("submitNickname");
-    const generatedIDVal = 100; // Sample ID for demonstration
+    const signUpEmailBtn = document.getElementById("signUpEmail");
+    const signInGoogleBtn = document.getElementById("signInGoogle");
 
-    submitNicknameBtn.addEventListener('click', async () => {
-      const nickname = document.getElementById('nicknameInput').value.trim();
-      if (nickname) {
+    // Native Email/Password Sign-Up
+    signUpEmailBtn.addEventListener('click', async () => {
+      const email = document.getElementById('emailInput').value.trim();
+      const password = document.getElementById('passwordInput').value.trim();
+
+      if (email && password) {
         try {
-          // Add a new document with a generated ID to the "userID" collection
-          const docRef = await addDoc(collection(firestore, "userID"), {
-            usernickname: nickname,
-            generatedID: generatedIDVal
-          });
-          console.log('User added with ID:', docRef.id);
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+          console.log('User signed up with email:', user.email, user.uid);
         } catch (error) {
-          console.error('Error adding user nickname:', error);
+          console.error('Error signing up with email:', error);
         }
       } else {
-        console.log('Nickname is required');
+        console.log('Email and password are required');
       }
     });
+
+    // Google Sign-In
+    signInGoogleBtn.addEventListener('click', async () => {
+      const provider = new GoogleAuthProvider();
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        console.log('User signed in with Google:', user.displayName, user.email, user.uid);
+      } catch (error) {
+        console.error('Error during Google sign-in:', error);
+      }
+    });
+
   </script>
 
   <!-- Additional scripts -->
   <script src="../../src/Character.js"></script>
   <script src="../desktop/level-desktop.js"></script>
 </body>
-
 </html>
