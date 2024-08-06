@@ -22,9 +22,8 @@ const firestore = getFirestore(app);
 onAuthStateChanged(auth, (user) => {
   if (user) {
       // User is signed in, redirect to desktop level
-      if (window.location.pathname !== '/levels/desktop/level-desktop.html') {
           window.location.href = 'levels/desktop/level-desktop.html';
-      }
+      
       // Listen for changes in the user's document
       const userRef = doc(firestore, 'users', user.uid);
       onSnapshot(userRef, (doc) => {
