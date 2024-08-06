@@ -86,25 +86,6 @@ logoutButton.addEventListener('click', async () => {
 });
 
 
-async function completeLevel(levelName) {
-  const user = auth.currentUser;
-  if (user) {
-    const userRef = doc(firestore, 'users', user.uid);
-    try {
-      await updateDoc(userRef, {
-        completedLevels: {
-          [levelName]: true
-        }
-      });
-      console.log(`Level ${levelName} completed.`);
-    } catch (error) {
-      console.error('Error updating level completion:', error);
-    }
-  } else {
-    console.log('No user is signed in.');
-  }
-}
-
 
 export async function completeLevel(levelName) {
   const user = auth.currentUser;
