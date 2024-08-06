@@ -41,6 +41,7 @@ onAuthStateChanged(auth, async (user) => {
       const userRef = doc(firestore, 'users', user.uid);
       onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
+            ///////////////////////TODO: ADD MORE LEVEL COMPLETIONS HERE 
               const completedLevels = docSnap.data().completedLevels || {};
               if (completedLevels.skype) {
                   // Reveal the Internet Explorer icon if Skype level is completed
