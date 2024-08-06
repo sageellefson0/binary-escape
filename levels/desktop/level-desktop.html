@@ -86,6 +86,24 @@
   <!-- Additional scripts -->
   <script src="../../src/Character.js"></script>
   <script type="module" src="/src/firebase.js"></script>
+  <script type="module"> 
+
+import { signOut } from '/src/firebase.js';
+
+// Log-Out Button
+
+const logoutButton = document.getElementById('logoutButton');
+
+logoutButton.addEventListener('click', async () => {
+  try {
+    await signOut(auth);
+    window.location.href = '../../index.html';
+      } catch (error) {
+    console.error('Error signing out:', error);
+  }
+});
+</script>
+
   <script src="../desktop/level-desktop.js"></script>
 </body>
 </html>

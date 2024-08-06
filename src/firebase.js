@@ -40,22 +40,6 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// Log-Out Button
-const logoutButton = document.getElementById('logoutButton');
-
-
-
-logoutButton.addEventListener('click', async () => {
-  try {
-    await signOut(auth);
-    window.location.href = '../../index.html';
-      } catch (error) {
-    console.error('Error signing out:', error);
-  }
-});
-
-
-
 export async function completeLevel(levelName) {
   const user = auth.currentUser;
   if (user) {
@@ -74,4 +58,4 @@ export async function completeLevel(levelName) {
 }
 
 
-export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider };
+export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut };
