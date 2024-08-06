@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
-import { getFirestore, doc, updateDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
+import { getFirestore, doc, updateDoc, onSnapshot, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -18,9 +18,11 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
   if (user) {
-      // User is signed in, monitor their document for changes
+      // Initialize user document if not already done
+      await initializeUserData(user.uid);
+
       const userRef = doc(firestore, 'users', user.uid);
       onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
@@ -38,6 +40,7 @@ onAuthStateChanged(auth, (user) => {
       }
   }
 });
+
 
 export async function completeLevel(levelName) {
   const user = auth.currentUser;
