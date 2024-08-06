@@ -449,44 +449,75 @@
 </body>
 
 <script type="module" src="/src/firebase.js"></script>
-<script type="module"> 
-        import { auth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from '/src/firebase.js';
+<script type="module">
+  import { 
+      auth, 
+      createUserWithEmailAndPassword, 
+      signInWithPopup, 
+      GoogleAuthProvider, 
+      firestore, 
+      doc, 
+      setDoc, 
+      getDoc 
+  } from '/src/firebase.js';
 
-const signUpEmailBtn = document.getElementById("signUpEmail");
-const signInGoogleBtn = document.getElementById("signInGoogle");
+  async function initializeUserData(userId) {
+      const userRef = doc(firestore, 'users', userId);
+      const userDoc = await getDoc(userRef);
 
+      if (!userDoc.exists()) {
+          // Initialize document with default values
+          await setDoc(userRef, {
+              completedLevels: {} // Initialize with an empty map
+          });
+      }
+  }
 
-// Native Email/Password Sign-Up
-signUpEmailBtn.addEventListener('click', async () => {
-    const email = document.getElementById('emailInput').value.trim();
-    const password = document.getElementById('passwordInput').value.trim();
+  const signUpEmailBtn = document.getElementById("signUpEmail");
+  const signInGoogleBtn = document.getElementById("signInGoogle");
 
-    if (email && password) {
-        try {
-            await createUserWithEmailAndPassword(auth, email, password);
-            // Redirect after successful sign-up
-            window.location.href = 'levels/desktop/level-desktop.html';
-        } catch (error) {
-            console.error('Error signing up with email:', error);
-        }
-    } else {
-        console.log('Email and password are required');
-    }
-});
+  // Native Email/Password Sign-Up
+  signUpEmailBtn.addEventListener('click', async () => {
+      const email = document.getElementById('emailInput').value.trim();
+      const password = document.getElementById('passwordInput').value.trim();
 
-// Google Sign-In
-signInGoogleBtn.addEventListener('click', async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-        await signInWithPopup(auth, provider);
-        // Redirect after successful sign-in
-        window.location.href = 'levels/desktop/level-desktop.html';
-    } catch (error) {
-        console.error('Error during Google sign-in:', error);
-    }
-});
+      if (email && password) {
+          try {
+              const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+              const userId = userCredential.user.uid;
+              
+              // Initialize user data in Firestore
+              await initializeUserData(userId);
+              
+              // Redirect after successful sign-up
+              window.location.href = 'levels/desktop/level-desktop.html';
+          } catch (error) {
+              console.error('Error signing up with email:', error);
+          }
+      } else {
+          console.log('Email and password are required');
+      }
+  });
 
-  </script>
+  // Google Sign-In
+  signInGoogleBtn.addEventListener('click', async () => {
+      const provider = new GoogleAuthProvider();
+      try {
+          const userCredential = await signInWithPopup(auth, provider);
+          const userId = userCredential.user.uid;
+          
+          // Initialize user data in Firestore
+          await initializeUserData(userId);
+          
+          // Redirect after successful sign-in
+          window.location.href = 'levels/desktop/level-desktop.html';
+      } catch (error) {
+          console.error('Error during Google sign-in:', error);
+      }
+  });
+
+</script>
+
 <script src="src/start.js"> </script>
 <script src="logo/lottie.js"> </script>
 <script src="logo/index.js"> </script>
