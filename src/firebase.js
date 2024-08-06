@@ -21,8 +21,8 @@ const firestore = getFirestore(app);
 
 
 // Sign up buttons 
-const signUpEmailBtn = document.getElementById("signUpEmail");
-const signInGoogleBtn = document.getElementById("signInGoogle");
+// const signUpEmailBtn = document.getElementById("signUpEmail");
+// const signInGoogleBtn = document.getElementById("signInGoogle");
 
 
 
