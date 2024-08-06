@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
-import { getFirestore, doc, updateDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
+import { getFirestore, doc, getDoc, updateDoc, onSnapshot, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -19,8 +19,8 @@ const auth = getAuth(app);
 const firestore = getFirestore(app);
 
 
-async function initializeUserData(userId) {
-  const userRef = doc(firestore, 'users', userId);
+async function initializeUserData(docUID) {
+  const userRef = doc(firestore, 'users', docUID);
   const userDoc = await getDoc(userRef);
 
   if (!userDoc.exists()) {
@@ -33,9 +33,10 @@ async function initializeUserData(userId) {
 onAuthStateChanged(auth, async (user) => {
   if (user) {
       // Initialize user document if not already done
-      await initializeUserData(user.uid);
 
-      const userRef = doc(firestore, 'users', user.uid);
+      await initializeUserData(user.docUID);
+
+      const userRef = doc(firestore, 'users', user.docUID);
       onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
               const completedLevels = docSnap.data().completedLevels || {};
@@ -57,7 +58,7 @@ onAuthStateChanged(auth, async (user) => {
 export async function completeLevel(levelName) {
   const user = auth.currentUser;
   if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
+      const userRef = doc(firestore, 'users', user.docUID);
       try {
           await updateDoc(userRef, {
               [`completedLevels.${levelName}`]: true
