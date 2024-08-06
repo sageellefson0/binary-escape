@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "purifycss": "^1.2.6"
+    "purifycss": "^1.2.6",
+    "three": "^0.167.0"
+  },
+  "devDependencies": {
+    "vite": "^5.3.5"
   }
 }
