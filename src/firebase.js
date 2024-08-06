@@ -1,6 +1,6 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
-import { getFirestore, doc, updateDoc} from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
+import { getFirestore, doc, updateDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -18,16 +18,13 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 
-
 onAuthStateChanged(auth, (user) => {
   if (user) {
-      // User is signed in, redirect to desktop level
-
-      // Listen for changes in the user's document
+      // User is signed in, monitor their document for changes
       const userRef = doc(firestore, 'users', user.uid);
-      onSnapshot(userRef, (doc) => {
-          if (doc.exists()) {
-              const completedLevels = doc.data().completedLevels || {};
+      onSnapshot(userRef, (docSnap) => {
+          if (docSnap.exists()) {
+              const completedLevels = docSnap.data().completedLevels || {};
               if (completedLevels.skype) {
                   // Reveal the Internet Explorer icon if Skype level is completed
                   document.getElementById('internetExplorerIcon').style.display = 'block';
@@ -58,6 +55,5 @@ export async function completeLevel(levelName) {
       console.log('No user is signed in.');
   }
 }
-
 
 export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut };
