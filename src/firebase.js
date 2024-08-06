@@ -34,9 +34,9 @@ onAuthStateChanged(auth, async (user) => {
   if (user) {
       // Initialize user document if not already done
 
-      await initializeUserData(user.docUID);
+      await initializeUserData(user.uid);
 
-      const userRef = doc(firestore, 'users', user.docUID);
+      const userRef = doc(firestore, 'users', user.uid);
       onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
               const completedLevels = docSnap.data().completedLevels || {};
@@ -58,7 +58,7 @@ onAuthStateChanged(auth, async (user) => {
 export async function completeLevel(levelName) {
   const user = auth.currentUser;
   if (user) {
-      const userRef = doc(firestore, 'users', user.docUID);
+      const userRef = doc(firestore, 'users', user.uid);
       try {
           await updateDoc(userRef, {
               [`completedLevels.${levelName}`]: true
