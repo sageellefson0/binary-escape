@@ -451,6 +451,9 @@
 <script type="module" src="/src/firebase.js"></script>
 <script type="module"> 
 
+const signUpEmailBtn = document.getElementById("signUpEmail");
+const signInGoogleBtn = document.getElementById("signInGoogle");
+
 // Native Email/Password Sign-Up
 signUpEmailBtn.addEventListener('click', async () => {
     const email = document.getElementById('emailInput').value.trim();
