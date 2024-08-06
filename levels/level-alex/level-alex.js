@@ -1,3 +1,5 @@
+import { completeLevel } from './path/to/firebase.js'; // Adjust the path as necessary
+
 document.addEventListener("DOMContentLoaded", () => {
     const binarySequence = '010101011010'; // Binary sequence representing true/false
     const questionsContainer = document.getElementById('questions');
@@ -103,6 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function showCongratulations() {
         congratulationsDiv.style.display = 'block';
         overlay.style.display = 'block';
+        // Call this function when the user completes the Skype level
+        completeLevel('skype');
     }
 
     // Function to close the congratulatory image
