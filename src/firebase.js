@@ -45,7 +45,7 @@ onAuthStateChanged(auth, async (user) => {
               if (completedLevels.skype) {
                   // Reveal the Internet Explorer icon if Skype level is completed
                   const internetExplorerIcon = document.getElementById('IEIcon');
-                  internetExplorerIcon = style.display = 'block';
+                  internetExplorerIcon.style.display = 'block';
               }
           }
       });
