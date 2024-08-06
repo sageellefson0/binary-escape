@@ -19,24 +19,28 @@ const auth = getAuth(app);
 const firestore = getFirestore(app);
 
 
-
-// Sign up buttons 
-// const signUpEmailBtn = document.getElementById("signUpEmail");
-// const signInGoogleBtn = document.getElementById("signInGoogle");
-
-
-
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    // User is signed in, redirect to desktop level
-    if (window.location.pathname !== '/levels/desktop/level-desktop.html') {
-      window.location.href = 'levels/desktop/level-desktop.html';
-    }
+      // User is signed in, redirect to desktop level
+      if (window.location.pathname !== '/levels/desktop/level-desktop.html') {
+          window.location.href = 'levels/desktop/level-desktop.html';
+      }
+      // Listen for changes in the user's document
+      const userRef = doc(firestore, 'users', user.uid);
+      onSnapshot(userRef, (doc) => {
+          if (doc.exists()) {
+              const completedLevels = doc.data().completedLevels || {};
+              if (completedLevels.skype) {
+                  // Reveal the Internet Explorer icon if Skype level is completed
+                  document.getElementById('internetExplorerIcon').style.display = 'block';
+              }
+          }
+      });
   } else {
-    // User is not logged in, redirect to login page or home page
-    if (window.location.pathname !== '/index.html') {
-      window.location.href = '../../index.html'; // Adjust path as necessary
-    }
+      // User is not logged in, redirect to login page or home page
+      if (window.location.pathname !== '/index.html') {
+          window.location.href = '../../index.html'; // Adjust path as necessary
+      }
   }
 });
 
