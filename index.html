@@ -450,6 +450,7 @@
 
 <script type="module" src="/src/firebase.js"></script>
 <script type="module"> 
+        import { auth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from '/src/firebase.js';
 
 const signUpEmailBtn = document.getElementById("signUpEmail");
 const signInGoogleBtn = document.getElementById("signInGoogle");
