@@ -26,24 +26,24 @@ const signInGoogleBtn = document.getElementById("signInGoogle");
 
 
 
-// Check if user is already signed in
 onAuthStateChanged(auth, (user) => {
   if (user) {
-      // User is signed in, redirect to desktop level
+    // User is signed in, redirect to desktop level
+    if (window.location.pathname !== '/levels/desktop/level-desktop.html') {
       window.location.href = 'levels/desktop/level-desktop.html';
+    }
+  } else {
+    // User is not logged in, redirect to login page or home page
+    if (window.location.pathname !== '/index.html') {
+      window.location.href = '../../index.html'; // Adjust path as necessary
+    }
   }
 });
-
 
 // Log-Out Button
 const logoutButton = document.getElementById('logoutButton');
 
-onAuthStateChanged(auth, (user) => {
-  if (!user) {
-    // User is not logged in, redirect to login page or home page
-    window.location.href = '../../index.html'; // Adjust path as necessary
-  }
-});
+
 
 logoutButton.addEventListener('click', async () => {
   try {
