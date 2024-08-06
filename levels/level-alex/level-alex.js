@@ -1,4 +1,4 @@
-import { completeLevel } from './path/to/firebase.js'; // Adjust the path as necessary
+import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
 
 document.addEventListener("DOMContentLoaded", () => {
     const binarySequence = '010101011010'; // Binary sequence representing true/false
