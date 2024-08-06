@@ -1,0 +1,174 @@
+
+html {
+    scroll-behavior: smooth;
+    image-rendering: pixelated;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ----------------- End Page Styling ---------------------*/
+
+.end-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #202020;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0; /* Ensure it's behind the .end-page */
+}
+
+.end-page {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInOpacity 3s ease-in-out forwards, fadeOutOpacity 3s ease-in-out 16s forwards;
+    z-index: 1;
+}
+
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOutOpacity {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.setting {
+    position: fixed;
+    right: 37%;
+    width: 52vw;
+    height: auto;
+}
+
+.setting img {
+    width: 100%;
+}
+
+.video-container video {
+    position: fixed;
+    width: 2.6vw; /* Initial width */
+    height: 9.8vh; /* Initial height */
+    top: calc(50% - 7.8rem); /* Initial top position */
+    left: 35%; /* Initial left position */
+    transition: all 2s ease-in-out;
+}
+
+/* Animation to transform the video */
+@keyframes transformVideo {
+    0% {
+        width: 2.6vw; /* Initial width */
+        height: 9.8vh; /* Initial height */
+        top: calc(50% - 7.8rem); /* Initial top position */
+        left: 35%; /* Initial left position */
+    }
+    45% {
+        top: 20%; /* Middle top position */
+        left: 56%; /* Middle left position */
+    }
+    80% {
+        width: 20vw; /* Final width */
+        height: 80vh; /* Final height */
+        top: 5%; /* Final top position */
+        left: 56%; /* Final left position */
+    }
+    100% {
+        width: 20vw; /* Final width */
+        height: 80vh; /* Final height */
+        top: 5%; /* Final top position */
+        left: 56%; /* Final left position */
+    }
+}
+
+.video-container video {
+    animation: transformVideo 1.75s ease-in-out 2.76s forwards;
+}
+
+
+
+/* ----------------- Movie Credits Styling ---------------------*/
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ececec;
+    font-weight: 600;
+    text-align: center;
+    animation: 60s credits linear 10s;
+  }
+  
+  .movie {
+    margin-bottom: 50px;
+    font-size: 3.5rem;
+  }
+
+  .ending {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ececec;
+    font-weight: 600;
+    text-align: center;
+    animation: 5.5s creditsEnd 35s forwards linear;
+  }
+
+  .thank-you {
+    font-size: 3.5rem;
+    animation: 5.5s creditsEnd forwards linear 35s;
+  }
+  
+  
+  .name {
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+  }
+  
+  @keyframes credits {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: -500%;
+    }
+  }
+
+  @keyframes creditsEnd {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: 42.5%;
+    }
+  }
