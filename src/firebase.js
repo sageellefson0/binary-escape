@@ -30,6 +30,8 @@ async function initializeUserData(docUID) {
       });
   }
 }
+
+
 onAuthStateChanged(auth, async (user) => {
   if (user) {
       // Initialize user document if not already done
@@ -42,7 +44,8 @@ onAuthStateChanged(auth, async (user) => {
               const completedLevels = docSnap.data().completedLevels || {};
               if (completedLevels.skype) {
                   // Reveal the Internet Explorer icon if Skype level is completed
-                  document.getElementById('internetExplorerIcon').style.display = 'block';
+                  const internetExplorerIcon = document.getElementById('IEIcon');
+                  internetExplorerIcon = style.display = 'block';
               }
           }
       });
