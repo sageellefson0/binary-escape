@@ -449,6 +449,38 @@
 </body>
 
 <script type="module" src="/src/firebase.js"></script>
+<script type="module"> 
+
+// Native Email/Password Sign-Up
+signUpEmailBtn.addEventListener('click', async () => {
+    const email = document.getElementById('emailInput').value.trim();
+    const password = document.getElementById('passwordInput').value.trim();
+
+    if (email && password) {
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            // Redirect after successful sign-up
+            window.location.href = 'levels/desktop/level-desktop.html';
+        } catch (error) {
+            console.error('Error signing up with email:', error);
+        }
+    } else {
+        console.log('Email and password are required');
+    }
+});
+
+// Google Sign-In
+signInGoogleBtn.addEventListener('click', async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+        await signInWithPopup(auth, provider);
+        // Redirect after successful sign-in
+        window.location.href = 'levels/desktop/level-desktop.html';
+    } catch (error) {
+        console.error('Error during Google sign-in:', error);
+    }
+});
+  </script>
 <script src="src/start.js"> </script>
 <script src="logo/lottie.js"> </script>
 <script src="logo/index.js"> </script>

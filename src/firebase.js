@@ -19,7 +19,6 @@ const auth = getAuth(app);
 const firestore = getFirestore(app);
 
 
-document.addEventListener('DOMContentLoaded', () => {
 
 // Sign up buttons 
 const signUpEmailBtn = document.getElementById("signUpEmail");
@@ -87,7 +86,7 @@ logoutButton.addEventListener('click', async () => {
     console.error('Error signing out:', error);
   }
 });
-});
+
 
 
 export async function completeLevel(levelName) {
@@ -106,5 +105,4 @@ export async function completeLevel(levelName) {
       console.log('No user is signed in.');
   }
 }
-
 
