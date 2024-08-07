@@ -77,3 +77,4 @@ document.addEventListener("keyup", (e) => {
 });
 
 
+ // Variable to store the selected character

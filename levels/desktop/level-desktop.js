@@ -1,3 +1,4 @@
+import { selectedCharacter } from '../../src/firebase.js';
 
 const howToPlayWindow = document.querySelector('.howToPlayWindow');
 const closeHowToPlay = document.querySelector('.close');
@@ -53,6 +54,7 @@ function displayBSOD(){
 
 // Calls the dialogue to begin showing when the page loads
 window.onload = function () {
+    initializeDesktopLevel();
     introTextTyping();
     setTimeout(() => {
         displayBSOD()
@@ -130,4 +132,24 @@ setTimeout(() => {
 }, msUntilNextMinute);
 
 
+function initializeDesktopLevel() {
+    // Check if selectedCharacter is set
+    if (selectedCharacter) {
+    
+      loadCharacterSprite(selectedCharacter); // Load the sprite for the selected character
+    } else {
+      console.error('Character selection not available');
+      console.log(selectedCharacter);
+    }
+  }
+  
 
+
+function loadCharacterSprite(character) {
+    if (selectedCharacter === 'female') {
+      characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
+      console.log('female');
+    } else if (character === 'male') {
+      characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
+    }
+  }

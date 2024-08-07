@@ -17,6 +17,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
+let selectedCharacter = null;
+const femChar = document.getElementById('femChar');
+const maleChar = document.getElementById('maleChar');
+const characterSpritesheet = document.querySelector('.characterSpritesheet');
+
+window.addEventListener("DOMContentLoaded", (event) => {
+
+// Event listeners to store the character selection
+femChar.addEventListener('click', () => {
+  // characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
+  selectedCharacter = 'female'; // Store character choice
+  console.log( selectedCharacter + 'character selected.');
+});
+
+maleChar.addEventListener('click', () => {
+  // characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
+  selectedCharacter = 'male'; // Store character choice
+  console.log( selectedCharacter + 'character selected.');
+});
+});
 
 
 async function initializeUserData(docUID) {
@@ -26,7 +46,8 @@ async function initializeUserData(docUID) {
   if (!userDoc.exists()) {
       // Initialize document with default values
       await setDoc(userRef, {
-          completedLevels: {} // Initialize with an empty map
+          completedLevels: {},
+          character: selectedCharacter
       });
   }
 }
@@ -41,6 +62,7 @@ onAuthStateChanged(auth, async (user) => {
       const userRef = doc(firestore, 'users', user.uid);
       onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
+            ///////////////////////TODO: ADD MORE LEVEL COMPLETIONS HERE 
               const completedLevels = docSnap.data().completedLevels || {};
               if (completedLevels.skype) {
                   // Reveal the Internet Explorer icon if Skype level is completed
@@ -56,7 +78,6 @@ onAuthStateChanged(auth, async (user) => {
       }
   }
 });
-
 
 export async function completeLevel(levelName) {
   const user = auth.currentUser;
@@ -76,3 +97,4 @@ export async function completeLevel(levelName) {
 }
 
 export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut };
+export { selectedCharacter };

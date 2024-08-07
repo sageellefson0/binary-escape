@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ADDED BY SE 
 const selectButton = document.querySelector('.selectButton');
+const selectButton2 = document.querySelector('.selectButton2');
+
 const loginDiv = document.getElementById('loginDiv');
 
 function loginWindowDisplay(){
@@ -47,6 +49,7 @@ function loginWindowDisplay(){
 }
 
 selectButton.addEventListener('click', loginWindowDisplay);
+selectButton2.addEventListener('click', loginWindowDisplay);
 
 function closeLoginWindow(){
     loginDiv.style.display = "none";
