@@ -137,7 +137,7 @@ function initializeDesktopLevel() {
     if (selectedCharacter) {
       loadCharacterSprite(selectedCharacter); // Load the sprite for the selected character
     } else {
-      console.error('Character selection not available');
+      console.error('Character selection not available').error;
     }
   }
   

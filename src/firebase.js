@@ -28,13 +28,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
 femChar.addEventListener('click', () => {
   // characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
   selectedCharacter = 'female'; // Store character choice
-  console.log('Female character selected.');
+  console.log( selectedCharacter + 'character selected.');
 });
 
 maleChar.addEventListener('click', () => {
   // characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
   selectedCharacter = 'male'; // Store character choice
-  console.log('Male character selected.');
+  console.log( selectedCharacter + 'character selected.');
 });
 });
 
