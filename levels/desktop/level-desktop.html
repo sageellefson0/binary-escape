@@ -9,60 +9,104 @@
 </head>
 <body class="level-desktop">
   <header></header>
-
   <main>
-    <div class="desktop">
-
+    <div id="introDiv">
+      <div id="introTextBox"></div>
+    </div>
+    <div id="desktopDiv">
       <!-- Div for holding active character frame -->
       <div class="character">
         <!-- Entire character spritesheet div -->
         <div class="characterSpritesheet"></div>
       </div>
 
-    </div>
-
-    <div class="icon recycleBin">
-      <img src="../desktop/images/recycle.png">
-      <div class="iconName">Recycle Bin</div>
-  </div>
-
-  <div class="icon notepad" id="howToPlayIcon">
-    <img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon">
-    <div class="iconName">How To Play</div>
-</div>
-
-<div class="howToPlayWindow">
-        <div class="titleBar">
-            <div><img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon">How To Play.txt</div>
-            <div class="controls">
-                <button class="close"> <img src="../desktop/images/close.png"></button>
-            </div>
-       </div>
-        <div class="menuBar">
-            <span>File</span>
-            <span>Edit</span>
-            <span>Format</span>
-            <span>View</span>
-            <span>Help</span>
-        </div>
-    </div>
-  
-    <!-- Menu bar at the bottom -->
-    <div id="taskBar">
-      <div class="startButton">
-        <img src="../desktop/images/logo.svg" alt="Windows Logo">
-        start
+      
+      <div class="icon recycleBin logoutButton" id="logoutButton">
+        <img src="../desktop/images/recycle.png">
+        <div class="iconName">Log Out</div>
       </div>
-      <div class="time" title="24 July 2024 at 3:50 pm">3:50 pm</div>
-    </div>
-  
-  </main>
 
+
+
+      <div class="icon notepad" id="howToPlayIcon">
+        <img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon.">
+        <div class="iconName">How To Play</div>
+      </div>
+
+      <div class="icon skype" id="skypeIcon">
+        <a href="../level-alex/level-alex.html" class="levelIcons">
+          <img src="../desktop/images/skype.png" alt="Image of skype logo.">
+        </a>
+        <div class="iconName">Skype</div>
+      </div>
+
+      <div class="icon internetExplorer" id="IEIcon">
+        <a href="../level-sage/level-sage.html" class="levelIcons">
+          <img src="../desktop/images/internetexplorer.png" alt="Image of windows XP Internet Explorer logo.">
+          <div class="iconName">Internet Explorer</div>
+        </a>
+      </div>
+
+      <div class="howToPlayWindow">
+        <div class="titleBar">
+          <div><img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon">How To Play.txt</div>
+          <div class="controls">
+            <button class="close"> <img src="../desktop/images/close.png"></button>
+          </div>
+        </div>
+        <div class="menuBar">
+          <span>File</span>
+          <span>Edit</span>
+          <span>Format</span>
+          <span>View</span>
+          <span>Help</span>
+        </div>
+        <div id="howToPlayText">
+          Welcome to Binary Escape!
+          <br><br>
+          - Use the arrow keys to move the character in interactive levels.<br><br>
+          - Keep an eye out for Clippy, this is how hints are displayed throughout the game. <br><br>
+          - If you are unable to click an element, try moving the character to walk over it. <br><br>
+        </div>
+      </div>
+
+
+      <!-- Menu bar at the bottom -->
+      <div id="taskBar">
+        <div class="startButton">
+          <img src="../desktop/images/logo.svg" alt="Windows Logo">
+          start
+        </div>
+        <div class="time">3:50 pm</div>
+      </div>
+    </div>
+
+
+  </main>
   <footer></footer>
 
+  <!-- Additional scripts -->
+  <script src="../../src/Character.js"></script>
+  <script type="module" src="/src/firebase.js"></script>
+  <script type="module"> 
+
+import { signOut, auth } from '/src/firebase.js';
+
+// Log-Out Button
+
+const logoutButton = document.getElementById('logoutButton');
+
+logoutButton.addEventListener('click', async () => {
+  try {
+    await signOut(auth);
+    window.location.href = '../../index.html';
+      } catch (error) {
+    console.error('Error signing out:', error);
+  }
+});
+</script>
+
+  <script type="module" src="../desktop/level-desktop.js"></script>
 
 </body>
-<script src="../../src/Character.js"></script>
-<script src="../desktop/level-desktop.js"></script>
-
 </html>

@@ -1,27 +1,24 @@
-html{
+/* Limits the viewable screen - no scrolling allowed */
+html {
     overflow: hidden;
 }
 
-/* #wikiContainer{
-    display: none;
-} */
+
+/* Wiki header, side bar, and search area */
 .oldWikiHeaderContainer {
     float: right;
     width: 88%;
 }
 
 .oldWikiHeader {
-
     border-bottom: gray 1px solid;
     padding-bottom: 5px;
     padding-top: 5px;
 }
 
 .wikiBody {
-    /* width: 70%; */
     margin: 2%;
 }
-
 
 #wikiText span {
     color: blue;
@@ -53,37 +50,6 @@ html{
     cursor: pointer;
 }
 
-#alienLink{
-color: purple;
-}
-
-
-
-.bugReportPopUp{
-background-color: lightgrey;
-text-align: center;
-padding: 2px;
-font-family: 'Courier New', Courier, monospace;
-width: 80px;
-height: min-content;
-display: none;
-
-}
-
-.bugReportsLinkDiv{
-    width: 10px;
-    height: 1px;
-    margin-left: 20px;
-
-}
-
-.alienLinkDiv{
-    width: 10px;
-    height: 1px;
-    margin-left: 130px;
-}
-
-
 .oldWikiHeaderSearchBarLogin {
     float: right;
     text-align: right;
@@ -95,11 +61,45 @@ display: none;
     padding-bottom: 10px;
 }
 
-.decoderDiv{
+
+
+/* Alien link and trigger div for the character to hit and trigger JS function to open decoder pop up */
+#alienLink {
+    color: purple;
+}
+
+.alienLinkDiv {
+    width: 10px;
+    height: 1px;
+    margin-left: 130px;
+}
+
+
+
+/* Bug report pop up and trigger div for character to hit */
+.bugReportPopUp {
+    background-color: lightgrey;
+    text-align: center;
+    padding: 2px;
+    font-family: 'Courier New', Courier, monospace;
+    width: 80px;
+    height: min-content;
+    display: none;
+}
+
+.bugReportsLinkDiv {
+    width: 10px;
+    height: 1px;
+    margin-left: 20px;
+}
+
+
+
+/* Decoder div pop up */
+.decoderDiv {
     width: 1000px;
     height: 600px;
     display: none;
-    /* color: #ECECE9; */
     background-color: rgba(82, 75, 73, 0.8);
     backdrop-filter: blur(7px);
     position: absolute;
@@ -112,17 +112,15 @@ display: none;
     font-family: 'Courier New', Courier, monospace;
 }
 
-#closeDecoderDiv{
+#closeDecoderDiv {
     color: seashell;
     float: right;
     padding: 10px;
-    font-size:larger;
+    font-size: larger;
     cursor: pointer;
 }
 
-
-/* Binary input box for the decoder */
-#binaryTextInput{
+#binaryTextInput {
     margin-top: 3%;
     padding: 1%;
     border: none;
@@ -131,14 +129,14 @@ display: none;
     color: seashell;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
-
 }
 
-#binaryTextInput:focus{
-    outline:none;}
+#binaryTextInput:focus {
+    outline: none;
+}
 
-/* Submit button on binary decoder */
-#binaryTextInputSubmit, #binaryTextInputClear{
+#binaryTextInputSubmit,
+#binaryTextInputClear {
     margin-top: 2%;
     background-color: rgba(51, 50, 50, .3);
     color: seashell;
@@ -147,38 +145,31 @@ display: none;
     cursor: pointer;
     border-radius: 5px;
     font-family: 'Courier New', Courier, monospace;
-
-
 }
 
-#saturnImg{
+#saturnImg {
     width: 140px;
     height: 220px;
     margin-top: 3%;
     margin-bottom: 1%;
-
 }
 
-#saturnCompanyName{
-color: seashell;
-font-size: larger;
-
+#saturnCompanyName {
+    color: seashell;
+    font-size: larger;
 }
 
-#decoderTextBox{
+#decoderTextBox {
     margin-top: 2%;
     margin-bottom: 2%;
     color: seashell;
-
-
 }
 
-
-#letterSpotsContainer{
+#letterSpotsContainer {
     display: inline;
-
 }
-.letterSpots{
+
+.letterSpots {
     width: 18px;
     border: none;
     outline: none;
@@ -188,10 +179,12 @@ font-size: larger;
     font-family: 'Courier New', Courier, monospace;
     font-size: x-large;
     text-align: center;
-    
 }
 
-#alienQuizDiv{
+
+
+/* Alien quiz div that pops up after correct search has been entered */
+#alienQuizDiv {
     background-color: white;
     width: auto;
     height: 800px;
@@ -200,40 +193,37 @@ font-size: larger;
     text-align: center;
     color: seashell;
     font-family: 'Courier New', Courier, monospace;
-
 }
 
-#alienImg{
-margin-left: auto;
-margin-right: auto;
-margin-top: 2%;
-width: 425px;
-opacity: 0; 
-transition: opacity 5s ease;
-
+#alienImg {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    width: 425px;
+    opacity: 0;
+    transition: opacity 5s ease;
 }
-#alienChatBox{
+
+#alienChatBox {
     font-size: large;
     margin-top: 1%;
     height: 20px;
-    
 }
 
-#multipleChoiceQuestion{
+#multipleChoiceQuestion {
     margin: 1%;
 }
 
-#multipleChoiceAnswers, #multipleChoiceQuestion{
+#multipleChoiceAnswers,
+#multipleChoiceQuestion {
     text-align: center;
     font-size: medium;
     display: none;
-    opacity: 0; 
+    opacity: 0;
     transition: opacity 2s ease;
-
 }
 
-
-.answerOption{
+.answerOption {
     display: inline-block;
     width: 150px;
     padding: 1%;
@@ -241,7 +231,7 @@ transition: opacity 5s ease;
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 0px 5px 10px rgb(108, 141, 155);
-    background-color:lightgray;
+    background-color: lightgray;
     color: black;
     transition: box-shadow .5s ease-in-out;
     vertical-align: middle;
@@ -250,30 +240,29 @@ transition: opacity 5s ease;
     font-size: 15px;
 }
 
-.answerOption:hover{
+.answerOption:hover {
     box-shadow: 0px 8px 15px rgb(148, 181, 195);
-
 }
 
-#lossImgs{
+#lossImgs {
     display: none;
 }
 
-#lossImgRight{
+#lossImgRight {
     position: absolute;
     top: 200px;
     right: 250px;
     width: 250px;
-    opacity: 0; 
+    opacity: 0;
     transition: opacity .7s ease;
 }
 
-#lossImgLeft{
+#lossImgLeft {
     position: absolute;
     top: 200px;
     left: 250px;
     width: 250px;
-    opacity: 0; 
+    opacity: 0;
     transition: opacity .7s ease;
 }
 
@@ -284,14 +273,18 @@ transition: opacity 5s ease;
 .agent {
     display: flex;
     position: absolute;
-    bottom: 17.65rem; /* Change positioning of clippy */
-     right: 20rem; /* Can change bottom and right to top and left, etc.  */
+    bottom: 17.65rem;
+    /* Change positioning of clippy */
+    right: 20rem;
+    /* Can change bottom and right to top and left, etc.  */
 }
 
 .clippy {
     position: fixed;
-    width: 400px; /* Can change width size accordingly */
-    height: 300px; /* Can change height size */
+    width: 400px;
+    /* Can change width size accordingly */
+    height: 300px;
+    /* Can change height size */
 }
 
 p #hint {
@@ -300,44 +293,44 @@ p #hint {
 }
 
 .speech-bubble {
-	position: absolute;
+    position: absolute;
     bottom: -30px;
     left: 90px;
     font-size: 16px;
 
-	background: #eee9ad;
-	border-radius: .4em;
+    background: #eee9ad;
+    border-radius: .4em;
     border: 1px solid black;
     width: 12rem;
     padding: 10px;
 }
 
 .speech-bubble:after {
-	content: '';
-	position: absolute;
-	bottom: 1px;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 33px solid transparent;
-	border-top-color: #eee9ad;
-	border-right: 0;
-	border-bottom: 0;
-	margin-left: -16.5px;
-	margin-bottom: -33px;
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 33px solid transparent;
+    border-top-color: #eee9ad;
+    border-right: 0;
+    border-bottom: 0;
+    margin-left: -16.5px;
+    margin-bottom: -33px;
 }
 
 .speech-bubble:before {
-	content: '';
-	position: absolute;
-	bottom: 0.25px;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 33px solid transparent;
-	border-top-color: black;
-	border-right: 0;
-	border-bottom: 0;
-	margin-left: -16px;
-	margin-bottom: -34.5px;
+    content: '';
+    position: absolute;
+    bottom: 0.25px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 33px solid transparent;
+    border-top-color: black;
+    border-right: 0;
+    border-bottom: 0;
+    margin-left: -16px;
+    margin-bottom: -34.5px;
 }
