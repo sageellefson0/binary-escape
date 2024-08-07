@@ -22,6 +22,7 @@ const femChar = document.getElementById('femChar');
 const maleChar = document.getElementById('maleChar');
 const characterSpritesheet = document.querySelector('.characterSpritesheet');
 
+window.addEventListener("DOMContentLoaded", (event) => {
 
 // Event listeners to store the character selection
 femChar.addEventListener('click', () => {
@@ -34,6 +35,7 @@ maleChar.addEventListener('click', () => {
   // characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
   selectedCharacter = 'male'; // Store character choice
   console.log('Male character selected.');
+});
 });
 
 
