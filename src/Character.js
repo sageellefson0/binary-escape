@@ -81,14 +81,17 @@ const maleChar = document.getElementById('maleChar');
 const characterSpritesheet = document.querySelector('.characterSpritesheet');
 
 
-femChar.addEventListener('click', () => {
+let selectedCharacter = null; // Variable to store the selected character
 
-   characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
-   characterSpritesheet.style.backgroundSize = '100%';
+// Event listeners to store the character selection
+femChar.addEventListener('click', () => {
+    characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
+    selectedCharacter = 'female'; // Store character choice
+    console.log('Female character selected.');
 });
 
 maleChar.addEventListener('click', () => {
-   characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
-   characterSpritesheet.style.backgroundSize = '100%';
+    characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
+    selectedCharacter = 'male'; // Store character choice
+    console.log('Male character selected.');
 });
-
