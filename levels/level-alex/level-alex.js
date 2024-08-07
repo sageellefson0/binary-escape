@@ -21,10 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const questionHTML = `
                 <div class="question">
                     <label for="answer${i}">
-                        Question ${i + 1}: Is the bit at position ${i + 1} true (1) or false (0)?
+                        <span class="question-header">Question ${i + 1}:</span>
+                        <span class="question-text">Is the bit at position ${i + 1} true (1) or false (0)?</span>
                     </label>
-                    <input type="radio" name="answer${i}" value="true"> True
-                    <input type="radio" name="answer${i}" value="false"> False
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input class="answer-radiobutton" type="radio" name="answer${i}" value="true">
+                    <span class="true-option">True</span>
+                    <input class="answer-radiobutton" type="radio" name="answer${i}" value="false">
+                    <span class="false-option">False</span>
                 </div>
             `;
             questionsContainer.innerHTML += questionHTML;
@@ -147,8 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(detectProximity, 100); // Check every 100ms
 
     // Event listener for the close button inside the popup
-    const closeButton = document.querySelector('#popup button');
-    console.log("Close button:", closeButton); // Debug log
+    const closeButton = document.querySelector('#close-button');
     closeButton.addEventListener('click', closePopup);
 
     // Event listener for the password popup close button
