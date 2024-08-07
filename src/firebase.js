@@ -26,28 +26,39 @@ async function initializeUserData(docUID) {
   if (!userDoc.exists()) {
       // Initialize document with default values
       await setDoc(userRef, {
-          completedLevels: {} // Initialize with an empty map
+          completedLevels: {},
+          character: selectedCharacter// Initialize with an empty map
       });
   }
 }
 
 
+// On Auth State Changed
 onAuthStateChanged(auth, async (user) => {
   if (user) {
       // Initialize user document if not already done
-
-      await initializeUserData(user.uid);
+      await initializeUserData(user.uid, selectedCharacter);
 
       const userRef = doc(firestore, 'users', user.uid);
       onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
-            ///////////////////////TODO: ADD MORE LEVEL COMPLETIONS HERE 
-              const completedLevels = docSnap.data().completedLevels || {};
+              const data = docSnap.data();
+              const completedLevels = data.completedLevels || {};
+              
               if (completedLevels.skype) {
                   // Reveal the Internet Explorer icon if Skype level is completed
                   const internetExplorerIcon = document.getElementById('IEIcon');
                   internetExplorerIcon.style.display = 'block';
               }
+
+              // Set character based on saved data
+              const savedCharacter = data.character;
+              if (savedCharacter === 'female') {
+                  characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
+              } else if (savedCharacter === 'male') {
+                  characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
+              }
+              characterSpritesheet.style.backgroundSize = '100%';
           }
       });
   } else {
@@ -57,7 +68,6 @@ onAuthStateChanged(auth, async (user) => {
       }
   }
 });
-
 
 export async function completeLevel(levelName) {
   const user = auth.currentUser;
