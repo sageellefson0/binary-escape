@@ -81,3 +81,35 @@ export async function completeLevel(levelName) {
 
 export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut };
 // export { selectedCharacter };
+
+
+async function getUserCharacter(docUID) {
+    const userRef = doc(firestore, 'users', docUID);
+    const userDoc = await getDoc(userRef);
+    if (userDoc.exists()) {
+        return userDoc.data().character;
+    } else {
+        console.log('No such document!');
+        return null;
+    }
+}
+
+const characterSpritesheet = document.querySelector(".characterSpritesheet");
+
+
+auth.onAuthStateChanged(async (user) => {
+  if (user) {
+      const character = await getUserCharacter(user.uid);
+
+      // Remove any existing character-specific classes
+      characterSpritesheet.classList.remove('female', 'male');
+
+      if (character === 'female') {
+          characterSpritesheet.classList.add('female');
+      } else if (character === 'male') {
+          characterSpritesheet.classList.add('male');
+      } else {
+          console.log('issue');
+      }
+  }
+});

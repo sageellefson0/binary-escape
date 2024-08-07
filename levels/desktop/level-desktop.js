@@ -52,17 +52,17 @@ function displayBSOD(){
 
 
 // Calls the dialogue to begin showing when the page loads
-window.onload = function () {
-    // initializeDesktopLevel();
-    introTextTyping();
-    setTimeout(() => {
-        displayBSOD()
-        }, 23500);
+// window.onload = function () {
+//     // initializeDesktopLevel();
+//     introTextTyping();
+//     setTimeout(() => {
+//         displayBSOD()
+//         }, 23500);
     
-        setTimeout(() => {
-            hideIntroDisplayDesktop()
-            }, 35000);
-        };
+//         setTimeout(() => {
+//             hideIntroDisplayDesktop()
+//             }, 35000);
+//         };
 
 // Dialogue for intro window after starting the game
 var introInteger = 0;
