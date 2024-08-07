@@ -44,15 +44,22 @@ body {
     z-index: 100;
 }
 
-/* Div for the character spritesheet for walk animation */
-.characterSpritesheet {
-    position: absolute;
-    background: url("images/binaryescapemalecharacter1.png") no-repeat no-repeat;
+.characterSpritesheet.female {
+    background: url("../../images/binaryescapefemalecharacter1.png") no-repeat;
     background-size: 100%;
-    width: calc(var(--grid-cell)* 8);
-    height: calc(var(--grid-cell)* 8);
 }
 
+.characterSpritesheet.male {
+    background: url("../../images/binaryescapemalecharacter1.png") no-repeat;
+    background-size: 100%;
+}
+
+/* Ensure other styles like position, width, height are applied here if needed */
+.characterSpritesheet {
+    position: absolute;
+    width: calc(var(--grid-cell) * 8);
+    height: calc(var(--grid-cell) * 8);
+}
 .character[facing="right"] .characterSpritesheet {
     background-position-y: calc(var(--pixel-size) * -32);
 }
@@ -129,3 +136,307 @@ body {
         border-color: gray;
     }
 }
+
+
+/* ----------------- Login Div Styling ------------------*/
+
+#closeLoginDiv{
+color: black;
+float: right;
+padding: 10px;
+font-size: larger;
+cursor: pointer;
+
+}
+
+#loginDiv{
+width: 350px;
+height: 400px;
+padding: 0;
+display: none; 
+background-color: #ececec;
+position: absolute;
+justify-content: center;
+transform: translate(-50%, -50%);
+top: 50%;
+left: 50%;
+border-radius: 10px;
+text-align: center;
+font-family: 'Courier New', Courier, monospace;
+z-index: 10;
+}
+
+#signInGoogle {
+    transition: background-color .3s, box-shadow .3s;
+      
+    padding: 12px 16px 12px 42px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+    
+    color: #757575;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    /* background-image: url('images/downloadgoogle.png'); */
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 12px 11px;
+    
+    &:hover {
+      box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+    }
+    
+    &:active {
+      background-color: #eeeeee;
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 
+        0 -1px 0 rgba(0, 0, 0, .04),
+        0 2px 4px rgba(0, 0, 0, .25),
+        0 0 0 3px #c8dafc;
+    }
+    
+    &:disabled {
+      filter: grayscale(100%);
+      background-color: #ebebeb;
+      box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+      cursor: not-allowed;
+    }
+  }
+  
+
+  /* Email/Password Input Fields */
+#emailInput, #passwordInput {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  /* Email Sign-Up Button */
+  #signUpEmail {
+    background-color: #545454; /* Google green */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 70%;
+    transition: background-color 0.3s;
+  }
+  
+  #signUpEmail:hover {
+    background-color: #202020; /* Darker green on hover */
+  }
+  
+  #signUpEmail:focus {
+    outline: none;
+  }
+  
+
+/* ----------------- Start Page Styling ---------------------*/
+
+.start-page {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #202020;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.title {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    margin-bottom: 4rem;
+
+    height: 100vh;
+    width: 100vw
+}
+
+.title h1 {
+    font-size: 4.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ececec;
+    padding-top: 15px;
+    padding-right: 10px;
+    margin: 0;
+}
+
+.title h1, .title #lock-bm {
+    position: relative;
+    transition: transform 2.5s ease-in-out;
+}
+
+.title h1 {
+    transform: translateX(-300%);
+}
+
+.title #lock-bm {
+    transform: translateX(700%);
+}
+
+.float-to-top {
+    transform: translateY(-35vh) !important;
+    transition: transform 1.5s ease-in-out !important;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.instructions, .characters {
+    display: none;
+    margin-top: 2rem;
+}
+
+.fade-in {
+    display: flex;
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 3s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.instructions p {
+    padding-top: 0;
+    margin: 1.75rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    color: #ececec;
+}
+
+.lock-logo {
+    width: 110px;
+    height: 100px;
+}
+
+.start-page .characters {
+    position: relative;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -7rem;
+    width: 90vw;
+}
+
+.character-select {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+.character-select video {
+    margin-bottom: 0.5rem;
+    width: 300px;
+    height: 500px;
+}
+
+/* ------------------- Button Grid styles ------------------- */
+.pixel-button {
+    display: grid;
+    row-gap: 0;
+    column-gap: 0;
+    grid-template-columns: repeat(20, 8px);
+    grid-template-rows: repeat(11, 7px);
+    
+    filter: drop-shadow(0 15px 0 #545454);
+    
+    cursor: pointer;
+  }
+  
+  .pixel-button:active {
+    transform: translate(0,15px);
+    filter: drop-shadow(0 0 0 #545454);
+  }
+  
+  
+  /* ------------------- pixel styles ------------------- */
+  
+  .transparent {
+    background-color: transparent;
+    height: 10px;
+    width: 10px;
+  }
+  
+  .black {
+    background-color: #ececec;
+    height: 10px;
+    width: 10px;
+  }
+  
+  .lightg {
+    background-color: #9F9E9E;
+    height: 10px;
+    width: 10px;
+  }
+  
+  .white {
+    background-color: #9F9E9E;
+    height: 10px;
+    width: 10px;
+  }
+  
+  .grey {
+    background-color: #545454;
+    height: 10px;
+    width: 10px;
+  }
+  
+  /* ------------------- text styles ------------------- */
+  .pixel-button .text {
+    filter: none;
+    position: absolute;
+    display: block;
+    
+    z-index: 5;
+  
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    top: 20%;
+    text-align: center;
+  }
+
+  .pixel-button:active a {
+    color: #545454;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #ececec;
+  }
+  
+

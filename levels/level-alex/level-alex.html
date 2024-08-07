@@ -30,19 +30,27 @@
             <h2>Guess the Password</h2>
             <p>Binary Sequence: <span id="binary-sequence">010101011010</span></p>
             <div id="questions"></div>
-            <button onclick="checkAnswers()">Submit Answers</button>
+            <div style="display: flex; justify-content: center; align-content: center;">
+                <div style="width: 30%;"></div>
+                <button id="check-button" onclick="checkAnswers()">Submit Answers</button>
+                <div style="width: 30%"></div>
+            </div>
             <div id="result" class="feedback"></div>
             <div id="error" class="error"></div>
-            <button onclick="closePopup()">Close</button>
+            <div style="display: flex; justify-content: center; align-content: center;">
+                <div style="width: 30%;"></div>
+                <button id="close-button" onclick="closePopup()">Close</button>
+                <div style="width: 30%"></div>
+            </div>
         </div>
 
         <div id="passwordPopup">
             <h2>New Password</h2>
             <p>The new password is: <span id="new-password">binaryEscapeTeamHasFooledYou</span></p>
             <input type="text" id="passwordInput" placeholder="Enter the new password">
-            <button onclick="submitPassword()">Submit Password</button>
+            <button id="submitPassword" onclick="submitPassword()">Submit Password</button>
             <div id="passwordResult" class="feedback"></div>
-            <button onclick="closePasswordPopup()">Close</button>
+            <button id="closeBttn" onclick="closePasswordPopup()">Close</button>
         </div>
 
         <div id="congratulations">
@@ -54,7 +62,8 @@
             <img id="skypeInt" src="../level-alex/images/oldskypeinterface.png" alt="Skype Interface">
         </div>
 
-        <script src="level-alex.js"></script>
+        <script type="module" src="/src/firebase.js"></script>
+        <script type="module" src="level-alex.js"></script>
         <script src="../../src/Character.js"></script>
     </body>
 
