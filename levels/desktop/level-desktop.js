@@ -135,16 +135,18 @@ setTimeout(() => {
 function initializeDesktopLevel() {
     // Check if selectedCharacter is set
     if (selectedCharacter) {
+    
       loadCharacterSprite(selectedCharacter); // Load the sprite for the selected character
     } else {
-      console.error('Character selection not available').error;
+      console.error('Character selection not available');
+      console.log(selectedCharacter);
     }
   }
   
 
 
 function loadCharacterSprite(character) {
-    if (character === 'female') {
+    if (selectedCharacter === 'female') {
       characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
       console.log('female');
     } else if (character === 'male') {
