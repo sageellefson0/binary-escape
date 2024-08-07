@@ -43,15 +43,22 @@ body {
     overflow: hidden;
 }
 
-/* Div for the character spritesheet for walk animation */
-.characterSpritesheet {
-    position: absolute;
-    background: url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat;
+.characterSpritesheet.female {
+    background: url("../../images/binaryescapefemalecharacter1.png") no-repeat;
     background-size: 100%;
-    width: calc(var(--grid-cell)* 8);
-    height: calc(var(--grid-cell)* 8);
 }
 
+.characterSpritesheet.male {
+    background: url("../../images/binaryescapemalecharacter1.png") no-repeat;
+    background-size: 100%;
+}
+
+/* Ensure other styles like position, width, height are applied here if needed */
+.characterSpritesheet {
+    position: absolute;
+    width: calc(var(--grid-cell) * 8);
+    height: calc(var(--grid-cell) * 8);
+}
 .character[facing="right"] .characterSpritesheet {
     background-position-y: calc(var(--pixel-size) * -32);
 }

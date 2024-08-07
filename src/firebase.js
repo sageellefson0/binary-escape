@@ -17,27 +17,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const firestore = getFirestore(app);
-let selectedCharacter = null;
-const femChar = document.getElementById('femChar');
-const maleChar = document.getElementById('maleChar');
-const characterSpritesheet = document.querySelector('.characterSpritesheet');
 
-window.addEventListener("DOMContentLoaded", (event) => {
-
-// Event listeners to store the character selection
-femChar.addEventListener('click', () => {
-  // characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
-  selectedCharacter = 'female'; // Store character choice
-  console.log( selectedCharacter + 'character selected.');
-});
-
-maleChar.addEventListener('click', () => {
-  // characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
-  selectedCharacter = 'male'; // Store character choice
-  console.log( selectedCharacter + 'character selected.');
-});
-});
-
+let savedChar = localStorage.getItem("character");
 
 async function initializeUserData(docUID) {
   const userRef = doc(firestore, 'users', docUID);
@@ -47,8 +28,10 @@ async function initializeUserData(docUID) {
       // Initialize document with default values
       await setDoc(userRef, {
           completedLevels: {},
-          character: selectedCharacter
+          character: savedChar
       });
+      console.log('user created');
+      localStorage.removeItem("character");
   }
 }
 
@@ -97,4 +80,36 @@ export async function completeLevel(levelName) {
 }
 
 export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut };
-export { selectedCharacter };
+// export { selectedCharacter };
+
+
+async function getUserCharacter(docUID) {
+    const userRef = doc(firestore, 'users', docUID);
+    const userDoc = await getDoc(userRef);
+    if (userDoc.exists()) {
+        return userDoc.data().character;
+    } else {
+        console.log('No such document!');
+        return null;
+    }
+}
+
+const characterSpritesheet = document.querySelector(".characterSpritesheet");
+
+
+auth.onAuthStateChanged(async (user) => {
+  if (user) {
+      const character = await getUserCharacter(user.uid);
+
+      // Remove any existing character-specific classes
+      characterSpritesheet.classList.remove('female', 'male');
+
+      if (character === 'female') {
+          characterSpritesheet.classList.add('female');
+      } else if (character === 'male') {
+          characterSpritesheet.classList.add('male');
+      } else {
+          console.log('issue');
+      }
+  }
+});
