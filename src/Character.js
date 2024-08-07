@@ -76,22 +76,5 @@ document.addEventListener("keyup", (e) => {
    }
 });
 
-const femChar = document.getElementById('femChar');
-const maleChar = document.getElementById('maleChar');
-const characterSpritesheet = document.querySelector('.characterSpritesheet');
 
-
-let selectedCharacter = null; // Variable to store the selected character
-
-// Event listeners to store the character selection
-femChar.addEventListener('click', () => {
-    characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
-    selectedCharacter = 'female'; // Store character choice
-    console.log('Female character selected.');
-});
-
-maleChar.addEventListener('click', () => {
-    characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
-    selectedCharacter = 'male'; // Store character choice
-    console.log('Male character selected.');
-});
+ // Variable to store the selected character
