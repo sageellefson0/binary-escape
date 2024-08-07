@@ -82,12 +82,14 @@ const characterSpritesheet = document.querySelector('.characterSpritesheet');
 
 
 femChar.addEventListener('click', () => {
-   characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
-   characterSpritesheet.style.backgroundSize = '100%';
+   window.location.href = 'levels/desktop/level-desktop.html?character=female';
+   // characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
+   // characterSpritesheet.style.backgroundSize = '100%';
 });
 
 maleChar.addEventListener('click', () => {
-   characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
-   characterSpritesheet.style.backgroundSize = '100%';
+   window.location.href = 'levels/desktop/level-desktop.html?character=male';
+   // characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
+   // characterSpritesheet.style.backgroundSize = '100%';
 });
 

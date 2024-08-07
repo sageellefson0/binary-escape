@@ -130,4 +130,30 @@ setTimeout(() => {
 }, msUntilNextMinute);
 
 
+// Function to get query parameters from URL
+function getQueryParams() {
+    const params = {};
+    const queryString = window.location.search.substring(1);
+    const queries = queryString.split('&');
+    queries.forEach(query => {
+        const [key, value] = query.split('=');
+        params[key] = decodeURIComponent(value);
+    });
+    return params;
+}
+
+// Usage example
+const params = getQueryParams();
+const selectedCharacter = params.character;
+
+const characterSpritesheet = document.querySelector('.characterSpritesheet');
+
+// Set the character sprite based on the parameter
+if (selectedCharacter === 'female') {
+    characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat';
+} else if (selectedCharacter === 'male') {
+    characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat';
+}
+
+characterSpritesheet.style.backgroundSize = '100%';
 
