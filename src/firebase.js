@@ -97,3 +97,4 @@ export async function completeLevel(levelName) {
 }
 
 export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut };
+export { selectedCharacter };
