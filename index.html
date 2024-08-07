@@ -6,15 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binary Escape</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font awesome icon -->
+    <script src="https://kit.fontawesome.com/97132013e5.js" crossorigin="anonymous"></script>
+
 
 </head>
 
 <body>
-    <div id="start-page" class="start-page">
+  <div id="start-page" class="start-page">
         <div id="title" class="title">
             <h1>Binary Escape</h1>
             <div id="lock-bm" class="lock-logo"></div>
         </div>
+        <div id="loginDiv">
+            <div id="closeLoginDiv"> <i class="fa-solid fa-x"></i></div>
+        <br>
+    <main>
+        <br>
+        <br>
+            <!-- Google Sign-In -->
+            <button type="button" id="signInGoogle">
+                Sign In with Google
+            </button>
+            <br>
+            <br>
+               <!-- Email/Password Login -->
+               <input type="email" id="emailInput" placeholder="Email">
+               <input type="password" id="passwordInput" placeholder="Password">
+               <button type="button" id="signUpEmail">Sign Up with Email</button>
+       
+          </div>
         <div class="content">
             <div id="instructions" class="instructions">
                 <p>Select a character</p>
@@ -25,9 +46,11 @@
                         <source src="3d-models/girl-intern-idle.webm" type="video/webm">
                         Your browser does not support the video tag.
                     </video>
-                    <a href="">
-                        <div class="pixel-button">
-                            <div class="text">Select</div>
+                    <!-- <a href=""> -->
+                        <div class="pixel-button selectButton">
+                          <div class="text" id="femChar">Select</div>
+
+                         
 
                             <div class="transparent"></div>
                             <div class="black"></div>
@@ -218,16 +241,15 @@
                             <div class="black"></div>
                             <div class="transparent"></div>
                         </div>
-                    </a>
+                    <!-- </a> -->
                 </div>
                 <div class="character-select"><video id="male-intern" aria-label="video of boy intern standing idle"
                         autoplay loop muted>
                         <source src="3d-models/boy-intern-idle.webm" type="video/webm">
                         Your browser does not support the video tag.
                     </video>
-                    <a href="">
-                        <div class="pixel-button">
-                            <div class="text">Select</div>
+                        <div class="pixel-button selectButton2">
+                          <div class="text" id="maleChar">Select</div>
 
                             <div class="transparent"></div>
                             <div class="black"></div>
@@ -418,16 +440,66 @@
                             <div class="black"></div>
                             <div class="transparent"></div>
                         </div>
-                    </a>
                 </div>
             </div>
         </div>
 
     </div>
-</body>
 
+<script type="module" src="src/login.js"></script>
+<script type="module" src="/src/firebase.js"></script>
+<script type="module"> 
+        import { auth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from '/src/firebase.js';
+        import { setFemale, setMale } from '/src/login.js';
+
+const signUpEmailBtn = document.getElementById("signUpEmail");
+const signInGoogleBtn = document.getElementById("signInGoogle");
+
+
+// Native Email/Password Sign-Up
+signUpEmailBtn.addEventListener('click', async () => {
+    const email = document.getElementById('emailInput').value.trim();
+    const password = document.getElementById('passwordInput').value.trim();
+
+    if (email && password) {
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            // Redirect after successful sign-up
+            window.location.href = 'levels/desktop/level-desktop.html';
+        } catch (error) {
+            console.error('Error signing up with email:', error);
+        }
+    } else {
+        console.log('Email and password are required');
+    }
+});
+
+// Google Sign-In
+signInGoogleBtn.addEventListener('click', async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+        await signInWithPopup(auth, provider);
+        // Redirect after successful sign-in
+        window.location.href = 'levels/desktop/level-desktop.html';
+    } catch (error) {
+        console.error('Error during Google sign-in:', error);
+    }
+});
+
+const femChar = document.getElementById('femChar');
+const maleChar = document.getElementById('maleChar');
+
+// Event listeners to store the character selection
+femChar.addEventListener('click', setFemale)
+maleChar.addEventListener('click', setMale)
+
+
+
+  </script>
 <script src="src/start.js"> </script>
 <script src="logo/lottie.js"> </script>
 <script src="logo/index.js"> </script>
+   
+</body>
 
 </html>

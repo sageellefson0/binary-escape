@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+ document.addEventListener('DOMContentLoaded', () => {
     const title = document.querySelector('.title h1');
     const lockIcon = document.querySelector('#lock-bm');
     const instructions = document.getElementById('instructions');
@@ -34,4 +35,30 @@ document.addEventListener('DOMContentLoaded', () => {
         // Set the animation played flag
         localStorage.setItem(ANIMATION_KEY, 'true');
     } 
+
+
+
+    // ADDED BY SE 
+const selectButton = document.querySelector('.selectButton');
+const selectButton2 = document.querySelector('.selectButton2');
+const loginDiv = document.getElementById('loginDiv');
+
+function loginWindowDisplay(){
+    loginDiv.style.display = "block";
+
+}
+
+selectButton.addEventListener('click', loginWindowDisplay);
+selectButton2.addEventListener('click', loginWindowDisplay);
+
+function closeLoginWindow(){
+    loginDiv.style.display = "none";
+}
+// Event Listener: Listens for click on the X icon in the decoder - calls closeLoginWindow() to hide the login window
+var closeLoginDiv = document.getElementById('closeLoginDiv');
+closeLoginDiv.addEventListener('click', closeLoginWindow);
+
+
 });
+
+
