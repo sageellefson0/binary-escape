@@ -22,19 +22,6 @@ const femChar = document.getElementById('femChar');
 const maleChar = document.getElementById('maleChar');
 const characterSpritesheet = document.querySelector('.characterSpritesheet');
 
-async function initializeUserData(docUID) {
-  const userRef = doc(firestore, 'users', docUID);
-  const userDoc = await getDoc(userRef);
-
-  if (!userDoc.exists()) {
-      // Initialize document with default values
-      await setDoc(userRef, {
-          completedLevels: {},
-          character: selectedCharacter// Initialize with an empty map
-      });
-  }
-}
-
 
 // Event listeners to store the character selection
 femChar.addEventListener('click', () => {
@@ -50,33 +37,36 @@ maleChar.addEventListener('click', () => {
 });
 
 
+async function initializeUserData(docUID) {
+  const userRef = doc(firestore, 'users', docUID);
+  const userDoc = await getDoc(userRef);
 
-// On Auth State Changed
+  if (!userDoc.exists()) {
+      // Initialize document with default values
+      await setDoc(userRef, {
+          completedLevels: {},
+          character: selectedCharacter
+      });
+  }
+}
+
+
 onAuthStateChanged(auth, async (user) => {
   if (user) {
       // Initialize user document if not already done
-      await initializeUserData(user.uid, selectedCharacter);
+
+      await initializeUserData(user.uid);
 
       const userRef = doc(firestore, 'users', user.uid);
       onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
-              const data = docSnap.data();
-              const completedLevels = data.completedLevels || {};
-              
+            ///////////////////////TODO: ADD MORE LEVEL COMPLETIONS HERE 
+              const completedLevels = docSnap.data().completedLevels || {};
               if (completedLevels.skype) {
                   // Reveal the Internet Explorer icon if Skype level is completed
                   const internetExplorerIcon = document.getElementById('IEIcon');
                   internetExplorerIcon.style.display = 'block';
               }
-
-              // Set character based on saved data
-              const savedCharacter = data.character;
-              if (savedCharacter === 'female') {
-                  characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
-              } else if (savedCharacter === 'male') {
-                  characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
-              }
-              characterSpritesheet.style.backgroundSize = '100%';
           }
       });
   } else {
