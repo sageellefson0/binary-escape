@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+ document.addEventListener('DOMContentLoaded', () => {
     const title = document.querySelector('.title h1');
     const lockIcon = document.querySelector('#lock-bm');
     const instructions = document.getElementById('instructions');
@@ -40,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ADDED BY SE 
 const selectButton = document.querySelector('.selectButton');
 const selectButton2 = document.querySelector('.selectButton2');
-
 const loginDiv = document.getElementById('loginDiv');
 
 function loginWindowDisplay(){
@@ -60,9 +60,5 @@ closeLoginDiv.addEventListener('click', closeLoginWindow);
 
 
 });
-
-
-
-
 
 
