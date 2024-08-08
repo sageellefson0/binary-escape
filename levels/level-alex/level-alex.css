@@ -3,11 +3,12 @@ html {
     padding: 0;
     margin: 0;
     overflow: hidden;
+    image-rendering: auto !important;
 }
 
 #skypeInterface {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 #problemssigninginbutton {
