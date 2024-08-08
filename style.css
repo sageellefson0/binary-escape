@@ -41,7 +41,11 @@ body {
     height: calc(var(--grid-cell)* 2);
     position: absolute;
     overflow: hidden;
+<<<<<<< HEAD
     z-index: 10;
+=======
+    z-index: 100;
+>>>>>>> c3176b45082dc34b583f99edf88a87f657f01662
 }
 
 .characterSpritesheet.female {
