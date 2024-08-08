@@ -39,7 +39,6 @@ async function initializeUserData(docUID) {
 onAuthStateChanged(auth, async (user) => {
   if (user) {
       // Initialize user document if not already done
-
       await initializeUserData(user.uid);
 
       const userRef = doc(firestore, 'users', user.uid);
@@ -61,6 +60,7 @@ onAuthStateChanged(auth, async (user) => {
       }
   }
 });
+
 
 export async function completeLevel(levelName) {
   const user = auth.currentUser;

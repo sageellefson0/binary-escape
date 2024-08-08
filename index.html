@@ -38,10 +38,16 @@
             <br>
             <br>
                <!-- Email/Password Login -->
-               <input type="email" id="emailInput" placeholder="Email">
-               <input type="password" id="passwordInput" placeholder="Password">
-               <button type="button" id="signUpEmail">Sign Up with Email</button>
-       
+               <input type="email" id="emailInputSignIn" placeholder="Email">
+               <input type="password" id="passwordInputSignIn" placeholder="Password">
+               <button type="button" id="signInBtn">Sign In</button>
+               <input type="email" id="emailInputSignUp" placeholder="New Account Email">
+               <input type="password" id="passwordInputSignUp" placeholder="New Account Password">
+               <br>
+               <br>
+               <button type="button" id="createAccount">Create Account</button>
+               <button type="button" id="alreadyHaveAccount">Already have an account? Log in </button>
+
           </div>
         <div class="content">
             <div id="instructions" class="instructions">
@@ -459,19 +465,19 @@
         import { auth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from '/src/firebase.js';
         import { setFemale, setMale } from '/src/login.js';
 
-const signUpEmailBtn = document.getElementById("signUpEmail");
+const signInBtn = document.getElementById("signInBtn");
 const signInGoogleBtn = document.getElementById("signInGoogle");
 
 
 // Native Email/Password Sign-Up
-signUpEmailBtn.addEventListener('click', async () => {
+signInBtn.addEventListener('click', async () => {
     const email = document.getElementById('emailInput').value.trim();
     const password = document.getElementById('passwordInput').value.trim();
 
     if (email && password) {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            // Redirect after successful sign-up
+            // Redirect after successful sign in
             window.location.href = 'levels/desktop/level-desktop.html';
         } catch (error) {
             console.error('Error signing up with email:', error);

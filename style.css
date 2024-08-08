@@ -150,7 +150,7 @@ cursor: pointer;
 
 #loginDiv{
 width: 350px;
-height: 400px;
+height: 420px;
 padding: 0;
 display: none; 
 background-color: #ececec;
@@ -209,7 +209,7 @@ z-index: 10;
   
 
   /* Email/Password Input Fields */
-#emailInput, #passwordInput {
+#emailInputSignIn, #passwordInputSignIn, #emailInputSignUp, #passwordInputSignUp {
     width: 70%;
     padding: 10px;
     margin-bottom: 10px;
@@ -217,9 +217,21 @@ z-index: 10;
     border-radius: 4px;
     font-size: 12px;
   }
+
+  #emailInputSignUp, #passwordInputSignUp{
+    display: none;
+  }
+
+  #alreadyHaveAccount{
+    display: none;
+    background-color: none;
+    border: none;
+    margin-top: 5%;
+    cursor: pointer;
+  }
   
   /* Email Sign-Up Button */
-  #signUpEmail {
+  #signInBtn, #createAccount {
     background-color: #545454; /* Google green */
     color: #fff;
     border: none;
@@ -232,11 +244,11 @@ z-index: 10;
     transition: background-color 0.3s;
   }
   
-  #signUpEmail:hover {
+  #signInBtn:hover, #createAccount:hover {
     background-color: #202020; /* Darker green on hover */
   }
   
-  #signUpEmail:focus {
+  #signInBtn:focus, #createAccount:focus {
     outline: none;
   }
   
