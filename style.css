@@ -41,9 +41,8 @@ body {
     height: calc(var(--grid-cell)* 2);
     position: absolute;
     overflow: hidden;
-    z-index: 100;
+    z-index: 10;
 }
-
 .characterSpritesheet.female {
     background: url("../../images/binaryescapefemalecharacter1.png") no-repeat;
     background-size: 100%;
@@ -415,6 +414,7 @@ z-index: 10;
   
   /* ------------------- text styles ------------------- */
   .pixel-button .text {
+    color: #ececec;
     filter: none;
     position: absolute;
     display: block;
