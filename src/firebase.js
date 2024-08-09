@@ -158,6 +158,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             } catch (error) {
                 console.error('Error during sign up or sign in:', error);
+                const errorText = document.getElementById("errorText");
+                errorText.innerHTML = "Please use a valid email address. Your password must be at least 6 characters in length.";
             }
         } else {
             console.log('Email and password are required');
@@ -185,6 +187,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 window.location.href = 'levels/desktop/level-desktop.html';
             } catch (error) {
                 console.error('Error signing in with email:', error);
+                errorText.innerHTML = "Incorrect email or password. Please try again. Contact the administrator for support if you have forgotten your password.";
             }
         } else {
             console.log('Email and password are required');

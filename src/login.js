@@ -33,8 +33,6 @@ function createAccountFunc(){
   emailInputSignUp.style.display = "inline";
   passwordInputSignUp.style.display = "inline";
   alreadyHaveAccount.style.display = "inline";
-  errorText.innerHTML = "";
-
 
 
 }
@@ -47,7 +45,14 @@ function haveAccountFunc(){
   emailInputSignUp.style.display = "none";
   passwordInputSignUp.style.display = "none";
   alreadyHaveAccount.style.display = "none";
+
   errorText.innerHTML = "";
+  passwordInputSignIn.value = "";
+  emailInputSignIn.value = "";
+  passwordInputSignUp.value = "";
+  emailInputSignUp.value = "";
+
+
 
 }
 // Event listeners to store the character selection
