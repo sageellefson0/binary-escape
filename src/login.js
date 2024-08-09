@@ -22,7 +22,7 @@ const emailInputSignUp = document.getElementById('emailInputSignUp');
 const passwordInputSignUp = document.getElementById('passwordInputSignUp');
 const signInBtn = document.getElementById('signInBtn');
 const alreadyHaveAccount = document.getElementById('alreadyHaveAccount');
-
+const errorText = document.getElementById("errorText");
 
 
 function createAccountFunc(){
@@ -33,6 +33,8 @@ function createAccountFunc(){
   emailInputSignUp.style.display = "inline";
   passwordInputSignUp.style.display = "inline";
   alreadyHaveAccount.style.display = "inline";
+  errorText.innerHTML = "";
+
 
 
 }
@@ -45,6 +47,8 @@ function haveAccountFunc(){
   emailInputSignUp.style.display = "none";
   passwordInputSignUp.style.display = "none";
   alreadyHaveAccount.style.display = "none";
+  errorText.innerHTML = "";
+
 }
 // Event listeners to store the character selection
 createAccount.addEventListener('click', createAccountFunc)

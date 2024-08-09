@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
 import { getFirestore, doc, getDoc, updateDoc, onSnapshot, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
 
 // Firebase Configuration
@@ -20,7 +20,7 @@ const firestore = getFirestore(app);
 
 let savedChar = localStorage.getItem("character");
 
-async function initializeUserData(docUID) {
+export async function initializeUserData(docUID) {
   const userRef = doc(firestore, 'users', docUID);
   const userDoc = await getDoc(userRef);
 
@@ -30,21 +30,36 @@ async function initializeUserData(docUID) {
           completedLevels: {},
           character: savedChar
       });
-      console.log('user created');
+      console.log('User created');
       localStorage.removeItem("character");
+  } else {
+    console.log("User already exists.");
   }
 }
 
+async function getUserCharacter(docUID) {
+  const userRef = doc(firestore, 'users', docUID);
+  const userDoc = await getDoc(userRef);
+  if (userDoc.exists()) {
+      return userDoc.data().character;
+  } else {
+      console.log('No such document!');
+      return null;
+  }
+}
 
+const characterSpritesheet = document.querySelector(".characterSpritesheet");
+
+// Combined onAuthStateChanged
 onAuthStateChanged(auth, async (user) => {
   if (user) {
       // Initialize user document if not already done
       await initializeUserData(user.uid);
 
+      // Set up a snapshot listener to react to changes in user data
       const userRef = doc(firestore, 'users', user.uid);
       onSnapshot(userRef, (docSnap) => {
           if (docSnap.exists()) {
-            ///////////////////////TODO: ADD MORE LEVEL COMPLETIONS HERE 
               const completedLevels = docSnap.data().completedLevels || {};
               if (completedLevels.skype) {
                   // Reveal the Internet Explorer icon if Skype level is completed
@@ -53,6 +68,20 @@ onAuthStateChanged(auth, async (user) => {
               }
           }
       });
+
+      // Retrieve and apply the user's character choice
+      const character = await getUserCharacter(user.uid);
+
+      // Remove any existing character-specific classes
+      characterSpritesheet.classList.remove('female', 'male');
+
+      if (character === 'female') {
+          characterSpritesheet.classList.add('female');
+      } else if (character === 'male') {
+          characterSpritesheet.classList.add('male');
+      } else {
+          console.log('No character loaded');
+      }
   } else {
       // User is not logged in, redirect to login page or home page
       if (window.location.pathname !== '/index.html') {
@@ -60,7 +89,6 @@ onAuthStateChanged(auth, async (user) => {
       }
   }
 });
-
 
 export async function completeLevel(levelName) {
   const user = auth.currentUser;
@@ -79,37 +107,4 @@ export async function completeLevel(levelName) {
   }
 }
 
-export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut };
-// export { selectedCharacter };
-
-
-async function getUserCharacter(docUID) {
-    const userRef = doc(firestore, 'users', docUID);
-    const userDoc = await getDoc(userRef);
-    if (userDoc.exists()) {
-        return userDoc.data().character;
-    } else {
-        console.log('No such document!');
-        return null;
-    }
-}
-
-const characterSpritesheet = document.querySelector(".characterSpritesheet");
-
-
-auth.onAuthStateChanged(async (user) => {
-  if (user) {
-      const character = await getUserCharacter(user.uid);
-
-      // Remove any existing character-specific classes
-      characterSpritesheet.classList.remove('female', 'male');
-
-      if (character === 'female') {
-          characterSpritesheet.classList.add('female');
-      } else if (character === 'male') {
-          characterSpritesheet.classList.add('male');
-      } else {
-          console.log('issue');
-      }
-  }
-});
+export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, signInWithEmailAndPassword, onAuthStateChanged };
