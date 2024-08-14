@@ -1,4 +1,3 @@
-import { selectedCharacter } from '../../src/firebase.js';
 
 const howToPlayWindow = document.querySelector('.howToPlayWindow');
 const closeHowToPlay = document.querySelector('.close');
@@ -53,17 +52,17 @@ function displayBSOD(){
 
 
 // Calls the dialogue to begin showing when the page loads
-window.onload = function () {
-    initializeDesktopLevel();
-    introTextTyping();
-    setTimeout(() => {
-        displayBSOD()
-        }, 23500);
+// window.onload = function () {
+//     // initializeDesktopLevel();
+//     introTextTyping();
+//     setTimeout(() => {
+//         displayBSOD()
+//         }, 23500);
     
-        setTimeout(() => {
-            hideIntroDisplayDesktop()
-            }, 35000);
-        };
+//         setTimeout(() => {
+//             hideIntroDisplayDesktop()
+//             }, 35000);
+//         };
 
 // Dialogue for intro window after starting the game
 var introInteger = 0;
@@ -132,24 +131,3 @@ setTimeout(() => {
 }, msUntilNextMinute);
 
 
-function initializeDesktopLevel() {
-    // Check if selectedCharacter is set
-    if (selectedCharacter) {
-    
-      loadCharacterSprite(selectedCharacter); // Load the sprite for the selected character
-    } else {
-      console.error('Character selection not available');
-      console.log(selectedCharacter);
-    }
-  }
-  
-
-
-function loadCharacterSprite(character) {
-    if (selectedCharacter === 'female') {
-      characterSpritesheet.style.background = 'url("images/binaryescapefemalecharacter1.png") no-repeat no-repeat';
-      console.log('female');
-    } else if (character === 'male') {
-      characterSpritesheet.style.background = 'url("images/binaryescapemalecharacter1.png") no-repeat no-repeat';
-    }
-  }

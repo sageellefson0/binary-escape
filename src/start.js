@@ -1,4 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+//  document.addEventListener('DOMContentLoaded', () => {
+   
+    import { setFemale, setMale } from '/src/login.js';
+
     const title = document.querySelector('.title h1');
     const lockIcon = document.querySelector('#lock-bm');
     const instructions = document.getElementById('instructions');
@@ -33,14 +37,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Set the animation played flag
         localStorage.setItem(ANIMATION_KEY, 'true');
-    } 
+
+const femChar = document.getElementById('femChar');
+const maleChar = document.getElementById('maleChar');
+
+// Event listeners to store the character selection
+femChar.addEventListener('click', setFemale)
+maleChar.addEventListener('click', setMale)
+
+
+
+     } 
 
 
 
     // ADDED BY SE 
 const selectButton = document.querySelector('.selectButton');
 const selectButton2 = document.querySelector('.selectButton2');
-
 const loginDiv = document.getElementById('loginDiv');
 
 function loginWindowDisplay(){
@@ -59,10 +72,6 @@ var closeLoginDiv = document.getElementById('closeLoginDiv');
 closeLoginDiv.addEventListener('click', closeLoginWindow);
 
 
-});
-
-
-
-
+// });
 
 
