@@ -21,7 +21,6 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    overflow-x: hidden;
     position: fixed;
     padding: 14px;
     flex-direction: column;
@@ -40,7 +39,6 @@ body {
     display: flex;
     align-items: center;
     margin: 12px;
-    flex: 1;
 }
 
 .sidebar p {
@@ -71,19 +69,23 @@ a:hover {
 }
 
 /*---------------MAIN---------------*/
-.main {
-    display: flex;
-    flex-direction: column;
+.main_section {
     height: 100vh;
     position: absolute;
-    left: 375px;
+    left: 370px;
+    display: flex;
+    flex-direction: column;
 }
 
+.main, .suggested_for_you {
+    flex: 50%;
+}
 .header {
     border-bottom: 1px solid #ccc;
     align-items: center;
+    overflow: hidden;
     font-size: 15px;
-    width: 630px;
+    width: 610px;
     height: 79px;
 }
 
@@ -104,18 +106,22 @@ a:hover {
 
 /*--------------STORIES---------------*/
 .stories {
+    width: 610px;
     padding-top: 22px;
-    justify-content: center;
     position: relative;
     margin-bottom: 24px;
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: auto;
+}
+
+.stories::-webkit-scrollbar {
+    display: none;
 }
 
 .story-item {
-    display: inline-grid;
-    gap: 50px;
     width: 76px;
     height: 85px;
-    align-items: center;
 }
 
 .story-item button {
@@ -132,19 +138,16 @@ a:hover {
   
 .arrow-container {
     position: absolute;
-    right: 22px;
-    bottom: 40px;
-    width: 22px;
-    height: 22px;
     border-radius: 50%;
     background-color: #ffffff;
-    display: flex;
-    justify-content: center;
+    align-items: flex-end;
 }
   
 .arrow-button {
     font-size: 20px;
     font-stretch: ultra-condensed;
+    align-items: center;
+    justify-content: center;
     opacity: 0.7;
     cursor: pointer;
 }
@@ -223,9 +226,9 @@ div.time {
 }
 
 .post-media img {
-    height: 585px;
+    height: 468px;
     width: 468px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 /*--------------POST ENGAGEMENT---------------*/
@@ -233,6 +236,15 @@ div.time {
     display: inline-grid;
     grid-template-columns: 235px 235px;
     margin:4px 0 4px 0;
+}
+
+.post-icons svg:hover {
+    color: #716e6e;
+}
+
+.fas{
+    color: #f50057;
+    transition: .4s;
 }
 
 .left-icons {
@@ -294,26 +306,96 @@ div.time {
     color: rgb( 0, 55, 107);
 }
 
-.view_comment, .add_comment {
+.view_comment, .add_comment{
+    display: inline;
+    white-space:nowrap;
     color: rgb(115, 115, 115);
     font-size: 14px;
     margin-top: 8px;
 }
 
-.react {
-    margin-left: 335px;
+input[type=text] {
+    border: none;
+}
+
+input:focus {
+    outline-style: none;
+    box-shadow: none;
+}
+.react svg{
+    margin-left: 280px;
 }
 
 .character {
     position: fixed;
 }
+/* ----------------CLIPPY----------------- */
+.agent {
+    display: block;
+    position: fixed;
+    bottom: 20rem; /* Change positioning of clippy */
+    right: 24rem; /* Can change bottom and right to top and left, etc. */
+}
+
+.clippy {
+    position: fixed;
+    width: 450px; /* Can change width size accordingly*/
+    height: 350px; /* Can change height size */
+}
+
+p #hint {
+    padding: 0;
+    margin: 0;
+}
+
+.speech-bubble {
+	position: absolute;
+    bottom: -30px;
+    left: 90px;
+    font-size: 16px;
+	background: #eee9ad;
+	border-radius: .4em;
+    border: 1px solid black;
+    width: 12rem;
+    padding: 10px;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 1px;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 33px solid transparent;
+	border-top-color: #eee9ad;
+	border-right: 0;
+	border-bottom: 0;
+	margin-left: -16.5px;
+	margin-bottom: -33px;
+}
+
+.speech-bubble:before {
+	content: '';
+	position: absolute;
+	bottom: 0.25px;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 33px solid transparent;
+	border-top-color: black;
+	border-right: 0;
+	border-bottom: 0;
+	margin-left: -16px;
+	margin-bottom: -34.5px;
+}
 
 /*--------------RESPONSIVENESS---------------*/
 .suggested_for_you {
-    padding-top: 22px;
-    margin-top: 36px;
     position: absolute;
-    right: 150px;
+    margin-top: 36px;
+    padding-top: 22px;
+    right: -350px;
     line-height: 18px;
     font-size: 14px;
 }
@@ -418,18 +500,130 @@ div.time {
     content: "";
 }
 
+#instagram {
+    display: none;
+    width: 32px;
+    height: 32px;
+}
+
 /*--------------RESPONSIVENESS---------------*/
-@media screen and (max-width:600px) {
+@media screen and (max-width:1500px) {
+    .main_section {
+        left: 300px;
+    }
+} 
+@media screen and (max-width:1300px) {
     .sidebar {
-        width: auto;
+        width: 80px;
     }
     .menu-item p {
-      visibility: collapse;
+      display: none;
+    }
+    .menu-item svg {
+        max-width: 100%;
+        display: block;
+        margin: 12px 0 8px 0;
+    }
+    #instagram {
+        display: block;
+    }
+    .logo img {
+        display: none;
+    }
+    .main_section {
+        left: 120px;
     }
 }
 
-@media screen and (max-width:1160px) {
-    .suggested_for_you {
+@media screen and (max-width:1200px) {
+    .sidebar {
+        width: 80px;
+    }
+    .menu-item p {
       display: none;
+    }
+    .menu-item svg {
+        max-width: 100%;
+        display: block;
+        margin: 12px 0 8px 0;
+    }
+    #instagram {
+        display: block;
+    }
+    .logo img {
+        display: none;
+    }
+    .main_section {
+        left: 250px;
+    }
+    .suggested_for_you {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .sidebar {
+        width: 80px;
+    }
+    .menu-item p {
+      display: none;
+    }
+    .menu-item svg {
+        max-width: 100%;
+        display: block;
+        margin: 12px 0 8px 0;
+    }
+    #instagram {
+        display: block;
+    }
+    .logo img {
+        display: none;
+    }
+    .main_section {
+        left: 180px;
+    }
+    .suggested_for_you {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .main_section {
+        left: 100px;
+    }
+    .suggested_for_you {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .main_section {
+        left: 90px;
+    }
+    .suggested_for_you {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        display: none;
+    }
+    .main_section {
+        left: 7px;
+        margin-right: 0;
+    }    
+    .posts {
+        left: 0px;
+    }
+    .suggested_for_you {
+        display: none;
+    }
+    .stories, .header {
+        width: 460px;
+        margin-left: 0;
+    }
+    .story-item:first-child {
+        margin-left: 0;
     }
 }

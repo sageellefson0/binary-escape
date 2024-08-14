@@ -3,11 +3,12 @@ html {
     padding: 0;
     margin: 0;
     overflow: hidden;
+    image-rendering: auto !important;
 }
 
 #skypeInterface {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 #problemssigninginbutton {
@@ -22,7 +23,8 @@ html {
     right: 25%;
 }
 
-#popup, #passwordPopup {
+#popup,
+#passwordPopup {
     display: none;
     position: fixed;
     top: 20%;
@@ -35,12 +37,84 @@ html {
     z-index: 1000;
 }
 
-#popup h2, #passwordPopup h2 {
+#popup h2,
+#passwordPopup h2 {
     margin-top: 0;
+    font-family: Andale Mono;
+    font-weight: bold;
 }
 
-#popup button, #passwordPopup button {
+#binary-sequence {
+    font-family: Andale Mono;
+}
+
+/* #popup button,  */
+#passwordPopup button {
     margin-top: 10px;
+}
+
+#questions {
+    /* margin: 15px 0; */
+    /* border: 1px solid black; */
+    padding: 5px 5px;
+    font-family: Andale Mono;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.question {
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+.question-header {
+    font-weight: bold;
+}
+
+.question-text {
+    font-weight: normal;
+}
+
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--form-background);
+    margin: 0;
+    font: inherit;
+    color: #1899D6;
+    width: 12px;
+    height: 12px;
+    display: inline-flex;
+    border: 0.15em solid #1899D6;
+    border-radius: 25%;
+    transform: translateY(-0.075em);
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    background-color: CanvasText;
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="radio"]:focus {
+    outline: max(2px, 0.15em) solid #1899D6;
+    outline-offset: max(2px, 0.15em);
+}
+
+.true-option,
+.false-option {
+    font-weight: bold;
 }
 
 #overlay {
@@ -81,4 +155,79 @@ html {
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+}
+
+#close-button,
+#check-button,
+#problemssigninginbutton button,
+#submitPassword,
+#closeBttn{
+    margin: 10px 0;
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: din-round, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 16px;
+    outline: none;
+    overflow: visible;
+    padding: 8px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+}
+
+#close-button :after,
+#check-button :after {
+    background-clip: padding-box;
+    background-color: #1CB0F6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+#close-button :main,
+#check-button :main,
+#close-button :focus,
+#check-button :focus {
+    user-select: auto;
+}
+
+#close-button :hover:not(disabled),
+#check-button :hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+}
+
+#close-button :disabled,
+#check-button :disabled {
+    cursor: auto;
+}
+
+#close-button :active,
+#check-button :active {
+    border-width: 4px 0 0;
+    background: none;
 }
