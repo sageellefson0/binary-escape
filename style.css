@@ -389,12 +389,14 @@ z-index: 10;
     -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60% 85%, rgba(0, 0, 0, 0) 100%);
     mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 65% 85%, rgba(0, 0, 0, 0) 100%);
     overflow: hidden;
+    z-index: 0;
 }
 
 .character-select video {
     margin-bottom: 0.5rem;
     width: 300px;
     height: 500px;
+    z-index: 0;
 }
 
 /* ------------------- Button Grid styles ------------------- */
