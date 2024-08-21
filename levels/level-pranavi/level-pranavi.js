@@ -80,7 +80,6 @@ fontColorPicker.addEventListener("click", function (e) {
 /* ----------------- Character Icon --------------------- */
 
 const selectedCharacter = localStorage.getItem("character");
-console.log(selectedCharacter)
 
 // Render character image based on if male or female selected
 if (selectedCharacter === "male") {
