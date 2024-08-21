@@ -383,6 +383,7 @@ z-index: 10;
     align-items: center; 
 }
 
+
 .character-select .video-container {
     display: inline-block;
     -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60% 85%, rgba(0, 0, 0, 0) 100%);
@@ -462,7 +463,7 @@ z-index: 10;
     font-weight: 600;
     width: 100%;
     height: 100%;
-    top: 20%;
+    bottom: 20%;
     text-align: center;
   }
 
