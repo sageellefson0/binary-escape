@@ -8,12 +8,20 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font awesome icon -->
     <script src="https://kit.fontawesome.com/97132013e5.js" crossorigin="anonymous"></script>
-
+    <!-- Favicon image links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
 </head>
 
 <body>
-  <div id="start-page" class="start-page">
+
+    <div id="start-page" class="start-page">
         <div id="title" class="title">
             <h1>Binary Escape</h1>
             <div id="lock-bm" class="lock-logo"></div>
@@ -21,7 +29,6 @@
         <div id="loginDiv">
             <div id="closeLoginDiv"> <i class="fa-solid fa-x"></i></div>
         <br>
-    <main>
         <br>
         <br>
             <!-- Google Sign-In -->
@@ -29,13 +36,28 @@
                 Sign In with Google
             </button>
             <br>
-            <br>
-               <!-- Email/Password Login -->
-               <input type="email" id="emailInput" placeholder="Email">
-               <input type="password" id="passwordInput" placeholder="Password">
-               <button type="button" id="signUpEmail">Sign Up with Email</button>
-       
-          </div>
+            <main>
+                <br>
+                <br>
+                <!-- Google Sign-In -->
+                <button type="button" id="signInGoogle">
+                    Sign In with Google
+                </button>
+                <br>
+                <br>
+                <!-- Email/Password Login -->
+                <input type="email" id="emailInputSignIn" placeholder="Email">
+                <input type="password" id="passwordInputSignIn" placeholder="Password">
+                <button type="button" id="signInBtn">Sign In</button>
+                <input type="email" id="emailInputSignUp" placeholder="New Account Email">
+                <input type="password" id="passwordInputSignUp" placeholder="New Account Password">
+                <br>
+                <br>
+                <button type="button" id="createAccount">Create Account</button>
+                <p id="errorText"></p>
+                <button type="button" id="alreadyHaveAccount">Already have an account? Log in </button>
+
+        </div>
         <div class="content">
             <div id="instructions" class="instructions">
                 <p>Select a character</p>
@@ -47,206 +69,207 @@
                         Your browser does not support the video tag.
                     </video></div>
                     <!-- <a href=""> -->
-                        <div class="pixel-button selectButton">
-                          <div class="text" id="femChar">Select</div>
+                    <div class="pixel-button selectButton" id="femChar">
+                        <div class="text">Select</div>
 
-                         
 
-                            <div class="transparent"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="transparent"></div>
 
-                            <div class="black"></div>
-                            <div class="lightg"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="lightg"></div>
-                            <div class="black"></div>
+                        <div class="transparent"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="transparent"></div>
 
-                            <div class="black"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="lightg"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="lightg"></div>
+                        <div class="black"></div>
 
-                            <div class="black"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="black"></div>
 
-                            <div class="black"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="black"></div>
 
-                            <div class="black"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="black"></div>
 
-                            <div class="black"></div>
-                            <div class="lightg"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="white"></div>
-                            <div class="lightg"></div>
-                            <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="black"></div>
 
-                            <div class="black"></div>
-                            <div class="grey"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="lightg"></div>
-                            <div class="grey"></div>
-                            <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="lightg"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="white"></div>
+                        <div class="lightg"></div>
+                        <div class="black"></div>
 
-                            <div class="transparent"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="black"></div>
-                            <div class="transparent"></div>
-                        </div>
+                        <div class="black"></div>
+                        <div class="grey"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="lightg"></div>
+                        <div class="grey"></div>
+                        <div class="black"></div>
+
+                        <div class="transparent"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="black"></div>
+                        <div class="transparent"></div>
+                    </div>
                     <!-- </a> -->
                 </div>
                 <div class="character-select"><div class="video-container"><video id="male-intern" aria-label="video of boy intern standing idle"
                         autoplay loop muted>
                         <source src="3d-models/boy-intern-idle.mp4" type="video/mp4">
                         Your browser does not support the video tag.
+
                     </video></div>
                         <div class="pixel-button selectButton2">
                           <div class="text" id="maleChar">Select</div>
@@ -439,67 +462,18 @@
                             <div class="black"></div>
                             <div class="black"></div>
                             <div class="transparent"></div>
-                        </div>
-                </div>
+          </div>
             </div>
         </div>
 
     </div>
 
-<script type="module" src="src/login.js"></script>
-<script type="module" src="/src/firebase.js"></script>
-<script type="module"> 
-        import { auth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from '/src/firebase.js';
-        import { setFemale, setMale } from '/src/login.js';
+    <script type="module" src="src/login.js"></script>
+    <script type="module" src="/src/firebase.js"></script>
+    <script type="module" src="src/start.js"> </script>
+    <script src="logo/lottie.js"> </script>
+    <script src="logo/index.js"> </script>
 
-const signUpEmailBtn = document.getElementById("signUpEmail");
-const signInGoogleBtn = document.getElementById("signInGoogle");
-
-
-// Native Email/Password Sign-Up
-signUpEmailBtn.addEventListener('click', async () => {
-    const email = document.getElementById('emailInput').value.trim();
-    const password = document.getElementById('passwordInput').value.trim();
-
-    if (email && password) {
-        try {
-            await createUserWithEmailAndPassword(auth, email, password);
-            // Redirect after successful sign-up
-            window.location.href = 'levels/desktop/level-desktop.html';
-        } catch (error) {
-            console.error('Error signing up with email:', error);
-        }
-    } else {
-        console.log('Email and password are required');
-    }
-});
-
-// Google Sign-In
-signInGoogleBtn.addEventListener('click', async () => {
-    const provider = new GoogleAuthProvider();
-    try {
-        await signInWithPopup(auth, provider);
-        // Redirect after successful sign-in
-        window.location.href = 'levels/desktop/level-desktop.html';
-    } catch (error) {
-        console.error('Error during Google sign-in:', error);
-    }
-});
-
-const femChar = document.getElementById('femChar');
-const maleChar = document.getElementById('maleChar');
-
-// Event listeners to store the character selection
-femChar.addEventListener('click', setFemale)
-maleChar.addEventListener('click', setMale)
-
-
-
-  </script>
-<script src="src/start.js"> </script>
-<script src="logo/lottie.js"> </script>
-<script src="logo/index.js"> </script>
-   
 </body>
 
 </html>

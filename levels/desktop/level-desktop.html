@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binary Escape</title>
   <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="../desktop/level-desktop.css">
+  <!-- Favicon image links -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
 </head>
+
 <body class="level-desktop">
   <header></header>
   <main>
@@ -20,7 +31,7 @@
         <div class="characterSpritesheet"></div>
       </div>
 
-      
+
       <div class="icon recycleBin logoutButton" id="logoutButton">
         <img src="../desktop/images/recycle.png">
         <div class="iconName">Log Out</div>
@@ -35,7 +46,7 @@
 
       <div class="icon skype" id="skypeIcon">
         <a href="../level-alex/level-alex.html" class="levelIcons">
-          <img src="../desktop/images/skype.png" alt="Image of skype logo.">
+          <img src="../desktop/images/skype.png" alt="Image of Skype logo.">
         </a>
         <div class="iconName">Skype</div>
       </div>
@@ -43,8 +54,15 @@
       <div class="icon internetExplorer" id="IEIcon">
         <a href="../level-sage/level-sage.html" class="levelIcons">
           <img src="../desktop/images/internetexplorer.png" alt="Image of windows XP Internet Explorer logo.">
-          <div class="iconName">Internet Explorer</div>
+          <div class="iconName">Internet <br> Explorer</div>
         </a>
+      </div>
+
+      <div class="icon word" id="wordIcon">
+        <a href="../level-pranavi/level-pranavi.html" class="levelIcons">
+          <img src="../desktop/images/Office_Word_2007_logo.png" alt="Image of Microsoft Word logo from 2007.">
+        </a>
+        <div class="iconName">Microsoft <br> Word</div>
       </div>
 
       <div class="howToPlayWindow">
@@ -88,25 +106,26 @@
   <!-- Additional scripts -->
   <script src="../../src/Character.js"></script>
   <script type="module" src="/src/firebase.js"></script>
-  <script type="module"> 
+  <script type="module">
 
-import { signOut, auth } from '/src/firebase.js';
+    import { signOut, auth } from '/src/firebase.js';
 
-// Log-Out Button
+    // Log-Out Button
 
-const logoutButton = document.getElementById('logoutButton');
+    const logoutButton = document.getElementById('logoutButton');
 
-logoutButton.addEventListener('click', async () => {
-  try {
-    await signOut(auth);
-    window.location.href = '../../index.html';
+    logoutButton.addEventListener('click', async () => {
+      try {
+        await signOut(auth);
+        window.location.href = '../../index.html';
       } catch (error) {
-    console.error('Error signing out:', error);
-  }
-});
-</script>
+        console.error('Error signing out:', error);
+      }
+    });
+  </script>
 
   <script type="module" src="../desktop/level-desktop.js"></script>
 
 </body>
+
 </html>
