@@ -77,6 +77,18 @@ fontColorPicker.addEventListener("click", function (e) {
   });
 });
 
+/* ----------------- Character Icon --------------------- */
+
+const selectedCharacter = localStorage.getItem("character");
+console.log(selectedCharacter)
+
+// Render character image based on if male or female selected
+if (selectedCharacter === "male") {
+  document.getElementById("character-img").src = "images/character/malecharacterpeeping.png";
+} else if (selectedCharacter === "female") {
+  document.getElementById("character-img").src = "images/character/femalecharacterpeeping.png";
+}
+
 /* ----------------- Puzzle Javascript --------------------- */
 
 // JSON data directly embedded in the script
