@@ -56,57 +56,13 @@ body {
     }
 }
 
-
-.setting {
-    position: fixed;
-    right: 37%;
-    width: 52vw;
-    height: auto;
-}
-
-.setting img {
-    width: 100%;
-}
-
 .video-container video {
-    position: fixed;
-    width: 2.6vw; /* Initial width */
-    height: 9.8vh; /* Initial height */
-    top: calc(50% - 7.8rem); /* Initial top position */
-    left: 35%; /* Initial left position */
-    transition: all 2s ease-in-out;
+    position: relative;
+    height: 100vh;
+    width: auto;
+    overflow-x: clip;
+    transition: all 3s ease-in-out;
 }
-
-/* Animation to transform the video */
-@keyframes transformVideo {
-    0% {
-        width: 2.6vw; /* Initial width */
-        height: 9.8vh; /* Initial height */
-        top: calc(50% - 7.8rem); /* Initial top position */
-        left: 35%; /* Initial left position */
-    }
-    45% {
-        top: 20%; /* Middle top position */
-        left: 56%; /* Middle left position */
-    }
-    80% {
-        width: 20vw; /* Final width */
-        height: 80vh; /* Final height */
-        top: 5%; /* Final top position */
-        left: 56%; /* Final left position */
-    }
-    100% {
-        width: 20vw; /* Final width */
-        height: 80vh; /* Final height */
-        top: 5%; /* Final top position */
-        left: 56%; /* Final left position */
-    }
-}
-
-.video-container video {
-    animation: transformVideo 1.75s ease-in-out 2.76s forwards;
-}
-
 
 
 /* ----------------- Movie Credits Styling ---------------------*/
