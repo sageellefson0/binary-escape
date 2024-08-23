@@ -140,8 +140,9 @@ html{
   margin: 0;
 }
 
-#IEIcon {
-  display: none; /* Hide by default */
+/* Hides level icons by default, displays when unlocked */
+#IEIcon, #instagramIcon, #wordIcon {
+  display: none; 
 }
 
 
