@@ -213,8 +213,10 @@ document.addEventListener("DOMContentLoaded", () => {
     dialogButton.addEventListener('click', function() {
         if (passwordCorrect) {
             completeLevel('word');
-            window.location.href = "../desktop/level-desktop.html";
-             // Replace with actual link to next round
+            // Timeout provides buffer for completeLevel to ber logged correctly - don't remove
+            setTimeout(function() {
+              window.location.href = "../desktop/level-desktop.html";
+          }, 2000);
         } else {
             hideDialog();
         }
