@@ -2,16 +2,115 @@ import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessar
 
 
 /* ----------------- Instagram Javascript --------------------- */
-// Handle comment input on Enter key press
-document.addEventListener("DOMContentLoaded", () => {
-    var add_comment = document.querySelector('.add_comment');
-    var comment1 = document.getElementById("comment1");
+// Passwords
+const cityAnswer = "florence";
+const countryAnswer = "australia";                        
+const continentAnswer = "southamerica";
 
-    add_comment.addEventListener("input", () => {
-        if(comment1.value.trim() !== ""){
+var count = 0;
+var postButton = document.getElementsByClassName("post_comment");
+var wrong = document.getElementsByClassName('wrong');
+var right = document.getElementsByClassName('right');
+var yourComment = document.getElementsByClassName('your_comment');
+var correctPassword = document.getElementsByClassName('update_comment');
+var exploreButton = document.getElementById('explore')
+var crossword = document.getElementById('crossword')
 
+// user answers
+
+var inputs = document.querySelectorAll('input[name="password"]');
+var userAnswer1 = document.getElementById('florence');
+var userAnswer2 = document.getElementById('australia');
+var userAnswer3 = document.getElementById('south_america');
+
+function answer(e) {
+
+    // if enter key is pressed
+    if (e.keyCode == 13) {
+        if (userAnswer1.value.toLowerCase() == cityAnswer) {
+            correctPassword[0].innerHTML = userAnswer1.value;
+            yourComment[0].style.display = 'block';
+            // clear input box 
+            userAnswer1.value = "";
+            // remove post button
+            postButton[0].style.visibility = "hidden";
+        } else if (userAnswer2.value.toLowerCase() == countryAnswer) {
+            correctPassword[1].innerHTML = userAnswer2.value;
+            yourComment[1].style.display = 'block';
+            // clear input box 
+            userAnswer2.value = "";
+            // remove post button
+            postButton[1].style.visibility = "hidden";
+        } else if (userAnswer3.value.split(" ").join("").toLowerCase() == continentAnswer) {
+            correctPassword[2].innerHTML = userAnswer3.value;
+            yourComment[2].style.display = 'block';
+            // clear input box 
+            userAnswer3.value = "";
+            // remove post button
+            postButton[2].style.visibility = "hidden";
+        } else {
+            // display wrong alert box
+            wrong[0].style.display = 'block';
         }
-    })
+
+        // Update count based on visibility of yourComment
+        count = 0; // Reset count
+        for (let i = 0; i < yourComment.length; i++) {
+            if (yourComment[i].style.display === 'block') {
+                count += 1;
+            }
+        }
+
+        // display congratulations alert box
+        if (count === 3) {
+            right[0].style.display = 'block';
+        }
+    }
+}
+
+inputs.forEach(input => {
+        input.addEventListener("input", () => {
+            // show post button
+            if (userAnswer1.value.trim() !== "") {
+                postButton[0].style.visibility = "visible";
+            } else {
+                postButton[0].style.visibility = "hidden";
+            }
+
+            if (userAnswer2.value.trim() !== "") {
+                postButton[1].style.visibility = "visible";
+            } else {
+                postButton[1].style.visibility = "hidden";
+            }
+
+            if (userAnswer3.value.trim() !== "") {
+                postButton[2].style.visibility = "visible";
+            } else {
+                postButton[2].style.visibility = "hidden";
+            }
+        }
+    )  
+})
+
+// Alert box
+function ok() {
+    var alertBox = document.getElementsByClassName('alertBox');
+    for (i in alertBox) {
+        alertBox[i].style.display = 'none';
+    }
+} 
+
+function back() {
+        crossword.style.display = "none";
+}
+
+function done() {
+    window.location.href='../../levels/desktop/level-desktop.html';
+}
+
+// explore button to crossword
+exploreButton.addEventListener('click', ()=> {
+    crossword.style.display = "block"
 
     // TODO: REMOVE THIS, TEMP CODE 
 let tempBtn = document.getElementById('tempBtn');
