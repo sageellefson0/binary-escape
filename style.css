@@ -480,11 +480,13 @@ z-index: 10;
   }
   
 
-#start-page{
-    display: none;
-}
+
 
 @media screen and (max-width : 906px){
+
+    #start-page{
+        display: none;
+    }
 
 #mobileDiv{
     background-color: #202020;
@@ -534,7 +536,7 @@ h2{
     #start-page{
         display: block;
     }
-    #mobileDiv, #mobileText{
+    #mobileDiv{
         display: none;
     }
 
