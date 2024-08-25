@@ -140,8 +140,9 @@ html{
   margin: 0;
 }
 
-#IEIcon {
-  display: none; /* Hide by default */
+/* Hides level icons by default, displays when unlocked */
+#IEIcon, #instagramIcon, #wordIcon {
+  display: none; 
 }
 
 
@@ -214,9 +215,9 @@ html{
 .icon .iconName {
   font-family: calibri, monospace;
   font-size: 11px;
-  line-height: 20px;
-  height: 37px;
-  width: 80px;
+  line-height: 15px;
+  height: 28px;
+  width: 60px;
   text-align: center;
   margin-left: 9px;
   overflow: hidden;
@@ -227,10 +228,17 @@ html{
 
 
 .icon {
-  width: 100px;
+  width: 80px;
   cursor: pointer;
-  margin: 8px 0;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 8px; 
   padding: 5px;
+}
+
+.icon:hover {
+ background-color: rgba(106, 168, 239, 0.5);
+ outline: 1px solid rgba(106, 168, 239); 
 }
 
 .icon img {

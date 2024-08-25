@@ -1,3 +1,5 @@
+import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
+
 /* ----------------- Word Application Javascript --------------------- */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -210,7 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event listener for the Okay button
     dialogButton.addEventListener('click', function() {
         if (passwordCorrect) {
-            window.location.href = ""; // Replace with actual link to next round
+            completeLevel('word');
+            // Timeout provides buffer for completeLevel to ber logged correctly - don't remove
+            setTimeout(function() {
+              window.location.href = "../desktop/level-desktop.html";
+          }, 2000);
         } else {
             hideDialog();
         }

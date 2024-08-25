@@ -1,3 +1,6 @@
+import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
+
+
 /* ----------------- Instagram Javascript --------------------- */
 // Handle comment input on Enter key press
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,6 +12,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     })
+
+    // TODO: REMOVE THIS, TEMP CODE 
+let tempBtn = document.getElementById('tempBtn');
+
+tempBtn.addEventListener('click', () => {
+    // Call this function when the user completes the Skype level
+      completeLevel('instagram');
+      console.log("am I being called?");
+});
 })
 
 // Toggle like button
@@ -23,6 +35,7 @@ function Toggle() {
         btn4.classList.add("far");
     }
 }
+
 
 
 /*---------------------------CLIPPY------------------------- */
