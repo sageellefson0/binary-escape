@@ -111,6 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.style.display = 'block';
         // Call this function when the user completes the Skype level
         completeLevel('skype');
+
+        setTimeout(() => {
+            window.location.href = "../desktop/level-desktop.html";
+        }, 4000);
     }
 
     // Function to close the congratulatory image

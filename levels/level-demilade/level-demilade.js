@@ -1,3 +1,6 @@
+import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
+
+
 /* ----------------- Instagram Javascript --------------------- */
 // Passwords
 const cityAnswer = "florence";
@@ -108,6 +111,15 @@ function done() {
 // explore button to crossword
 exploreButton.addEventListener('click', ()=> {
     crossword.style.display = "block"
+
+    // TODO: REMOVE THIS, TEMP CODE 
+let tempBtn = document.getElementById('tempBtn');
+
+tempBtn.addEventListener('click', () => {
+    // Call this function when the user completes the Skype level
+      completeLevel('instagram');
+      console.log("am I being called?");
+});
 })
 
 // Toggle like button
@@ -122,6 +134,7 @@ function Toggle() {
         btn4.classList.add("far");
     }
 }
+
 
 
 /*---------------------------CLIPPY------------------------- */

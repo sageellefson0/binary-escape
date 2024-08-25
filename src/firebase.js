@@ -63,8 +63,18 @@ onAuthStateChanged(auth, async (user) => {
                 const completedLevels = docSnap.data().completedLevels || {};
                 if (completedLevels.skype) {
                     // Reveal the Internet Explorer icon if Skype level is completed
-                    const internetExplorerIcon = document.getElementById('IEIcon');
-                    internetExplorerIcon.style.display = 'block';
+                    const instagramIcon = document.getElementById('instagramIcon');
+                    instagramIcon.style.display = 'block';
+                }
+                if (completedLevels.instagram) {
+                    // Reveal the Internet Explorer icon if Skype level is completed
+                    const wordIcon = document.getElementById('wordIcon');
+                    wordIcon.style.display = 'block';
+                }
+                if (completedLevels.word) {
+                    // Reveal the Internet Explorer icon if Skype level is completed
+                    const IEIcon = document.getElementById('IEIcon');
+                    IEIcon.style.display = 'block';
                 }
             }
         });
