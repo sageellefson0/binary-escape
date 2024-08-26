@@ -27,6 +27,7 @@ export async function initializeUserData(docUID) {
     if (!userDoc.exists()) {
         // Initialize document with default values
         await setDoc(userRef, {
+            // playedIntro: true,
             completedLevels: {},
             character: savedChar
         });
@@ -53,6 +54,9 @@ const characterSpritesheet = document.querySelector(".characterSpritesheet");
 // Combined onAuthStateChanged
 onAuthStateChanged(auth, async (user) => {
     if (user) {
+
+        document.getElementById("level-desktop").style.backgroundImage = "none";
+        // body.style.backgroundImage = "url('img_tree.png')";
         // Initialize user document if not already done
         await initializeUserData(user.uid);
 
@@ -61,6 +65,27 @@ onAuthStateChanged(auth, async (user) => {
         onSnapshot(userRef, (docSnap) => {
             if (docSnap.exists()) {
                 const completedLevels = docSnap.data().completedLevels || {};
+                const playedIntro = docSnap.data().playedIntro;
+                if (playedIntro) {
+                    document.getElementById("level-desktop").style.backgroundImage = "url('../desktop/images/windowsbackground.jpeg')";
+                    document.getElementById('desktopDiv').style.display = 'block'
+                    ;
+                } else {
+                    // Show intro animation
+                    document.getElementById('introDiv').style.display = 'block';
+                     desktopDiv.classList.add('fade-in');
+
+                    setTimeout(async () => {
+                        await updateDoc(userRef, { playedIntro: true });
+                        // Transition to desktop after intro finishes
+                        document.getElementById('introDiv').style.display = 'none';
+                        document.getElementById('desktopDiv').style.display = 'block';
+                    }, 35000); // Adjust the time according to your intro animation length
+                }
+                
+
+
+
                 if (completedLevels.skype) {
                     // Reveal the Internet Explorer icon if Skype level is completed
                     const instagramIcon = document.getElementById('instagramIcon');
@@ -76,6 +101,8 @@ onAuthStateChanged(auth, async (user) => {
                     const IEIcon = document.getElementById('IEIcon');
                     IEIcon.style.display = 'block';
                 }
+
+
             }
         });
 

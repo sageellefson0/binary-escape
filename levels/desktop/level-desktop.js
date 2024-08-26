@@ -8,9 +8,7 @@ const desktopDiv = document.getElementById("desktopDiv");
 const introTextBox = document.getElementById("introTextBox");
 
 
-
-
-// Closes the decoder div by setting display to none.
+// 
 function closeHowToPlayWindow() {
     howToPlayWindow.style.display = "none";
 }
@@ -18,27 +16,21 @@ function closeHowToPlayWindow() {
 
 closeHowToPlay.addEventListener('click', closeHowToPlayWindow);
 
-
-
-// Closes the decoder div by setting display to none.
 function openHowToPlayWindow() {
     howToPlayWindow.style.display = "block";
 }
-
-
 howToPlayIcon.addEventListener('click', openHowToPlayWindow);
 
 
-// Function: Hides the into page and displays the desktop
-function hideIntroDisplayDesktop() {
-    introDiv.classList.add('fade-out');
-    desktopDiv.classList.add('fade-in');
-    desktopDiv.style.display = "block";
-    setTimeout(() => {
-        introDiv.style.display = "none";
-    }, 2000); 
-}
-
+// // Function: Hides the into page and displays the desktop
+// function hideIntroDisplayDesktop() {
+//     introDiv.classList.add('fade-out');
+//     desktopDiv.classList.add('fade-in');
+//     desktopDiv.style.display = "block";
+//     setTimeout(() => {
+//         introDiv.style.display = "none";
+//     }, 2000); 
+// }
 
 function displayBSOD(){
     introDiv.style.backgroundImage = "url('../desktop/images/BSOD.png')";
@@ -49,20 +41,19 @@ function displayBSOD(){
 }
 
 
-
-
 // Calls the dialogue to begin showing when the page loads
-// window.onload = function () {
-//     // initializeDesktopLevel();
-//     introTextTyping();
-//     setTimeout(() => {
-//         displayBSOD()
-//         }, 23500);
+window.onload = function () {
+    // initializeDesktopLevel();
+    introTextTyping();
+    setTimeout(() => {
+        displayBSOD()
+        }, 23500);
     
-//         setTimeout(() => {
-//             hideIntroDisplayDesktop()
-//             }, 35000);
-//         };
+        // setTimeout(() => {
+        //     hideIntroDisplayDesktop()
+        //     }, 35000);
+        // };
+};
 
 // Dialogue for intro window after starting the game
 var introInteger = 0;
