@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Show "Click me for a hint!" after 2.5 minutes
     setTimeout(function() {
         typeText(hintText);
-    }, 90000); // 2.5 minutes = 150000 milliseconds
+    }, 10000); // 2.5 minutes = 150000 milliseconds
   
    // Click event handler
    function handleClick() {
