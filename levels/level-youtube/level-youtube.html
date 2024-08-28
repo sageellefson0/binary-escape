@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Escape</title>
+    <script src="https://kit.fontawesome.com/97132013e5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="level-youtube.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google font Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Favicon image links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+</head>
+
+
+<body>
+    <header></header>
+    <main>
+
+        <div id="youtubeMenuBar">
+            <img id="hamburgerYoutube" src="../level-youtube/images/menu-burger.png" alt="Hamburger menu icon">
+            <img id="youtubeLogo" src="../level-youtube/images/youtubelogo.png" alt="Youtube logo">
+            <div id="searchYTDiv">
+                <input id="searchYTInput" placeholder="Search"> <img id="searchYoutubeIcon"
+                    src="../level-youtube/images/search.png">
+            </div>
+            <img id="menuDots" src="../level-youtube/images/menudots.png" alt="3 Dotted Menu Icon">
+            <button id="signInBtnYT" class="roboto-regular">Sign In</button>
+        </div>
+
+        <div id="videoDiv">
+
+            <iframe width="917" height="515" src="https://www.youtube.com/embed/kc0jQSjLpUY?rel=0" title="Binary Escape"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div id="passcodeYTDiv">
+                <p class="roboto-regular">Enter the password to free the intern:</p>
+                <input placeholder="Password" id="passwordYTInput">
+                <br><br>
+                <button id="YTSubmitBtn" class="roboto-regular">Submit</button>
+                <br>
+                <br>
+                <div id="characterContainer">
+
+                    <img id="prisonBars" src="../level-youtube/images/prisonbars.png" alt="Prison bars">
+                    <img id="characterYT" src="../level-youtube/images/malechar.png" alt="Character model">
+                </div>
+                <div id="charSpeechText" class="roboto-regular">Help me please! I'm stuck in a prison!</div>
+
+            </div>
+
+        </div>
+        <div id="descriptionText" class="roboto-regular">
+            <span id="YTTitle"> Investigator CAT Frees Helpless Human!
+                <br><span id="views"> 30,281 Views &#8226; August 27, 2024</span>
+            </span>
+            <div id="profileContainer">
+                <img id="profilePicCat" src="../level-youtube/images/profilepicYT.png" alt="Profile picture for a cat.">
+                <p id="profileName">Brickette Biscuits Sneakers</p>
+                <div class="actionBar">
+                    <div class="actionItem">
+                        <i class="fas fa-thumbs-up"></i> <span>30.2K</span>
+                    </div>
+                    <div class="actionItem">
+                        <i class="fas fa-thumbs-down"></i> <span>0</span>
+                    </div>
+                    <div class="actionItem">
+                        <i class="fas fa-share"></i> <span>SHARE</span>
+                    </div>
+                    <div class="actionItem">
+                        <i class="fas fa-plus-square"></i> <span>SAVE</span>
+                    </div>
+                    <div class="actionItem">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Clippy hint -->
+        <div id="clippy-agent" class="agent">
+            <div id="hint" class="speech-bubble"></div>
+            <div id="clippy-bm" class="clippy"></div>
+        </div>
+
+    </main>
+
+    <footer></footer>
+    <script type="module" src="/src/firebase.js"></script>
+    <script type="module" src="../../levels/level-youtube/level-youtube.js"> </script>
+    <!-- Clippy scripts -->
+    <script src="../../clippy/lottie.js"></script>
+    <script src="../../clippy/index.js"></script>
+</body>
+
+</html>
