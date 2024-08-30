@@ -15,8 +15,15 @@ let currentMessageIndex = 0;
 YTSubmitBtn.addEventListener('click', () => {
     const inputValue = passwordYTInput.value.trim().toLowerCase();
 
+    // Regular expression to check for any character that is not a letter (a-z)
+    const nonLetterPattern = /[^a-z]/;
+
+    if (nonLetterPattern.test(inputValue)) {
+        alert("No special characters or numbers allowed! The password must be letters only.");
+        return;
+    }
+
     if (inputValue === "subscribe") {
-        
         prisonBars.style.display = "none";
         charSpeechText.innerHTML = "Woohoo! Thank you for saving me!";
         completeLevel('youtube');
@@ -30,6 +37,7 @@ YTSubmitBtn.addEventListener('click', () => {
         currentMessageIndex = (currentMessageIndex + 1) % errorMessages.length;
     }
 });
+
 
 /* ----------------- Character Icon --------------------- */
 
