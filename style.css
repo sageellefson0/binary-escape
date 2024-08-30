@@ -43,6 +43,7 @@ body {
     overflow: hidden;
     z-index: 10;
 }
+
 .characterSpritesheet.female {
     background: url("../../images/binaryescapefemalecharacter1.png") no-repeat;
     background-size: 100%;
@@ -59,6 +60,7 @@ body {
     width: calc(var(--grid-cell) * 8);
     height: calc(var(--grid-cell) * 8);
 }
+
 .character[facing="right"] .characterSpritesheet {
     background-position-y: calc(var(--pixel-size) * -32);
 }
@@ -99,9 +101,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0 auto;
-    background-color: rgba(128, 128, 128, 0.5); 
-    border-radius: 10px; 
-}  
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+}
 
 #characterSpeech {
     overflow: hidden;
@@ -111,8 +113,8 @@ body {
     white-space: nowrap;
     letter-spacing: .15em;
     animation:
-      typing 2.5s steps(40, end),
-      blink-caret .75s step-end infinite;
+        typing 2.5s steps(40, end),
+        blink-caret .75s step-end infinite;
 }
 
 /* The typing effect */
@@ -120,6 +122,7 @@ body {
     from {
         width: 0;
     }
+
     to {
         width: 100%;
     }
@@ -127,10 +130,12 @@ body {
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
+
     from,
     to {
         border-color: transparent;
     }
+
     50% {
         border-color: gray;
     }
@@ -139,33 +144,33 @@ body {
 
 /* ----------------- Login Div Styling ------------------*/
 
-#closeLoginDiv{
-color: black;
-float: right;
-padding: 10px;
-font-size: larger;
-cursor: pointer;
+#closeLoginDiv {
+    color: black;
+    float: right;
+    padding: 10px;
+    font-size: larger;
+    cursor: pointer;
 
 }
 
-#loginDiv{
-width: 350px;
-height: 420px;
-padding: 0;
-display: none; 
-background-color: #ececec;
-position: absolute;
-justify-content: center;
-transform: translate(-50%, -50%);
-top: 50%;
-left: 50%;
-border-radius: 10px;
-text-align: center;
-font-family: 'Courier New', Courier, monospace;
-z-index: 10;
+#loginDiv {
+    width: 350px;
+    height: 420px;
+    padding: 0;
+    display: none;
+    background-color: #ececec;
+    position: absolute;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 10;
 }
 
-#errorText{
+#errorText {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: small;
     color: red;
@@ -183,69 +188,75 @@ z-index: 10;
     border: none;
     border-radius: 3px;
     box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
-    
+
     color: #757575;
     font-size: 14px;
     font-weight: 500;
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     /* background-image: url('images/downloadgoogle.png'); */
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
     background-color: white;
     background-repeat: no-repeat;
     background-position: 12px 11px;
 
-    
+
     &:hover {
-      box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
     }
-    
+
     &:active {
-      background-color: #eeeeee;
+        background-color: #eeeeee;
     }
-    
+
     &:focus {
-      outline: none;
-      box-shadow: 
-        0 -1px 0 rgba(0, 0, 0, .04),
-        0 2px 4px rgba(0, 0, 0, .25),
-        0 0 0 3px #c8dafc;
+        outline: none;
+        box-shadow:
+            0 -1px 0 rgba(0, 0, 0, .04),
+            0 2px 4px rgba(0, 0, 0, .25),
+            0 0 0 3px #c8dafc;
     }
-    
+
     &:disabled {
-      filter: grayscale(100%);
-      background-color: #ebebeb;
-      box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
-      cursor: not-allowed;
+        filter: grayscale(100%);
+        background-color: #ebebeb;
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+        cursor: not-allowed;
     }
 
-  }
-  
+}
 
-  /* Email/Password Input Fields */
-#emailInputSignIn, #passwordInputSignIn, #emailInputSignUp, #passwordInputSignUp {
+
+/* Email/Password Input Fields */
+#emailInputSignIn,
+#passwordInputSignIn,
+#emailInputSignUp,
+#passwordInputSignUp {
     width: 70%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 12px;
-  }
+}
 
-  #emailInputSignUp, #passwordInputSignUp{
+#emailInputSignUp,
+#passwordInputSignUp {
     display: none;
-  }
+}
 
-  #alreadyHaveAccount{
+#alreadyHaveAccount {
     display: none;
     background-color: none;
     border: none;
     margin-top: 5%;
     cursor: pointer;
-  }
-  
-  /* Email Sign-Up Button */
-  #signInBtn, #createAccount {
-    background-color: #545454; /* Google green */
+}
+
+/* Email Sign-Up Button */
+#signInBtn,
+#createAccount {
+    background-color: #545454;
+    /* Google green */
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -255,16 +266,19 @@ z-index: 10;
     cursor: pointer;
     width: 70%;
     transition: background-color 0.3s;
-  }
-  
-  #signInBtn:hover, #createAccount:hover {
-    background-color: #202020; /* Darker green on hover */
-  }
-  
-  #signInBtn:focus, #createAccount:focus {
+}
+
+#signInBtn:hover,
+#createAccount:hover {
+    background-color: #202020;
+    /* Darker green on hover */
+}
+
+#signInBtn:focus,
+#createAccount:focus {
     outline: none;
-  }
-  
+}
+
 
 /* ----------------- Start Page Styling ---------------------*/
 
@@ -300,7 +314,8 @@ z-index: 10;
     margin: 0;
 }
 
-.title h1, .title #lock-bm {
+.title h1,
+.title #lock-bm {
     position: relative;
     transition: transform 2.5s ease-in-out;
 }
@@ -329,27 +344,29 @@ z-index: 10;
     margin-top: 4rem;
 }
 
-.instructions, .characters {
+.instructions,
+.characters {
     display: none;
     margin-top: 2rem;
 }
 
 .fade-in {
     display: flex;
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in;
-	animation-duration: 3s;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 3s;
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .instructions p {
@@ -380,7 +397,7 @@ z-index: 10;
     position: relative;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 
@@ -407,59 +424,59 @@ z-index: 10;
     column-gap: 0;
     grid-template-columns: repeat(20, 8px);
     grid-template-rows: repeat(11, 7px);
-    
+
     filter: drop-shadow(0 15px 0 #545454);
-    
+
     cursor: pointer;
-  }
-  
-  .pixel-button:active {
-    transform: translate(0,15px);
+}
+
+.pixel-button:active {
+    transform: translate(0, 15px);
     filter: drop-shadow(0 0 0 #545454);
-  }
-  
-  
-  /* ------------------- pixel styles ------------------- */
-  
-  .transparent {
+}
+
+
+/* ------------------- pixel styles ------------------- */
+
+.transparent {
     background-color: transparent;
     height: 10px;
     width: 10px;
-  }
-  
-  .black {
+}
+
+.black {
     background-color: #ececec;
     height: 10px;
     width: 10px;
-  }
-  
-  .lightg {
+}
+
+.lightg {
     background-color: #9F9E9E;
     height: 10px;
     width: 10px;
-  }
-  
-  .white {
+}
+
+.white {
     background-color: #9F9E9E;
     height: 10px;
     width: 10px;
-  }
-  
-  .grey {
+}
+
+.grey {
     background-color: #545454;
     height: 10px;
     width: 10px;
-  }
-  
-  /* ------------------- text styles ------------------- */
-  .pixel-button .text {
+}
+
+/* ------------------- text styles ------------------- */
+.pixel-button .text {
     color: #ececec;
     filter: none;
     position: absolute;
     display: block;
-    
+
     z-index: 5;
-  
+
     font-size: 2rem;
     font-family: 'Courier New', Courier, monospace;
     color: #ececec;
@@ -468,80 +485,81 @@ z-index: 10;
     height: 100%;
     bottom: 20%;
     text-align: center;
-  }
+}
 
-  .pixel-button:active a {
+.pixel-button:active a {
     color: #545454;
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
     color: #ececec;
-  }
-  
+}
 
 
 
-@media screen and (max-width : 906px){
+@media screen and (max-width : 906px),
+screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
 
-    #start-page{
-        display: none;
+    #start-page {
+        visibility: hidden;
     }
 
-#mobileDiv{
-    background-color: #202020;
-    width: 100%;
-    height: 100%;
+    #mobileDiv {
+        background-color: #202020;
+        width: 100%;
+        height: 100%;
+    }
+
+    h2 {
+        font-size: 4rem;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #ececec;
+        margin: 0;
+        padding-top: 10%;
+    }
+
+    #mobileText {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #ececec;
+        padding: 10%;
+        text-align: center;
+    }
+
+    #gitLink {
+        font-family: 'Courier New', Courier, monospace;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    #gitBtn {
+        background-color: #ececec;
+        text-align: center;
+        display: block;
+        margin: auto;
+        height: 8%;
+        border: none;
+        border: solid 2px black;
+    }
+
+    .devicon-github-original {
+        font-size: 20px;
+    }
 }
 
-h2{  
-    font-size: 4rem;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ececec;
-    margin: 0;
-    padding-top: 10%;
-}
 
-#mobileText{
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ececec;
-    padding: 10%;
-    text-align: center;
-}
 
-#gitLink{
-    font-family:'Courier New', Courier, monospace;
-    color: black;
-    text-decoration: none;
-    text-align: center;
-}
-#gitBtn{
-    background-color: #ececec;
-    text-align: center;
-    display: block;
-    margin: auto;
-    height: 8%;
-    border: none;
-    border: solid 2px black;
-}
-
-.devicon-github-original{
-    font-size: 20px;
-}
-
-}
 
 @media only screen and (min-width: 1280px) {
-    #start-page{
-        display: block;
+
+    #start-page {
+        visibility: visible;
     }
-    #mobileDiv{
+
+    #mobileDiv {
         display: none;
     }
 
-    .instructions p {
-        padding-top: 50px;
-    }
-    
-} 
+}
