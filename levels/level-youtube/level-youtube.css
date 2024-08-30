@@ -86,6 +86,7 @@ html {
     text-align: center;
     /* border: solid 2px orange; */
     width: 30%;
+    margin-top: -70px;
 }
 
 #passwordYTInput {

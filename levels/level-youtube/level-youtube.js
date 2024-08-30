@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const initialText = "Sit back and enjoy the video.";
     const hintText = "Click me for a hint!";
-    const clickText = "YouTubers seem to be always asking this..."
+    const clickText = "Youtubers always ask you to..."
 
     const hintElement = document.getElementById("hint");
     let indexClippy = 0;
