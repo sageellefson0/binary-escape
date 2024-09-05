@@ -12,11 +12,18 @@ const errorMessages = [
 ];
 let currentMessageIndex = 0;
 
-YTSubmitBtn.addEventListener('click', () => {
+function handleSubmit() {
     const inputValue = passwordYTInput.value.trim().toLowerCase();
 
+    // Regular expression to check for any character that is not a letter (a-z)
+    const nonLetterPattern = /[^a-z]/;
+
+    if (nonLetterPattern.test(inputValue)) {
+        alert("No special characters or numbers allowed! The password must be letters only.");
+        return;
+    }
+
     if (inputValue === "subscribe") {
-        
         prisonBars.style.display = "none";
         charSpeechText.innerHTML = "Woohoo! Thank you for saving me!";
         completeLevel('youtube');
@@ -28,6 +35,16 @@ YTSubmitBtn.addEventListener('click', () => {
         // Rotates through error messages
         charSpeechText.innerHTML = errorMessages[currentMessageIndex];
         currentMessageIndex = (currentMessageIndex + 1) % errorMessages.length;
+    }
+}
+
+// Event listener for the submit button
+YTSubmitBtn.addEventListener('click', handleSubmit);
+
+// Event listener for the Enter key on the password input
+passwordYTInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        handleSubmit();
     }
 });
 
@@ -42,7 +59,6 @@ if (selectedCharacter === "male") {
   document.getElementById("characterYT").src = "../level-youtube/images/femalechar.png";
 }
 
-
 /////////// CLIPPY CODE ////////////
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -51,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const initialText = "Sit back and enjoy the video.";
     const hintText = "Click me for a hint!";
-    const clickText = "YouTubers seem to be always asking this..."
+    const clickText = "Youtubers always ask you to...";
 
     const hintElement = document.getElementById("hint");
     let indexClippy = 0;
@@ -73,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     typeText(initialText);
-
 
     /* Adjust the time below based on when you want the hint to show */
 
