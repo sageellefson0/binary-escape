@@ -1,5 +1,8 @@
 
- document.addEventListener('DOMContentLoaded', () => {
+//  document.addEventListener('DOMContentLoaded', () => {
+   
+    import { setFemale, setMale } from '/src/login.js';
+
     const title = document.querySelector('.title h1');
     const lockIcon = document.querySelector('#lock-bm');
     const instructions = document.getElementById('instructions');
@@ -34,7 +37,17 @@
 
         // Set the animation played flag
         localStorage.setItem(ANIMATION_KEY, 'true');
-    } 
+
+const femChar = document.getElementById('femChar');
+const maleChar = document.getElementById('maleChar');
+
+// Event listeners to store the character selection
+femChar.addEventListener('click', setFemale)
+maleChar.addEventListener('click', setMale)
+
+
+
+     } 
 
 
 
@@ -59,6 +72,6 @@ var closeLoginDiv = document.getElementById('closeLoginDiv');
 closeLoginDiv.addEventListener('click', closeLoginWindow);
 
 
-});
+// });
 
 

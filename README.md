@@ -2,11 +2,10 @@
 A web based game called "Binary Escape" in which a character must escape the computer.
 
 ## Developers
-AlexandruSoroiu<br>
-Demil-05<br>
 sageellefson0<br>
 prlakshm<br>
-sergio-montufar<br>
+AlexandruSoroiu<br>
+Demil-05<br>
 
 ## How-to
 

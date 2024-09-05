@@ -3,11 +3,12 @@ html {
     padding: 0;
     margin: 0;
     overflow: hidden;
+    image-rendering: auto !important;
 }
 
 #skypeInterface {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 #problemssigninginbutton {
@@ -160,7 +161,8 @@ input[type="radio"]:focus {
 #check-button,
 #problemssigninginbutton button,
 #submitPassword,
-#closeBttn{
+#closeBttn,
+#signInBtnSkype {
     margin: 10px 0;
     appearance: button;
     background-color: #1899D6;
@@ -175,7 +177,6 @@ input[type="radio"]:focus {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: .8px;
-    line-height: 16px;
     outline: none;
     overflow: visible;
     padding: 8px 16px;
@@ -189,6 +190,16 @@ input[type="radio"]:focus {
     vertical-align: middle;
     white-space: nowrap;
     width: 100%;
+    
+    /* Adjust these properties */
+    height: 36px; /* Adjust height to your needs */
+    line-height: 36px; /* Match line-height to height for vertical centering */
+    padding: 0 16px; /* Remove vertical padding to prevent interference */
+}
+
+
+#signInBtnSkype{
+width: 8%;
 }
 
 #close-button :after,
@@ -229,4 +240,39 @@ input[type="radio"]:focus {
 #check-button :active {
     border-width: 4px 0 0;
     background: none;
+}
+
+#skypeLogo{
+    width: 200px;
+}
+
+#skypeInput{
+    border: none;
+    background-color: white;
+    height: 5%;
+    width: 20%;
+    border-bottom: #00aff0 1px solid;
+    margin-top: 7%;
+}
+
+#noConnectionMsg{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:lighter;
+    margin-top: 1%;
+
+}
+
+#blueErrorIcon{
+    width: 15px !important;
+    height: 15px !important;
+
+}
+
+#creatAccount{
+    font-family: Arial, Helvetica, sans-serif;
+    color:#1899D6;
+    cursor: pointer;
+    width: 10%;
+    margin: auto;
+    margin-top: 2%;
 }

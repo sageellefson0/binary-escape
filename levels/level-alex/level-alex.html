@@ -1,70 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Binary Escape</title>
-        <link rel="stylesheet" href="level-alex.css" type="text/css">
-        <link rel="stylesheet" href="../../style.css" type="text/css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Escape</title>
+    <link rel="stylesheet" href="level-alex.css" type="text/css">
+    <link rel="stylesheet" href="../../character.css" type="text/css">
+    <!-- Favicon image links -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
 
 
-    <body>
+<body>
 
-        <div id="problemssigninginbutton">
-            <button type="button">Problems Signing In?</button>
+    <div id="problemssigninginbutton">
+        <button type="button">Problems Signing In?</button>
+    </div>
+
+    <main>
+        <!-- Div for holding active character frame -->
+        <div class="character">
+            <!-- Entire character spritesheet div -->
+            <div class="characterSpritesheet"></div>
+        </div>
+    </main>
+
+    <!-- Popup window for the game -->
+    <div id="overlay"></div>
+    <div id="popup">
+        <h2>Guess the Password</h2>
+        <p>Binary Sequence: <span id="binary-sequence">010101011010</span></p>
+        <div id="questions"></div>
+        <div style="display: flex; justify-content: center; align-content: center;">
+            <div style="width: 30%;"></div>
+            <button id="check-button" onclick="checkAnswers()">Submit Answers</button>
+            <div style="width: 30%"></div>
+        </div>
+        <div id="result" class="feedback"></div>
+        <div id="error" class="error"></div>
+        <div style="display: flex; justify-content: center; align-content: center;">
+            <div style="width: 30%;"></div>
+            <button id="close-button" onclick="closePopup()">Close</button>
+            <div style="width: 30%"></div>
+        </div>
+    </div>
+
+    <div id="passwordPopup">
+        <h2>New Password</h2>
+        <p>The new password is: <span id="new-password">binaryEscapeTeamHasFooledYou</span></p>
+        <input type="text" id="passwordInput" placeholder="Enter the new password">
+        <button id="submitPassword" onclick="submitPassword()">Submit Password</button>
+        <div id="passwordResult" class="feedback"></div>
+        <button id="closeBttn" onclick="closePasswordPopup()">Close</button>
+    </div>
+
+    <div id="congratulations">
+        <button class="close-button" onclick="closeCongratulations()">X</button>
+        <img src="../level-alex/images/Congratulations.png" alt="Congratulations">
+    </div>
+
+    <div id="skypeInterface">
+        <img id="skypeLogo" src="../level-alex/images/skype.png" alt="Skype Logo">
+        <div id="noConnectionMsg"> <img id="blueErrorIcon" src="../level-alex/images/error.png" alt="Error icon">
+             Skype can't connect.</div>        
+        <input id="skypeInput" placeholder="Skype Name, email or mobile"></input>
+        <br>
+        <br>
+        <button id="signInBtnSkype" type="button">Sign In</button>
+        <div>
+        <div id="creatAccount">Create an account</div>  
         </div>
 
-        <main>
-            <!-- Div for holding active character frame -->
-            <div class="character">
-                <!-- Entire character spritesheet div -->
-                <div class="characterSpritesheet"></div>
-            </div>
-        </main>
 
-            <!-- Popup window for the game -->
-        <div id="overlay"></div>
-        <div id="popup">
-            <h2>Guess the Password</h2>
-            <p>Binary Sequence: <span id="binary-sequence">010101011010</span></p>
-            <div id="questions"></div>
-            <div style="display: flex; justify-content: center; align-content: center;">
-                <div style="width: 30%;"></div>
-                <button id="check-button" onclick="checkAnswers()">Submit Answers</button>
-                <div style="width: 30%"></div>
-            </div>
-            <div id="result" class="feedback"></div>
-            <div id="error" class="error"></div>
-            <div style="display: flex; justify-content: center; align-content: center;">
-                <div style="width: 30%;"></div>
-                <button id="close-button" onclick="closePopup()">Close</button>
-                <div style="width: 30%"></div>
-            </div>
-        </div>
 
-        <div id="passwordPopup">
-            <h2>New Password</h2>
-            <p>The new password is: <span id="new-password">binaryEscapeTeamHasFooledYou</span></p>
-            <input type="text" id="passwordInput" placeholder="Enter the new password">
-            <button id="submitPassword" onclick="submitPassword()">Submit Password</button>
-            <div id="passwordResult" class="feedback"></div>
-            <button id="closeBttn" onclick="closePasswordPopup()">Close</button>
-        </div>
+        <!-- <img id="skypeInt" src="../level-alex/images/oldskypeinterface.png" alt="Skype Interface"> -->
+    </div>
 
-        <div id="congratulations">
-            <button class="close-button" onclick="closeCongratulations()">X</button>
-            <img src="../level-alex/images/Congratulations.png" alt="Congratulations">
-        </div>
-
-        <div id="skypeInterface">
-            <img id="skypeInt" src="../level-alex/images/oldskypeinterface.png" alt="Skype Interface">
-        </div>
-
-        <script type="module" src="/src/firebase.js"></script>
-        <script type="module" src="level-alex.js"></script>
-        <script src="../../src/Character.js"></script>
-    </body>
+    <script type="module" src="/src/firebase.js"></script>
+    <script type="module" src="level-alex.js"></script>
+    <script src="../../src/Character.js"></script>
+</body>
 
 </html>

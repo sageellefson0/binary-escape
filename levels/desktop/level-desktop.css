@@ -6,7 +6,7 @@ html{
 
 /* Background for the level */
 .level-desktop {
-  background-image: url("../desktop/images/windowsbackground.jpeg"); 
+  /* background-image: url("../desktop/images/windowsbackground.jpeg");  */
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
@@ -14,6 +14,8 @@ html{
   position: relative;
   color: white;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1B1B1B;
+
 }
 
 #introDiv{
@@ -24,25 +26,30 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;    color: seashell;
+    text-align: center;    
+    color: seashell;
     font-family: 'Courier New', Courier, monospace;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: opacity 2s;
+    transition: opacity 1s;
     display: none;
 
 }
 
 
+
+
 #introTextBox{
   font-size: x-large;
   font-family: monospace;
+  padding-top: 27%;
 
 }
 
 #desktopDiv{
-  /* display: none; TEMP NEED TO REMOVE COMMENT */
-  transition: opacity 2s;
+  display: none; 
+  /* TODO: TEMP NEED TO REMOVE COMMENT  */
+  /* transition: opacity 2s; */
 
 }
 
@@ -140,8 +147,9 @@ html{
   margin: 0;
 }
 
-#IEIcon {
-  display: none; /* Hide by default */
+/* Hides level icons by default, displays when unlocked */
+#IEIcon, #instagramIcon, #wordIcon, #youtubeIcon {
+  display: none; 
 }
 
 
@@ -214,9 +222,9 @@ html{
 .icon .iconName {
   font-family: calibri, monospace;
   font-size: 11px;
-  line-height: 20px;
-  height: 20px;
-  width: 80px;
+  line-height: 15px;
+  height: 28px;
+  width: 60px;
   text-align: center;
   margin-left: 9px;
   overflow: hidden;
@@ -227,10 +235,17 @@ html{
 
 
 .icon {
-  width: 100px;
+  width: 80px;
   cursor: pointer;
-  margin: 8px 0;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 8px; 
   padding: 5px;
+}
+
+.icon:hover {
+ background-color: rgba(106, 168, 239, 0.5);
+ outline: 1px solid rgba(106, 168, 239); 
 }
 
 .icon img {

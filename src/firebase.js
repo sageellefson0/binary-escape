@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
 import { getFirestore, doc, getDoc, updateDoc, onSnapshot, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
 
 // Firebase Configuration
@@ -20,68 +20,23 @@ const firestore = getFirestore(app);
 
 let savedChar = localStorage.getItem("character");
 
-async function initializeUserData(docUID) {
-  const userRef = doc(firestore, 'users', docUID);
-  const userDoc = await getDoc(userRef);
+export async function initializeUserData(docUID) {
+    const userRef = doc(firestore, 'users', docUID);
+    const userDoc = await getDoc(userRef);
 
-  if (!userDoc.exists()) {
-      // Initialize document with default values
-      await setDoc(userRef, {
-          completedLevels: {},
-          character: savedChar
-      });
-      console.log('user created');
-      localStorage.removeItem("character");
-  }
+    if (!userDoc.exists()) {
+        // Initialize document with default values
+        await setDoc(userRef, {
+            // playedIntro: true,
+            completedLevels: {},
+            character: savedChar
+        });
+        console.log('User created');
+        localStorage.removeItem("character");
+    } else {
+        console.log("User already exists.");
+    }
 }
-
-
-onAuthStateChanged(auth, async (user) => {
-  if (user) {
-      // Initialize user document if not already done
-
-      await initializeUserData(user.uid);
-
-      const userRef = doc(firestore, 'users', user.uid);
-      onSnapshot(userRef, (docSnap) => {
-          if (docSnap.exists()) {
-            ///////////////////////TODO: ADD MORE LEVEL COMPLETIONS HERE 
-              const completedLevels = docSnap.data().completedLevels || {};
-              if (completedLevels.skype) {
-                  // Reveal the Internet Explorer icon if Skype level is completed
-                  const internetExplorerIcon = document.getElementById('IEIcon');
-                  internetExplorerIcon.style.display = 'block';
-              }
-          }
-      });
-  } else {
-      // User is not logged in, redirect to login page or home page
-      if (window.location.pathname !== '/index.html') {
-          window.location.href = '../../index.html'; // Adjust path as necessary
-      }
-  }
-});
-
-export async function completeLevel(levelName) {
-  const user = auth.currentUser;
-  if (user) {
-      const userRef = doc(firestore, 'users', user.uid);
-      try {
-          await updateDoc(userRef, {
-              [`completedLevels.${levelName}`]: true
-          });
-          console.log(`Level ${levelName} completed.`);
-      } catch (error) {
-          console.error('Error updating level completion:', error);
-      }
-  } else {
-      console.log('No user is signed in.');
-  }
-}
-
-export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut };
-// export { selectedCharacter };
-
 
 async function getUserCharacter(docUID) {
     const userRef = doc(firestore, 'users', docUID);
@@ -95,21 +50,211 @@ async function getUserCharacter(docUID) {
 }
 
 const characterSpritesheet = document.querySelector(".characterSpritesheet");
+// Combined onAuthStateChanged
+onAuthStateChanged(auth, async (user) => {
+    if (user) {
+        // Initialize user document if not already done
+        await initializeUserData(user.uid);
 
+        // Set up a snapshot listener to react to changes in user data
+        const userRef = doc(firestore, 'users', user.uid);
+        onSnapshot(userRef, (docSnap) => {
+            if (docSnap.exists()) {
+                const completedLevels = docSnap.data().completedLevels || {};
+                const playedIntro = docSnap.data().playedIntro;
 
-auth.onAuthStateChanged(async (user) => {
-  if (user) {
-      const character = await getUserCharacter(user.uid);
+                const desktopDiv = document.getElementById("desktopDiv");
+                const characterSpritesheet = document.querySelector(".characterSpritesheet");
 
-      // Remove any existing character-specific classes
-      characterSpritesheet.classList.remove('female', 'male');
+                if (playedIntro) {
+                    // Show the desktop and background image
+                    document.getElementById("level-desktop").style.backgroundImage = "url('../desktop/images/windowsbackground.jpeg')";
+                    desktopDiv.style.display = 'block';
 
-      if (character === 'female') {
-          characterSpritesheet.classList.add('female');
-      } else if (character === 'male') {
-          characterSpritesheet.classList.add('male');
-      } else {
-          console.log('issue');
-      }
-  }
+                    // Ensure the character is visible after showing the desktop
+                    characterSpritesheet.style.display = 'block';
+                } else {
+                    // Show intro animation
+                    document.getElementById('introDiv').style.display = 'block';
+                    desktopDiv.classList.add('fade-in');
+
+                    setTimeout(async () => {
+                        await updateDoc(userRef, { playedIntro: true });
+                        // Transition to desktop after intro finishes
+                        document.getElementById('introDiv').style.display = 'none';
+                        desktopDiv.style.display = 'block';
+
+                        // Ensure the character is visible after the transition
+                        characterSpritesheet.style.display = 'block';
+                    }, 35000); // Adjust the time according to your intro animation length
+                }
+
+                // Reveal icons based on completed levels
+                if (completedLevels.skype) {
+                    const instagramIcon = document.getElementById('instagramIcon');
+                    instagramIcon.style.display = 'block';
+                }
+                if (completedLevels.instagram) {
+                    const youtubeIcon = document.getElementById('youtubeIcon');
+                    youtubeIcon.style.display = 'block';
+                }
+                if (completedLevels.youtube) {
+                    const wordIcon = document.getElementById('wordIcon');
+                    wordIcon.style.display = 'block';
+                }
+                if (completedLevels.word) {
+                    const IEIcon = document.getElementById('IEIcon');
+                    IEIcon.style.display = 'block';
+                }
+            }
+        });
+
+        // Retrieve and apply the user's character choice
+        const character = await getUserCharacter(user.uid);
+
+        // Remove any existing character-specific classes
+        characterSpritesheet.classList.remove('female', 'male');
+
+        if (character === 'female') {
+            characterSpritesheet.classList.add('female');
+        } else if (character === 'male') {
+            characterSpritesheet.classList.add('male');
+        } else {
+            console.log('No character loaded');
+        }
+    } else {
+        // User is not logged in, redirect to login page or home page
+        if (window.location.pathname !== '/index.html') {
+            window.location.href = '../../index.html'; // Adjust path as necessary
+        }
+    }
 });
+
+
+export async function completeLevel(levelName) {
+    const user = auth.currentUser;
+    if (user) {
+        const userRef = doc(firestore, 'users', user.uid);
+        try {
+            await updateDoc(userRef, {
+                [`completedLevels.${levelName}`]: true
+            });
+            console.log(`Level ${levelName} completed.`);
+        } catch (error) {
+            console.error('Error updating level completion:', error);
+        }
+    } else {
+        console.log('No user is signed in.');
+    }
+}
+
+
+export async function updateCharacter(docUID, newCharacter) {
+    const userRef = doc(firestore, 'users', docUID);
+    const userDoc = await getDoc(userRef);
+
+    if (userDoc.exists()) {
+        const dbCharacter = userDoc.data().character;
+
+        // Check if the new character is different from the one in the database
+        if (dbCharacter !== newCharacter) {
+            try {
+                await updateDoc(userRef, {
+                    character: newCharacter
+                });
+                console.log('Character updated to:', newCharacter);
+            } catch (error) {
+                console.error('Error updating character:', error);
+            }
+        } else {
+            console.log('Character is already up-to-date.');
+        }
+    } else {
+        console.log('No such document!');
+    }
+}
+
+
+const createAccount = document.getElementById("createAccount");
+const signInBtn = document.getElementById("signInBtn");
+const signInGoogleBtn = document.getElementById("signInGoogle");
+const errorText = document.getElementById("errorText");
+
+
+document.addEventListener("DOMContentLoaded", (event) => {
+
+    // Native Email/Password Sign-Up
+    createAccount.addEventListener('click', async () => {
+        const email = document.getElementById('emailInputSignUp').value.trim();
+        const password = document.getElementById('passwordInputSignUp').value.trim();
+
+        if (email && password) {
+            try {
+                // Create a new user with the provided email and password
+                await createUserWithEmailAndPassword(auth, email, password);
+
+
+                // User is signed in, redirect to the desktop level page
+                window.location.href = 'levels/desktop/level-desktop.html';
+
+            } catch (error) {
+                console.error('Error during sign up or sign in:', error);
+                const errorText = document.getElementById("errorText");
+                errorText.innerHTML = "Please use a valid email address. Your password must be at least 6 characters in length.";
+            }
+        } else {
+            console.log('Email and password are required');
+            errorText.innerHTML = "Please enter an email and password.";
+        }
+    });
+
+
+    signInBtn.addEventListener('click', async () => {
+        const email = document.getElementById('emailInputSignIn').value.trim();
+        const password = document.getElementById('passwordInputSignIn').value.trim();
+        const selectedChar = localStorage.getItem("character");
+
+
+        if (email && password) {
+            console.log(selectedChar);
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                // Redirect after successful sign in
+                const user = auth.currentUser;
+                if (user && selectedChar) {
+                    await updateCharacter(user.uid, selectedChar);
+                    console.log("Chracter has been updated to" + selectedChar)
+                }
+                window.location.href = 'levels/desktop/level-desktop.html';
+            } catch (error) {
+                console.error('Error signing in with email:', error);
+                errorText.innerHTML = "Incorrect email or password. Please try again. Contact the administrator for support if you have forgotten your password.";
+            }
+        } else {
+            console.log('Email and password are required');
+            errorText.innerHTML = "Please enter an email and password.";
+
+        }
+    });
+
+    // Google Sign-In
+    signInGoogleBtn.addEventListener('click', async () => {
+        const provider = new GoogleAuthProvider();
+        const selectedChar = localStorage.getItem("character");
+
+        try {
+            await signInWithPopup(auth, provider);
+            // Redirect after successful sign-in
+            const user = auth.currentUser;
+            if (user && selectedChar) {
+                await updateCharacter(user.uid, selectedChar);
+                console.log("Chracter has been updated to" + selectedChar)
+            }
+            window.location.href = 'levels/desktop/level-desktop.html';
+        } catch (error) {
+            console.error('Error during Google sign-in:', error);
+        }
+    });
+});
+
+export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, signInWithEmailAndPassword, onAuthStateChanged };
