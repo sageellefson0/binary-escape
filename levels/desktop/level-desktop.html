@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binary Escape</title>
+  <link rel="stylesheet" href="../../character.css">
+
   <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="../desktop/level-desktop.css">
   <!-- Favicon image links -->
@@ -18,7 +20,7 @@
 
 </head>
 
-<body class="level-desktop">
+<body class="level-desktop" id="level-desktop">
   <header></header>
   <main>
     <div id="introDiv">
@@ -54,6 +56,13 @@
           <img src="../desktop/images/instagram.png" alt="Image of Instagram logo.">
         </a>
         <div class="iconName">Instagram</div>
+      </div>
+
+      <div class="icon youtube" id="youtubeIcon">
+        <a href="../level-youtube/level-youtube.html" class="levelIcons">
+          <img src="../desktop/images/youtube.png" alt="Image of the YouTube play button logo.">
+        </a>
+        <div class="iconName">YouTube</div>
       </div>
 
       <div class="icon word" id="wordIcon">
@@ -114,6 +123,7 @@
   <script type="module">
 
     import { signOut, auth } from '/src/firebase.js';
+
 
     // Log-Out Button
 
