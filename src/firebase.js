@@ -95,6 +95,10 @@ onAuthStateChanged(auth, async (user) => {
                     instagramIcon.style.display = 'block';
                 }
                 if (completedLevels.instagram) {
+                    const youtubeIcon = document.getElementById('youtubeIcon');
+                    youtubeIcon.style.display = 'block';
+                }
+                if (completedLevels.youtube) {
                     const wordIcon = document.getElementById('wordIcon');
                     wordIcon.style.display = 'block';
                 }

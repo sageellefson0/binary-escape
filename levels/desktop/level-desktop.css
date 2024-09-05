@@ -148,7 +148,7 @@ html{
 }
 
 /* Hides level icons by default, displays when unlocked */
-#IEIcon, #instagramIcon, #wordIcon {
+#IEIcon, #instagramIcon, #wordIcon, #youtubeIcon {
   display: none; 
 }
 
