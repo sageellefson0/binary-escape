@@ -27,6 +27,7 @@ export async function initializeUserData(docUID) {
     if (!userDoc.exists()) {
         // Initialize document with default values
         await setDoc(userRef, {
+            // playedIntro: true,
             completedLevels: {},
             character: savedChar
         });
@@ -49,7 +50,6 @@ async function getUserCharacter(docUID) {
 }
 
 const characterSpritesheet = document.querySelector(".characterSpritesheet");
-
 // Combined onAuthStateChanged
 onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -61,18 +61,48 @@ onAuthStateChanged(auth, async (user) => {
         onSnapshot(userRef, (docSnap) => {
             if (docSnap.exists()) {
                 const completedLevels = docSnap.data().completedLevels || {};
+                const playedIntro = docSnap.data().playedIntro;
+
+                const desktopDiv = document.getElementById("desktopDiv");
+                const characterSpritesheet = document.querySelector(".characterSpritesheet");
+
+                if (playedIntro) {
+                    // Show the desktop and background image
+                    document.getElementById("level-desktop").style.backgroundImage = "url('../desktop/images/windowsbackground.jpeg')";
+                    desktopDiv.style.display = 'block';
+
+                    // Ensure the character is visible after showing the desktop
+                    characterSpritesheet.style.display = 'block';
+                } else {
+                    // Show intro animation
+                    document.getElementById('introDiv').style.display = 'block';
+                    desktopDiv.classList.add('fade-in');
+
+                    setTimeout(async () => {
+                        await updateDoc(userRef, { playedIntro: true });
+                        // Transition to desktop after intro finishes
+                        document.getElementById('introDiv').style.display = 'none';
+                        desktopDiv.style.display = 'block';
+
+                        // Ensure the character is visible after the transition
+                        characterSpritesheet.style.display = 'block';
+                    }, 35000); // Adjust the time according to your intro animation length
+                }
+
+                // Reveal icons based on completed levels
                 if (completedLevels.skype) {
-                    // Reveal the Internet Explorer icon if Skype level is completed
                     const instagramIcon = document.getElementById('instagramIcon');
                     instagramIcon.style.display = 'block';
                 }
                 if (completedLevels.instagram) {
-                    // Reveal the Internet Explorer icon if Skype level is completed
+                    const youtubeIcon = document.getElementById('youtubeIcon');
+                    youtubeIcon.style.display = 'block';
+                }
+                if (completedLevels.youtube) {
                     const wordIcon = document.getElementById('wordIcon');
                     wordIcon.style.display = 'block';
                 }
                 if (completedLevels.word) {
-                    // Reveal the Internet Explorer icon if Skype level is completed
                     const IEIcon = document.getElementById('IEIcon');
                     IEIcon.style.display = 'block';
                 }
@@ -99,6 +129,7 @@ onAuthStateChanged(auth, async (user) => {
         }
     }
 });
+
 
 export async function completeLevel(levelName) {
     const user = auth.currentUser;

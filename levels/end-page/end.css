@@ -97,12 +97,12 @@ body {
     color: #ececec;
     font-weight: 600;
     text-align: center;
-    animation: 5.5s creditsEnd 35s forwards linear;
+    animation: 5.5s creditsEnd 33s forwards linear;
   }
 
   .thank-you {
     font-size: 3.5rem;
-    animation: 5.5s creditsEnd forwards linear 35s;
+    animation: 5.5s creditsEnd forwards linear 33s;
   }
   
   
