@@ -1,5 +1,4 @@
-import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
-
+// import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
 
 /* ----------------- Instagram Javascript --------------------- */
 // Passwords
@@ -23,49 +22,71 @@ var userAnswer1 = document.getElementById('florence');
 var userAnswer2 = document.getElementById('australia');
 var userAnswer3 = document.getElementById('south_america');
 
-function answer(e) {
+function answerLogic() {
+    if (userAnswer1.value.toLowerCase() == cityAnswer) {
+                correctPassword[0].innerHTML = userAnswer1.value;
+                yourComment[0].style.display = 'block';
+                // clear input box 
+                userAnswer1.value = "";
+                // remove post button
+                postButton[0].style.visibility = "hidden";
+            } else if (userAnswer2.value.toLowerCase() == countryAnswer) {
+                correctPassword[1].innerHTML = userAnswer2.value;
+                yourComment[1].style.display = 'block';
+                // clear input box 
+                userAnswer2.value = "";
+                // remove post button
+                postButton[1].style.visibility = "hidden";
+            } else if (userAnswer3.value.split(" ").join("").toLowerCase() == continentAnswer) {
+                correctPassword[2].innerHTML = userAnswer3.value;
+                yourComment[2].style.display = 'block';
+                // clear input box 
+                userAnswer3.value = "";
+                // remove post button
+                postButton[2].style.visibility = "hidden";
+            } else {
+                // display wrong alert box
+                wrong[0].style.display = 'block';
+            }
 
+            // Update count based on visibility of yourComment
+            count = 0; // Reset count
+            for (let i = 0; i < yourComment.length; i++) {
+                if (yourComment[i].style.display === 'block') {
+                    count += 1;
+                }
+            }
+
+            // display congratulations alert box
+            if (count === 3) {
+                right[0].style.display = 'block';
+                // explore button to crossword
+                exploreButton.addEventListener('click', ()=> {
+                    crossword.style.display = "block"
+
+                    // TODO: REMOVE THIS, TEMP CODE 
+                let tempBtn = document.getElementById('tempBtn');
+
+                tempBtn.addEventListener('click', () => {
+                    // Call this function when the user completes the Skype level
+                    completeLevel('instagram');
+                    console.log("am I being called?");
+            });
+        });
+    }
+}
+    
+function answer(e) {
     // if enter key is pressed
     if (e.keyCode == 13) {
-        if (userAnswer1.value.toLowerCase() == cityAnswer) {
-            correctPassword[0].innerHTML = userAnswer1.value;
-            yourComment[0].style.display = 'block';
-            // clear input box 
-            userAnswer1.value = "";
-            // remove post button
-            postButton[0].style.visibility = "hidden";
-        } else if (userAnswer2.value.toLowerCase() == countryAnswer) {
-            correctPassword[1].innerHTML = userAnswer2.value;
-            yourComment[1].style.display = 'block';
-            // clear input box 
-            userAnswer2.value = "";
-            // remove post button
-            postButton[1].style.visibility = "hidden";
-        } else if (userAnswer3.value.split(" ").join("").toLowerCase() == continentAnswer) {
-            correctPassword[2].innerHTML = userAnswer3.value;
-            yourComment[2].style.display = 'block';
-            // clear input box 
-            userAnswer3.value = "";
-            // remove post button
-            postButton[2].style.visibility = "hidden";
-        } else {
-            // display wrong alert box
-            wrong[0].style.display = 'block';
-        }
-
-        // Update count based on visibility of yourComment
-        count = 0; // Reset count
-        for (let i = 0; i < yourComment.length; i++) {
-            if (yourComment[i].style.display === 'block') {
-                count += 1;
-            }
-        }
-
-        // display congratulations alert box
-        if (count === 3) {
-            right[0].style.display = 'block';
-        }
+       answerLogic(); 
     }
+};
+
+for (let i = 0; i < postButton.length; i++) {
+    postButton[i].addEventListener('click', ()=> {
+        answerLogic();
+    });
 }
 
 inputs.forEach(input => {
@@ -90,37 +111,23 @@ inputs.forEach(input => {
             }
         }
     )  
-})
+});
 
 // Alert box
 function ok() {
     var alertBox = document.getElementsByClassName('alertBox');
     for (i in alertBox) {
         alertBox[i].style.display = 'none';
-    }
-} 
+    };
+};
 
 function back() {
         crossword.style.display = "none";
-}
+};
 
 function done() {
     window.location.href='../../levels/desktop/level-desktop.html';
-}
-
-// explore button to crossword
-exploreButton.addEventListener('click', ()=> {
-    crossword.style.display = "block"
-
-    // TODO: REMOVE THIS, TEMP CODE 
-let tempBtn = document.getElementById('tempBtn');
-
-tempBtn.addEventListener('click', () => {
-    // Call this function when the user completes the Skype level
-      completeLevel('instagram');
-      console.log("am I being called?");
-});
-})
+};
 
 // Toggle like button
 var btn4 = document.getElementById('btn4');
@@ -134,8 +141,6 @@ function Toggle() {
         btn4.classList.add("far");
     }
 }
-
-
 
 /*---------------------------CLIPPY------------------------- */
 document.addEventListener("DOMContentLoaded", function() {
@@ -173,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Show "Click me for a hint!" after 2.5 minutes
     setTimeout(function() {
         typeText(hintText);
-    }, 150000); // 2.5 minutes = 150000 milliseconds
+    }, 10000); // 2.5 minutes = 150000 milliseconds
   
    // Click event handler
    function handleClick() {

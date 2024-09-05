@@ -337,6 +337,13 @@ span.view_comment, span.add_comment{
     visibility: hidden;
 }
 
+.post_comment:hover {
+    cursor: pointer;
+    color: rgb(0, 106, 177);;
+}
+
+
+
 input[type=text] {
     border: none;
 }
