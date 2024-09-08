@@ -68,7 +68,8 @@ onAuthStateChanged(auth, async (user) => {
 
                 if (playedIntro) {
                     // Show the desktop and background image
-                    document.getElementById("level-desktop").style.backgroundImage = "url('../desktop/images/windowsbackground.jpeg')";
+                    const leveldesktop =  document.getElementById("level-desktop");
+                    leveldesktop.style.backgroundImage = "url('../desktop/images/windowsbackground.jpeg')";
                     desktopDiv.style.display = 'block';
 
                     // Ensure the character is visible after showing the desktop
