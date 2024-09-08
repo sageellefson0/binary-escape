@@ -401,17 +401,17 @@ a {
         color: black;
         text-decoration: none;
         text-align: center;
-    }
-
-    #gitBtn {
         background-color: #ececec;
-        text-align: center;
         display: block;
         margin: auto;
-        height: 8%;
+        height: 3em;
+        width: 17em;
+        padding: 3%;
         border: none;
         border: solid 2px black;
+
     }
+
 
     .devicon-github-original {
         font-size: 20px;
