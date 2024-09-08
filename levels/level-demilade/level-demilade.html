@@ -368,7 +368,7 @@
                                         </div>
                                         <div class="add_comment">
                                             <span class="add_comment">
-                                                <input type="text" name="password" id="florence" placeholder="Add a comment..." onkeypress="answer(event)">
+                                                <input type="text" name="password" id="florence" placeholder="Add a comment...">
                                             </span>
                                             <span class="post_comment">
                                                 Post                     
@@ -505,7 +505,7 @@
                                         </div>
                                         <div class="add_comment">
                                             <span class="add_comment">
-                                                <input type="text" name="password" id="australia" placeholder="Add a comment..." onkeypress="answer(event)">
+                                                <input type="text" name="password" id="australia" placeholder="Add a comment...">
                                             </span>
                                             <span class="post_comment">
                                                 Post                     
@@ -642,7 +642,7 @@
                                         </div>
                                         <div class="add_comment">
                                             <span class="add_comment">
-                                                <input type="text" name="password" id="south_america" placeholder="Add a comment..." onkeypress="answer(event)">
+                                                <input type="text" name="password" id="south_america" placeholder="Add a comment...">
                                             </span>
                                             <span class="post_comment">
                                                 Post                     
@@ -803,11 +803,11 @@
     <div class="crossword" id="crossword">
         <iframe width="530" height="530" style="border: 1px solid black; margin:auto; display:block" frameborder="0" src="https://crosswordlabs.com/embed/binary-escape">
         </iframe>
-        <button onclick="back()" class="backButton">BACK</button> 
-        <button onclick="done()" class="doneButton">DONE</button>
+        <!-- <button onclick="back()" class="backButton">BACK</button>  -->
+        <button id="doneButton" class="doneButton">DONE</button>
     </div>
 
-    <div class="wrong alertBox" id="alertBox">
+    <div class="wrong alertBox" id="alertBoxWrong">
         <div class="alert">
             <div class="alertHeader">
                 <img src="images/instagram.svg" alt="instagram" class="hidden">
@@ -815,13 +815,13 @@
             <div class="alertContent">
                 <p>Wrong Answer, try again</p>
                 <div class="alertOk">
-                    <button onclick="ok()">OK</button> 
+                    <button class="okBtn">OK</button> 
                 </div>                
             </div>
         </div>
     </div>
 
-    <div class="right alertBox" id="alertBox">
+    <div class="right alertBox" id="alertBoxRight">
         <div class="alert">
             <div class="alertHeader">
                 <img src="images/instagram.svg" alt="instagram" class="hidden">
@@ -829,7 +829,7 @@
             <div class="alertContent">
                 <p>Great! you guessed them all correctly, now you have some EXPLORING to do 😉</p>
                 <div class="alertOk">
-                    <button onclick="ok()">Go explore!</button> 
+                    <button class="okBtn" id="goExploreBtn">Go explore!</button> 
                 </div>                
             </div>
         </div>
@@ -852,7 +852,7 @@
         </div>
     </footer>
 
-    <script src="level-demilade.js"></script>
+    <script type="module" src="level-demilade.js"></script>
     <!-- TODO: fix this link or remove it -->
     <script type="module" src="/src/firebase.js"></script>
     <script src="../../src/Character.js"> </script>
