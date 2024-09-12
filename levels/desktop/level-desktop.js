@@ -8,54 +8,39 @@ const desktopDiv = document.getElementById("desktopDiv");
 const introTextBox = document.getElementById("introTextBox");
 
 
-// 
+// Function: Hides the how to play window on click of X icon
 function closeHowToPlayWindow() {
     howToPlayWindow.style.display = "none";
 }
-
-
+// Event Listener: Listens for a click on the X icon and runs closeHowToPlayWindow when there is a click
 closeHowToPlay.addEventListener('click', closeHowToPlayWindow);
 
+
+// Function: Displays the how to play window on click of the notepad icon
 function openHowToPlayWindow() {
     howToPlayWindow.style.display = "block";
 }
+// Event Listener: Listens for a click on the notepad icon and runs openHowToPlayWindow when there is a click
 howToPlayIcon.addEventListener('click', openHowToPlayWindow);
 
 
-// // Function: Hides the into page and displays the desktop
-// function hideIntroDisplayDesktop() {
-//     introDiv.classList.add('fade-out');
-//     desktopDiv.classList.add('fade-in');
-//     desktopDiv.style.display = "block";
-//     setTimeout(() => {
-//         introDiv.style.display = "none";
-//     }, 2000); 
-// }
-
-function displayBSOD(){
+// Function: Displays the blue screen of death after a timeout period during intial log in dialogue
+function displayBSOD() {
     introDiv.style.backgroundImage = "url('../desktop/images/BSOD.png')";
     setTimeout(() => {
         introDiv.style.backgroundImage = 'none';
     }, 3000);
-
 }
-
 
 // Calls the dialogue to begin showing when the page loads
 window.onload = function () {
-    // initializeDesktopLevel();
     introTextTyping();
     setTimeout(() => {
         displayBSOD()
-        }, 23500);
-    
-        // setTimeout(() => {
-        //     hideIntroDisplayDesktop()
-        //     }, 35000);
-        // };
+    }, 23500);
 };
 
-// Dialogue for intro window after starting the game
+// Variables for intro dialogue
 var introInteger = 0;
 var lineIndexIntro = 0;
 var typingTextIntro = [
@@ -67,8 +52,6 @@ var typingTextIntro = [
     '  ',
     'Ugh, blue screen from a USB? Let\'s try that again.',
     'Wait, what\'s happening?! Ahhhhhhhhhhhhh!'
-
-
 ];
 var textSpeedIntro = 80; // Text speed
 var pauseTimeIntro = 1000; // Pause time between lines
@@ -90,7 +73,7 @@ function introTextTyping(callback) {
                 } else if (callback) {
                     callback(); // Call the callback function after the last line
                 }
-            }, pauseTimeIntro); 
+            }, pauseTimeIntro);
             // Pause before clearing the line
         }
     }
@@ -99,12 +82,12 @@ function introTextTyping(callback) {
 
 let time = document.querySelector(".time");
 
+// Function: Updates the time in the lower right hand corner
 function updateTime() {
     const now = new Date();
     time.innerHTML = new Intl.DateTimeFormat('en-IN', { hour: 'numeric', minute: 'numeric', hour12: true }).format(now);
     time.setAttribute("title", new Intl.DateTimeFormat('en-IN', { hour: 'numeric', minute: 'numeric', hour12: true, year: 'numeric', month: 'long', day: 'numeric' }).format(now));
 }
-
 // Update the time immediately
 updateTime();
 
@@ -116,7 +99,7 @@ const msUntilNextMinute = (60 - now.getSeconds()) * 1000 - now.getMilliseconds()
 setTimeout(() => {
     // Update the time at the next full minute
     updateTime();
-    
+
     // Then set an interval to update the time every minute
     setInterval(updateTime, 60000);
 }, msUntilNextMinute);
