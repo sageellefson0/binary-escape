@@ -81,6 +81,10 @@ html {
     margin-left: 8%;
 }
 
+#videoIframe{
+border: none;
+}
+
 #passcodeYTDiv {
     margin-left: 25px;
     text-align: center;
