@@ -5,6 +5,8 @@ const YTSubmitBtn = document.getElementById('YTSubmitBtn');
 const prisonBars = document.getElementById('prisonBars');
 const charSpeechText = document.getElementById('charSpeechText');
 
+
+// Varying failure messages to play on incorrect password attempts
 const errorMessages = [
     "Try again! I think you'll get it next time.",
     "No luck, I believe in you!",
@@ -12,10 +14,12 @@ const errorMessages = [
 ];
 let currentMessageIndex = 0;
 
+
+// Function: Handle the submission of the password and check to see if there are special characters, and if the password is correct
 function handleSubmit() {
     const inputValue = passwordYTInput.value.trim().toLowerCase();
 
-    // Regular expression to check for any character that is not a letter (a-z)
+    // Expression to check for any character that is not a letter (a-z)
     const nonLetterPattern = /[^a-z]/;
 
     if (nonLetterPattern.test(inputValue)) {
@@ -38,6 +42,7 @@ function handleSubmit() {
     }
 }
 
+
 // Event listener for the submit button
 YTSubmitBtn.addEventListener('click', handleSubmit);
 
@@ -47,6 +52,8 @@ passwordYTInput.addEventListener('keydown', (event) => {
         handleSubmit();
     }
 });
+
+
 
 /* ----------------- Character Icon --------------------- */
 
@@ -58,6 +65,7 @@ if (selectedCharacter === "male") {
 } else if (selectedCharacter === "female") {
   document.getElementById("characterYT").src = "../level-youtube/images/femalechar.png";
 }
+
 
 /////////// CLIPPY CODE ////////////
 
