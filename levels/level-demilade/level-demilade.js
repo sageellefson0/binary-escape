@@ -1,4 +1,4 @@
-// import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
+import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
 
 /* ----------------- Instagram Javascript --------------------- */
 // Passwords
@@ -63,19 +63,33 @@ function answerLogic() {
                 // explore button to crossword
                 exploreButton.addEventListener('click', ()=> {
                     crossword.style.display = "block"
-
-                    // TODO: REMOVE THIS, TEMP CODE 
-                let tempBtn = document.getElementById('tempBtn');
-
-                tempBtn.addEventListener('click', () => {
-                    // Call this function when the user completes the Skype level
-                    completeLevel('instagram');
-                    console.log("am I being called?");
-            });
         });
     }
 }
     
+// function answer(e) {
+//     // if enter key is pressed
+//     if (e.keyCode == 13) {
+//        answerLogic(); 
+//     }
+// };
+var userAnswer1 = document.getElementById('florence');
+var userAnswer2 = document.getElementById('australia');
+var userAnswer3 = document.getElementById('south_america');
+
+userAnswer1.addEventListener('keypress', function(e) {
+    answer(e);
+});
+
+userAnswer2.addEventListener('keypress', function(e) {
+    answer(e);
+});
+
+userAnswer3.addEventListener('keypress', function(e) {
+    answer(e);
+});
+
+
 function answer(e) {
     // if enter key is pressed
     if (e.keyCode == 13) {
@@ -113,21 +127,43 @@ inputs.forEach(input => {
     )  
 });
 
+
 // Alert box
+const alertBoxRight = document.getElementById('alertBoxRight');
+const alertBoxWrong = document.getElementById('alertBoxWrong');
+const goExploreBtn = document.getElementById('goExploreBtn');
+
+
+const okBtn = document.querySelectorAll(".okBtn");
+// const okBtn2 = document.querySelector("okBtn2");
+
+okBtn.forEach(button => button.addEventListener('click', ok));
+// okBtn2.addEventListener('click', ok);
+
+
 function ok() {
-    var alertBox = document.getElementsByClassName('alertBox');
-    for (i in alertBox) {
-        alertBox[i].style.display = 'none';
-    };
+    alertBoxRight.style.display = "none";
+    alertBoxWrong.style.display = "none";
+
+
 };
 
-function back() {
-        crossword.style.display = "none";
-};
+// function back() {
+//         crossword.style.display = "none";
+// };
 
-function done() {
-    window.location.href='../../levels/desktop/level-desktop.html';
-};
+
+const doneButton = document.getElementById('doneButton');
+doneButton.addEventListener('click', ()=> {
+    completeLevel('instagram');
+    const crossword = document.getElementById('crossword');
+    crossword.style.display = "none";
+
+    // Timeout provides buffer for completeLevel to be logged correctly - don't remove
+    setTimeout(function() {
+        window.location.href='../../levels/desktop/level-desktop.html';
+    }, 1500);
+});
 
 // Toggle like button
 var btn4 = document.getElementById('btn4');

@@ -1,8 +1,6 @@
-html{
+html {
   overflow: hidden;
 }
-
-
 
 /* Background for the level */
 .level-desktop {
@@ -13,50 +11,38 @@ html{
   background-size: cover;
   position: relative;
   color: white;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #1B1B1B;
-
 }
 
-#introDiv{
-    background-color: #1B1B1B;
-    width: auto;
-    height: 800px;
-    transition: background-color 8s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;    
-    color: seashell;
-    font-family: 'Courier New', Courier, monospace;
-    background-repeat: no-repeat;
-    background-size: cover;
-    transition: opacity 1s;
-    display: none;
-
+/* Intro div with the opening dialogue */
+#introDiv {
+  background-color: #1B1B1B;
+  width: auto;
+  height: 800px;
+  transition: background-color 8s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: seashell;
+  font-family: 'Courier New', Courier, monospace;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: opacity 1s;
+  display: none;
 }
 
-
-
-
-#introTextBox{
+/* Div for the intro dialogue lines */
+#introTextBox {
   font-size: x-large;
   font-family: monospace;
   padding-top: 27%;
-
 }
 
-#desktopDiv{
-  display: none; 
-  /* TODO: TEMP NEED TO REMOVE COMMENT  */
-  /* transition: opacity 2s; */
-
-}
-
-.levelIcons{
-  cursor: pointer;
-  color:white;
-  text-decoration: none;
+/* Div that holds the desktop view, initially set to none */
+#desktopDiv {
+  display: none;
 }
 
 /* Fade-in and fade-out classes */
@@ -68,28 +54,11 @@ html{
   opacity: 0;
 }
 
-/* Menu bar styling */
-#taskBar {
-  background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #06f 93%, #005bff 95%, #003dd7 96%, #003dd7);
-  padding: 3px 0px;
-  border-top: 1px solid #0831d9;
-  border-left: 1px solid #0831d9;
-  border-right: 1px solid #001ea0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 7px;
-  font-size: 14px;
-  text-shadow: 1px 1px #0f1089;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: default;
-  position: fixed;
-  width: 100%;
-  height:25px;
-  bottom: 0;
-  left: 0;
-}
 
+/****************** HOW TO PLAY POP UP *********************/
+
+
+/* How to play pop up window */
 .howToPlayWindow {
   width: 400px;
   height: 400px;
@@ -105,15 +74,16 @@ html{
   display: none;
 }
 
-#howToPlayText{
+/* How to play pop up window text */
+#howToPlayText {
   color: black;
   padding: 10px;
   font-family: monospace;
 }
 
-
+/* Task bar background coloring  */
 .titleBar {
-  background: linear-gradient(180deg,#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);
+  background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #06f 93%, #005bff 95%, #003dd7 96%, #003dd7);
   padding: 3px 5px;
   border-top: 1px solid #0831d9;
   border-left: 1px solid #0831d9;
@@ -128,7 +98,7 @@ html{
   cursor: default;
 }
 
-
+/* How to play title bar buttons */
 .titleBar button {
   min-width: 15px;
   min-height: 15px;
@@ -140,25 +110,15 @@ html{
   padding: 0;
   float: right;
   cursor: pointer;
-
 }
 
-.titleBar button img {
-  margin: 0;
-}
-
-/* Hides level icons by default, displays when unlocked */
-#IEIcon, #instagramIcon, #wordIcon {
-  display: none; 
-}
-
-
-
+/* Closing icon on the how to play pop up */
 .titleBar img {
   height: 18px;
   transform: translateY(3px);
 }
 
+/* How to play menu bar buttons (file, edit, etc) */
 .menuBar {
   height: 21px;
   font-size: 14px;
@@ -178,6 +138,92 @@ html{
 }
 
 
+/****************** LEVEL ICON STYLING *********************/
+
+
+/* Hides level icons by default, displays when unlocked */
+#IEIcon,
+#instagramIcon,
+#wordIcon,
+#youtubeIcon {
+  display: none;
+}
+
+/* Sets text color and pointer for level icons */
+.levelIcons {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+/* Div to hold the level icon and name of the level */
+.icon .iconName {
+  font-family: calibri, monospace;
+  font-size: 11px;
+  line-height: 15px;
+  height: 28px;
+  width: 60px;
+  text-align: center;
+  margin-left: 9px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.icon {
+  width: 80px;
+  cursor: pointer;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 8px;
+  padding: 5px;
+}
+
+/* Sets the hover over icons */
+.icon:hover {
+  background-color: rgba(106, 168, 239, 0.5);
+  outline: 1px solid rgba(106, 168, 239);
+}
+
+/* Sets the img styling for the icons */
+.icon img {
+  width: 58px;
+  display: block;
+  margin: 0 auto;
+}
+
+.recycleBin {
+  position: absolute;
+  right: 8px;
+  bottom: 36px;
+}
+
+
+/****************** TASK BAR STYLING *********************/
+
+
+/* Task bar styling */
+#taskBar {
+  background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #06f 93%, #005bff 95%, #003dd7 96%, #003dd7);
+  padding: 3px 0px;
+  border-top: 1px solid #0831d9;
+  border-left: 1px solid #0831d9;
+  border-right: 1px solid #001ea0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 7px;
+  font-size: 14px;
+  text-shadow: 1px 1px #0f1089;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+  position: fixed;
+  width: 100%;
+  height: 25px;
+  bottom: 0;
+  left: 0;
+}
 
 /* Start button styling */
 .startButton {
@@ -188,7 +234,7 @@ html{
   font-weight: lighter;
   font-style: italic;
   background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover no-repeat;
-  box-shadow: 0px 5px 10px #79ce71 inset, 4px 0 8px #3f8cf3;
+  box-shadow: 0px 5px 10px #79ce71 inset, 4px 0 3px #3f8cf3;
   padding: 2px 25px 6px 10px;
   text-shadow: 1px 1px 3px #222;
   border-radius: 0px 8px 8px 0px;
@@ -217,52 +263,3 @@ html{
   cursor: pointer;
   text-transform: uppercase;
 }
-
-
-.icon .iconName {
-  font-family: calibri, monospace;
-  font-size: 11px;
-  line-height: 15px;
-  height: 28px;
-  width: 60px;
-  text-align: center;
-  margin-left: 9px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-align: center;
-}
-
-
-.icon {
-  width: 80px;
-  cursor: pointer;
-  margin-bottom: 2px;
-  margin-top: 2px;
-  margin-left: 8px; 
-  padding: 5px;
-}
-
-.icon:hover {
- background-color: rgba(106, 168, 239, 0.5);
- outline: 1px solid rgba(106, 168, 239); 
-}
-
-.icon img {
-  width: 58px;
-  display: block;
-  margin: 0 auto;
-}
-
-.recycleBin {
-  position: absolute;
-  right: 8px;
-  bottom: 36px;
-}
-
-
-#loginDiv{
-  background-color: white;
-  width: 25%;
-}
-

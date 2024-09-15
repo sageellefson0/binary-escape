@@ -68,7 +68,8 @@ onAuthStateChanged(auth, async (user) => {
 
                 if (playedIntro) {
                     // Show the desktop and background image
-                    document.getElementById("level-desktop").style.backgroundImage = "url('../desktop/images/windowsbackground.jpeg')";
+                    const leveldesktop =  document.getElementById("level-desktop");
+                    leveldesktop.style.backgroundImage = "url('../desktop/images/windowsbackground.jpeg')";
                     desktopDiv.style.display = 'block';
 
                     // Ensure the character is visible after showing the desktop
@@ -95,6 +96,10 @@ onAuthStateChanged(auth, async (user) => {
                     instagramIcon.style.display = 'block';
                 }
                 if (completedLevels.instagram) {
+                    const youtubeIcon = document.getElementById('youtubeIcon');
+                    youtubeIcon.style.display = 'block';
+                }
+                if (completedLevels.youtube) {
                     const wordIcon = document.getElementById('wordIcon');
                     wordIcon.style.display = 'block';
                 }
@@ -171,86 +176,86 @@ export async function updateCharacter(docUID, newCharacter) {
 }
 
 
-const createAccount = document.getElementById("createAccount");
-const signInBtn = document.getElementById("signInBtn");
-const signInGoogleBtn = document.getElementById("signInGoogle");
-const errorText = document.getElementById("errorText");
+// const createAccount = document.getElementById("createAccount");
+// const signInBtn = document.getElementById("signInBtn");
+// const signInGoogleBtn = document.getElementById("signInGoogle");
+// const errorText = document.getElementById("errorText");
 
 
-document.addEventListener("DOMContentLoaded", (event) => {
+// document.addEventListener("DOMContentLoaded", (event) => {
 
-    // Native Email/Password Sign-Up
-    createAccount.addEventListener('click', async () => {
-        const email = document.getElementById('emailInputSignUp').value.trim();
-        const password = document.getElementById('passwordInputSignUp').value.trim();
+//     // Native Email/Password Sign-Up
+//     createAccount.addEventListener('click', async () => {
+//         const email = document.getElementById('emailInputSignUp').value.trim();
+//         const password = document.getElementById('passwordInputSignUp').value.trim();
 
-        if (email && password) {
-            try {
-                // Create a new user with the provided email and password
-                await createUserWithEmailAndPassword(auth, email, password);
-
-
-                // User is signed in, redirect to the desktop level page
-                window.location.href = 'levels/desktop/level-desktop.html';
-
-            } catch (error) {
-                console.error('Error during sign up or sign in:', error);
-                const errorText = document.getElementById("errorText");
-                errorText.innerHTML = "Please use a valid email address. Your password must be at least 6 characters in length.";
-            }
-        } else {
-            console.log('Email and password are required');
-            errorText.innerHTML = "Please enter an email and password.";
-        }
-    });
+//         if (email && password) {
+//             try {
+//                 // Create a new user with the provided email and password
+//                 await createUserWithEmailAndPassword(auth, email, password);
 
 
-    signInBtn.addEventListener('click', async () => {
-        const email = document.getElementById('emailInputSignIn').value.trim();
-        const password = document.getElementById('passwordInputSignIn').value.trim();
-        const selectedChar = localStorage.getItem("character");
+//                 // User is signed in, redirect to the desktop level page
+//                 window.location.href = 'levels/desktop/level-desktop.html';
+
+//             } catch (error) {
+//                 console.error('Error during sign up or sign in:', error);
+//                 const errorText = document.getElementById("errorText");
+//                 errorText.innerHTML = "Please use a valid email address. Your password must be at least 6 characters in length.";
+//             }
+//         } else {
+//             console.log('Email and password are required');
+//             errorText.innerHTML = "Please enter an email and password.";
+//         }
+//     });
 
 
-        if (email && password) {
-            console.log(selectedChar);
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                // Redirect after successful sign in
-                const user = auth.currentUser;
-                if (user && selectedChar) {
-                    await updateCharacter(user.uid, selectedChar);
-                    console.log("Chracter has been updated to" + selectedChar)
-                }
-                window.location.href = 'levels/desktop/level-desktop.html';
-            } catch (error) {
-                console.error('Error signing in with email:', error);
-                errorText.innerHTML = "Incorrect email or password. Please try again. Contact the administrator for support if you have forgotten your password.";
-            }
-        } else {
-            console.log('Email and password are required');
-            errorText.innerHTML = "Please enter an email and password.";
+//     signInBtn.addEventListener('click', async () => {
+//         const email = document.getElementById('emailInputSignIn').value.trim();
+//         const password = document.getElementById('passwordInputSignIn').value.trim();
+//         const selectedChar = localStorage.getItem("character");
 
-        }
-    });
 
-    // Google Sign-In
-    signInGoogleBtn.addEventListener('click', async () => {
-        const provider = new GoogleAuthProvider();
-        const selectedChar = localStorage.getItem("character");
+//         if (email && password) {
+//             console.log(selectedChar);
+//             try {
+//                 await signInWithEmailAndPassword(auth, email, password);
+//                 // Redirect after successful sign in
+//                 const user = auth.currentUser;
+//                 if (user && selectedChar) {
+//                     await updateCharacter(user.uid, selectedChar);
+//                     console.log("Chracter has been updated to" + selectedChar)
+//                 }
+//                 window.location.href = 'levels/desktop/level-desktop.html';
+//             } catch (error) {
+//                 console.error('Error signing in with email:', error);
+//                 errorText.innerHTML = "Incorrect email or password. Please try again. Contact the administrator for support if you have forgotten your password.";
+//             }
+//         } else {
+//             console.log('Email and password are required');
+//             errorText.innerHTML = "Please enter an email and password.";
 
-        try {
-            await signInWithPopup(auth, provider);
-            // Redirect after successful sign-in
-            const user = auth.currentUser;
-            if (user && selectedChar) {
-                await updateCharacter(user.uid, selectedChar);
-                console.log("Chracter has been updated to" + selectedChar)
-            }
-            window.location.href = 'levels/desktop/level-desktop.html';
-        } catch (error) {
-            console.error('Error during Google sign-in:', error);
-        }
-    });
-});
+//         }
+//     });
+
+//     // Google Sign-In
+//     signInGoogleBtn.addEventListener('click', async () => {
+//         const provider = new GoogleAuthProvider();
+//         const selectedChar = localStorage.getItem("character");
+
+//         try {
+//             await signInWithPopup(auth, provider);
+//             // Redirect after successful sign-in
+//             const user = auth.currentUser;
+//             if (user && selectedChar) {
+//                 await updateCharacter(user.uid, selectedChar);
+//                 console.log("Chracter has been updated to" + selectedChar)
+//             }
+//             window.location.href = 'levels/desktop/level-desktop.html';
+//         } catch (error) {
+//             console.error('Error during Google sign-in:', error);
+//         }
+//     });
+// });
 
 export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, signInWithEmailAndPassword, onAuthStateChanged };

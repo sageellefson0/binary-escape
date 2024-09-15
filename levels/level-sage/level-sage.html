@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binary Escape</title>
     <script src="https://kit.fontawesome.com/97132013e5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="level-sageStyle.css">
+    <link rel="stylesheet" href="../../character.css">
+    <link rel="stylesheet" href="level-sage.css">
 
     <!-- Favicon image links -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -18,14 +18,11 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-
 </head>
-
 
 <body>
     <header></header>
     <main>
-
         <!-- Div for holding active character frame -->
         <div class="character">
             <!-- Entire character spritesheet div -->
@@ -51,8 +48,8 @@
             </div>
             <!-- Images that hold pictures of dogs and cats for failing question answer - src set in JS file -->
             <div id="lossImgs">
-                <img id="lossImgLeft" src="" alt="Image of a puppy or kitten">
-                <img id="lossImgRight" src="" alt="Image of a puppy or kitten">
+                <img id="lossImgLeft" src="../level-sage/images/cat1.jpg" alt="Image of a puppy or kitten.">
+                <img id="lossImgRight" src="../level-sage/images/puppy1.jpg" alt="Image of a puppy or kitten.">
             </div>
 
         </div>
@@ -62,16 +59,11 @@
                 <div class="oldWikiHeader">
 
                     <span class="oldWikiHeaderLinks">
-
                         <a>Main Page</a> |
                         <a>Recent Pages</a> |
-
-
                         <a>Edit this page</a> |
                         <a>Older Versions</a> | <br>
                         <a>Printable version</a>
-
-
                     </span>
                     <span class="oldWikiHeaderSearchBarLogin">
                         123.456.789.000 (<a>Talk</a>)<br>
@@ -80,15 +72,14 @@
                         <input type="text" id="wikiSearchInput"> <button id="searchButton">Search</button>
                         <button>Go</button>
                     </span>
-                    <span class="oldWikiHeaderLinks">
+                    <div class="oldWikiHeaderLinks">
                         <br>
                         <br>
-
                         <div class="alienLinkDiv"> </div>Other languages: <a id="alienLink">Alien</a>
-                    </span>
+                    </div>
 
                 </div>
-
+                <!-- Main text body of the main page, includes Wikipedia article -->
                 <div class="wikiBody">
                     <h2 class="wikiHeading">Space Shuttle Columbia</h2>
                     <div id="wikiText">
@@ -149,7 +140,7 @@
 
             </div>
 
-
+            <!-- Side bar on the left side of the page -->
             <div class="oldWikiSidebar">
                 <img class="oldWikiLogo" src="../level-sage/images/oldWikiLogo.png" alt="Old Wikipedia logo from 2003.">
 
@@ -201,17 +192,14 @@
                 <br>
                 <br>
 
-
-
                 <img id="saturnImg" src="../level-sage/images/saturnPic.jpeg" alt="Image of pixel art Saturn."><br>
                 <span id="saturnCompanyName"> OrbitX Tech Inc </span>
                 <br>
 
-                <input type="text" id="binaryTextInput" /> <br>
+                <input type="text" id="binaryTextInput"> <br>
 
                 <button id="binaryTextInputSubmit"> Decode </button>
                 <button id="binaryTextInputClear"> Clear </button>
-
 
                 <div id="decoderTextBox"></div>
 
@@ -238,12 +226,7 @@
                     <input type="text" maxlength="1" class="letterSpots">
                     <input type="text" maxlength="1" class="letterSpots">
 
-
-
                 </div>
-
-
-
 
             </div>
             <!-- Dialogue for character when page loads -->
@@ -270,8 +253,5 @@
     <script src="../../clippy/lottie.js"></script>
     <script src="../../clippy/index.js"></script>
 </body>
-
-
-
 
 </html>
