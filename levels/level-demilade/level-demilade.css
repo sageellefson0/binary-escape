@@ -244,10 +244,25 @@ div.time {
 
 .post-icons svg:hover {
     color: #716e6e;
+    cursor: pointer;
 }
 
-.fas{
-    color: #f50057;
+.fas {
+    color: #f50057; /* Red color for 'liked' */
+}
+
+.fas:hover {
+    color: #f50057;  
+    cursor: pointer;  
+}
+
+.far {
+    color: black; /* Default color for 'unliked' */
+}
+
+.far:hover {
+    color: #716e6e;
+    cursor: pointer;
 }
 
 .left-icons {

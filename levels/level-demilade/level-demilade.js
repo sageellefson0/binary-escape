@@ -172,26 +172,53 @@ var btn2 = document.getElementById('btn2');
 var btn3 = document.getElementById('btn3');
 
 // Function: turn like button red on click and blank on click again
-function Toggle() {
-    if (btn1.classList.contains("far")) {
-        btn1.classList.remove("far");
-        btn1.classList.add("fas");
-    } else if(btn3.classList.contains("far")) {
-        btn3.classList.remove("far");
-        btn3.classList.add("fas");
-    } else if(btn3.classList.contains("far")) {
-        btn3.classList.remove("far");
-        btn3.classList.add("fas");
-    } else {
-        btn1.classList.remove("fas");
-        btn2.classList.remove("fas");
-        btn3.classList.remove("fas");
-        btn1.classList.add("far");
-        btn2.classList.add("far");
-        btn3.classList.add("far");
-    }
-};
+// function Toggle() {
+//     if (btn1.classList.contains("far")) {
+//         btn1.classList.remove("far");
+//         btn1.classList.add("fas");
+//     } else if(btn3.classList.contains("far")) {
+//         btn3.classList.remove("far");
+//         btn3.classList.add("fas");
+//     } else if(btn3.classList.contains("far")) {
+//         btn3.classList.remove("far");
+//         btn3.classList.add("fas");
+//     } else {
+//         btn1.classList.remove("fas");
+//         btn2.classList.remove("fas");
+//         btn3.classList.remove("fas");
+//         btn1.classList.add("far");
+//         btn2.classList.add("far");
+//         btn3.classList.add("far");
+//     }
+// };
 
+// Function: turn like button red on click and black on click again
+function Toggle(buttonId) {
+    var btn = document.getElementById(buttonId);// The clicked button
+
+    if (btn.classList.contains("far")) {
+        // Change the button to solid red
+        btn.classList.remove("far");
+        btn.classList.add("fas");
+    } else {
+        // Change the button back to outline black
+        btn.classList.remove("fas");
+        btn.classList.add("far");
+    }
+}
+
+// Adding event listeners to all like buttons
+document.getElementById('btn1').addEventListener('click', function() {
+    Toggle('btn1'); // 'this' refers to the clicked element
+});
+
+document.getElementById('btn2').addEventListener('click', function() {
+    Toggle('btn2'); // 'this' refers to the clicked element
+});
+
+document.getElementById('btn3').addEventListener('click', function() {
+    Toggle('btn3'); // 'this' refers to the clicked element
+});
 /*---------------------------CLIPPY------------------------- */
 document.addEventListener("DOMContentLoaded", function() {
 
