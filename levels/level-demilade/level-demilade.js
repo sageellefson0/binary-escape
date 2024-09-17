@@ -16,12 +16,13 @@ var exploreButton = document.getElementById('explore')
 var crossword = document.getElementById('crossword')
 
 // user answers
-
 var inputs = document.querySelectorAll('input[name="password"]');
 var userAnswer1 = document.getElementById('florence');
 var userAnswer2 = document.getElementById('australia');
 var userAnswer3 = document.getElementById('south_america');
 
+
+// Function: check if inputted answers are correct 
 function answerLogic() {
     if (userAnswer1.value.toLowerCase() == cityAnswer) {
                 correctPassword[0].innerHTML = userAnswer1.value;
@@ -62,7 +63,9 @@ function answerLogic() {
                 right[0].style.display = 'block';
                 // explore button to crossword
                 exploreButton.addEventListener('click', ()=> {
-                    crossword.style.display = "block"
+                    crossword.style.display = "block";
+                    alertBoxRight.style.display = "none";
+                    alertBoxWrong.style.display = "none"
         });
     }
 }
@@ -89,20 +92,21 @@ userAnswer3.addEventListener('keypress', function(e) {
     answer(e);
 });
 
-
+//Function: check if enter key is pressed
 function answer(e) {
-    // if enter key is pressed
     if (e.keyCode == 13) {
        answerLogic(); 
     }
 };
 
+//Function: check if post button is clicked and run answerLogic() function if true
 for (let i = 0; i < postButton.length; i++) {
     postButton[i].addEventListener('click', ()=> {
         answerLogic();
     });
 }
 
+// Make post button visible while user is typing input/comment
 inputs.forEach(input => {
         input.addEventListener("input", () => {
             // show post button
@@ -127,12 +131,9 @@ inputs.forEach(input => {
     )  
 });
 
-
 // Alert box
 const alertBoxRight = document.getElementById('alertBoxRight');
 const alertBoxWrong = document.getElementById('alertBoxWrong');
-const goExploreBtn = document.getElementById('goExploreBtn');
-
 
 const okBtn = document.querySelectorAll(".okBtn");
 // const okBtn2 = document.querySelector("okBtn2");
@@ -140,12 +141,10 @@ const okBtn = document.querySelectorAll(".okBtn");
 okBtn.forEach(button => button.addEventListener('click', ok));
 // okBtn2.addEventListener('click', ok);
 
-
+// Function: remove alert box when ok button is clicked
 function ok() {
     alertBoxRight.style.display = "none";
     alertBoxWrong.style.display = "none";
-
-
 };
 
 // function back() {
@@ -154,6 +153,8 @@ function ok() {
 
 
 const doneButton = document.getElementById('doneButton');
+
+// check if done button is clicked and go back to desktop if true
 doneButton.addEventListener('click', ()=> {
     completeLevel('instagram');
     const crossword = document.getElementById('crossword');
@@ -166,17 +167,30 @@ doneButton.addEventListener('click', ()=> {
 });
 
 // Toggle like button
-var btn4 = document.getElementById('btn4');
+var btn1 = document.getElementById('btn1');
+var btn2 = document.getElementById('btn2');
+var btn3 = document.getElementById('btn3');
 
+// Function: turn like button red on click and blank on click again
 function Toggle() {
-    if (btn4.classList.contains("far")) {
-        btn4.classList.remove("far");
-        btn4.classList.add("fas");
+    if (btn1.classList.contains("far")) {
+        btn1.classList.remove("far");
+        btn1.classList.add("fas");
+    } else if(btn3.classList.contains("far")) {
+        btn3.classList.remove("far");
+        btn3.classList.add("fas");
+    } else if(btn3.classList.contains("far")) {
+        btn3.classList.remove("far");
+        btn3.classList.add("fas");
     } else {
-        btn4.classList.remove("fas");
-        btn4.classList.add("far");
+        btn1.classList.remove("fas");
+        btn2.classList.remove("fas");
+        btn3.classList.remove("fas");
+        btn1.classList.add("far");
+        btn2.classList.add("far");
+        btn3.classList.add("far");
     }
-}
+};
 
 /*---------------------------CLIPPY------------------------- */
 document.addEventListener("DOMContentLoaded", function() {
