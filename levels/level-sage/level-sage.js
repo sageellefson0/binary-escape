@@ -1,3 +1,5 @@
+import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
+
 const alienLink = document.querySelector('.alienLink');
 const decoderDiv = document.querySelector('.decoderDiv');
 const bugReportPopUp = document.querySelector('.bugReportPopUp');
@@ -14,20 +16,12 @@ let isDecoderOpen = false;
 var answerSelected = false;
 const decodedLetters = [];
 
-
-// Prevents window reload without warning - user will lose progress is page is reloaded, this is to counteract that.
-window.addEventListener('beforeunload', function (event) {
-    event.preventDefault();
-}
-);
-
 // Dialogue for character when the page loads
 var iterationCharacter = 0;
 var lineIndexCharacter = 0;
 var typingTextCharacter = [
     'An old Wikipedia page? Something isn\'t right here...',
     'I wonder why it\'s all jumbled?',
-
 ];
 var textSpeedChar = 80; // Speed of text
 var pauseTimeChar = 2000; // Pause time of text
@@ -99,6 +93,7 @@ function enteredMessage(event) {
     decodedLetters.push(decode);
     document.getElementById('decoderTextBox').innerHTML = decodedLetters.join(' ');
 }
+
 
 // Function: Flickers the bug reports link text to TOP SECRET momentarily
 function flickerText() {
@@ -474,20 +469,39 @@ function typeFinalMessage() {
     document.getElementById('alienLink').innerHTML = 'English';
     document.getElementById('alienLink').style.color = 'blue';
 
-    isCollisionDetectionActive = false;
+    // isCollisionDetectionActive = false;
     decoderDiv.style.display = "none";
     bugReportPopUp.style.display = "none";
     alienLinkDiv.style.display = "none";
     bugReportsLinkDiv.style.display = "none";
     bugReportsLink.style.color = "blue";
-}
+
+    // Marks the level as complete in the database and moves the scene to the end.html page to finish the game out
+    completeLevel('wikipedia');
+    setTimeout(function() {
+        window.location.href='../end-page/end.html';
+    }, 11500);
+};
+
 
 // Event Listener: Listens for click on the X icon in the decoder - calls closePopUpDecoder() to hide the decoder div if clicked 
 var closeDecoderDiv = document.getElementById('closeDecoderDiv');
 closeDecoderDiv.addEventListener('click', closePopUpDecoder);
 
-// Event Listener: Checks to ensure wikiSearchInput is equal to "saturn" - if it is, it calls the alienQuizPage() to hide the wiki window and open the alien window
+// Event Listener for the button click
 searchButton.addEventListener('click', () => {
+    handleSearchInput();
+});
+
+// Event Listener for the "Enter" key press on the input field
+wikiSearchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        handleSearchInput();
+    }
+});
+
+// Function to handle the search input
+function handleSearchInput() {
     const searchInputValue = wikiSearchInput.value.trim().toLowerCase();
 
     if (searchInputValue === "saturn") {
@@ -496,7 +510,7 @@ searchButton.addEventListener('click', () => {
     } else {
         alert("Incorrect.");
     }
-});
+}
 
 // Event Listener: Listens for click on submit button within the decoder - calls enteredMessage() if clicked
 var btnSubmit = document.getElementById('binaryTextInputSubmit');

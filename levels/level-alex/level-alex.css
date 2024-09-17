@@ -54,8 +54,6 @@ html {
 }
 
 #questions {
-    /* margin: 15px 0; */
-    /* border: 1px solid black; */
     padding: 5px 5px;
     font-family: Andale Mono;
     border-top: 2px solid black;
@@ -74,7 +72,6 @@ html {
 .question-text {
     font-weight: normal;
 }
-
 
 input[type="radio"] {
     -webkit-appearance: none;
@@ -190,13 +187,10 @@ input[type="radio"]:focus {
     vertical-align: middle;
     white-space: nowrap;
     width: 100%;
-    
-    /* Adjust these properties */
-    height: 36px; /* Adjust height to your needs */
-    line-height: 36px; /* Match line-height to height for vertical centering */
-    padding: 0 16px; /* Remove vertical padding to prevent interference */
+    height: 36px; 
+    line-height: 36px; 
+    padding: 0 16px; 
 }
-
 
 #signInBtnSkype{
 width: 8%;
@@ -265,7 +259,6 @@ width: 8%;
 #blueErrorIcon{
     width: 15px !important;
     height: 15px !important;
-
 }
 
 #creatAccount{
