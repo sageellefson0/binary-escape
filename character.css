@@ -1,0 +1,143 @@
+html {
+    scroll-behavior: smooth;
+    image-rendering: pixelated;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+/* Pixel size for different screen sizes */
+:root {
+    --pixel-size: 2px;
+    --grid-cell: calc(var(--pixel-size) * 16);
+}
+
+@media(min-width: 700px) {
+    :root {
+        --pixel-size: 3px;
+    }
+}
+
+@media(min-width: 1000px) {
+    :root {
+        --pixel-size: 4px;
+    }
+}
+
+
+/* Render images as pixelated */
+.pixel-art {
+    image-rendering: pixelated;
+}
+
+/* Div that holds the active character frame from the animation */
+.character {
+    width: calc(var(--grid-cell)* 2);
+    height: calc(var(--grid-cell)* 2);
+    position: absolute;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.characterSpritesheet.female {
+    background: url("../../images/binaryescapefemalecharacter1.png") no-repeat;
+    background-size: 100%;
+}
+
+.characterSpritesheet.male {
+    background: url("../../images/binaryescapemalecharacter1.png") no-repeat;
+    background-size: 100%;
+}
+
+/* Ensure other styles like position, width, height are applied here if needed */
+.characterSpritesheet {
+    position: absolute;
+    width: calc(var(--grid-cell) * 8);
+    height: calc(var(--grid-cell) * 8);
+}
+
+.character[facing="right"] .characterSpritesheet {
+    background-position-y: calc(var(--pixel-size) * -32);
+}
+
+.character[facing="up"] .characterSpritesheet {
+    background-position-y: calc(var(--pixel-size) * -64);
+}
+
+.character[facing="left"] .characterSpritesheet {
+    background-position-y: calc(var(--pixel-size) * -96);
+}
+
+.character[walking="true"] .characterSpritesheet {
+    animation: walkAnimation 0.6s steps(4) infinite;
+}
+
+@keyframes walkAnimation {
+    from {
+        transform: translate3d(0%, 0%, 0);
+    }
+
+    to {
+        transform: translate3d(-100%, 0%, 0);
+    }
+
+
+
+}
+
+#dialogueBox {
+    display: none;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px;
+    position: absolute;
+    text-align: center;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+}
+
+#characterSpeech {
+    overflow: hidden;
+    font-size: large;
+    margin: 10px;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation:
+        typing 2.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: gray;
+    }
+}

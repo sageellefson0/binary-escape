@@ -97,13 +97,106 @@ body {
     color: #ececec;
     font-weight: 600;
     text-align: center;
-    animation: 5.5s creditsEnd 35s forwards linear;
+    animation: 5.5s creditsEnd 33s forwards linear, fadeOutOpacity 3s ease-in-out 42s forwards;;
   }
 
   .thank-you {
     font-size: 3.5rem;
-    animation: 5.5s creditsEnd forwards linear 35s;
+    animation: 5.5s creditsEnd forwards linear 33s, fadeOutOpacity 3s ease-in-out 42s forwards;
   }
+
+  .explore-more {
+    display: flex;
+    position: absolute;
+    opacity: 0%;
+    top: 0%;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    animation: fadeInOpacity 3s ease-in-out 44s forwards;
+    z-index: 1000;
+  }
+
+  /* ------------------- Button Grid styles ------------------- */
+.pixel-button {
+  position: relative;
+  display: grid;
+  row-gap: 0;
+  column-gap: 0;
+  grid-template-columns: repeat(20, 11px);
+  grid-template-rows: repeat(10, 11px);
+
+  filter: drop-shadow(0 15px 0 #545454);
+
+  cursor: pointer;
+}
+
+.pixel-button:active {
+  transform: translate(0, 15px);
+  filter: drop-shadow(0 0 0 #545454);
+}
+
+
+/* ------------------- pixel styles ------------------- */
+
+.transparent {
+  background-color: transparent;
+  height: 12px;
+  width: 12px;
+}
+
+.black {
+  background-color: #ececec;
+  height: 12px;
+  width: 12px;
+}
+
+.lightg {
+  background-color: #9F9E9E;
+  height: 12px;
+  width: 12px;
+}
+
+.white {
+  background-color: #9F9E9E;
+  height: 12px;
+  width: 12px;
+}
+
+.grey {
+  background-color: #545454;
+  height: 12px;
+  width: 12px;
+}
+
+/* ------------------- text styles ------------------- */
+.pixel-button .text {
+  color: #ececec;
+  filter: none;
+  position: absolute;
+  display: block;
+
+  z-index: 5;
+
+  font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: #ececec;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+  bottom: 20%;
+  text-align: center;
+}
+
+.pixel-button:active a {
+  color: #545454;
+}
+
+a {
+  text-decoration: none;
+  color: #ececec;
+}
   
   
   .name {

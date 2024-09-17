@@ -1,3 +1,5 @@
+import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
+
 /* ----------------- Word Application Javascript --------------------- */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -76,6 +78,17 @@ fontColorPicker.addEventListener("click", function (e) {
     }
   });
 });
+
+/* ----------------- Character Icon --------------------- */
+
+const selectedCharacter = localStorage.getItem("character");
+
+// Render character image based on if male or female selected
+if (selectedCharacter === "male") {
+  document.getElementById("character-img").src = "images/character/malecharacterpeeping.png";
+} else if (selectedCharacter === "female") {
+  document.getElementById("character-img").src = "images/character/femalecharacterpeeping.png";
+}
 
 /* ----------------- Puzzle Javascript --------------------- */
 
@@ -199,7 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event listener for the Okay button
     dialogButton.addEventListener('click', function() {
         if (passwordCorrect) {
-            window.location.href = ""; // Replace with actual link to next round
+            completeLevel('word');
+            // Timeout provides buffer for completeLevel to be logged correctly - don't remove
+            setTimeout(function() {
+              window.location.href = "../desktop/level-desktop.html";
+          }, 2000);
         } else {
             hideDialog();
         }
