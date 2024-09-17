@@ -1,4 +1,4 @@
-// import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
+import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
 
 /* ----------------- Instagram Javascript --------------------- */
 // Passwords
@@ -16,12 +16,13 @@ var exploreButton = document.getElementById('explore')
 var crossword = document.getElementById('crossword')
 
 // user answers
-
 var inputs = document.querySelectorAll('input[name="password"]');
 var userAnswer1 = document.getElementById('florence');
 var userAnswer2 = document.getElementById('australia');
 var userAnswer3 = document.getElementById('south_america');
 
+
+// Function: check if inputted answers are correct 
 function answerLogic() {
     if (userAnswer1.value.toLowerCase() == cityAnswer) {
                 correctPassword[0].innerHTML = userAnswer1.value;
@@ -62,33 +63,50 @@ function answerLogic() {
                 right[0].style.display = 'block';
                 // explore button to crossword
                 exploreButton.addEventListener('click', ()=> {
-                    crossword.style.display = "block"
-
-                    // TODO: REMOVE THIS, TEMP CODE 
-                let tempBtn = document.getElementById('tempBtn');
-
-                tempBtn.addEventListener('click', () => {
-                    // Call this function when the user completes the Skype level
-                    completeLevel('instagram');
-                    console.log("am I being called?");
-            });
+                    crossword.style.display = "block";
+                    alertBoxRight.style.display = "none";
+                    alertBoxWrong.style.display = "none"
         });
     }
 }
     
+// function answer(e) {
+//     // if enter key is pressed
+//     if (e.keyCode == 13) {
+//        answerLogic(); 
+//     }
+// };
+var userAnswer1 = document.getElementById('florence');
+var userAnswer2 = document.getElementById('australia');
+var userAnswer3 = document.getElementById('south_america');
+
+userAnswer1.addEventListener('keypress', function(e) {
+    answer(e);
+});
+
+userAnswer2.addEventListener('keypress', function(e) {
+    answer(e);
+});
+
+userAnswer3.addEventListener('keypress', function(e) {
+    answer(e);
+});
+
+//Function: check if enter key is pressed
 function answer(e) {
-    // if enter key is pressed
     if (e.keyCode == 13) {
        answerLogic(); 
     }
 };
 
+//Function: check if post button is clicked and run answerLogic() function if true
 for (let i = 0; i < postButton.length; i++) {
     postButton[i].addEventListener('click', ()=> {
         answerLogic();
     });
 }
 
+// Make post button visible while user is typing input/comment
 inputs.forEach(input => {
         input.addEventListener("input", () => {
             // show post button
@@ -114,34 +132,93 @@ inputs.forEach(input => {
 });
 
 // Alert box
+const alertBoxRight = document.getElementById('alertBoxRight');
+const alertBoxWrong = document.getElementById('alertBoxWrong');
+
+const okBtn = document.querySelectorAll(".okBtn");
+// const okBtn2 = document.querySelector("okBtn2");
+
+okBtn.forEach(button => button.addEventListener('click', ok));
+// okBtn2.addEventListener('click', ok);
+
+// Function: remove alert box when ok button is clicked
 function ok() {
-    var alertBox = document.getElementsByClassName('alertBox');
-    for (i in alertBox) {
-        alertBox[i].style.display = 'none';
-    };
+    alertBoxRight.style.display = "none";
+    alertBoxWrong.style.display = "none";
 };
 
-function back() {
-        crossword.style.display = "none";
-};
+// function back() {
+//         crossword.style.display = "none";
+// };
 
-function done() {
-    window.location.href='../../levels/desktop/level-desktop.html';
-};
+
+const doneButton = document.getElementById('doneButton');
+
+// check if done button is clicked and go back to desktop if true
+doneButton.addEventListener('click', ()=> {
+    completeLevel('instagram');
+    const crossword = document.getElementById('crossword');
+    crossword.style.display = "none";
+
+    // Timeout provides buffer for completeLevel to be logged correctly - don't remove
+    setTimeout(function() {
+        window.location.href='../../levels/desktop/level-desktop.html';
+    }, 1500);
+});
 
 // Toggle like button
-var btn4 = document.getElementById('btn4');
+var btn1 = document.getElementById('btn1');
+var btn2 = document.getElementById('btn2');
+var btn3 = document.getElementById('btn3');
 
-function Toggle() {
-    if (btn4.classList.contains("far")) {
-        btn4.classList.remove("far");
-        btn4.classList.add("fas");
+// Function: turn like button red on click and blank on click again
+// function Toggle() {
+//     if (btn1.classList.contains("far")) {
+//         btn1.classList.remove("far");
+//         btn1.classList.add("fas");
+//     } else if(btn3.classList.contains("far")) {
+//         btn3.classList.remove("far");
+//         btn3.classList.add("fas");
+//     } else if(btn3.classList.contains("far")) {
+//         btn3.classList.remove("far");
+//         btn3.classList.add("fas");
+//     } else {
+//         btn1.classList.remove("fas");
+//         btn2.classList.remove("fas");
+//         btn3.classList.remove("fas");
+//         btn1.classList.add("far");
+//         btn2.classList.add("far");
+//         btn3.classList.add("far");
+//     }
+// };
+
+// Function: turn like button red on click and black on click again
+function Toggle(buttonId) {
+    var btn = document.getElementById(buttonId);// The clicked button
+
+    if (btn.classList.contains("far")) {
+        // Change the button to solid red
+        btn.classList.remove("far");
+        btn.classList.add("fas");
     } else {
-        btn4.classList.remove("fas");
-        btn4.classList.add("far");
+        // Change the button back to outline black
+        btn.classList.remove("fas");
+        btn.classList.add("far");
     }
 }
 
+// Adding event listeners to all like buttons
+document.getElementById('btn1').addEventListener('click', function() {
+    Toggle('btn1'); // 'this' refers to the clicked element
+});
+
+document.getElementById('btn2').addEventListener('click', function() {
+    Toggle('btn2'); // 'this' refers to the clicked element
+});
+
+document.getElementById('btn3').addEventListener('click', function() {
+    Toggle('btn3'); // 'this' refers to the clicked element
+});
 /*---------------------------CLIPPY------------------------- */
 document.addEventListener("DOMContentLoaded", function() {
 

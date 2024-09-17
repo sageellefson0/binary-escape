@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Binary Escape</title>
   <link rel="stylesheet" href="../../character.css">
-
   <link rel="stylesheet" href="../../style.css">
   <link rel="stylesheet" href="../desktop/level-desktop.css">
   <!-- Favicon image links -->
@@ -34,6 +33,7 @@
       </div>
 
 
+      <!-- Level icons -->
       <div class="icon recycleBin logoutButton" id="logoutButton">
         <img src="../desktop/images/recycle.png">
         <div class="iconName">Log Out</div>
@@ -79,6 +79,7 @@
         </a>
       </div>
 
+      <!-- How to play pop up window -->
       <div class="howToPlayWindow">
         <div class="titleBar">
           <div><img src="../desktop/images/notepad.png" alt="Image of windows XP notepad icon">How To Play.txt</div>
@@ -103,7 +104,7 @@
       </div>
 
 
-      <!-- Menu bar at the bottom -->
+      <!-- Task bar at the bottom -->
       <div id="taskBar">
         <div class="startButton">
           <img src="../desktop/images/logo.svg" alt="Windows Logo">
@@ -112,7 +113,6 @@
         <div class="time">3:50 pm</div>
       </div>
     </div>
-
 
   </main>
   <footer></footer>
@@ -124,9 +124,7 @@
 
     import { signOut, auth } from '/src/firebase.js';
 
-
-    // Log-Out Button
-
+    // Log-Out Button functionality
     const logoutButton = document.getElementById('logoutButton');
 
     logoutButton.addEventListener('click', async () => {
@@ -138,7 +136,6 @@
       }
     });
   </script>
-
   <script type="module" src="../desktop/level-desktop.js"></script>
 
 </body>
