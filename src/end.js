@@ -22,3 +22,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 2500);
 });
 
+// ADDED BY SE for keep exploring button
+const keepExploringButton = document.querySelector('.keepExploringButton');
+
+function navigateToDesktopLvl() {
+    window.location.href = "../desktop/level-desktop.html";
+}
+
+// Event Listener: Listens for click on the Keep Exploring button and redirects to the desktop level if it is clicked
+keepExploringButton.addEventListener('click', navigateToDesktopLvl);
+
+
