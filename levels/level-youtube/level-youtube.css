@@ -3,10 +3,10 @@ html {
     overflow: hidden;
 }
 
+/* Menu bar at the top including sign in, logo, and search */
 #youtubeMenuBar {
     display: flex;
     align-items: center;
-    /* Align items vertically centered */
     padding-top: 1.5%;
 }
 
@@ -14,9 +14,7 @@ html {
 #searchYTDiv,
 #hamburgerYoutube {
     display: inline-block;
-    /* Ensures that these elements are aligned horizontally */
 }
-
 
 #youtubeLogo {
     width: 8%;
@@ -26,7 +24,6 @@ html {
 #hamburgerYoutube {
     width: 1.7%;
     margin-left: 2%;
-
 }
 
 #searchYTInput {
@@ -53,15 +50,15 @@ html {
     height: 32px;
     margin-left: 18%;
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
-#menuDots{
+#menuDots {
     width: 1.5%;
     margin-left: 18%;
 }
 
-#signInBtnYT{
+#signInBtnYT {
     border: none;
     border: 1px solid rgb(66 133 244);
     color: rgb(66 133 244);
@@ -72,23 +69,27 @@ html {
     margin-left: 1%;
 }
 
+
+
+/************* Video div for holding the embedded YT video ***************/
 #videoDiv {
     display: flex;
     align-items: center;
-    /* Vertically center the input field next to the video */
     justify-content: flex-start;
     margin-top: 3%;
     margin-left: 8%;
 }
 
-#videoIframe{
-border: none;
+#videoIframe {
+    border: none;
 }
 
+
+
+/********** Div to the right of the video div, contains the password input and character dialogue and imagery ********/
 #passcodeYTDiv {
     margin-left: 25px;
     text-align: center;
-    /* border: solid 2px orange; */
     width: 30%;
     margin-top: -70px;
 }
@@ -100,32 +101,32 @@ border: none;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-#YTSubmitBtn{
+
+#YTSubmitBtn {
     border: none;
     background-color: white;
     padding: 8px 15px;
     border: 1px solid #ccc;
     transition: background-color 0.2s ease-in, color 0.2s ease-in;
     cursor: pointer;
-
 }
 
-#YTSubmitBtn:hover{
+#YTSubmitBtn:hover {
     background-color: #FF0000;
     color: white;
 }
 
 #characterContainer {
     position: relative;
-    display: inline-block; 
+    display: inline-block;
 }
 
 #characterYT {
     position: relative;
-    z-index: 1; 
+    z-index: 1;
 }
 
-#charSpeechText{
+#charSpeechText {
     margin-top: 3%;
 }
 
@@ -135,17 +136,19 @@ border: none;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2; 
+    z-index: 2;
     pointer-events: none;
 }
 
-#descriptionText{
+#descriptionText {
     margin-left: 8%;
     margin-top: 18px;
-
 }
 
-#YTTitle{
+
+
+/*********** Video description div area, included views, profile pic, etc *************/
+#YTTitle {
     font-size: 20px;
 }
 
@@ -163,11 +166,11 @@ border: none;
 }
 
 #profileName {
-    margin: 0; 
-    font-size: 16px; 
+    margin: 0;
+    font-size: 16px;
 }
 
-#views{
+#views {
     color: rgb(120, 117, 117);
     margin: 0;
     font-size: smaller;
@@ -202,20 +205,16 @@ border: none;
     margin-right: 0;
 }
 
+/* Roboto font class */
 .roboto-regular {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-  
+}
 
 
 
-
-
-
-
-/* Clippy Styling */
+/************ Clippy Styling **************/
 
 .agent {
     display: flex;
