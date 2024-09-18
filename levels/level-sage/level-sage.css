@@ -80,6 +80,7 @@ html {
 .bugReportPopUp {
     background-color: lightgrey;
     text-align: center;
+    font-size: 15px;
     padding: 2px;
     font-family: 'Courier New', Courier, monospace;
     width: 80px;
