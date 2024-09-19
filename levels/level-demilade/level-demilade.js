@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     const initialText = "Welcome to InstaQuest! You're in for a treat, that's for sure!";
     const hintText = "Click me for a hint!";
-    const clickText = "Comment below to answer";
+    const clickText = "Comment below to answer the riddles.";
   
     const hintElement = document.getElementById("hint");
     let index = 0;

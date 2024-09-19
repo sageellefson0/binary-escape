@@ -91,15 +91,15 @@ onAuthStateChanged(auth, async (user) => {
                 }
 
                 // Reveal icons based on completed levels
-                if (completedLevels.skype) {
+                if (completedLevels.youtube) {
                     const instagramIcon = document.getElementById('instagramIcon');
                     instagramIcon.style.display = 'block';
                 }
                 if (completedLevels.instagram) {
-                    const youtubeIcon = document.getElementById('youtubeIcon');
-                    youtubeIcon.style.display = 'block';
+                    const skypeIcon = document.getElementById('skypeIcon');
+                    skypeIcon.style.display = 'block';
                 }
-                if (completedLevels.youtube) {
+                if (completedLevels.skype) {
                     const wordIcon = document.getElementById('wordIcon');
                     wordIcon.style.display = 'block';
                 }
