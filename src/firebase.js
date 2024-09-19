@@ -1,3 +1,4 @@
+// Imports from web
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
 import { getFirestore, doc, getDoc, updateDoc, onSnapshot, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js';
@@ -15,11 +16,14 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// Authorize Firebase
 const auth = getAuth(app);
 const firestore = getFirestore(app);
 
+// Local storage variable for character storage
 let savedChar = localStorage.getItem("character");
 
+// Function: Initializes user data within the database
 export async function initializeUserData(docUID) {
     const userRef = doc(firestore, 'users', docUID);
     const userDoc = await getDoc(userRef);
@@ -38,6 +42,7 @@ export async function initializeUserData(docUID) {
     }
 }
 
+// Function: Retreives the character selected from the database
 async function getUserCharacter(docUID) {
     const userRef = doc(firestore, 'users', docUID);
     const userDoc = await getDoc(userRef);
@@ -87,10 +92,10 @@ onAuthStateChanged(auth, async (user) => {
 
                         // Ensure the character is visible after the transition
                         characterSpritesheet.style.display = 'block';
-                    }, 35000); // Adjust the time according to your intro animation length
+                    }, 35000); 
                 }
 
-                // Reveal icons based on completed levels
+                // Reveals icons based on completed levels, completedLevel function is exported to each level and marked complete through that function
                 if (completedLevels.youtube) {
                     const instagramIcon = document.getElementById('instagramIcon');
                     instagramIcon.style.display = 'block';
@@ -110,10 +115,10 @@ onAuthStateChanged(auth, async (user) => {
             }
         });
 
-        // Retrieve and apply the user's character choice
+        // Retrieve character for each user
         const character = await getUserCharacter(user.uid);
 
-        // Remove any existing character-specific classes
+        // Remove any existing character classes
         characterSpritesheet.classList.remove('female', 'male');
 
         if (character === 'female') {
@@ -132,6 +137,7 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 
+// Function: Marks the specified level as complete in the database, this function is exported to each individual level JS file and called there to complete levels
 export async function completeLevel(levelName) {
     const user = auth.currentUser;
     if (user) {
@@ -149,7 +155,7 @@ export async function completeLevel(levelName) {
     }
 }
 
-
+// Function: Updates the character
 export async function updateCharacter(docUID, newCharacter) {
     const userRef = doc(firestore, 'users', docUID);
     const userDoc = await getDoc(userRef);
@@ -175,87 +181,5 @@ export async function updateCharacter(docUID, newCharacter) {
     }
 }
 
-
-// const createAccount = document.getElementById("createAccount");
-// const signInBtn = document.getElementById("signInBtn");
-// const signInGoogleBtn = document.getElementById("signInGoogle");
-// const errorText = document.getElementById("errorText");
-
-
-// document.addEventListener("DOMContentLoaded", (event) => {
-
-//     // Native Email/Password Sign-Up
-//     createAccount.addEventListener('click', async () => {
-//         const email = document.getElementById('emailInputSignUp').value.trim();
-//         const password = document.getElementById('passwordInputSignUp').value.trim();
-
-//         if (email && password) {
-//             try {
-//                 // Create a new user with the provided email and password
-//                 await createUserWithEmailAndPassword(auth, email, password);
-
-
-//                 // User is signed in, redirect to the desktop level page
-//                 window.location.href = 'levels/desktop/level-desktop.html';
-
-//             } catch (error) {
-//                 console.error('Error during sign up or sign in:', error);
-//                 const errorText = document.getElementById("errorText");
-//                 errorText.innerHTML = "Please use a valid email address. Your password must be at least 6 characters in length.";
-//             }
-//         } else {
-//             console.log('Email and password are required');
-//             errorText.innerHTML = "Please enter an email and password.";
-//         }
-//     });
-
-
-//     signInBtn.addEventListener('click', async () => {
-//         const email = document.getElementById('emailInputSignIn').value.trim();
-//         const password = document.getElementById('passwordInputSignIn').value.trim();
-//         const selectedChar = localStorage.getItem("character");
-
-
-//         if (email && password) {
-//             console.log(selectedChar);
-//             try {
-//                 await signInWithEmailAndPassword(auth, email, password);
-//                 // Redirect after successful sign in
-//                 const user = auth.currentUser;
-//                 if (user && selectedChar) {
-//                     await updateCharacter(user.uid, selectedChar);
-//                     console.log("Chracter has been updated to" + selectedChar)
-//                 }
-//                 window.location.href = 'levels/desktop/level-desktop.html';
-//             } catch (error) {
-//                 console.error('Error signing in with email:', error);
-//                 errorText.innerHTML = "Incorrect email or password. Please try again. Contact the administrator for support if you have forgotten your password.";
-//             }
-//         } else {
-//             console.log('Email and password are required');
-//             errorText.innerHTML = "Please enter an email and password.";
-
-//         }
-//     });
-
-//     // Google Sign-In
-//     signInGoogleBtn.addEventListener('click', async () => {
-//         const provider = new GoogleAuthProvider();
-//         const selectedChar = localStorage.getItem("character");
-
-//         try {
-//             await signInWithPopup(auth, provider);
-//             // Redirect after successful sign-in
-//             const user = auth.currentUser;
-//             if (user && selectedChar) {
-//                 await updateCharacter(user.uid, selectedChar);
-//                 console.log("Chracter has been updated to" + selectedChar)
-//             }
-//             window.location.href = 'levels/desktop/level-desktop.html';
-//         } catch (error) {
-//             console.error('Error during Google sign-in:', error);
-//         }
-//     });
-// });
-
+// Exports functions and variable to be accessed in other JS files and levels. 
 export { auth, firestore, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, signInWithEmailAndPassword, onAuthStateChanged };
