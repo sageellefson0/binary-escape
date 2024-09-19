@@ -217,9 +217,44 @@ function alienQuizPage() {
 
     startTypingAndQuestion();
 }
+// Letters for slots
+const correctLetters = ['S', 'E', 'A', 'R', 'C', 'H', 'F', 'O', 'R', 'S', 'A', 'T', 'U', 'R', 'N'];
 
+// Select all letter slots (1-15)
+const letterSlots = [
+    document.getElementById('letterSlot1'),
+    document.getElementById('letterSlot2'),
+    document.getElementById('letterSlot3'),
+    document.getElementById('letterSlot4'),
+    document.getElementById('letterSlot5'),
+    document.getElementById('letterSlot6'),
+    document.getElementById('letterSlot7'),
+    document.getElementById('letterSlot8'),
+    document.getElementById('letterSlot9'),
+    document.getElementById('letterSlot10'),
+    document.getElementById('letterSlot11'),
+    document.getElementById('letterSlot12'),
+    document.getElementById('letterSlot13'),
+    document.getElementById('letterSlot14'),
+    document.getElementById('letterSlot15'),
+];
 
+// Function: Checks if the correct letter is entered in the corresponding slot
+letterSlots.forEach((slot, index) => {
+    slot.addEventListener('input', function () {
+        // Compare entered letter with the correct one, ignoring case
+        if (slot.value.toUpperCase() === correctLetters[index]) {
+            slot.disabled = true;
+            slot.style.borderBottomColor = '#00cc66'; // Mark correct letter with green border
 
+            // Focus the next input field, if it exists
+            if (index < letterSlots.length - 1) {
+                letterSlots[index + 1].focus();
+            }
+        } else {
+        }
+    });
+});
 
 // Dialogue for alien when the alien quiz window loads
 var i = 0;
@@ -480,8 +515,8 @@ function typeFinalMessage() {
 
     // Marks the level as complete in the database and moves the scene to the end.html page to finish the game out
     completeLevel('wikipedia');
-    setTimeout(function() {
-        window.location.href='../end-page/end.html';
+    setTimeout(function () {
+        window.location.href = '../end-page/end.html';
     }, 11500);
 };
 
