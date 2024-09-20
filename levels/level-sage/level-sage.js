@@ -154,6 +154,8 @@ checkCollisionInGameLoopAlien();
 // Function: Clears the textbox that holds the decoded text in the decoder
 function clearDecoderTextBox() {
     document.getElementById('decoderTextBox').innerHTML = "";
+    document.getElementById('binaryTextInput').value = '';
+
     decodedLetters.length = 0;
 
 }
