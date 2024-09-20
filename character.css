@@ -10,8 +10,6 @@ body {
     padding: 0px;
 }
 
-
-
 /* Pixel size for different screen sizes */
 :root {
     --pixel-size: 2px;
@@ -29,7 +27,6 @@ body {
         --pixel-size: 4px;
     }
 }
-
 
 /* Render images as pixelated */
 .pixel-art {
@@ -86,8 +83,6 @@ body {
     to {
         transform: translate3d(-100%, 0%, 0);
     }
-
-
 
 }
 
