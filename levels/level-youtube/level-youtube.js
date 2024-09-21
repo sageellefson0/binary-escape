@@ -54,6 +54,15 @@ passwordYTInput.addEventListener('keydown', (event) => {
 });
 
 
+// Get the like button (thumbs up icon)
+const likeButton = document.querySelector('.fa-thumbs-up');
+
+// Add click event listener to the like button
+likeButton.addEventListener('click', () => {
+    likeButton.style.color = "#24a0ed";
+
+});
+
 
 /* ----------------- Character Icon --------------------- */
 

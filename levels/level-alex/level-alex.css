@@ -30,6 +30,7 @@ html {
 /* Common styles for popup windows */
 #popup,
 #passwordPopup {
+
     display: none; /* Hidden by default */
     position: fixed; /* Fixed positioning */
     top: 20%; /* Position from the top */
@@ -40,9 +41,39 @@ html {
     padding: 20px; /* Padding inside the popup */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
     z-index: 1000; /* Ensure it sits above other content */
+    font-family: Andale Mono;
+    font-size: small;
+}
+
+#passwordInput{
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    margin: 10px 0;
 }
 
 /* Header styles for popups */
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background: #fff;
+    border: 2px solid #333;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    font-family: Andale Mono;
+    font-size: small;
+}
+
+#passwordInput{
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    margin: 10px 0;
+}
+
 #popup h2,
 #passwordPopup h2 {
     margin-top: 0; /* Remove top margin */
@@ -62,10 +93,16 @@ html {
 
 /* Styles for the question container */
 #questions {
+
     padding: 5px 5px; /* Padding inside the container */
     font-family: Andale Mono; /* Use specified font */
     border-top: 2px solid black; /* Top border */
     border-bottom: 2px solid black; /* Bottom border */
+    padding: 5px 5px;
+    font-family: Andale Mono;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+
 }
 
 /* Styles for individual questions */
@@ -84,7 +121,6 @@ html {
     font-weight: normal; /* Normal weight */
 }
 
-/* Styles for custom radio buttons */
 input[type="radio"] {
     -webkit-appearance: none; /* Remove default styling for WebKit browsers */
     appearance: none; /* Remove default styling */
@@ -216,6 +252,40 @@ input[type="radio"]:focus {
 /* Styles for specific button types */
 #signInBtnSkype {
     width: 8%; /* Width of Skype sign-in button */
+    margin: 10px 0;
+    appearance: button;
+    background-color: #1899D6;
+    border: solid transparent;
+    border-radius: 16px;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: din-round, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    outline: none;
+    overflow: visible;
+    padding: 8px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+    height: 36px; 
+    line-height: 36px; 
+    padding: 0 16px; 
+}
+
+#signInBtnSkype{
+width: 8%;
 }
 
 /* Pseudo-elements for button background effect */
@@ -298,4 +368,85 @@ input[type="radio"]:focus {
     width: 10%; /* Width of the link */
     margin: auto; /* Center alignment */
     margin-top: 2%; /* Margin from the top */
+}
+#blueErrorIcon{
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#creatAccount{
+    font-family: Arial, Helvetica, sans-serif;
+    color:#1899D6;
+    cursor: pointer;
+    width: 10%;
+    margin: auto;
+    margin-top: 2%;
+}
+
+
+/* Clippy Styling */
+
+.agent {
+    display: flex;
+    position: absolute;
+    bottom: 17.65rem;
+    /* Change positioning of clippy */
+    right: 20rem;
+    /* Can change bottom and right to top and left, etc.  */
+}
+
+.clippy {
+    position: fixed;
+    width: 400px;
+    /* Can change width size accordingly */
+    height: 300px;
+    /* Can change height size */
+}
+
+p #hint {
+    padding: 0;
+    margin: 0;
+}
+
+.speech-bubble {
+    position: absolute;
+    bottom: -30px;
+    left: 90px;
+    font-size: 16px;
+
+    background: #eee9ad;
+    border-radius: .4em;
+    border: 1px solid black;
+    width: 12rem;
+    padding: 10px;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 33px solid transparent;
+    border-top-color: #eee9ad;
+    border-right: 0;
+    border-bottom: 0;
+    margin-left: -16.5px;
+    margin-bottom: -33px;
+}
+
+.speech-bubble:before {
+    content: '';
+    position: absolute;
+    bottom: 0.25px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 33px solid transparent;
+    border-top-color: black;
+    border-right: 0;
+    border-bottom: 0;
+    margin-left: -16px;
+    margin-bottom: -34.5px;
 }

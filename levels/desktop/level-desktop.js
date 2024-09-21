@@ -47,7 +47,7 @@ var typingTextIntro = [
     '[click, squeek, swoosh, thump thump thump thump]',
     'I can\'t believe the boss is making me stay late!',
     'Just to go through this dusty old closet... of course they leave it to the intern...',
-    'Alright let\s check out this USB drive...',
+    'Alright let\'s check out this USB drive...',
     '[click clack click clack, beep]',
     '  ',
     'Ugh, blue screen from a USB? Let\'s try that again.',

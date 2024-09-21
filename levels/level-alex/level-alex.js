@@ -1,4 +1,6 @@
+
 import { completeLevel } from '/src/firebase.js'; // Import the function to mark the level as complete
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const binarySequence = '010101011010'; // Binary sequence used to generate questions
@@ -168,5 +170,54 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/////////// CLIPPY CODE ////////////
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* Change the strings below based on your level's initial message and hint */
+
+    const initialText = "Take a walk around!";
+    const hintText = "Click me for a hint!";
+    const clickText = "How can I sign in without an account...";
+
+    const hintElement = document.getElementById("hint");
+    let indexClippy = 0;
+    let currentText = initialText;
+
+    function typeText(text) {
+        hintElement.innerHTML = ''; // Clear the existing text
+        indexClippy = 0;
+        currentText = text;
+        typeNextCharacter();
+    }
+
+    function typeNextCharacter() {
+        if (indexClippy < currentText.length) {
+            hintElement.innerHTML += currentText.charAt(indexClippy);
+            indexClippy++;
+            setTimeout(typeNextCharacter, 50);
+        }
+    }
+
+    typeText(initialText);
+
+
+    /* Adjust the time below based on when you want the hint to show */
+
+    // Show "Click me for a hint!" after 2.5 minutes
+    setTimeout(function () {
+        typeText(hintText);
+    }, 150000); // 2.5 minutes = 150000 milliseconds
+
+    // Click event handler
+    function handleClick() {
+        typeText(clickText);
+        // Remove click event listener after first click
+        document.getElementById('clippy-agent').removeEventListener('click', handleClick);
+    }
+
+    // Add click event listener
+    document.getElementById('clippy-agent').addEventListener('click', handleClick);
+
+});
 

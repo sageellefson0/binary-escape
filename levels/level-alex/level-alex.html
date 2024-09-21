@@ -78,24 +78,41 @@
     <!-- Skype interface section -->
     <div id="skypeInterface">
         <img id="skypeLogo" src="../level-alex/images/skype.png" alt="Skype Logo">
+
         <div id="noConnectionMsg"> 
             <img id="blueErrorIcon" src="../level-alex/images/error.png" alt="Error icon">
             Skype can't connect.
         </div>        
         <input id="skypeInput" placeholder="Skype Name, email or mobile"/>
+
+        <div id="noConnectionMsg"> <img id="blueErrorIcon" src="../level-alex/images/error.png" alt="Error icon">
+            Skype can't connect.</div>
+        <input id="skypeInput" placeholder="Skype Name, email or mobile">
+
         <br>
         <br>
         <button id="signInBtnSkype" type="button">Sign In</button>
         <div>
-            <div id="creatAccount">Create an account</div>  
+
+            <div id="creatAccount">Create an account</div>
         </div>
-        <!-- <img id="skypeInt" src="../level-alex/images/oldskypeinterface.png" alt="Skype Interface"> -->
+
+    </div>
+
+      <!-- Clippy hint -->
+      <div id="clippy-agent" class="agent">
+        <div id="hint" class="speech-bubble"></div>
+        <div id="clippy-bm" class="clippy"></div>
+
     </div>
 
     <!-- Include JavaScript files -->
     <script type="module" src="/src/firebase.js"></script>
     <script type="module" src="level-alex.js"></script>
-    <script src="../../src/Character.js"></script>
+    <script src="../../src/character.js"></script>
+        <!-- Clippy scripts -->
+        <script src="../../clippy/lottie.js"></script>
+        <script src="../../clippy/index.js"></script>
 </body>
 
 </html>
