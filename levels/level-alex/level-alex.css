@@ -1,30 +1,58 @@
+/* General HTML styles */
 html {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    image-rendering: auto !important;
+    height: 100%; /* Full height of the viewport */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    overflow: hidden; /* Hide overflow to prevent scrolling */
+    image-rendering: auto !important; /* Ensure images render at best quality */
 }
 
+/* Styles for the Skype interface section */
 #skypeInterface {
-    text-align: center;
-    margin-top: 10%;
+    text-align: center; /* Center text and content */
+    margin-top: 10%; /* Add margin from the top */
 }
 
+/* Styles for the "Problems Signing In?" button */
 #problemssigninginbutton {
-    position: absolute;
-    bottom: 5%;
-    right: 65%
+    position: absolute; /* Absolute positioning */
+    bottom: 5%; /* Position from the bottom */
+    right: 65%; /* Position from the right */
 }
 
+/* Styles for the "Enter New Password" section */
 #enternewpassword {
-    position: absolute;
-    bottom: 5%;
-    right: 25%;
+    position: absolute; /* Absolute positioning */
+    bottom: 5%; /* Position from the bottom */
+    right: 25%; /* Position from the right */
 }
 
+/* Common styles for popup windows */
 #popup,
 #passwordPopup {
+
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed positioning */
+    top: 20%; /* Position from the top */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -20%); /* Center vertically and adjust */
+    background: #fff; /* White background */
+    border: 2px solid #333; /* Dark border */
+    padding: 20px; /* Padding inside the popup */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    z-index: 1000; /* Ensure it sits above other content */
+    font-family: Andale Mono;
+    font-size: small;
+}
+
+#passwordInput{
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Header styles for popups */
     display: none;
     position: fixed;
     top: 20%;
@@ -35,131 +63,195 @@ html {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    font-family: Andale Mono;
+    font-size: small;
+}
+
+#passwordInput{
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    margin: 10px 0;
 }
 
 #popup h2,
 #passwordPopup h2 {
-    margin-top: 0;
-    font-family: Andale Mono;
-    font-weight: bold;
+    margin-top: 0; /* Remove top margin */
+    font-family: Andale Mono; /* Use specified font */
+    font-weight: bold; /* Bold text */
 }
 
+/* Style for the binary sequence text */
 #binary-sequence {
-    font-family: Andale Mono;
+    font-family: Andale Mono; /* Use specified font */
 }
 
-/* #popup button,  */
+/* Style for buttons inside password popup */
 #passwordPopup button {
-    margin-top: 10px;
+    margin-top: 10px; /* Margin above the button */
 }
 
+/* Styles for the question container */
 #questions {
+
+    padding: 5px 5px; /* Padding inside the container */
+    font-family: Andale Mono; /* Use specified font */
+    border-top: 2px solid black; /* Top border */
+    border-bottom: 2px solid black; /* Bottom border */
     padding: 5px 5px;
     font-family: Andale Mono;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
+
 }
 
+/* Styles for individual questions */
 .question {
-    margin: 10px 0;
-    font-size: 12px;
+    margin: 10px 0; /* Margin around questions */
+    font-size: 12px; /* Font size for questions */
 }
 
+/* Styles for question headers */
 .question-header {
-    font-weight: bold;
+    font-weight: bold; /* Bold text */
 }
 
+/* Styles for question text */
 .question-text {
-    font-weight: normal;
+    font-weight: normal; /* Normal weight */
 }
 
 input[type="radio"] {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: var(--form-background);
-    margin: 0;
-    font: inherit;
-    color: #1899D6;
-    width: 12px;
-    height: 12px;
-    display: inline-flex;
-    border: 0.15em solid #1899D6;
-    border-radius: 25%;
-    transform: translateY(-0.075em);
-    place-content: center;
+    -webkit-appearance: none; /* Remove default styling for WebKit browsers */
+    appearance: none; /* Remove default styling */
+    background-color: var(--form-background); /* Background color */
+    margin: 0; /* Remove margin */
+    font: inherit; /* Inherit font from parent */
+    color: #1899D6; /* Radio button color */
+    width: 12px; /* Width of the radio button */
+    height: 12px; /* Height of the radio button */
+    display: inline-flex; /* Inline-flex for proper alignment */
+    border: 0.15em solid #1899D6; /* Border styling */
+    border-radius: 25%; /* Round shape */
+    transform: translateY(-0.075em); /* Align with text */
+    place-content: center; /* Center content */
 }
 
+/* Styles for the radio button when unchecked */
 input[type="radio"]::before {
-    content: "";
-    width: 0.65em;
-    height: 0.65em;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em var(--form-control-color);
-    background-color: CanvasText;
+    content: ""; /* Empty content */
+    width: 0.65em; /* Width of the inner circle */
+    height: 0.65em; /* Height of the inner circle */
+    border-radius: 50%; /* Round shape */
+    transform: scale(0); /* Hidden by default */
+    transition: 120ms transform ease-in-out; /* Smooth transition */
+    box-shadow: inset 1em 1em var(--form-control-color); /* Inner shadow */
+    background-color: CanvasText; /* Inner circle color */
 }
 
+/* Styles for the radio button when checked */
 input[type="radio"]:checked::before {
-    transform: scale(1);
+    transform: scale(1); /* Scale to visible */
 }
 
+/* Focus style for radio buttons */
 input[type="radio"]:focus {
-    outline: max(2px, 0.15em) solid #1899D6;
-    outline-offset: max(2px, 0.15em);
+    outline: max(2px, 0.15em) solid #1899D6; /* Outline style */
+    outline-offset: max(2px, 0.15em); /* Offset for better visibility */
 }
 
+/* Styles for true/false options */
 .true-option,
 .false-option {
-    font-weight: bold;
+    font-weight: bold; /* Bold text */
 }
 
+/* Styles for the overlay */
 #overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 500;
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Full height */
+    left: 0; /* Full width */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 500; /* Ensure it sits above other content */
 }
 
+/* Styles for the congratulations section */
 #congratulations {
-    display: none;
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    background: #fff;
-    border: 2px solid #333;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed positioning */
+    top: 20%; /* Position from the top */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -20%); /* Center vertically and adjust */
+    background: #fff; /* White background */
+    border: 2px solid #333; /* Dark border */
+    padding: 20px; /* Padding inside the section */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    z-index: 1000; /* Ensure it sits above other content */
 }
 
+/* Styles for the image inside the congratulations section */
 #congratulations img {
-    width: 100%;
-    max-width: 400px;
+    width: 100%; /* Full width of the container */
+    max-width: 400px; /* Maximum width */
 }
 
+/* Styles for the close button in the congratulations section */
 #congratulations .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #ff0000;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+    position: absolute; /* Absolute positioning */
+    top: 10px; /* Position from the top */
+    right: 10px; /* Position from the right */
+    background: #ff0000; /* Red background */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    padding: 5px 10px; /* Padding */
+    cursor: pointer; /* Pointer cursor */
 }
 
+/* Styles for various buttons */
 #close-button,
 #check-button,
 #problemssigninginbutton button,
 #submitPassword,
 #closeBttn,
 #signInBtnSkype {
+    margin: 10px 0; /* Margin around buttons */
+    appearance: button; /* Button appearance */
+    background-color: #1899D6; /* Button background color */
+    border: solid transparent; /* Transparent border */
+    border-radius: 16px; /* Rounded corners */
+    border-width: 0 0 4px; /* Border width */
+    box-sizing: border-box; /* Include border and padding in width/height */
+    color: #FFFFFF; /* White text color */
+    cursor: pointer; /* Pointer cursor */
+    display: inline-block; /* Inline-block display */
+    font-family: din-round, sans-serif; /* Font family */
+    font-size: 12px; /* Font size */
+    font-weight: 700; /* Bold text */
+    letter-spacing: .8px; /* Letter spacing */
+    outline: none; /* Remove outline */
+    overflow: visible; /* Allow overflow */
+    padding: 8px 16px; /* Padding inside the button */
+    text-align: center; /* Center text */
+    text-transform: uppercase; /* Uppercase text */
+    touch-action: manipulation; /* Touch action */
+    transform: translateZ(0); /* 3D transform */
+    transition: filter .2s; /* Transition for filter */
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Prevent text selection for WebKit browsers */
+    vertical-align: middle; /* Vertical alignment */
+    white-space: nowrap; /* Prevent text wrapping */
+    width: 100%; /* Full width */
+    height: 36px; /* Height of the button */
+    line-height: 36px; /* Line height for vertical centering */
+    padding: 0 16px; /* Remove vertical padding */
+}
+
+/* Styles for specific button types */
+#signInBtnSkype {
+    width: 8%; /* Width of Skype sign-in button */
     margin: 10px 0;
     appearance: button;
     background-color: #1899D6;
@@ -196,66 +288,87 @@ input[type="radio"]:focus {
 width: 8%;
 }
 
+/* Pseudo-elements for button background effect */
 #close-button :after,
 #check-button :after {
-    background-clip: padding-box;
-    background-color: #1CB0F6;
-    border: solid transparent;
-    border-radius: 16px;
-    border-width: 0 0 4px;
-    bottom: -4px;
-    content: "";
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: -1;
+    background-clip: padding-box; /* Clip background to padding box */
+    background-color: #1CB0F6; /* Background color */
+    border: solid transparent; /* Transparent border */
+    border-radius: 16px; /* Rounded corners */
+    border-width: 0 0 4px; /* Border width */
+    bottom: -4px; /* Position from the bottom */
+    content: ""; /* Empty content */
+    left: 0; /* Position from the left */
+    position: absolute; /* Absolute positioning */
+    right: 0; /* Position from the right */
+    top: 0; /* Position from the top */
+    z-index: -1; /* Below other content */
 }
 
+/* Styles for button focus and hover effects */
 #close-button :main,
 #check-button :main,
 #close-button :focus,
 #check-button :focus {
-    user-select: auto;
+    user-select: auto; /* Allow text selection */
 }
 
 #close-button :hover:not(disabled),
 #check-button :hover:not(:disabled) {
-    filter: brightness(1.1);
-    -webkit-filter: brightness(1.1);
+    filter: brightness(1.1); /* Brighten on hover */
+    -webkit-filter: brightness(1.1); /* Brighten on hover for WebKit browsers */
 }
 
+/* Styles for disabled buttons */
 #close-button :disabled,
 #check-button :disabled {
-    cursor: auto;
+    cursor: auto; /* Auto cursor */
 }
 
+/* Styles for active button states */
 #close-button :active,
 #check-button :active {
-    border-width: 4px 0 0;
-    background: none;
+    border-width: 4px 0 0; /* Border width on active */
+    background: none; /* Remove background */
 }
 
-#skypeLogo{
-    width: 200px;
+/* Styles for Skype logo */
+#skypeLogo {
+    width: 200px; /* Width of the Skype logo */
 }
 
-#skypeInput{
-    border: none;
-    background-color: white;
-    height: 5%;
-    width: 20%;
-    border-bottom: #00aff0 1px solid;
-    margin-top: 7%;
+/* Styles for Skype input field */
+#skypeInput {
+    border: none; /* No border */
+    background-color: white; /* White background */
+    height: 5%; /* Height of the input */
+    width: 20%; /* Width of the input */
+    border-bottom: #00aff0 1px solid; /* Bottom border color */
+    margin-top: 7%; /* Margin from the top */
 }
 
-#noConnectionMsg{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight:lighter;
-    margin-top: 1%;
-
+/* Styles for no connection message */
+#noConnectionMsg {
+    font-family: Arial, Helvetica, sans-serif; /* Font family */
+    font-weight: lighter; /* Lighter font weight */
+    margin-top: 1%; /* Margin from the top */
 }
 
+/* Styles for blue error icon */
+#blueErrorIcon {
+    width: 15px !important; /* Width of the icon */
+    height: 15px !important; /* Height of the icon */
+}
+
+/* Styles for create account link */
+#creatAccount {
+    font-family: Arial, Helvetica, sans-serif; /* Font family */
+    color: #1899D6; /* Text color */
+    cursor: pointer; /* Pointer cursor */
+    width: 10%; /* Width of the link */
+    margin: auto; /* Center alignment */
+    margin-top: 2%; /* Margin from the top */
+}
 #blueErrorIcon{
     width: 15px !important;
     height: 15px !important;
@@ -268,4 +381,72 @@ width: 8%;
     width: 10%;
     margin: auto;
     margin-top: 2%;
+}
+
+
+/* Clippy Styling */
+
+.agent {
+    display: flex;
+    position: absolute;
+    bottom: 17.65rem;
+    /* Change positioning of clippy */
+    right: 20rem;
+    /* Can change bottom and right to top and left, etc.  */
+}
+
+.clippy {
+    position: fixed;
+    width: 400px;
+    /* Can change width size accordingly */
+    height: 300px;
+    /* Can change height size */
+}
+
+p #hint {
+    padding: 0;
+    margin: 0;
+}
+
+.speech-bubble {
+    position: absolute;
+    bottom: -30px;
+    left: 90px;
+    font-size: 16px;
+
+    background: #eee9ad;
+    border-radius: .4em;
+    border: 1px solid black;
+    width: 12rem;
+    padding: 10px;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 33px solid transparent;
+    border-top-color: #eee9ad;
+    border-right: 0;
+    border-bottom: 0;
+    margin-left: -16.5px;
+    margin-bottom: -33px;
+}
+
+.speech-bubble:before {
+    content: '';
+    position: absolute;
+    bottom: 0.25px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 33px solid transparent;
+    border-top-color: black;
+    border-right: 0;
+    border-bottom: 0;
+    margin-left: -16px;
+    margin-bottom: -34.5px;
 }

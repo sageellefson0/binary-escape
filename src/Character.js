@@ -36,7 +36,6 @@ const placeCharacter = () => {
    character.style.transform = `translate3d( ${x * pixelSize}px, ${y * pixelSize}px, 0 )`;
 }
 
-
 // Game loop
 const step = () => {
    placeCharacter();
@@ -45,7 +44,6 @@ const step = () => {
    })
 }
 step();
-
 
 
 /* Direction key state - shorthand for future use */
