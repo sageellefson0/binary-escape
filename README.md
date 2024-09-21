@@ -8,12 +8,12 @@ Alexandru Soroiu - GitHub: AlexandruSoroiu<br>
 Demilade Onasanya - GitHub: Demil-05<br>
 
 ## Languages
-Developed in Javascript, CSS, and HTML using Firebase as the database for users and player information. 
+Developed in Javascript, CSS, and HTML using Firebase as the database for users and player information.
 
 ## How-to
 
 To play the game, please visit https://main--binaryescape.netlify.app/
-
+Want to provide feedback? Please email sageellefson29@gmail.com with your questions or comments!
 
 ## Future Additions
 - Additional single sign on offerings.
