@@ -11,8 +11,6 @@ body {
 }
 
 
-
-
 /* ----------------- Login Div Styling ------------------*/
 
 #closeLoginDiv {
@@ -370,14 +368,14 @@ a {
 /* For mobile devices (phones, small tablets, etc.) */
 @media screen and (max-device-width: 1280px) {
     #start-page {
-        visibility: hidden; /* Hide desktop content */
+        visibility: hidden; 
     }
 
     #mobileDiv {
         background-color: #202020;
         width: 100%;
         height: 100%;
-        display: block; /* Ensure mobile content is visible */
+        display: block; 
     }
 
     h2 {
@@ -421,10 +419,10 @@ a {
 /* For desktop/laptop (larger screens) */
 @media screen and (min-device-width: 1281px) {
     #start-page {
-        visibility: visible; /* Show desktop content */
+        visibility: visible;
     }
 
     #mobileDiv {
-        display: none; /* Hide mobile content */
+        display: none; 
     }
 }

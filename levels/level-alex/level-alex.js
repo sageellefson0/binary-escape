@@ -1,7 +1,9 @@
-import { completeLevel } from '/src/firebase.js'; // Adjust the path as necessary
+
+import { completeLevel } from '/src/firebase.js'; // Import the function to mark the level as complete
+
 
 document.addEventListener("DOMContentLoaded", () => {
-    const binarySequence = '010101011010'; // Binary sequence representing true/false
+    const binarySequence = '010101011010'; // Binary sequence used to generate questions
     const questionsContainer = document.getElementById('questions');
     const resultDiv = document.getElementById('result');
     const errorDiv = document.getElementById('error');
@@ -12,14 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const passwordInput = document.getElementById('passwordInput');
     const passwordResultDiv = document.getElementById('passwordResult');
     const congratulationsDiv = document.getElementById('congratulations');
-    const character = document.querySelector('.character'); // Assuming character has this class
-    let isPopupOpen = false; // Track popup state
+    const character = document.querySelector('.character'); // The character element for proximity detection
+    let isPopupOpen = false; // Track whether the popup is open or not
 
     // Function to generate questions based on the binary sequence
     function generateQuestions(sequence) {
         questionsContainer.innerHTML = ''; // Clear previous questions
         for (let i = 0; i < sequence.length; i++) {
-            const isTrue = sequence[i] === '1';
+            const isTrue = sequence[i] === '1'; // Determine if the bit is true or false
             const questionHTML = `
                 <div class="question">
                     <label for="answer${i}">
@@ -33,13 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span class="false-option">False</span>
                 </div>
             `;
-            questionsContainer.innerHTML += questionHTML;
+            questionsContainer.innerHTML += questionHTML; // Append the question to the container
         }
     }
 
-    // Function to check the answers
+    // Function to check the answers against the binary sequence
     window.checkAnswers = function() {
-        let correct = true;
+        let correct = true; // Assume answers are correct initially
         for (let i = 0; i < binarySequence.length; i++) {
             const selected = document.querySelector(`input[name="answer${i}"]:checked`);
             if (!selected) {
@@ -48,8 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 resultDiv.textContent = '';
                 return;
             }
-            const answer = selected.value === 'true';
-            const correctAnswer = binarySequence[i] === '1';
+            const answer = selected.value === 'true'; // Get the selected answer
+            const correctAnswer = binarySequence[i] === '1'; // Get the correct answer from the sequence
             if (answer !== correctAnswer) {
                 correct = false;
                 errorDiv.textContent = '';
@@ -60,27 +62,27 @@ document.addEventListener("DOMContentLoaded", () => {
         if (correct) {
             resultDiv.textContent = 'Congratulations! You guessed the password correctly!';
             errorDiv.textContent = '';
-            closePopup();
-            showPasswordPopup();
+            closePopup(); // Close the question popup
+            showPasswordPopup(); // Show the password entry popup
         }
     }
 
-    // Function to show the popup
+    // Function to display the popup with questions
     function showPopup() {
         popup.style.display = 'block';
         overlay.style.display = 'block';
-        generateQuestions(binarySequence);
+        generateQuestions(binarySequence); // Generate and display questions
         isPopupOpen = true; // Update popup state
     }
 
-    // Function to close the popup
+    // Function to close the question popup
     window.closePopup = function() {
         popup.style.display = 'none';
         overlay.style.display = 'none';
         isPopupOpen = false; // Update popup state
     }
 
-    // Function to show the new password popup
+    // Function to display the password popup
     function showPasswordPopup() {
         passwordPopup.style.display = 'block';
         overlay.style.display = 'block';
@@ -92,20 +94,20 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.style.display = 'none';
     }
 
-    // Function to handle password submission
+    // Function to handle the password submission and validation
     window.submitPassword = function() {
         const enteredPassword = passwordInput.value.trim();
         const correctPassword = 'binaryEscapeTeamHasFooledYou';
         if (enteredPassword === correctPassword) {
             passwordResultDiv.textContent = 'Correct password!';
             closePasswordPopup();
-            showCongratulations();
+            showCongratulations(); // Show congratulations message and transition to next page
         } else {
             passwordResultDiv.textContent = 'Incorrect password. Try again.';
         }
     }
 
-    // Function to show the congratulatory image
+    // Function to display the congratulations message and transition
     function showCongratulations() {
         congratulationsDiv.style.display = 'block';
         overlay.style.display = 'block';
@@ -113,17 +115,17 @@ document.addEventListener("DOMContentLoaded", () => {
         completeLevel('skype');
 
         setTimeout(() => {
-            window.location.href = "../desktop/level-desktop.html";
-        }, 4000);
+            window.location.href = "../desktop/level-desktop.html"; // Redirect to the next level
+        }, 4000); // Delay the redirect to allow users to view the congratulations message
     }
 
-    // Function to close the congratulatory image
+    // Function to close the congratulations message
     window.closeCongratulations = function() {
         congratulationsDiv.style.display = 'none';
         overlay.style.display = 'none';
     }
 
-    // Function to get the element's position
+    // Function to get the element's position on the page
     function getElementPosition(element) {
         const rect = element.getBoundingClientRect();
         return {
@@ -132,9 +134,9 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    let characterInside = false;
+    let characterInside = false; // Track if the character is inside the proximity range
 
-    // Function to detect proximity
+    // Function to detect proximity between the character and the button
     function detectProximity() {
         const characterPos = getElementPosition(character);
         const buttonPos = getElementPosition(button);
@@ -143,19 +145,19 @@ document.addEventListener("DOMContentLoaded", () => {
             Math.pow(buttonPos.left - characterPos.left, 2) + Math.pow(buttonPos.top - characterPos.top, 2)
         );
 
-        const proximityThreshold = 100;
+        const proximityThreshold = 100; // Distance threshold for triggering popup
 
         if (distance < proximityThreshold && !isPopupOpen) {
             if (characterInside === false) {
                 showPopup();
-                characterInside = true;
+                characterInside = true; // Update character proximity state
             }
         } else if (distance >= proximityThreshold) {
             characterInside = false;
         }
     }
 
-    // Call detectProximity periodically
+    // Periodically check proximity
     setInterval(detectProximity, 100); // Check every 100ms
 
     // Event listener for the close button inside the popup
@@ -168,4 +170,54 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/////////// CLIPPY CODE ////////////
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* Change the strings below based on your level's initial message and hint */
+
+    const initialText = "Take a walk around!";
+    const hintText = "Click me for a hint!";
+    const clickText = "How can I sign in without an account...";
+
+    const hintElement = document.getElementById("hint");
+    let indexClippy = 0;
+    let currentText = initialText;
+
+    function typeText(text) {
+        hintElement.innerHTML = ''; // Clear the existing text
+        indexClippy = 0;
+        currentText = text;
+        typeNextCharacter();
+    }
+
+    function typeNextCharacter() {
+        if (indexClippy < currentText.length) {
+            hintElement.innerHTML += currentText.charAt(indexClippy);
+            indexClippy++;
+            setTimeout(typeNextCharacter, 50);
+        }
+    }
+
+    typeText(initialText);
+
+
+    /* Adjust the time below based on when you want the hint to show */
+
+    // Show "Click me for a hint!" after 2.5 minutes
+    setTimeout(function () {
+        typeText(hintText);
+    }, 150000); // 2.5 minutes = 150000 milliseconds
+
+    // Click event handler
+    function handleClick() {
+        typeText(clickText);
+        // Remove click event listener after first click
+        document.getElementById('clippy-agent').removeEventListener('click', handleClick);
+    }
+
+    // Add click event listener
+    document.getElementById('clippy-agent').addEventListener('click', handleClick);
+
+});
 

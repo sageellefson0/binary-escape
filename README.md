@@ -1,16 +1,20 @@
 ## Binary Escape
-A web based game called "Binary Escape" in which a character must escape the computer.
+A web based game called "Binary Escape" in which a character must escape the computer after being sucked in by plugging an unknown USB drive into a computer.
 
 ## Developers
-sageellefson0<br>
-prlakshm<br>
-AlexandruSoroiu<br>
-Demil-05<br>
+Sage Ellefson - GitHub: sageellefson0<br>
+Pranavi Lakshminarayanan - GitHub: prlakshm<br>
+Alexandru Soroiu - GitHub: AlexandruSoroiu<br>
+Demilade Onasanya - GitHub: Demil-05<br>
+
+## Languages
+Developed in Javascript, CSS, and HTML using Firebase as the database for users and player information.
 
 ## How-to
 
-To run, open the index.html (or level) file in a web browser. 
+To play the game, please visit https://main--binaryescape.netlify.app/
+Want to provide feedback? Please email sageellefson29@gmail.com with your questions or comments!
 
-
-## FOR DEVS
-- Please structure project by putting a new folder in levels > level-yourname > put your CSS, HTML, JS here and an images folder for your specific images. If you are using clippy, please put clippy.png in this images folder. 
+## Future Additions
+- Additional single sign on offerings.
+- Functionality to use the enter key to enter levels when the character is over the desired level icon.

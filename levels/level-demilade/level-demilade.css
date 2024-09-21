@@ -251,8 +251,7 @@ div.time {
     color: #f50057; /* Red color for 'liked' */
 }
 
-.fas:hover {
-    color: #f50057;  
+.fas:hover {  
     cursor: pointer;  
 }
 
@@ -627,7 +626,18 @@ iframe {
 .doneButton {
     position: fixed;
     bottom: 50px;
-    right: 200px;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10%;
+    height: 5%;
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+}
+
+.doneButton:hover {
+    background-color: #dedede;
 }
 
 /*--------------RESPONSIVENESS---------------*/
