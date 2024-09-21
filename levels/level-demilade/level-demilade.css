@@ -251,8 +251,7 @@ div.time {
     color: #f50057; /* Red color for 'liked' */
 }
 
-.fas:hover {
-    color: #f50057;  
+.fas:hover {  
     cursor: pointer;  
 }
 
