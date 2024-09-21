@@ -35,6 +35,15 @@ html {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    font-family: Andale Mono;
+    font-size: small;
+}
+
+#passwordInput{
+    width: 200px;
+    height: 20px;
+    text-align: center;
+    margin: 10px 0;
 }
 
 #popup h2,
